@@ -1,0 +1,10 @@
+{
+    "Survived": "object",
+    "Pclass": "object",
+    "Sex": "object",
+    "Age": "float32",
+    "SibSp": "int32",
+    "Parch": "int32",
+    "Fare": "float32",
+    "Embarked": "object"
+}

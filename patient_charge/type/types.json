@@ -1,0 +1,11 @@
+{
+    "age": "float32",
+    "sex": "object",
+    "bmi": "float32",
+    "children": "float32",
+    "smoker": "object",
+    "region": "object",
+    "charges": "float",
+    "age_group": "object",
+    "bmi_group": "object"
+}

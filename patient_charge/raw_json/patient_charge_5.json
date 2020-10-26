@@ -1,0 +1,83 @@
+{
+    "url": "https://www.kaggle.com/ruslankl/health-care-cost-prediction-w-linear-regression",
+    "votes": 40,
+    "rank": 5,
+    "charts": [
+        {
+            "describe": "Distribution of charges and age",
+            "chart": "scatter",
+            "x": {
+                "attr": "age",
+                "trans": "raw"
+            },
+            "y": {
+                "attr": "charges",
+                "trans": "raw"
+            }
+        },
+        {
+            "describe": "Distribution of charges and bmi",
+            "chart": "scatter",
+            "x": {
+                "attr": "bmi",
+                "trans": "raw"
+            },
+            "y": {
+                "attr": "charges",
+                "trans": "raw"
+            }
+        },
+        {
+            "describe": "strip of sex and charges",
+            "chart": "stripplot",
+            "x": {
+                "attr": "sex",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "charges",
+                "trans": "raw"
+            }
+        },
+        {
+            "describe": "strip of children and charges",
+            "chart": "stripplot",
+            "x": {
+                "attr": "children",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "charges",
+                "trans": "raw"
+            }
+        },
+        {
+            "describe": "strip of smoker and charges",
+            "chart": "stripplot",
+            "x": {
+                "attr": "smoker",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "charges",
+                "trans": "raw"
+            }
+        },
+        {
+            "describe": "strip of region and charges",
+            "chart": "stripplot",
+            "x": {
+                "attr": "region",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "charges",
+                "trans": "raw"
+            }
+        }
+    ]
+}

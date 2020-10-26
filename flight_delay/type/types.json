@@ -1,0 +1,10 @@
+{
+    "AIRLINE": "object",
+    "ORIGIN_AIRPORT": "object",
+    "DEPARTURE_DELAY": "float32",
+    "SCHEDULED_DEPARTURE": "object",
+    "DATE": "object",
+    "TAXI_OUT": "float32",
+    "TAXI_IN": "float32",
+    "ARRIVAL_DELAY": "float32"
+}

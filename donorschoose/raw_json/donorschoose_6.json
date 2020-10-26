@@ -1,0 +1,623 @@
+{
+    "url": "https://www.kaggle.com/salil007/world-of-eda-andrews-curves-tutorial-donorchoose",
+    "votes": 75,
+    "rank": 6,
+    "charts": [
+        {
+            "describe": "total optional donations",
+            "chart": "bar",
+            "x": {
+                "attr": "Donation Included Optional Donation",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "Donation Included Optional Donation",
+                "trans": "count",
+                "calcus": "raw"
+            }
+        },
+        {
+            "describe": "total optional donations",
+            "chart": "pie",
+            "x": {
+                "attr": "Donation Included Optional Donation",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "Donation Included Optional Donation",
+                "trans": "count",
+                "calcus": "percentage"
+            }
+        },
+        {
+            "describe": "distribution of donation amount",
+            "chart": "histogram",
+            "x": {
+                "attr": "Donation Amount",
+                "trans": "bin",
+                "bins": "default"
+            },
+            "y": {
+                "attr": "Donation Amount",
+                "trans": "count",
+                "calcus": "raw"
+            }
+        },
+        {
+            "describe": "top donation cart sequence",
+            "chart": "bar",
+            "x": {
+                "attr": "Donor Cart Sequence",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "Donor Cart Sequence",
+                "trans": "count",
+                "calcus": "raw"
+            }
+        },
+        {
+            "describe": "top donation cart sequence",
+            "chart": "pie",
+            "x": {
+                "attr": "Donor Cart Sequence",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "Donor Cart Sequence",
+                "trans": "count",
+                "calcus": "percentage"
+            }
+        },
+        {
+            "describe": "total teacher donations",
+            "chart": "bar",
+            "x": {
+                "attr": "Donor Is Teacher",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "Donor Is Teacher",
+                "trans": "count",
+                "calcus": "raw"
+            }
+        },
+        {
+            "describe": "total teacher donations",
+            "chart": "pie",
+            "x": {
+                "attr": "Donor Is Teacher",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "Donor Is Teacher",
+                "trans": "count",
+                "calcus": "percentage"
+            }
+        },
+        {
+            "describe": "city with highest donation amount",
+            "chart": "bar",
+            "x": {
+                "attr": "Donor City",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "Donor City",
+                "trans": "count",
+                "calcus": "raw"
+            }
+        },
+        {
+            "describe": "city with highest donation amount",
+            "chart": "pie",
+            "x": {
+                "attr": "Donor City",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "Donor City",
+                "trans": "count",
+                "calcus": "percentage"
+            }
+        },
+        {
+            "describe": "State with highest donation amount",
+            "chart": "bar",
+            "x": {
+                "attr": "Donor State",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "Donor State",
+                "trans": "count",
+                "calcus": "raw"
+            }
+        },
+        {
+            "describe": "State with highest donation amount",
+            "chart": "pie",
+            "x": {
+                "attr": "Donor State",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "Donor State",
+                "trans": "count",
+                "calcus": "percentage"
+            }
+        },
+        {
+            "describe": "Distribution of School Metro Type ",
+            "chart": "bar",
+            "x": {
+                "attr": "School Metro Type",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "School Metro Type",
+                "trans": "count",
+                "calcus": "raw"
+            }
+        },
+        {
+            "describe": "Distribution of School Metro Type ",
+            "chart": "pie",
+            "x": {
+                "attr": "School Metro Type",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "School Metro Type",
+                "trans": "count",
+                "calcus": "percentage"
+            }
+        },
+        {
+            "describe": "distribution of school percentage free lunch",
+            "chart": "histogram",
+            "x": {
+                "attr": "School Percentage Free Lunch",
+                "trans": "bin",
+                "bins": "default"
+            },
+            "y": {
+                "attr": "School Percentage Free Lunch",
+                "trans": "count",
+                "calcus": "raw"
+            }
+        },
+        {
+            "describe": "state with most number of schools",
+            "chart": "bar",
+            "x": {
+                "attr": "School State",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "School State",
+                "trans": "count",
+                "calcus": "raw"
+            }
+        },
+        {
+            "describe": "state with most number of schools",
+            "chart": "pie",
+            "x": {
+                "attr": "School State",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "School State",
+                "trans": "count",
+                "calcus": "percentage"
+            }
+        },
+        {
+            "describe": "City with most number of schools",
+            "chart": "bar",
+            "x": {
+                "attr": "School City",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "School City",
+                "trans": "count",
+                "calcus": "raw"
+            }
+        },
+        {
+            "describe": "City with most number of schools",
+            "chart": "pie",
+            "x": {
+                "attr": "School City",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "School City",
+                "trans": "count",
+                "calcus": "percentage"
+            }
+        },
+        {
+            "describe": "County with most number of schools",
+            "chart": "bar",
+            "x": {
+                "attr": "School County",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "School County",
+                "trans": "count",
+                "calcus": "raw"
+            }
+        },
+        {
+            "describe": "County with most number of schools",
+            "chart": "pie",
+            "x": {
+                "attr": "School County",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "School County",
+                "trans": "count",
+                "calcus": "percentage"
+            }
+        },
+        {
+            "describe": "District with most number of schools",
+            "chart": "bar",
+            "x": {
+                "attr": "School District",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "School District",
+                "trans": "count",
+                "calcus": "raw"
+            }
+        },
+        {
+            "describe": "District with most number of schools",
+            "chart": "pie",
+            "x": {
+                "attr": "School District",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "School District",
+                "trans": "count",
+                "calcus": "percentage"
+            }
+        },
+        {
+            "describe": "number of teachers of different prefixes",
+            "chart": "bar",
+            "x": {
+                "attr": "Teacher Prefix",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "Teacher Prefix",
+                "trans": "count",
+                "calcus": "raw"
+            }
+        },
+        {
+            "describe": "number of teachers of different prefixes",
+            "chart": "pie",
+            "x": {
+                "attr": "Teacher Prefix",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "Teacher Prefix",
+                "trans": "count",
+                "calcus": "percentage"
+            }
+        },
+        {
+            "describe": "Teacher First Project Posted Date year",
+            "chart": "bar",
+            "x": {
+                "attr": "Teacher First Project Posted Date",
+                "trans": "year",
+                "groupby": true
+            },
+            "y": {
+                "attr": "Teacher First Project Posted Date",
+                "trans": "count",
+                "calcus": "raw"
+            }
+        },
+        {
+            "describe": "Teacher First Project Posted Date year",
+            "chart": "pie",
+            "x": {
+                "attr": "Teacher First Project Posted Date",
+                "trans": "year",
+                "groupby": true
+            },
+            "y": {
+                "attr": "Teacher First Project Posted Date",
+                "trans": "count",
+                "calcus": "percentage"
+            }
+        },
+        {
+            "describe": "Teacher First Project Posted Date month",
+            "chart": "bar",
+            "x": {
+                "attr": "Teacher First Project Posted Date",
+                "trans": "month",
+                "groupby": true
+            },
+            "y": {
+                "attr": "Teacher First Project Posted Date",
+                "trans": "count",
+                "calcus": "raw"
+            }
+        },
+        {
+            "describe": "Teacher First Project Posted Date month",
+            "chart": "pie",
+            "x": {
+                "attr": "Teacher First Project Posted Date",
+                "trans": "month",
+                "groupby": true
+            },
+            "y": {
+                "attr": "Teacher First Project Posted Date",
+                "trans": "count",
+                "calcus": "percentage"
+            }
+        },
+        {
+            "describe": "Teacher First Project Posted Date dayofmonth",
+            "chart": "bar",
+            "x": {
+                "attr": "Teacher First Project Posted Date",
+                "trans": "dayofmonth",
+                "groupby": true
+            },
+            "y": {
+                "attr": "Teacher First Project Posted Date",
+                "trans": "count",
+                "calcus": "raw"
+            }
+        },
+        {
+            "describe": "Teacher First Project Posted Date dayofmonth",
+            "chart": "pie",
+            "x": {
+                "attr": "Teacher First Project Posted Date",
+                "trans": "dayofmonth",
+                "groupby": true
+            },
+            "y": {
+                "attr": "Teacher First Project Posted Date",
+                "trans": "count",
+                "calcus": "percentage"
+            }
+        },
+        {
+            "describe": "Teacher Project Posted Sequence",
+            "chart": "bar",
+            "x": {
+                "attr": "Teacher Project Posted Sequence",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "Teacher Project Posted Sequence",
+                "trans": "count",
+                "calcus": "raw"
+            }
+        },
+        {
+            "describe": "Teacher Project Posted Sequence",
+            "chart": "pie",
+            "x": {
+                "attr": "Teacher Project Posted Sequence",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "Teacher Project Posted Sequence",
+                "trans": "count",
+                "calcus": "percentage"
+            }
+        },
+        {
+            "describe": "Project Type",
+            "chart": "bar",
+            "x": {
+                "attr": "Project Type",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "Project Type",
+                "trans": "count",
+                "calcus": "raw"
+            }
+        },
+        {
+            "describe": "Project Type",
+            "chart": "pie",
+            "x": {
+                "attr": "Project Type",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "Project Type",
+                "trans": "count",
+                "calcus": "percentage"
+            }
+        },
+        {
+            "describe": "Distribution of Project subject categories",
+            "chart": "bar",
+            "x": {
+                "attr": "Project Subject Category Tree",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "Project Subject Category Tree",
+                "trans": "count",
+                "calcus": "raw"
+            }
+        },
+        {
+            "describe": "Distribution of Project subject categories",
+            "chart": "pie",
+            "x": {
+                "attr": "Project Subject Category Tree",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "Project Subject Category Tree",
+                "trans": "count",
+                "calcus": "percentage"
+            }
+        },
+        {
+            "describe": "Distribution of Project subject Subcategory ",
+            "chart": "bar",
+            "x": {
+                "attr": "Project Subject Subcategory Tree",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "Project Subject Subcategory Tree",
+                "trans": "count",
+                "calcus": "raw"
+            }
+        },
+        {
+            "describe": "Distribution of Project subject Subcategory ",
+            "chart": "pie",
+            "x": {
+                "attr": "Project Subject Subcategory Tree",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "Project Subject Subcategory Tree",
+                "trans": "count",
+                "calcus": "percentage"
+            }
+        },
+        {
+            "describe": "Distribution of Project Grade Level Category",
+            "chart": "bar",
+            "x": {
+                "attr": "Project Grade Level Category",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "Project Grade Level Category",
+                "trans": "count",
+                "calcus": "raw"
+            }
+        },
+        {
+            "describe": "Distribution of Project Grade Level Category",
+            "chart": "pie",
+            "x": {
+                "attr": "Project Grade Level Category",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "Project Grade Level Category",
+                "trans": "count",
+                "calcus": "percentage"
+            }
+        },
+        {
+            "describe": "Distribution of Project Resource Category ",
+            "chart": "bar",
+            "x": {
+                "attr": "Project Resource Category",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "Project Resource Category",
+                "trans": "count",
+                "calcus": "raw"
+            }
+        },
+        {
+            "describe": "Distribution of Project Resource Category ",
+            "chart": "pie",
+            "x": {
+                "attr": "Project Resource Category",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "Project Resource Category",
+                "trans": "count",
+                "calcus": "percentage"
+            }
+        },
+        {
+            "describe": "distribution of Resource Quantity",
+            "chart": "histogram",
+            "x": {
+                "attr": "Resource Quantity",
+                "trans": "bin",
+                "bins": "default"
+            },
+            "y": {
+                "attr": "Resource Quantity",
+                "trans": "count",
+                "calcus": "raw"
+            }
+        },
+        {
+            "describe": "distribution of Resource Unit Price",
+            "chart": "histogram",
+            "x": {
+                "attr": "Resource Unit Price",
+                "trans": "bin",
+                "bins": "default"
+            },
+            "y": {
+                "attr": "Resource Unit Price",
+                "trans": "count",
+                "calcus": "raw"
+            }
+        }
+    ]
+}

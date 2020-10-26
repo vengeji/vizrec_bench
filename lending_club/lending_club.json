@@ -1,0 +1,591 @@
+{
+    "charts": [
+        {
+            "describe": "Average loan amount issued",
+            "id": "lending_club_1_extracted.json_id_1",
+            "rank": 1,
+            "type": "bar",
+            "channels": {
+                "x": {
+                    "attr": "issue_d",
+                    "trans": "year",
+                    "groupby": true
+                },
+                "y": {
+                    "attr": "loan_amnt",
+                    "trans": "mean",
+                    "calcus": "raw"
+                }
+            }
+        },
+        {
+            "describe": "Loan conditions count",
+            "id": "lending_club_1_extracted.json_id_2",
+            "rank": 2,
+            "type": "pie",
+            "channels": {
+                "x": {
+                    "attr": "loan_condition",
+                    "trans": "raw",
+                    "groupby": true
+                },
+                "y": {
+                    "attr": "loan_condition",
+                    "trans": "count",
+                    "calcus": "percentage"
+                }
+            }
+        },
+        {
+            "describe": "Loan conditions count of different year",
+            "id": "lending_club_1_extracted.json_id_3",
+            "rank": 3,
+            "type": "bar",
+            "channels": {
+                "x": {
+                    "attr": "issue_d",
+                    "trans": "year",
+                    "groupby": true
+                },
+                "y": {
+                    "attr": "issue_d",
+                    "trans": "count",
+                    "calcus": "percentage"
+                },
+                "color": {
+                    "attr": "loan_condition",
+                    "trans": "raw",
+                    "groupby": true
+                }
+            }
+        },
+        {
+            "describe": "Loans issued by region of different year",
+            "id": "lending_club_1_extracted.json_id_4",
+            "rank": 4,
+            "type": "line",
+            "channels": {
+                "x": {
+                    "attr": "issue_d",
+                    "trans": "year",
+                    "groupby": true
+                },
+                "y": {
+                    "attr": "loan_amnt",
+                    "trans": "sum",
+                    "calcus": "percentage"
+                },
+                "color": {
+                    "attr": "region",
+                    "trans": "raw",
+                    "groupby": true
+                }
+            }
+        },
+        {
+            "describe": "Percentage of bad loan status by region",
+            "id": "lending_club_1_extracted.json_id_5",
+            "rank": 5,
+            "type": "bar",
+            "channels": {
+                "x": {
+                    "attr": "region",
+                    "trans": "raw",
+                    "groupby": true
+                },
+                "y": {
+                    "attr": "region",
+                    "trans": "count",
+                    "calcus": "percentage"
+                },
+                "color": {
+                    "attr": "loan_status",
+                    "trans": "raw",
+                    "groupby": true
+                }
+            }
+        },
+        {
+            "describe": "Loans issued by credit score and date",
+            "id": "lending_club_1_extracted.json_id_6",
+            "rank": 6,
+            "type": "line",
+            "channels": {
+                "x": {
+                    "attr": "issue_d",
+                    "trans": "year",
+                    "groupby": true
+                },
+                "y": {
+                    "attr": "loan_amnt",
+                    "trans": "mean",
+                    "calcus": "raw"
+                },
+                "color": {
+                    "attr": "grade",
+                    "trans": "raw",
+                    "groupby": true
+                }
+            }
+        },
+        {
+            "describe": "Interest rate by credit score and date",
+            "id": "lending_club_1_extracted.json_id_7",
+            "rank": 7,
+            "type": "line",
+            "channels": {
+                "x": {
+                    "attr": "issue_d",
+                    "trans": "year",
+                    "groupby": true
+                },
+                "y": {
+                    "attr": "int_rate",
+                    "trans": "mean",
+                    "calcus": "raw"
+                },
+                "color": {
+                    "attr": "grade",
+                    "trans": "raw",
+                    "groupby": true
+                }
+            }
+        },
+        {
+            "describe": "Type of loans by grade",
+            "id": "lending_club_1_extracted.json_id_8",
+            "rank": 8,
+            "type": "bar",
+            "channels": {
+                "x": {
+                    "attr": "grade",
+                    "trans": "raw",
+                    "groupby": true
+                },
+                "y": {
+                    "attr": "grade",
+                    "trans": "count",
+                    "calcus": "raw"
+                },
+                "color": {
+                    "attr": "loan_condition",
+                    "trans": "raw",
+                    "groupby": true
+                }
+            }
+        },
+        {
+            "describe": "Type of loans by sub grade",
+            "id": "lending_club_1_extracted.json_id_9",
+            "rank": 9,
+            "type": "bar",
+            "channels": {
+                "x": {
+                    "attr": "sub_grade",
+                    "trans": "raw",
+                    "groupby": true
+                },
+                "y": {
+                    "attr": "sub_grade",
+                    "trans": "count",
+                    "calcus": "raw"
+                },
+                "color": {
+                    "attr": "loan_condition",
+                    "trans": "raw",
+                    "groupby": true
+                }
+            }
+        },
+        {
+            "describe": "Average interest rate by loan condition and date",
+            "id": "lending_club_1_extracted.json_id_10",
+            "rank": 10,
+            "type": "bar",
+            "channels": {
+                "x": {
+                    "attr": "issue_d",
+                    "trans": "year",
+                    "groupby": true
+                },
+                "y": {
+                    "attr": "int_rate",
+                    "trans": "mean",
+                    "calcus": "raw"
+                },
+                "color": {
+                    "attr": "loan_condition",
+                    "trans": "raw",
+                    "groupby": true
+                }
+            }
+        },
+        {
+            "describe": "Amount borrowed throughtout the years",
+            "id": "lending_club_1_extracted.json_id_11",
+            "rank": 11,
+            "type": "line",
+            "channels": {
+                "x": {
+                    "attr": "issue_d",
+                    "trans": "year",
+                    "groupby": true
+                },
+                "y": {
+                    "attr": "loan_amnt",
+                    "trans": "sum",
+                    "calcus": "raw"
+                },
+                "color": {
+                    "attr": "loan_status",
+                    "trans": "raw",
+                    "groupby": true
+                }
+            }
+        },
+        {
+            "describe": "Condition of loan by purpose",
+            "id": "lending_club_1_extracted.json_id_12",
+            "rank": 12,
+            "type": "bar",
+            "channels": {
+                "x": {
+                    "attr": "purpose",
+                    "trans": "raw",
+                    "groupby": true
+                },
+                "y": {
+                    "attr": "purpose",
+                    "trans": "count",
+                    "calcus": "percentage"
+                },
+                "color": {
+                    "attr": "loan_condition",
+                    "trans": "raw",
+                    "groupby": true
+                }
+            }
+        },
+        {
+            "describe": "Amount of loans issued of different purpose and income category",
+            "id": "lending_club_1_extracted.json_id_13",
+            "rank": 13,
+            "type": "bar",
+            "channels": {
+                "x": {
+                    "attr": "purpose",
+                    "trans": "raw",
+                    "groupby": true
+                },
+                "y": {
+                    "attr": "purpose",
+                    "trans": "count",
+                    "calcus": "raw"
+                },
+                "color": {
+                    "attr": "income_category",
+                    "trans": "raw",
+                    "groupby": true
+                }
+            }
+        },
+        {
+            "describe": "Loan amount by year",
+            "id": "lending_club_2_extracted.json_id_1",
+            "rank": 14,
+            "type": "line",
+            "channels": {
+                "x": {
+                    "attr": "issue_d",
+                    "trans": "year",
+                    "groupby": true
+                },
+                "y": {
+                    "attr": "loan_amnt",
+                    "trans": "sum",
+                    "calcus": "raw"
+                }
+            }
+        },
+        {
+            "describe": "Loan status count",
+            "id": "lending_club_2_extracted.json_id_2-lending_club_3_extracted.json_id_1",
+            "rank": 15,
+            "type": "bar",
+            "channels": {
+                "x": {
+                    "attr": "loan_status",
+                    "trans": "raw",
+                    "groupby": true
+                },
+                "y": {
+                    "attr": "loan_status",
+                    "trans": "count",
+                    "calcus": "raw"
+                }
+            }
+        },
+        {
+            "describe": "Loan status count",
+            "id": "lending_club_2_extracted.json_id_3",
+            "rank": 16,
+            "type": "bar",
+            "channels": {
+                "x": {
+                    "attr": "loan_status",
+                    "trans": "raw",
+                    "groupby": true
+                },
+                "y": {
+                    "attr": "loan_status",
+                    "trans": "count",
+                    "calcus": "percentage"
+                }
+            }
+        },
+        {
+            "describe": "Loan purpose",
+            "id": "lending_club_2_extracted.json_id_4-lending_club_3_extracted.json_id_2",
+            "rank": 17,
+            "type": "bar",
+            "channels": {
+                "x": {
+                    "attr": "purpose",
+                    "trans": "raw",
+                    "groupby": true
+                },
+                "y": {
+                    "attr": "purpose",
+                    "trans": "count",
+                    "calcus": "raw"
+                }
+            }
+        },
+        {
+            "describe": "Loan purpose",
+            "id": "lending_club_2_extracted.json_id_5",
+            "rank": 18,
+            "type": "bar",
+            "channels": {
+                "x": {
+                    "attr": "purpose",
+                    "trans": "raw",
+                    "groupby": true
+                },
+                "y": {
+                    "attr": "purpose",
+                    "trans": "count",
+                    "calcus": "percentage"
+                }
+            }
+        },
+        {
+            "describe": "Loan title",
+            "id": "lending_club_2_extracted.json_id_6-lending_club_3_extracted.json_id_8",
+            "rank": 19,
+            "type": "bar",
+            "channels": {
+                "x": {
+                    "attr": "title",
+                    "trans": "raw",
+                    "groupby": true
+                },
+                "y": {
+                    "attr": "title",
+                    "trans": "count",
+                    "calcus": "raw"
+                }
+            }
+        },
+        {
+            "describe": "Loan title",
+            "id": "lending_club_2_extracted.json_id_7",
+            "rank": 20,
+            "type": "bar",
+            "channels": {
+                "x": {
+                    "attr": "title",
+                    "trans": "raw",
+                    "groupby": true
+                },
+                "y": {
+                    "attr": "title",
+                    "trans": "count",
+                    "calcus": "percentage"
+                }
+            }
+        },
+        {
+            "describe": "Loan grades",
+            "id": "lending_club_2_extracted.json_id_8",
+            "rank": 21,
+            "type": "bar",
+            "channels": {
+                "x": {
+                    "attr": "grade",
+                    "trans": "raw",
+                    "groupby": true
+                },
+                "y": {
+                    "attr": "grade",
+                    "trans": "count",
+                    "calcus": "raw"
+                }
+            }
+        },
+        {
+            "describe": "Loan grades",
+            "id": "lending_club_2_extracted.json_id_9",
+            "rank": 22,
+            "type": "bar",
+            "channels": {
+                "x": {
+                    "attr": "grade",
+                    "trans": "raw",
+                    "groupby": true
+                },
+                "y": {
+                    "attr": "grade",
+                    "trans": "count",
+                    "calcus": "percentage"
+                }
+            }
+        },
+        {
+            "describe": "Interest rate count",
+            "id": "lending_club_3_extracted.json_id_3",
+            "rank": 23,
+            "type": "bar",
+            "channels": {
+                "x": {
+                    "attr": "int_rate",
+                    "trans": "raw",
+                    "groupby": true
+                },
+                "y": {
+                    "attr": "int_rate",
+                    "trans": "count",
+                    "calcus": "raw"
+                }
+            }
+        },
+        {
+            "describe": "Loan amount of different month and year",
+            "id": "lending_club_3_extracted.json_id_4",
+            "rank": 24,
+            "type": "bar",
+            "channels": {
+                "x": {
+                    "attr": "issue_d",
+                    "trans": "month",
+                    "groupby": true
+                },
+                "y": {
+                    "attr": "issue_d",
+                    "trans": "count",
+                    "calcus": "raw"
+                },
+                "color": {
+                    "attr": "issue_d",
+                    "trans": "year",
+                    "groupby": true
+                }
+            }
+        },
+        {
+            "describe": "Loan amount of different year and term",
+            "id": "lending_club_3_extracted.json_id_5",
+            "rank": 25,
+            "type": "bar",
+            "channels": {
+                "x": {
+                    "attr": "issue_d",
+                    "trans": "year",
+                    "groupby": true
+                },
+                "y": {
+                    "attr": "issue_d",
+                    "trans": "count",
+                    "calcus": "raw"
+                },
+                "color": {
+                    "attr": "term",
+                    "trans": "raw",
+                    "groupby": true
+                }
+            }
+        },
+        {
+            "describe": "Verification status count",
+            "id": "lending_club_3_extracted.json_id_6",
+            "rank": 26,
+            "type": "bar",
+            "channels": {
+                "x": {
+                    "attr": "verification_status",
+                    "trans": "raw",
+                    "groupby": true
+                },
+                "y": {
+                    "attr": "verification_status",
+                    "trans": "count",
+                    "calcus": "raw"
+                }
+            }
+        },
+        {
+            "describe": "Employment name count",
+            "id": "lending_club_3_extracted.json_id_7",
+            "rank": 27,
+            "type": "bar",
+            "channels": {
+                "x": {
+                    "attr": "emp_title",
+                    "trans": "raw",
+                    "groupby": true
+                },
+                "y": {
+                    "attr": "emp_title",
+                    "trans": "count",
+                    "calcus": "raw"
+                }
+            }
+        },
+        {
+            "describe": "Term count distribution",
+            "id": "lending_club_3_extracted.json_id_9",
+            "rank": 28,
+            "type": "bar",
+            "channels": {
+                "x": {
+                    "attr": "term",
+                    "trans": "raw",
+                    "groupby": true
+                },
+                "y": {
+                    "attr": "term",
+                    "trans": "count",
+                    "calcus": "raw"
+                }
+            }
+        },
+        {
+            "describe": "Settlement status distribution",
+            "id": "lending_club_3_extracted.json_id_10",
+            "rank": 29,
+            "type": "bar",
+            "channels": {
+                "x": {
+                    "attr": "settlement_status",
+                    "trans": "raw",
+                    "groupby": true
+                },
+                "y": {
+                    "attr": "settlement_status",
+                    "trans": "count",
+                    "calcus": "raw"
+                }
+            }
+        }
+    ]
+}

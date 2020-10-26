@@ -1,0 +1,234 @@
+{
+    "url": "https://www.kaggle.com/erykwalczak/initial-loan-book-analysis",
+    "votes": 159,
+    "rank": 2,
+    "charts": [
+        {
+            "describe": "Loan amount distribution",
+            "chart": "histogram",
+            "x": {
+                "attr": "loan_amnt",
+                "trans": "bin",
+                "bins": "default"
+            },
+            "y": {
+                "attr": "loan_amnt",
+                "trans": "count",
+                "calcus": "raw"
+            }
+        },
+        {
+            "describe": "Loan amount by year",
+            "chart": "line",
+            "x": {
+                "attr": "issue_d",
+                "trans": "year",
+                "groupby": true
+            },
+            "y": {
+                "attr": "loan_amnt",
+                "trans": "sum",
+                "calcus": "raw"
+            }
+        },
+        {
+            "describe": "Loan status count",
+            "chart": "bar",
+            "x": {
+                "attr": "loan_status",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "loan_status",
+                "trans": "count",
+                "calcus": "raw"
+            }
+        },
+        {
+            "describe": "Loan status count",
+            "chart": "bar",
+            "x": {
+                "attr": "loan_status",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "loan_status",
+                "trans": "count",
+                "calcus": "percentage"
+            }
+        },
+        {
+            "describe": "Loan amount by loan status",
+            "chart": "boxplot",
+            "x": {
+                "attr": "loan_status",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "loan_amnt",
+                "trans": "raw"
+            }
+        },
+        {
+            "describe": "Loan amount by grade of different year",
+            "chart": "area",
+            "x": {
+                "attr": "issue_d",
+                "trans": "year",
+                "groupby": true
+            },
+            "y": {
+                "attr": "loan_amnt",
+                "trans": "sum",
+                "calcus": "raw"
+            },
+            "color": {
+                "attr": "grade",
+                "trans": "raw",
+                "groupby": true
+            }
+        },
+        {
+            "describe": "Loan amount by state",
+            "chart": "map",
+            "x": {
+                "attr": "region",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "loan_amnt",
+                "trans": "sum",
+                "calcus": "raw"
+            }
+        },
+        {
+            "describe": "Loans by state",
+            "chart": "map",
+            "x": {
+                "attr": "region",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "region",
+                "trans": "count",
+                "calcus": "raw"
+            }
+        },
+        {
+            "describe": "Loan purpose",
+            "chart": "bar",
+            "x": {
+                "attr": "purpose",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "purpose",
+                "trans": "count",
+                "calcus": "raw"
+            }
+        },
+        {
+            "describe": "Loan purpose",
+            "chart": "bar",
+            "x": {
+                "attr": "purpose",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "purpose",
+                "trans": "count",
+                "calcus": "percentage"
+            }
+        },
+        {
+            "describe": "Loan title",
+            "chart": "bar",
+            "x": {
+                "attr": "title",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "title",
+                "trans": "count",
+                "calcus": "raw"
+            }
+        },
+        {
+            "describe": "Loan title",
+            "chart": "bar",
+            "x": {
+                "attr": "title",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "title",
+                "trans": "count",
+                "calcus": "percentage"
+            }
+        },
+        {
+            "describe": "Loan description",
+            "chart": "wordcloud",
+            "x": {
+                "attr": "title",
+                "trans": "split",
+                "groupby": true
+            },
+            "y": {
+                "attr": "title",
+                "trans": "count",
+                "calcus": "percentage"
+            }
+        },
+        {
+            "describe": "Loan grades",
+            "chart": "bar",
+            "x": {
+                "attr": "grade",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "grade",
+                "trans": "count",
+                "calcus": "raw"
+            }
+        },
+        {
+            "describe": "Loan grades",
+            "chart": "bar",
+            "x": {
+                "attr": "grade",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "grade",
+                "trans": "count",
+                "calcus": "percentage"
+            }
+        },
+        {
+            "describe": "Interest rate by grade",
+            "chart": "boxplot",
+            "x": {
+                "attr": "grade",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "int_rate",
+                "trans": "raw"
+            }
+        }
+    ]
+}

@@ -1,0 +1,156 @@
+{
+    "url": "https://www.kaggle.com/fabiendaniel/predicting-flight-delays-tutorial",
+    "votes": 348,
+    "rank": 1,
+    "charts": [
+        {
+            "describe": "% of flight per company",
+            "chart": "pie",
+            "x": {
+                "attr": "AIRLINE",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "AIRLINE",
+                "trans": "count",
+                "calcus": "percentage"
+            }
+        },
+        {
+            "describe": "mean delay at origin",
+            "chart": "pie",
+            "x": {
+                "attr": "AIRLINE",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "DEPARTURE_DELAY",
+                "trans": "mean",
+                "calcus": "percentage"
+            }
+        },
+        {
+            "describe": "departure delay",
+            "chart": "stripplot",
+            "x": {
+                "attr": "AIRLINE",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "DEPARTURE_DELAY",
+                "trans": "raw"
+            }
+        },
+        {
+            "describe": "delay level count",
+            "chart": "bar",
+            "x": {
+                "attr": "AIRLINE",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "AIRLINE",
+                "trans": "count",
+                "calcus": "raw"
+            },
+            "color": {
+                "attr": "DELAY_LEVEL",
+                "trans": "raw",
+                "groupby": true
+            }
+        },
+        {
+            "describe": "mean departure delay",
+            "chart": "bar",
+            "x": {
+                "attr": "AIRLINE",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "DEPARTURE_DELAY",
+                "trans": "mean",
+                "calcus": "raw"
+            }
+        },
+        {
+            "describe": "mean arrival delay",
+            "chart": "bar",
+            "x": {
+                "attr": "AIRLINE",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "ARRIVAL_DELAY",
+                "trans": "mean",
+                "calcus": "raw"
+            }
+        },
+        {
+            "describe": "Number of airports visited",
+            "chart": "bar",
+            "x": {
+                "attr": "AIRLINE",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "ORIGIN_AIRPORT",
+                "trans": "count",
+                "calcus": "raw"
+            }
+        },
+        {
+            "describe": "impact of origin airport",
+            "chart": "heatmap",
+            "x": {
+                "attr": "AIRLINE",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "ORIGIN_AIRPORT",
+                "trans": "raw",
+                "groupby": true
+            },
+            "color": {
+                "attr": "DEPARTURE_DELAY",
+                "trans": "mean",
+                "calcus": "raw"
+            }
+        },
+        {
+            "describe": "departure delay along date",
+            "chart": "line",
+            "x": {
+                "attr": "DATE",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "DEPARTURE_DELAY",
+                "trans": "mean",
+                "calcus": "raw"
+            }
+        },
+        {
+            "describe": "departure delay along date",
+            "chart": "line",
+            "x": {
+                "attr": "SCHEDULED_DEPARTURE",
+                "trans": "time",
+                "groupby": true
+            },
+            "y": {
+                "attr": "DEPARTURE_DELAY",
+                "trans": "mean",
+                "calcus": "raw"
+            }
+        }
+    ]
+}

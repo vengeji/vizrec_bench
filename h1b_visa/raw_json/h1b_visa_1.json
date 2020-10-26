@@ -1,0 +1,577 @@
+{
+    "url": "https://www.kaggle.com/gpreda/h-1b-visa-applications",
+    "votes": 126,
+    "rank": 1,
+    "charts": [
+        {
+            "describe": "Number of applications of different status",
+            "chart": "bar",
+            "x": {
+                "attr": "CASE_STATUS",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "CASE_STATUS",
+                "trans": "count",
+                "calcus": "raw"
+            }
+        },
+        {
+            "describe": "Number of applications of different status of different years",
+            "chart": "line",
+            "x": {
+                "attr": "YEAR",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "YEAR",
+                "trans": "count",
+                "calcus": "raw"
+            },
+            "color": {
+                "attr": "CASE_STATUS",
+                "trans": "raw",
+                "groupby": true
+            }
+        },
+        {
+            "describe": "Number of applications of different soc_name",
+            "chart": "bar",
+            "x": {
+                "attr": "SOC_NAME",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "SOC_NAME",
+                "trans": "count",
+                "calcus": "raw"
+            }
+        },
+        {
+            "describe": "Number of applications of different soc_name of different years",
+            "chart": "line",
+            "x": {
+                "attr": "YEAR",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "YEAR",
+                "trans": "count",
+                "calcus": "raw"
+            },
+            "color": {
+                "attr": "SOC_NAME",
+                "trans": "raw",
+                "groupby": true
+            }
+        },
+        {
+            "describe": "Number of applications of different job titles",
+            "chart": "bar",
+            "x": {
+                "attr": "JOB_TITLE",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "JOB_TITLE",
+                "trans": "count",
+                "calcus": "raw"
+            }
+        },
+        {
+            "describe": "Number of applications of different years",
+            "chart": "bar",
+            "x": {
+                "attr": "YEAR",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "YEAR",
+                "trans": "count",
+                "calcus": "raw"
+            }
+        },
+        {
+            "describe": "Number of applications of different position type",
+            "chart": "pie",
+            "x": {
+                "attr": "FULL_TIME_POSITION",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "FULL_TIME_POSITION",
+                "trans": "count",
+                "calcus": "percentage"
+            }
+        },
+        {
+            "describe": "Number of applications of different employers",
+            "chart": "bar",
+            "x": {
+                "attr": "EMPLOYER_NAME",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "EMPLOYER_NAME",
+                "trans": "count",
+                "calcus": "raw"
+            }
+        },
+        {
+            "describe": "Average prevailing salary of applicants of years",
+            "chart": "bar",
+            "x": {
+                "attr": "YEAR",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "PREVAILING_WAGE",
+                "trans": "mean",
+                "calcus": "raw"
+            }
+        },
+        {
+            "describe": "Average prevailing salary of applicants of years",
+            "chart": "bar",
+            "x": {
+                "attr": "YEAR",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "PREVAILING_WAGE",
+                "trans": "mean",
+                "calcus": "raw"
+            },
+            "filter": [
+                {
+                    "attr": "CASE_STATUS",
+                    "equal": "CERTIFIED"
+                }
+            ]
+        },
+        {
+            "describe": "Average prevailing salary of applicants of years",
+            "chart": "bar",
+            "x": {
+                "attr": "YEAR",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "PREVAILING_WAGE",
+                "trans": "mean",
+                "calcus": "raw"
+            },
+            "filter": [
+                {
+                    "attr": "CASE_STATUS",
+                    "not_equal": "CERTIFIED"
+                }
+            ]
+        },
+        {
+            "describe": "Average prevailing salary of different job titles per year of certified",
+            "chart": "bar",
+            "x": {
+                "attr": "YEAR",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "PREVAILING_WAGE",
+                "trans": "mean",
+                "calcus": "raw"
+            },
+            "color": {
+                "attr": "JOB_TITLE",
+                "trans": "raw",
+                "groupby": true
+            },
+            "filter": [
+                {
+                    "attr": "CASE_STATUS",
+                    "equal": "CERTIFIED"
+                }
+            ]
+        },
+        {
+            "describe": "Average prevailing salary of different job titles per year of certified",
+            "chart": "bar",
+            "x": {
+                "attr": "YEAR",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "PREVAILING_WAGE",
+                "trans": "mean",
+                "calcus": "raw"
+            },
+            "color": {
+                "attr": "JOB_TITLE",
+                "trans": "raw",
+                "groupby": true
+            },
+            "filter": [
+                {
+                    "attr": "CASE_STATUS",
+                    "equal": "CERTIFIED"
+                },
+                {
+                    "attr": "JOB_TITLE",
+                    "in": [
+                        "DATA SCIENTIST",
+                        "CHIEF DATA SCIENTIST",
+                        "DATA ANALYTICS ENGINEER"
+                    ]
+                }
+            ]
+        },
+        {
+            "describe": "Density plot for SENIOR SOFTWARE ENGINEER by years",
+            "chart": "densityplot",
+            "x": {
+                "attr": "PREVAILING_WAGE",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "PREVAILING_WAGE",
+                "trans": "count",
+                "calcus": "raw"
+            },
+            "color": {
+                "attr": "YEAR",
+                "trans": "raw",
+                "groupby": true
+            },
+            "filter": [
+                {
+                    "attr": "JOB_TITLE",
+                    "equal": "SENIOR SOFTWARE ENGINEER"
+                }
+            ]
+        },
+        {
+            "describe": "Density plot for DATA SCIENTIST by years",
+            "chart": "densityplot",
+            "x": {
+                "attr": "PREVAILING_WAGE",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "PREVAILING_WAGE",
+                "trans": "count",
+                "calcus": "raw"
+            },
+            "color": {
+                "attr": "YEAR",
+                "trans": "raw",
+                "groupby": true
+            },
+            "filter": [
+                {
+                    "attr": "JOB_TITLE",
+                    "equal": "DATA SCIENTIST"
+                }
+            ]
+        },
+        {
+            "describe": "Density plot for SENIOR SOFTWARE ENGINEER by position type",
+            "chart": "densityplot",
+            "x": {
+                "attr": "PREVAILING_WAGE",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "PREVAILING_WAGE",
+                "trans": "count",
+                "calcus": "raw"
+            },
+            "color": {
+                "attr": "FULL_TIME_POSITION",
+                "trans": "raw",
+                "groupby": true
+            },
+            "filter": [
+                {
+                    "attr": "JOB_TITLE",
+                    "equal": "SENIOR SOFTWARE ENGINEER"
+                }
+            ]
+        },
+        {
+            "describe": "Density plot for DATA SCIENTIST by position type",
+            "chart": "densityplot",
+            "x": {
+                "attr": "PREVAILING_WAGE",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "PREVAILING_WAGE",
+                "trans": "count",
+                "calcus": "raw"
+            },
+            "color": {
+                "attr": "FULL_TIME_POSITION",
+                "trans": "raw",
+                "groupby": true
+            },
+            "filter": [
+                {
+                    "attr": "JOB_TITLE",
+                    "equal": "DATA SCIENTIST"
+                }
+            ]
+        },
+        {
+            "describe": "Density plot for SENIOR SOFTWARE ENGINEER by state",
+            "chart": "densityplot",
+            "x": {
+                "attr": "PREVAILING_WAGE",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "PREVAILING_WAGE",
+                "trans": "count",
+                "calcus": "raw"
+            },
+            "color": {
+                "attr": "state",
+                "trans": "raw",
+                "groupby": true
+            },
+            "filter": [
+                {
+                    "attr": "JOB_TITLE",
+                    "equal": "SENIOR SOFTWARE ENGINEER"
+                }
+            ]
+        },
+        {
+            "describe": "Density plot for DATA SCIENTIST by state",
+            "chart": "densityplot",
+            "x": {
+                "attr": "PREVAILING_WAGE",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "PREVAILING_WAGE",
+                "trans": "count",
+                "calcus": "raw"
+            },
+            "color": {
+                "attr": "state",
+                "trans": "raw",
+                "groupby": true
+            },
+            "filter": [
+                {
+                    "attr": "JOB_TITLE",
+                    "equal": "DATA SCIENTIST"
+                }
+            ]
+        },
+        {
+            "describe": "Treemap of applications per state",
+            "chart": "treemap",
+            "x": {
+                "attr": "state",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "state",
+                "trans": "count",
+                "calcus": "raw"
+            }
+        },
+        {
+            "describe": "Treemap of applications per state",
+            "chart": "treemap",
+            "x": {
+                "attr": "state",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "state",
+                "trans": "count",
+                "calcus": "raw"
+            },
+            "filter": [
+                {
+                    "attr": "YEAR",
+                    "equal": "2011"
+                }
+            ]
+        },
+        {
+            "describe": "Treemap of applications per state",
+            "chart": "treemap",
+            "x": {
+                "attr": "state",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "state",
+                "trans": "count",
+                "calcus": "raw"
+            },
+            "filter": [
+                {
+                    "attr": "YEAR",
+                    "equal": "2012"
+                }
+            ]
+        },
+        {
+            "describe": "Treemap of applications per state",
+            "chart": "treemap",
+            "x": {
+                "attr": "state",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "state",
+                "trans": "count",
+                "calcus": "raw"
+            },
+            "filter": [
+                {
+                    "attr": "YEAR",
+                    "equal": "2013"
+                }
+            ]
+        },
+        {
+            "describe": "Treemap of applications per state",
+            "chart": "treemap",
+            "x": {
+                "attr": "state",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "state",
+                "trans": "count",
+                "calcus": "raw"
+            },
+            "filter": [
+                {
+                    "attr": "YEAR",
+                    "equal": "2014"
+                }
+            ]
+        },
+        {
+            "describe": "Treemap of applications per state",
+            "chart": "treemap",
+            "x": {
+                "attr": "state",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "state",
+                "trans": "count",
+                "calcus": "raw"
+            },
+            "filter": [
+                {
+                    "attr": "YEAR",
+                    "equal": "2015"
+                }
+            ]
+        },
+        {
+            "describe": "Treemap of applications per state",
+            "chart": "treemap",
+            "x": {
+                "attr": "state",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "state",
+                "trans": "count",
+                "calcus": "raw"
+            },
+            "filter": [
+                {
+                    "attr": "YEAR",
+                    "equal": "2016"
+                }
+            ]
+        },
+        {
+            "describe": "Average salary per state",
+            "chart": "treemap",
+            "x": {
+                "attr": "state",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "PREVAILING_WAGE",
+                "trans": "mean",
+                "calcus": "raw"
+            }
+        },
+        {
+            "describe": "Map of applications",
+            "chart": "map",
+            "x": {
+                "attr": "lon",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "lat",
+                "trans": "raw",
+                "groupby": "raw"
+            },
+            "size": {
+                "attr": "lon",
+                "trans": "count",
+                "calcus": "raw"
+            }
+        },
+        {
+            "describe": "Map of average wage",
+            "chart": "map",
+            "x": {
+                "attr": "lon",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "lat",
+                "trans": "raw",
+                "groupby": "raw"
+            },
+            "size": {
+                "attr": "PREVAILING_WAGE",
+                "trans": "mean",
+                "calcus": "raw"
+            }
+        }
+    ]
+}

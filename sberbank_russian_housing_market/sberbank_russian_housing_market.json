@@ -1,0 +1,506 @@
+{
+    "charts": [
+        {
+            "describe": "Area of home and price",
+            "id": "sberbank_russian_housing_market_1_extracted.json_id_1-sberbank_russian_housing_market_3_extracted.json_id_4",
+            "rank": 1,
+            "type": "scatter",
+            "channels": {
+                "x": {
+                    "attr": "full_sq",
+                    "trans": "raw"
+                },
+                "y": {
+                    "attr": "price_doc",
+                    "trans": "raw"
+                }
+            }
+        },
+        {
+            "describe": "Distribution of room count",
+            "id": "sberbank_russian_housing_market_1_extracted.json_id_2-sberbank_russian_housing_market_3_extracted.json_id_6",
+            "rank": 2,
+            "type": "bar",
+            "channels": {
+                "x": {
+                    "attr": "num_room",
+                    "trans": "raw",
+                    "groupby": true
+                },
+                "y": {
+                    "attr": "num_room",
+                    "trans": "count",
+                    "calcus": "raw"
+                }
+            }
+        },
+        {
+            "describe": "Distribution of build year",
+            "id": "sberbank_russian_housing_market_1_extracted.json_id_3",
+            "rank": 3,
+            "type": "bar",
+            "channels": {
+                "x": {
+                    "attr": "build_year",
+                    "trans": "raw",
+                    "groupby": true
+                },
+                "y": {
+                    "attr": "build_year",
+                    "trans": "count",
+                    "calcus": "raw"
+                }
+            }
+        },
+        {
+            "describe": "Mean price by year of build",
+            "id": "sberbank_russian_housing_market_1_extracted.json_id_4",
+            "rank": 4,
+            "type": "line",
+            "channels": {
+                "x": {
+                    "attr": "build_year",
+                    "trans": "raw",
+                    "groupby": true
+                },
+                "y": {
+                    "attr": "price_doc",
+                    "trans": "mean",
+                    "calcus": "raw"
+                }
+            }
+        },
+        {
+            "describe": "Mean price by timestamp",
+            "id": "sberbank_russian_housing_market_1_extracted.json_id_5",
+            "rank": 5,
+            "type": "line",
+            "channels": {
+                "x": {
+                    "attr": "timestamp",
+                    "trans": "day",
+                    "groupby": true
+                },
+                "y": {
+                    "attr": "price_doc",
+                    "trans": "mean",
+                    "calcus": "raw"
+                }
+            }
+        },
+        {
+            "describe": "Number of transactions by timestamp",
+            "id": "sberbank_russian_housing_market_1_extracted.json_id_6",
+            "rank": 6,
+            "type": "line",
+            "channels": {
+                "x": {
+                    "attr": "timestamp",
+                    "trans": "raw",
+                    "groupby": true
+                },
+                "y": {
+                    "attr": "timestamp",
+                    "trans": "count",
+                    "calcus": "raw"
+                }
+            }
+        },
+        {
+            "describe": "Mean price by timestamp",
+            "id": "sberbank_russian_housing_market_1_extracted.json_id_7",
+            "rank": 7,
+            "type": "line",
+            "channels": {
+                "x": {
+                    "attr": "timestamp",
+                    "trans": "month",
+                    "groupby": true
+                },
+                "y": {
+                    "attr": "price_doc",
+                    "trans": "mean",
+                    "calcus": "raw"
+                }
+            }
+        },
+        {
+            "describe": "floor of home",
+            "id": "sberbank_russian_housing_market_1_extracted.json_id_8",
+            "rank": 8,
+            "type": "scatter",
+            "channels": {
+                "x": {
+                    "attr": "floor",
+                    "trans": "raw"
+                },
+                "y": {
+                    "attr": "price_doc",
+                    "trans": "log"
+                }
+            }
+        },
+        {
+            "describe": "floor of home",
+            "id": "sberbank_russian_housing_market_1_extracted.json_id_9",
+            "rank": 9,
+            "type": "scatter",
+            "channels": {
+                "x": {
+                    "attr": "max_floor",
+                    "trans": "raw"
+                },
+                "y": {
+                    "attr": "price_doc",
+                    "trans": "log"
+                }
+            }
+        },
+        {
+            "describe": "floor by max_floor",
+            "id": "sberbank_russian_housing_market_1_extracted.json_id_10",
+            "rank": 10,
+            "type": "scatter",
+            "channels": {
+                "x": {
+                    "attr": "floor",
+                    "trans": "raw"
+                },
+                "y": {
+                    "attr": "max_floor",
+                    "trans": "raw"
+                }
+            }
+        },
+        {
+            "describe": "Number of transactions by district",
+            "id": "sberbank_russian_housing_market_1_extracted.json_id_11",
+            "rank": 11,
+            "type": "bar",
+            "channels": {
+                "x": {
+                    "attr": "sub_area",
+                    "trans": "raw",
+                    "groupby": true
+                },
+                "y": {
+                    "attr": "sub_area",
+                    "trans": "count",
+                    "calcus": "raw"
+                }
+            }
+        },
+        {
+            "describe": "mean price by number of sports objects",
+            "id": "sberbank_russian_housing_market_1_extracted.json_id_12",
+            "rank": 12,
+            "type": "scatter",
+            "channels": {
+                "x": {
+                    "attr": "sport_objects_raion",
+                    "trans": "mean"
+                },
+                "y": {
+                    "attr": "price_doc",
+                    "trans": "mean"
+                },
+                "groupby": {
+                    "attr": "sub_area",
+                    "trans": "raw"
+                }
+            }
+        },
+        {
+            "describe": "mean price by number of cultrue objects",
+            "id": "sberbank_russian_housing_market_1_extracted.json_id_13",
+            "rank": 13,
+            "type": "scatter",
+            "channels": {
+                "x": {
+                    "attr": "culture_objects_top_25_raion",
+                    "trans": "mean"
+                },
+                "y": {
+                    "attr": "price_doc",
+                    "trans": "mean"
+                },
+                "groupby": {
+                    "attr": "sub_area",
+                    "trans": "raw"
+                }
+            }
+        },
+        {
+            "describe": "mean price by distance to nearest park",
+            "id": "sberbank_russian_housing_market_1_extracted.json_id_14",
+            "rank": 14,
+            "type": "scatter",
+            "channels": {
+                "x": {
+                    "attr": "park_km",
+                    "trans": "raw"
+                },
+                "y": {
+                    "attr": "price_doc",
+                    "trans": "raw"
+                }
+            }
+        },
+        {
+            "describe": "mean price by distance to kremlin",
+            "id": "sberbank_russian_housing_market_1_extracted.json_id_15",
+            "rank": 15,
+            "type": "scatter",
+            "channels": {
+                "x": {
+                    "attr": "kremlin_km",
+                    "trans": "raw"
+                },
+                "y": {
+                    "attr": "price_doc",
+                    "trans": "raw"
+                }
+            }
+        },
+        {
+            "describe": "Distribution of floor",
+            "id": "sberbank_russian_housing_market_1_extracted.json_id_16-sberbank_russian_housing_market_2_extracted.json_id_4",
+            "rank": 16,
+            "type": "bar",
+            "channels": {
+                "x": {
+                    "attr": "floor",
+                    "trans": "raw",
+                    "groupby": true
+                },
+                "y": {
+                    "attr": "floor",
+                    "trans": "count",
+                    "calcus": "raw"
+                }
+            }
+        },
+        {
+            "describe": "Distribution of max_floor",
+            "id": "sberbank_russian_housing_market_1_extracted.json_id_17-sberbank_russian_housing_market_2_extracted.json_id_5",
+            "rank": 17,
+            "type": "bar",
+            "channels": {
+                "x": {
+                    "attr": "max_floor",
+                    "trans": "raw",
+                    "groupby": true
+                },
+                "y": {
+                    "attr": "max_floor",
+                    "trans": "count",
+                    "calcus": "raw"
+                }
+            }
+        },
+        {
+            "describe": "number of transactions by day",
+            "id": "sberbank_russian_housing_market_1_extracted.json_id_18",
+            "rank": 18,
+            "type": "line",
+            "channels": {
+                "x": {
+                    "attr": "timestamp",
+                    "trans": "day",
+                    "groupby": true
+                },
+                "y": {
+                    "attr": "timestamp",
+                    "trans": "count",
+                    "calcus": "raw"
+                }
+            }
+        },
+        {
+            "describe": "number of transactions by product type",
+            "id": "sberbank_russian_housing_market_1_extracted.json_id_19",
+            "rank": 19,
+            "type": "bar",
+            "channels": {
+                "x": {
+                    "attr": "product_type",
+                    "trans": "raw",
+                    "groupby": true
+                },
+                "y": {
+                    "attr": "product_type",
+                    "trans": "count",
+                    "calcus": "raw"
+                }
+            }
+        },
+        {
+            "describe": "number of transactions by home state",
+            "id": "sberbank_russian_housing_market_1_extracted.json_id_20",
+            "rank": 20,
+            "type": "bar",
+            "channels": {
+                "x": {
+                    "attr": "state",
+                    "trans": "raw",
+                    "groupby": true
+                },
+                "y": {
+                    "attr": "state",
+                    "trans": "count",
+                    "calcus": "raw"
+                }
+            }
+        },
+        {
+            "describe": "number of transactions by build material",
+            "id": "sberbank_russian_housing_market_1_extracted.json_id_21",
+            "rank": 21,
+            "type": "bar",
+            "channels": {
+                "x": {
+                    "attr": "material",
+                    "trans": "raw",
+                    "groupby": true
+                },
+                "y": {
+                    "attr": "material",
+                    "trans": "count",
+                    "calcus": "raw"
+                }
+            }
+        },
+        {
+            "describe": "mean price of different month",
+            "id": "sberbank_russian_housing_market_2_extracted.json_id_1",
+            "rank": 22,
+            "type": "bar",
+            "channels": {
+                "x": {
+                    "attr": "timestamp",
+                    "trans": "year-month",
+                    "groupby": true
+                },
+                "y": {
+                    "attr": "price_doc",
+                    "trans": "mean",
+                    "calcus": "raw"
+                }
+            }
+        },
+        {
+            "describe": "Area of home and price",
+            "id": "sberbank_russian_housing_market_2_extracted.json_id_2",
+            "rank": 23,
+            "type": "scatter",
+            "channels": {
+                "x": {
+                    "attr": "full_sq",
+                    "trans": "log"
+                },
+                "y": {
+                    "attr": "price_doc",
+                    "trans": "log"
+                }
+            }
+        },
+        {
+            "describe": "Area of home and price",
+            "id": "sberbank_russian_housing_market_2_extracted.json_id_3",
+            "rank": 24,
+            "type": "scatter",
+            "channels": {
+                "x": {
+                    "attr": "life_sq",
+                    "trans": "log"
+                },
+                "y": {
+                    "attr": "price_doc",
+                    "trans": "log"
+                }
+            }
+        },
+        {
+            "describe": "build_year and price",
+            "id": "sberbank_russian_housing_market_3_extracted.json_id_1",
+            "rank": 25,
+            "type": "scatter",
+            "channels": {
+                "x": {
+                    "attr": "build_year",
+                    "trans": "raw"
+                },
+                "y": {
+                    "attr": "price_doc",
+                    "trans": "raw"
+                }
+            }
+        },
+        {
+            "describe": "floor and price_doc",
+            "id": "sberbank_russian_housing_market_3_extracted.json_id_2",
+            "rank": 26,
+            "type": "scatter",
+            "channels": {
+                "x": {
+                    "attr": "floor",
+                    "trans": "raw"
+                },
+                "y": {
+                    "attr": "price_doc",
+                    "trans": "raw"
+                }
+            }
+        },
+        {
+            "describe": "max_floor and price_doc",
+            "id": "sberbank_russian_housing_market_3_extracted.json_id_3",
+            "rank": 27,
+            "type": "scatter",
+            "channels": {
+                "x": {
+                    "attr": "max_floor",
+                    "trans": "raw"
+                },
+                "y": {
+                    "attr": "price_doc",
+                    "trans": "raw"
+                }
+            }
+        },
+        {
+            "describe": "Area of home and price",
+            "id": "sberbank_russian_housing_market_3_extracted.json_id_5",
+            "rank": 28,
+            "type": "scatter",
+            "channels": {
+                "x": {
+                    "attr": "life_sq",
+                    "trans": "raw"
+                },
+                "y": {
+                    "attr": "price_doc",
+                    "trans": "raw"
+                }
+            }
+        },
+        {
+            "describe": "home state",
+            "id": "sberbank_russian_housing_market_3_extracted.json_id_7",
+            "rank": 29,
+            "type": "bar",
+            "channels": {
+                "x": {
+                    "attr": "state",
+                    "trans": "raw",
+                    "groupby": true
+                },
+                "y": {
+                    "attr": "price_doc",
+                    "trans": "mean",
+                    "calcus": "raw"
+                }
+            }
+        }
+    ]
+}

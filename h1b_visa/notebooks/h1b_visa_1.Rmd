@@ -1,0 +1,785 @@
+---
+title: H-1B Visa Applications
+author: "Gabriel Preda"
+date: "(last updated) `r Sys.Date()`"
+output:
+  html_document:
+    number_sections: false
+    toc: true
+    fig_width: 8
+    fig_height: 6
+    theme: cosmo
+    highlight: tango
+    code_folding: show
+---
+
+
+```{r setup, include=FALSE}
+library(dplyr)
+library(readr)
+library(ggplot2)
+library(plotrix)
+library(sm)
+library(tools)
+library(treemap)
+library(leaflet)
+library(knitr)
+library(kableExtra)
+library(formattable)
+```
+
+
+
+
+
+# **Introduction**
+
+
+
+The H-1B is a visa in the United States which allows U.S. employers to employ foreign workers in specialty occupations.  
+
+
+![H-1B Visa](http://theinstitute.ieee.org/image/MTcwNzM1.jpeg)
+
+
+# **Load and prepare the data**
+
+
+There is only one data file, **h1b_kaggle.csv**.
+
+
+```{r read_data}
+df <- read_csv("../input/h1b_kaggle.csv")
+```
+
+
+
+Let's glimpse the data:
+
+
+
+```{r glimpse_data}
+head(df,10) %>%
+  kable( "html", escape=F, align="c") %>%
+   kable_styling(bootstrap_options = "striped", full_width = F, position = "center")
+```
+
+
+
+There are ``r nrow(df)`` applications for H-1B Visa from 2011 to 2016.
+
+
+The meaning of the columns are as follows:  
+
+
+
+* X1 - not named column, it is the id of the row;      
+* CASE_STATUS - status of the application;  
+* EMPLOYER_NAME - the name of the employer as registered in the H-1B Visa application;     
+* SOC_NAME - the occupation code for the employment;    
+* JOB_TITLE - the job title for the employment;    
+* FULL_TIME_POSITION - whether the application is for a full-time position of for a part-time position;    
+* PREVAILING_WAGE - the most frequent wage for the corresponding role as filled in the Visa application;  
+* YEAR - the application year;    
+* WORKSITE - the address of the employer worksite;    
+* lon - longitude of the employer worksite;    
+* lat - latitude of the employer worksite;    
+
+
+
+## Extract state information
+
+
+We can extract the state information from the **WORKSITE** feature. We add **state** as an additional column to the dataset.
+
+
+```{r extract_state_information}
+# State information is the last word (after a comma) in the Worksite string
+df$state <- trimws(gsub("^.*,", "", df$WORKSITE))
+```
+
+
+## Round latitude and longitude values
+
+
+We would like to round the **lat** and **lon** values so that we will be able to group by (**lat**, **lon**) with rough precision, so that we cluster many close positions in only one, for areas with high concentration of H-1B Visa applications.
+
+
+
+```{r round_lat_lon}
+df$rlat = round(df$lat,1)
+df$rlon = round(df$lon,1)
+```
+
+
+The rounded latitude and longitude are added as two new columns to the data, **rlat** and **rlon**.
+
+
+
+# **Case status**
+
+
+Let's group the data on *CASE_STATUS* to see the distribution of **CASE_STATUS**. We remove the *NA* and we order the applications by number, descendently.
+
+
+
+## All cases
+
+
+
+We represent first all cases for all year, grouped by **CASE_STATUS**.
+
+
+
+```{r fig.height=4, fig.width=6, case_status}
+df %>% filter(!is.na(CASE_STATUS)) %>% group_by(CASE_STATUS) %>% 
+  summarise(nr = length(lat)) %>% ungroup() -> dc
+
+ggplot(data = dc, aes(x = reorder(CASE_STATUS,nr), y = nr/1000)) +  
+  geom_bar(stat="identity", fill="tomato", colour="black") +
+  coord_flip() + theme_bw(base_size = 10)  +
+  labs(title="", x ="Case status", y = "Number of applications (thousands)")
+```
+
+
+Most of the applications are in state *CERTIFIED* (over 2.6 million), smaller number being with state **CERTIFIED-WITHDRAWN** (202 thousands), **DENIED** (94 thousands), **WITHDRAWN** (89 thousands). **REJECTED** (2), **INVALIDATED** (1) and **PENDING QUALITY AND COMPLIANCE REVIEW - UNASSIGNED** (15) are in much smaller number. The number of applications with **NA** were also small (13).
+
+
+## Cases per year
+
+
+
+Let's check now the yearly distribution of these applications statuses.
+
+
+
+```{r fig.height=4, fig.width=8,case_status_year}
+df %>% filter(!is.na(CASE_STATUS)) %>%  filter(!is.na(YEAR)) %>%
+  group_by(CASE_STATUS,YEAR) %>% summarise(nr = length(CASE_STATUS)) %>% ungroup() -> dcy
+ggplot(data = dcy, aes(x = YEAR, y = nr/1000, colour = CASE_STATUS)) +  
+  geom_line() + geom_point() + theme_bw() + theme(legend.position="right") +
+  labs(x="Year", y="Applications (thousands)", colour="Case status", 
+       title="Case status (per year)")
+```
+
+We can see that from `2011` to `2016`, the number of **CERTIFIED** applications allmost doubled, as well as the **CERTIFIED-WITHDRAWN**. The **DENIED** applications number decreased continously.
+
+
+
+# **Occupation code**
+
+
+Let's visualize now the `top 50` for applications grouped on occupational code. To save computational time, we first do `top 100` and then convert the **SOC_CODE** to lower case and then to Title Case, before grouping again on **SOC_CODE**, this second time doing `top 50`. 
+
+
+
+## All years
+
+
+
+```{r ocupational_code}
+df %>% filter(!is.na(SOC_NAME)) %>% group_by(SOC_NAME) %>% summarise(nr = length(SOC_NAME)) %>% 
+  top_n(n=100) %>% arrange(-nr) %>% ungroup() -> ds
+
+ds$SOC_NAME = toTitleCase(tolower(ds$SOC_NAME))
+ds %>% group_by(SOC_NAME) %>% summarise(nr = sum(nr)) %>% 
+  top_n(n=50) %>% arrange(-nr) %>% ungroup() -> ds
+
+ggplot(data = ds, aes(x = reorder(SOC_NAME,nr), y = nr/1000)) +  
+  geom_bar(stat="identity", fill="magenta", colour="black") +
+  coord_flip() + theme_bw(base_size = 10)  +
+  labs(title="", x ="Speciality", y = "Number of applications (thousands)")
+```
+
+
+We see that the most frequent applications are for **Computer Systems Analysts**, **Software Developers Applications** and **Computer Programmers**.
+
+Let's see now how these applications change every year. We will only focus on `top 10`.
+
+
+## Per year
+
+
+
+```{r fig.height=4, fig.width=8, ocupational_code_year}
+df %>% filter(!is.na(SOC_NAME)) %>%  filter(!is.na(YEAR)) %>%
+  filter(SOC_NAME %in% ds[1:10,]$SOC_NAME) %>%
+  group_by(SOC_NAME,YEAR) %>% summarise(nr = length(SOC_NAME)) %>% ungroup() -> dsy
+ggplot(data = dsy, aes(x = YEAR, y = nr/1000, colour = SOC_NAME)) +  
+  geom_line() + geom_point() + theme_bw() + theme(legend.position="right") +
+  labs(x="Year", y="Applications (thousands)", colour="Occupational code", 
+       title="Occupational code (per year)")
+```
+
+
+We can observe that application number with three occupation code related to  computer science increased dramatically from 2011 to 2015: **Computer Systems Analysts**, **Computer Programmers** and **Software Developpers, Applications**. The last one increased more than 5 times. 
+
+
+
+# **Job title**
+
+
+
+We continue with `top 50` of most frequent job titles in visa applications. The top is calculated based on the number of all applications, including all statuses and all years.
+
+
+
+```{r job_title}
+df %>% group_by(JOB_TITLE) %>% summarise(nr = length(lat)) %>% 
+  top_n(n=50) %>% arrange(-nr) %>% ungroup() -> dj
+ggplot(data = dj, aes(x = reorder(JOB_TITLE,nr), y = nr)) +  
+  geom_bar(stat="identity", fill="gold", colour="black") +
+  coord_flip() + theme_bw(base_size = 10)  +
+  labs(title="", x ="Job title (top 50)", y = "Number of applications")
+```
+
+
+
+
+
+Most frequent job titles are **PROGRAMER ANALYST**, **SOFTWARE ENGINEER**, **COMPUTER PROGRAMMER**, **SYSTEMS ANALYST**, **SOFTWATE DEVELOPER**, **BUSINESS ANALYST**, **COMPUTER SYSTEMS ANALYST**.
+
+
+
+# **Year**
+
+
+
+Let's view the applications distribution per year. We filter out the *NA* values first. We include all status cases.
+
+
+
+```{r fig.height=4, fig.width=5,year}
+df %>% filter(!is.na(YEAR)) %>% group_by(YEAR) %>% summarise(nr = length(lat)) %>% ungroup() -> dy
+
+ggplot(data = dy, aes(x = reorder(YEAR,nr), y = nr/1000)) +  
+  geom_bar(stat="identity", fill="tomato", colour="black") +
+  theme_bw(base_size = 10)  +
+  labs(title="", x ="Year", y = "Number of applications (thousands)")
+```
+
+
+We can see that the number of applications is increasing constantly from year to year, it allmost double from 2011 to 2016, raising from ``r min(dy$nr)`` to ``r max(dy$nr)``.
+
+
+
+# **Full time positions**
+
+
+
+Let's see what is the percent of full-time positions from the total number of applications. We include all status cases and all years.
+
+
+
+```{r fig.height=4, fig.width=4,full_time}
+
+df %>% filter(!is.na(FULL_TIME_POSITION)) %>% group_by(FULL_TIME_POSITION) %>% summarise(nr = length(lat)) %>% ungroup() -> dp
+
+lbls = c("Part time","Full time")
+
+pcts = round(dp$nr / sum(dp$nr) * 100,0)
+
+lbls = paste(lbls, pcts)
+
+lbls = paste(lbls,"%", sep="")
+
+cols = c("tomato", "gold")
+
+pie3D(x=dp$nr, labels=lbls, col = cols, explode=0, main = "Positions type")
+
+```
+
+The percent of full time positions is `86%`, the part time positions being `14%`.
+
+
+# **Employer name**
+
+
+Let's see now `top 50` of employers by number of applications.
+
+
+
+```{r top_employers}
+df %>% group_by(EMPLOYER_NAME) %>% summarise(nr = length(lat)) %>% top_n(n=50) %>% ungroup() -> de
+
+ggplot(data = de, aes(x = reorder(EMPLOYER_NAME,nr), y = nr/1000)) +  
+  geom_bar(stat="identity", fill="lightblue", colour="black") +
+  coord_flip() + theme_bw(base_size = 10)  +
+  labs(title="", x ="Employer name (top 50)", y = "Number of applications (thousands)")
+```
+
+
+
+First major H-1B Visa applications employers are **INFOSYS**, **Tata Consultancy Services Limited**, **Wipro Limited**, **Deloite Consulting Limited**, **IBM India Private Limited**, **Accenture LLP**, **Microsoft Corporation**.
+
+
+
+# **Prevailing wage**
+
+
+
+Let's see now what are the average values of the prevailing wage, grouped by year.
+
+
+
+```{r fig.height=4, fig.width=4, prevailing_wage}
+df %>% filter(!is.na(PREVAILING_WAGE)) %>% filter(PREVAILING_WAGE>0) %>% filter(!is.na(YEAR)) %>% 
+  group_by(YEAR) %>% summarise(avg = mean(PREVAILING_WAGE), min=min(PREVAILING_WAGE),
+                               max=max(PREVAILING_WAGE)) %>% ungroup() -> dw
+
+ggplot(data = dw, aes(x = YEAR, y = avg)) +  
+  geom_bar(stat="identity", fill="gold", colour="black") +
+  theme_bw(base_size = 10)  +
+  labs(title="", x ="Year", y = "Average prevailing salary ($)", main="Prevailing wages (2011-2016)")
+```
+
+
+
+These are the average values for the prevailing wages, considering all applications. Let's separate now only the **CERTIFIED** applications.
+
+
+
+## Certified application only
+
+
+
+```{r fig.height=4, fig.width=4,prevailing_wage_certified}
+df %>% filter(!is.na(PREVAILING_WAGE)) %>% filter(PREVAILING_WAGE>0) %>% filter(!is.na(YEAR)) %>% 
+  filter(CASE_STATUS == "CERTIFIED") %>%
+  group_by(YEAR) %>% summarise(avg = mean(PREVAILING_WAGE)) %>% ungroup() -> dw
+ggplot(data = dw, aes(x = YEAR, y = avg)) +  
+  geom_bar(stat="identity", fill="gold", colour="black") +
+  theme_bw(base_size = 10)  +
+  labs(title="", x ="Year", y = "Average prevailing salary ($)", main="Prevailing wages (2011-2016)")
+```
+
+
+We observe that actually there was a significant bias on the prevailing salaries average introduced  by the applications that were not confirmed/certified. The average value for the **CERTIFIED**  applications does not have a large variation between `2011` and `2016`. In the same time, we see a very large variation for all applications between `2011`-`2014` vs. `2015`-`2016`. It might be that the process was much improved and applications with unrealistic high salaries were discontinued after `2014`.
+
+
+
+## All non CERTIFIED applications
+
+
+
+Let's see what were the averages for prevailing wages considering **All non CERTIFIED** applications.
+
+
+
+```{r fig.height=4, fig.width=4,prevailing_wage_non_certified}
+df %>% filter(!is.na(PREVAILING_WAGE)) %>% filter(PREVAILING_WAGE>0) %>% filter(!is.na(YEAR)) %>% 
+  filter(CASE_STATUS != "CERTIFIED") %>%
+  group_by(YEAR) %>% summarise(avg = mean(PREVAILING_WAGE)) %>% ungroup() -> dw
+ggplot(data = dw, aes(x = YEAR, y = avg)) +  
+  geom_bar(stat="identity", fill="tomato", colour="black") +
+  theme_bw(base_size = 10)  +
+  labs(title="", x ="Year", y = "Average prevailing salary ($)", main="Prevailing wages (2011-2016)")
+```
+
+
+We can confirm that during 2011-2014 there was a significant bias in the prevailing wages averages induced by the unusual ammount of the **not CERTIFIED** applications. After `2015`, the average salaries of these applications decreased. 
+
+
+
+## Grouped by job name
+
+We remove the **not CERTIFIED** applications, since we understood already that these applications introduces some very high average prevailing wage values.
+
+
+
+```{r fig.height=4, fig.width=8, prevailing_wage_job_name}
+df %>% filter(!is.na(PREVAILING_WAGE)) %>% filter(PREVAILING_WAGE>0) %>% filter(!is.na(YEAR)) %>%
+  filter(CASE_STATUS == "CERTIFIED") %>% filter(JOB_TITLE %in% dj$JOB_TITLE[1:10]) %>%
+  group_by(JOB_TITLE,YEAR) %>% summarise(avg = mean(PREVAILING_WAGE)) %>% ungroup() -> dwj
+
+ggplot(data = dwj, aes(x = YEAR, y = avg/1000, colour = JOB_TITLE)) +       
+  geom_line() + geom_point() + theme_bw() + theme(legend.position="right") +
+  labs(x="Year", y="Average salary (thousands USD)", colour="Job title", 
+       title="Prevailing salaries (per year and job title)",
+       subtitle="Only CERTIFIED applications included")
+```
+
+
+
+We can observe the peak of **SENIOR SOFTWARE ENGINEER** in 2012 and the gradual increase of averages prevailing wages for **PROGRAMMER ANALYST** from 2012, in parallel with a severe drop from `2012` of **SOFTWARE ENGINEER**. It is obvious that all the high-paid jobs are in the Computer Science related areas. From `2012` we can observe an almost perfectly correlated raise of prevailing wages for most of the **top 10 income** job titles.
+
+
+Let's check the Job titles that includes **DATA SCIENTIST**, **CHIEF DATA SCIENTIST** and **DATA ANALYTICS ENGINEER**:
+
+
+```{r prevailing_wage_job_name_data_science_related}
+
+df %>% filter(!is.na(PREVAILING_WAGE)) %>% filter(PREVAILING_WAGE>0) %>% filter(!is.na(YEAR)) %>%
+  filter(CASE_STATUS == "CERTIFIED") %>% 
+  filter(JOB_TITLE %in% c("DATA SCIENTIST", "CHIEF DATA SCIENTIST", "DATA ANALYTICS ENGINEER")) %>%
+  group_by(JOB_TITLE,YEAR) %>% summarise(avg = mean(PREVAILING_WAGE)) %>% ungroup() -> dwj
+
+ggplot(data = dwj, aes(x = YEAR, y = avg/1000, colour = JOB_TITLE)) +       
+  geom_line() + geom_point() + theme_bw() + theme(legend.position="right") +
+  labs(x="Year", y="Average salary (thousands USD)", colour="Job title", 
+       title="Prevailing salaries (per year and job title)",
+       subtitle="Only CERTIFIED applications included for 3 Data Science related roles")
+```
+
+
+We can observe that **DATA SCIENTIST** shows quite a constant variation during the period `2011`-`2016`, with peak value for `2012`.
+
+Let's represent now the density plots for two job names, **SENIOR SOFTWARE ENGINEER** (one of the most frequent) and also **DATA SCIENTIST**.
+
+
+## Density plot by years
+
+
+
+We start with the density plot of prevailing wages by years for **SENIOR SOFTWARE DEVELOPER**.
+
+
+
+```{r density_plot_years}
+df %>% filter(!is.na(PREVAILING_WAGE)) %>% filter(PREVAILING_WAGE>0) %>% 
+  filter(!is.na(JOB_TITLE)) %>% filter(!is.na(YEAR)) %>% filter(CASE_STATUS == "CERTIFIED") %>%
+  filter(JOB_TITLE %in% c("SENIOR SOFTWARE ENGINEER")) %>% ungroup() -> dws
+x = dws$PREVAILING_WAGE
+y = dws$YEAR
+y.f <- factor(y, levels= c(2011, 2012,2013, 2014, 2015, 2016),
+                labels = c("2011", "2012", "2013", "2014", "2015", "2016")) 
+sm.density.compare(x,y.f, xlab="Prevailing wage", ylab="Density")
+title(main="Density plot for SENIOR SOFTWARE ENGINEER by years")
+grid()
+colfill<-c(2:(2+length(levels(y.f)))) 
+legend(x = "topright", levels(y.f), fill=colfill)
+```
+
+
+We observe that while the prevailing wages in `2011` for **SENIOR SOFTWARE ENGINEER** have a large peak in the density plot around `K$75` and a smaller saddle point just above `K$100`, gradually in `2012`-`2013` and increasingly from 2014 to `2016` we see forming multiple peaks, with increasing density around `K$125` in `2016` and smaller peaks around `K$140` and `K$165`, with a total of 4 main peaks in the density plot for this year. Let's view now the corresponding density plot for **DATA SCIENTIST**.
+
+
+
+```{r density_plot_years_2}
+df %>% filter(!is.na(PREVAILING_WAGE)) %>% filter(PREVAILING_WAGE>0) %>% 
+  filter(!is.na(JOB_TITLE)) %>% filter(!is.na(YEAR)) %>% filter(CASE_STATUS == "CERTIFIED") %>%
+  filter(JOB_TITLE %in% c("DATA SCIENTIST")) %>% ungroup() -> dws
+
+x = dws$PREVAILING_WAGE
+y = dws$YEAR
+y.f <- factor(y, levels= c(2011, 2012,2013, 2014, 2015, 2016),
+                labels = c("2011", "2012", "2013", "2014", "2015", "2016")) 
+sm.density.compare(x,y.f, xlab="Prevailing wage", ylab="Density")
+title(main="Density plot for DATA SCIENTIST by years")
+grid()
+colfill<-c(2:(2+length(levels(y.f)))) 
+legend(x = "topright", levels(y.f), fill=colfill)
+```
+
+
+
+
+
+For `2011` there is an interesting double peak density plot profile, with highest peak at `K$95` and lower peak at `K$65`. The values span is increasing in `2012` with a longer queue to the upper values, up to `K$150` and above (also) and follow allmost the same profile until `2016`. The prevailing wages interval increased although the averages values did not moved drastically from the initial average.
+
+
+
+
+## Density plot  by type of position
+
+
+
+We continue with the density plot of prevailing wages by type of position (**Full-time** or **Part-time**) for **SENIOR SOFTWARE ENGINEER**.
+
+
+
+```{r density_plot_type_position}
+df %>% filter(!is.na(PREVAILING_WAGE)) %>% filter(PREVAILING_WAGE>0) %>% 
+  filter(!is.na(JOB_TITLE)) %>% filter(!is.na(YEAR)) %>% filter(CASE_STATUS == "CERTIFIED") %>%
+  filter(JOB_TITLE %in% c("SENIOR SOFTWARE ENGINEER")) %>% ungroup() -> dws
+
+x = dws$PREVAILING_WAGE
+y=dws$FULL_TIME_POSITION
+y.f <- factor(y, levels = c("Y", "N"), labels = c("Full time", "Part time"))
+sm.density.compare(x,y.f, xlab="Prevailing wage", ylab="Density")
+title(main="Density plot for SENIOR SOFTWARE ENGINEER by type of position")
+grid()
+colfill<-c(2:(2+length(levels(y.f)))) 
+legend(x = "topright", levels(y.f), fill=colfill)
+```
+
+
+One can observe the smaller amount and variation of the prevailing wage for **SENIOR SOFTWARE ENGINEER** for the part-time wages and the larger limits and average amount for the full-time wage. For the full-time we can observe as well the 3 different peaks in the density plot of prevailing wage for this job title.
+
+
+
+```{r density_plot_type_position_2}
+df %>% filter(!is.na(PREVAILING_WAGE)) %>% filter(PREVAILING_WAGE>0) %>% 
+  filter(!is.na(JOB_TITLE)) %>% filter(!is.na(YEAR)) %>% filter(CASE_STATUS == "CERTIFIED") %>%
+  filter(JOB_TITLE %in% c("DATA SCIENTIST")) %>% ungroup() -> dws
+x = dws$PREVAILING_WAGE
+y=dws$FULL_TIME_POSITION
+y.f <- factor(y, levels = c("Y", "N"), labels = c("Full time", "Part time"))
+sm.density.compare(x,y.f, xlab="Prevailing wage", ylab="Density")
+title(main="Density plot for DATA SCIENTIST by type of position")
+grid()
+colfill<-c(2:(2+length(levels(y.f)))) 
+legend(x = "topright", levels(y.f), fill=colfill)
+```  
+
+
+For **DATA SCIENTIST**, the secondary peaks are much smaller for the density plots for both **Full-time** and **Part-time** positions. The separation between the two graphs is as well defined as for **SENIOR SOFTWARE ENGINEER**, with the average value of **Part-time** around `K$60` and main peak for **Full-time** around `$K80`.
+
+
+## Density plot by state
+
+
+Next, we show  the density plot of prevailing wages by state (we will select just few states: `CALIFORNIA`, `TEXAS`, `NEW YORK`, `NEW JERSEY`, `ILLINOIS`, `MASSACHUSETTS`,  `WASHINGTON`, `PENNSYLVANIA`)
+
+
+```{r density_plot_state}
+lStates = c("CALIFORNIA", "TEXAS", "NEW YORK","NEW JERSEY","ILLINOIS", "MASSACHUSETTS",  "WASHINGTON", "PENNSYLVANIA")
+df %>% filter(!is.na(PREVAILING_WAGE)) %>% filter(PREVAILING_WAGE>0) %>% 
+  filter(!is.na(JOB_TITLE)) %>% filter(!is.na(YEAR)) %>% filter(CASE_STATUS == "CERTIFIED") %>%
+  filter(state %in% lStates) %>%
+  filter(JOB_TITLE %in% c("SENIOR SOFTWARE ENGINEER")) %>% ungroup() -> dws
+x = dws$PREVAILING_WAGE
+y = dws$state
+y.f <- factor(y, levels = lStates,labels = lStates)
+sm.density.compare(x,y.f, xlab="Prevailing wage", ylab="Density")
+title(main="Density plot for SENIOR SOFTWARE ENGINEER by state")
+grid()
+colfill<-c(2:(2+length(levels(y.f)))) 
+legend(x = "topright", levels(y.f), fill=colfill)
+```
+
+
+For California, the state with most of the jobs and where we expect to have also considerable amounts, we see that there is a large span and three main peaks of the density plot, one around K$90, another around K$120 and a third, the smallest, around K$140. Washington shows the highest peak of the density plot and smallest span, concentrated around K$120.Illinois has the main peak just above K$60. New York shows a complex density plot profile, with multiple hill tops and valleys, also spanning from just over K$50 to K$135.
+
+Let's see how is the density plot for **DATA SCIENTIST**.
+
+
+
+```{r density_plot_state_2}
+lStates = c("CALIFORNIA", "TEXAS", "NEW YORK","NEW JERSEY","ILLINOIS", "MASSACHUSETTS",  "WASHINGTON", "PENNSYLVANIA")
+df %>% filter(!is.na(PREVAILING_WAGE)) %>% filter(PREVAILING_WAGE>0) %>% 
+  filter(!is.na(JOB_TITLE)) %>% filter(!is.na(YEAR)) %>% filter(CASE_STATUS == "CERTIFIED") %>%
+  filter(state %in% lStates) %>%
+  filter(JOB_TITLE %in% c("DATA SCIENTIST")) %>% ungroup() -> dws
+x = dws$PREVAILING_WAGE
+y = dws$state
+y.f <- factor(y, levels = lStates,labels = lStates)
+sm.density.compare(x,y.f, xlab="Prevailing wage", ylab="Density")
+title(main="Density plot for DATA SCIENTIST by state")
+grid()
+colfill<-c(2:(2+length(levels(y.f)))) 
+legend(x = "topright", levels(y.f), fill=colfill)
+```
+
+
+California has both the highest average value peak around K$90 and the largest span. Illinois has the smaller average value od the prevailing wages, around K$60. The state of Texas shows a density curve with several peaks at K$50, K$65 and the largest peak at around K$80. Pennsylvania state has the average at around K$60 and the smaller span of prevailing wages.
+
+
+# **Worksite**
+
+
+
+Let's group first the applications by state. We already extracted the state information from the **WORKSITE** field.
+
+
+
+```{r worksite_state_2}
+df %>% filter(!is.na(state)) %>%  
+  group_by(state) %>% summarise(nr = length(state)) %>% ungroup() -> dstate
+dstate$state <- tolower(dstate$state)
+dstate$nr <- dstate$nr/1000
+colnames(dstate) <- c("region","value")
+    treemap(dstate, 
+        index=c("region"), 
+        type="value",
+        vSize = "value",  
+        vColor = "value",
+        palette = "RdBu",  
+        title=sprintf("Applications per state"), 
+        title.legend = "Applications (thousands)",
+        fontsize.title = 14 
+    )
+```
+
+The states with most of the applications are California, New York, New Jersey, Massachusetts, Illinois, Pennsylvania, Texas.
+
+
+
+## Worksite and year
+
+
+
+Let's see the applications grouped by state and year:
+
+
+
+```{r state_year}
+#group applications by state and year
+df %>% filter(!is.na(state)) %>%  filter(!is.na(YEAR)) %>%
+  group_by(YEAR, state) %>% summarise(nr = length(CASE_STATUS)) %>% ungroup() -> dys
+dys$state <- tolower(dys$state)
+dys$nr <- dys$nr/1000
+colnames(dys) <- c("year", "region","value")
+drawApplicationsTreeMap <- function(year){
+    dys2 <- subset(dys[,2:3], dys$year == year)
+    treemap(dys2, 
+        index=c("region"), 
+        type="value",
+        vSize = "value",  
+        vColor="value",
+        palette = "RdBu",  
+        title=sprintf("Applications during year %d",year), 
+        title.legend="Applications (thousands)",
+        fontsize.title = 14 
+    )
+}
+```
+
+
+## State and year list {.tabset .tabset-fade .tabset-pills}
+
+###2011
+
+```{r 2011}
+drawApplicationsTreeMap(2011)
+```
+
+
+###2012
+
+```{r 2012}
+drawApplicationsTreeMap(2012)
+```
+
+
+
+###2013
+
+```{r 2013}
+drawApplicationsTreeMap(2013)
+```
+
+
+
+###2014
+
+```{r 2014}
+drawApplicationsTreeMap(2014)
+```
+
+
+
+###2015
+
+```{r 2015}
+drawApplicationsTreeMap(2015)
+```
+
+
+
+###2016
+
+```{r 2016}
+drawApplicationsTreeMap(2016)
+```
+
+
+
+###  
+
+
+
+
+
+## Prevailing wage grouped by state
+
+
+
+We will only show the prevailing wage values per state for the **CERTIFIED** cases.
+
+
+
+```{r prevailing_wage_state}
+df %>% filter(!is.na(PREVAILING_WAGE)) %>% filter(PREVAILING_WAGE>0) %>% 
+  filter(CASE_STATUS == "CERTIFIED") %>%
+  group_by(state) %>% summarise(avg = mean(PREVAILING_WAGE)) %>% ungroup() -> dws
+
+dws$state <- tolower(dws$state)
+dws$avg <- dws$avg/1000
+colnames(dws) <- c("region","value")
+ treemap(dws, 
+        index=c("region"), 
+        type="value",
+        vSize = "value",  
+        vColor="value",
+        palette = "RdBu",  
+        title="Average prevailing wage per state", 
+        title.legend="Annual wage (thousands USD)",
+        fontsize.title = 14 
+    )
+```
+
+The states with largest averages for prevailing wages are on the West Coast (California, Oregon, Washington, New Mexico). 
+
+
+## Application number - leaflet map
+
+
+Let's see the map distribution of the applications using a leaflet map.
+
+
+```{r leaflet_application_number}
+df %>% filter(!is.na(rlat)) %>% filter(!is.na(rlon)) %>% group_by(rlat,rlon) %>%
+  summarise(nr = length(rlat)) %>% ungroup() -> dl
+colnames(dl) <- c("lat","lon","value")
+bins <- c(max(dl$value),150000,100000,50000,min(dl$value))
+pal <- colorBin("RdYlGn", domain = dl$value, bins = bins)
+
+leaflet(data = dl) %>%
+  addTiles() %>% setView(-99, 35, zoom = 4) %>%
+  addCircleMarkers(
+    lat=dl$lat, lng=dl$lon, radius=sqrt(dl$value)/10, color = ~pal(dl$value), weight=1.5, opacity=0.8,
+    popup= paste("<br><strong>Applications: </strong>", dl$value
+    ))
+```  
+
+
+We can observe the concentration of working sites on the West Coast around San Francisco, Seattle and also on the East Coast, around New York (with the largest concentration around Manhattan), in New Jersey and in Boston. Texas is another region with a large concentration of applications.
+
+
+## Prevailing wages - leaflet map
+
+
+
+```{r leaflet_prevailing_wages}
+df %>% filter(!is.na(rlat)) %>% filter(!is.na(rlon)) %>% 
+  filter(CASE_STATUS == "CERTIFIED") %>% group_by(rlat,rlon) %>%
+  summarise(avg = mean(PREVAILING_WAGE)) %>% ungroup() -> dw1
+colnames(dw1) <- c("lat","lon","value")
+bins <- c(min(dw1$value),50000, 100000, 150000, 200000 ,max(dl$value))
+pal <- colorBin("RdYlGn", domain = dw1$value, bins = bins)
+leaflet(data = dw1) %>%
+  addTiles() %>% setView(-99, 35, zoom = 4) %>%
+  addCircleMarkers(
+    lat=dw1$lat, lng=dw1$lon, radius=sqrt(dw1$value)/20, color = ~pal(dw1$value), weight=1.5, opacity=0.8,
+    popup= paste("<br><strong>Average wage: </strong>", round(dw1$value/1000,0), "k$"
+    ))
+```  
+
+
+
+The average prevailing wage, grouped on areas with resolution of `.1` on both *lat* and *long* is ranging between values of K$27.9 to K$545.
+
+
+# **Feedback requested**
+
+
+I would appreciate your suggestions for improvement of this Kernel.
+
+
+
+# **References**
+
+
+[1] H-1B Visa dataset, Kaggle Datasets, https://www.kaggle.com/nsharan/h-1b-visa  
+[2] H-1B Visa Wikipedia page, https://en.wikipedia.org/wiki/H-1B_visa

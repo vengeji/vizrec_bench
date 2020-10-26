@@ -1,0 +1,185 @@
+{
+    "url": "https://www.kaggle.com/sudalairajkumar/simple-exploration-baseline-notebook-avito",
+    "votes": 387,
+    "rank": 1,
+    "charts": [
+        {
+            "describe": "Histogram of deal probability",
+            "chart": "histogram",
+            "x": {
+                "attr": "deal_probability",
+                "trans": "bin",
+                "bins": 100
+            },
+            "y": {
+                "attr": "deal_probability",
+                "trans": "count",
+                "calcus": "raw"
+            }
+        },
+        {
+            "describe": "Scatter of deal probability and index",
+            "chart": "scatter",
+            "x": {
+                "attr": "index",
+                "trans": "raw"
+            },
+            "y": {
+                "attr": "deal_probability",
+                "trans": "raw"
+            }
+        },
+        {
+            "describe": "Number of ads of different regions",
+            "chart": "pie",
+            "x": {
+                "attr": "region",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "region",
+                "trans": "count",
+                "calcus": "percentage"
+            }
+        },
+        {
+            "describe": "Boxplot of region and deal probability",
+            "chart": "boxplot",
+            "x": {
+                "attr": "region",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "deal_probability",
+                "trans": "raw"
+            }
+        },
+        {
+            "describe": "Number of ads of different cities",
+            "chart": "bar",
+            "x": {
+                "attr": "city",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "city",
+                "trans": "count",
+                "calcus": "raw"
+            }
+        },
+        {
+            "describe": "Number of ads of different parent categories",
+            "chart": "pie",
+            "x": {
+                "attr": "parent_category_name",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "parent_category_name",
+                "trans": "count",
+                "calcus": "percentage"
+            }
+        },
+        {
+            "describe": "Boxplot of parent category and deal probability",
+            "chart": "boxplot",
+            "x": {
+                "attr": "parent_category_name",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "deal_probability",
+                "trans": "raw"
+            }
+        },
+        {
+            "describe": "Number of ads of different subcategories",
+            "chart": "bar",
+            "x": {
+                "attr": "category_name",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "category_name",
+                "trans": "count",
+                "calcus": "raw"
+            }
+        },
+        {
+            "describe": "Number of ads of different user types",
+            "chart": "pie",
+            "x": {
+                "attr": "user_type",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "user_type",
+                "trans": "count",
+                "calcus": "percentage"
+            }
+        },
+        {
+            "describe": "Histogram of price",
+            "chart": "histogram",
+            "x": {
+                "attr": "price",
+                "trans": "bin",
+                "bins": 100
+            },
+            "y": {
+                "attr": "price",
+                "trans": "count",
+                "calcus": "raw"
+            }
+        },
+        {
+            "describe": "Number of ads of different dates",
+            "chart": "bar",
+            "x": {
+                "attr": "activation_date",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "activation_date",
+                "trans": "count",
+                "calcus": "raw"
+            }
+        },
+        {
+            "describe": "Number of words in title",
+            "chart": "bar",
+            "x": {
+                "attr": "title",
+                "trans": "len",
+                "groupby": true
+            },
+            "y": {
+                "attr": "title",
+                "trans": "count",
+                "calcus": "raw"
+            }
+        },
+        {
+            "describe": "Number of words in description",
+            "chart": "wordcount",
+            "x": {
+                "attr": "description",
+                "trans": "len",
+                "groupby": true
+            },
+            "y": {
+                "attr": "description",
+                "trans": "count",
+                "calcus": "raw"
+            }
+        }
+    ]
+}

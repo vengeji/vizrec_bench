@@ -1,0 +1,463 @@
+{
+    "url": "https://www.kaggle.com/ldfreeman3/a-data-science-framework-to-achieve-99-accuracy",
+    "votes": 2469,
+    "rank": 1,
+    "charts": [
+        {
+            "describe": "fare boxplot",
+            "chart": "boxplot",
+            "x": {
+                "attr": "Fare",
+                "trans": "raw"
+            },
+            "y": {
+                "attr": "Fare",
+                "trans": "raw"
+            }
+        },
+        {
+            "describe": "Age boxplot",
+            "chart": "boxplot",
+            "x": {
+                "attr": "Age",
+                "trans": "raw"
+            },
+            "y": {
+                "attr": "Age",
+                "trans": "raw"
+            }
+        },
+        {
+            "describe": "FamilySize boxplot",
+            "chart": "boxplot",
+            "x": {
+                "attr": "FamilySize",
+                "trans": "raw"
+            },
+            "y": {
+                "attr": "FamilySize",
+                "trans": "raw"
+            }
+        },
+        {
+            "describe": "Fare Histogram by Survival",
+            "chart": "histogram",
+            "x": {
+                "attr": "Fare",
+                "trans": "bin",
+                "bins": "default"
+            },
+            "y": {
+                "attr": "Fare",
+                "trans": "count",
+                "calcus": "raw"
+            },
+            "color": {
+                "attr": "Survived",
+                "trans": "raw",
+                "groupby": true
+            }
+        },
+        {
+            "describe": "Age Histogram by Survival",
+            "chart": "histogram",
+            "x": {
+                "attr": "Age",
+                "trans": "bin",
+                "bins": "default"
+            },
+            "y": {
+                "attr": "Age",
+                "trans": "count",
+                "calcus": "raw"
+            },
+            "color": {
+                "attr": "Survived",
+                "trans": "raw",
+                "groupby": true
+            }
+        },
+        {
+            "describe": "FamilySize Histogram by Survival",
+            "chart": "histogram",
+            "x": {
+                "attr": "FamilySize",
+                "trans": "bin",
+                "bins": "default"
+            },
+            "y": {
+                "attr": "FamilySize",
+                "trans": "count",
+                "calcus": "raw"
+            },
+            "color": {
+                "attr": "Survived",
+                "trans": "raw",
+                "groupby": true
+            }
+        },
+        {
+            "describe": "Embarked by Survived",
+            "chart": "bar",
+            "x": {
+                "attr": "Embarked",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "Survived",
+                "trans": "count",
+                "calcus": "raw"
+            },
+            "color": {
+                "attr": "Survived",
+                "trans": "raw",
+                "groupby": true
+            }
+        },
+        {
+            "describe": "Pclass by Survived",
+            "chart": "bar",
+            "x": {
+                "attr": "Pclass",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "Survived",
+                "trans": "count",
+                "calcus": "raw"
+            },
+            "color": {
+                "attr": "Survived",
+                "trans": "raw",
+                "groupby": true
+            }
+        },
+        {
+            "describe": "IsAlone by Survived",
+            "chart": "bar",
+            "x": {
+                "attr": "IsAlone",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "Survived",
+                "trans": "count",
+                "calcus": "raw"
+            },
+            "color": {
+                "attr": "Survived",
+                "trans": "raw",
+                "groupby": true
+            }
+        },
+        {
+            "describe": "FareBin by Survived",
+            "chart": "pointplot",
+            "x": {
+                "attr": "FareBin",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "Survived",
+                "trans": "count",
+                "calcus": "percentage"
+            },
+            "color": {
+                "attr": "Survived",
+                "trans": "raw",
+                "groupby": true
+            }
+        },
+        {
+            "describe": "AgeBin by Survived",
+            "chart": "pointplot",
+            "x": {
+                "attr": "AgeBin",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "Survived",
+                "trans": "count",
+                "calcus": "percentage"
+            },
+            "color": {
+                "attr": "Survived",
+                "trans": "raw",
+                "groupby": true
+            }
+        },
+        {
+            "describe": "FamilySize by Survived",
+            "chart": "pointplot",
+            "x": {
+                "attr": "FamilySize",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "Survived",
+                "trans": "count",
+                "calcus": "percentage"
+            },
+            "color": {
+                "attr": "Survived",
+                "trans": "raw",
+                "groupby": true
+            }
+        },
+        {
+            "describe": "x = 'Pclass', y = 'Fare', hue = 'Survived'",
+            "chart": "boxplot",
+            "x": {
+                "attr": "Pclass",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "Fare",
+                "trans": "raw"
+            },
+            "color": {
+                "attr": "Survived",
+                "trans": "raw",
+                "groupby": true
+            }
+        },
+        {
+            "describe": "x = 'Pclass', y = 'Age', hue = 'Survived'",
+            "chart": "violinplot",
+            "x": {
+                "attr": "Pclass",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "Age",
+                "trans": "raw"
+            },
+            "color": {
+                "attr": "Survived",
+                "trans": "raw",
+                "groupby": true
+            }
+        },
+        {
+            "describe": "x = 'Pclass', y ='FamilySize', hue = 'Survived'",
+            "chart": "boxplot",
+            "x": {
+                "attr": "Pclass",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "FamilySize",
+                "trans": "raw"
+            },
+            "color": {
+                "attr": "Survived",
+                "trans": "raw",
+                "groupby": true
+            }
+        },
+        {
+            "describe": "x = 'Sex', y = 'Survived', hue = 'Embarked'",
+            "chart": "bar",
+            "x": {
+                "attr": "Sex",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "Survived",
+                "trans": "count",
+                "calcus": "raw"
+            },
+            "col": {
+                "attr": "Survived",
+                "trans": "raw",
+                "groupby": true
+            },
+            "color": {
+                "attr": "Embarked",
+                "trans": "raw",
+                "groupby": true
+            }
+        },
+        {
+            "describe": "x = 'Sex', y = 'Survived', hue = 'Pclass'",
+            "chart": "bar",
+            "x": {
+                "attr": "Sex",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "Survived",
+                "trans": "count",
+                "calcus": "raw"
+            },
+            "col": {
+                "attr": "Survived",
+                "trans": "raw",
+                "groupby": true
+            },
+            "color": {
+                "attr": "Pclass",
+                "trans": "raw",
+                "groupby": true
+            }
+        },
+        {
+            "describe": "x = 'Sex', y = 'Survived', hue = 'IsAlone'",
+            "chart": "bar",
+            "x": {
+                "attr": "Sex",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "Survived",
+                "trans": "count",
+                "calcus": "raw"
+            },
+            "col": {
+                "attr": "Survived",
+                "trans": "raw",
+                "groupby": true
+            },
+            "color": {
+                "attr": "IsAlone",
+                "trans": "raw",
+                "groupby": true
+            }
+        },
+        {
+            "describe": "x=\"FamilySize\", y=\"Survived\", hue=\"Sex\"",
+            "chart": "pointplot",
+            "x": {
+                "attr": "FamilySize",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "Survived",
+                "trans": "count",
+                "calcus": "percentage"
+            },
+            "col": {
+                "attr": "Survived",
+                "trans": "raw",
+                "groupby": true
+            },
+            "color": {
+                "attr": "Sex",
+                "trans": "raw",
+                "groupby": true
+            }
+        },
+        {
+            "describe": "x=\"Pclass\", y=\"Survived\", hue=\"Sex\"",
+            "chart": "pointplot",
+            "x": {
+                "attr": "Pclass",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "Survived",
+                "trans": "count",
+                "calcus": "percentage"
+            },
+            "col": {
+                "attr": "Survived",
+                "trans": "raw",
+                "groupby": true
+            },
+            "color": {
+                "attr": "Sex",
+                "trans": "raw",
+                "groupby": true
+            }
+        },
+        {
+            "describe": "'Pclass', 'Survived', 'Sex', 'Embarked'",
+            "chart": "pointplot",
+            "x": {
+                "attr": "Pclass",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "Survived",
+                "trans": "count",
+                "calcus": "percentage"
+            },
+            "col": {
+                "attr": "Embarked",
+                "trans": "raw",
+                "groupby": true
+            },
+            "row": {
+                "attr": "Survived",
+                "trans": "raw",
+                "groupby": true
+            },
+            "color": {
+                "attr": "Sex",
+                "trans": "raw",
+                "groupby": true
+            }
+        },
+        {
+            "describe": "Age kdeplot",
+            "chart": "kdeplot",
+            "x": {
+                "attr": "Age",
+                "trans": "raw"
+            },
+            "y": {
+                "attr": "Age",
+                "trans": "raw"
+            },
+            "color": {
+                "attr": "Survived",
+                "trans": "raw",
+                "groupby": true
+            }
+        },
+        {
+            "describe": "facetplot of pclass age sex and survived",
+            "chart": "facetgrid",
+            "x": {
+                "attr": "Age",
+                "trans": "bin",
+                "bins": "default"
+            },
+            "y": {
+                "attr": "Age",
+                "trans": "count",
+                "calcus": "raw"
+            },
+            "color": {
+                "attr": "Survived",
+                "trans": "raw",
+                "groupby": true
+            },
+            "col": {
+                "attr": "Pclass",
+                "trans": "raw",
+                "groupby": true
+            },
+            "row": {
+                "attr": "Sex",
+                "trans": "raw",
+                "groupby": true
+            }
+        }
+    ]
+}

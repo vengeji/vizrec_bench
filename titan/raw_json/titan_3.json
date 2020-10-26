@@ -1,0 +1,225 @@
+{
+    "url": "https://www.kaggle.com/omarelgabry/a-journey-through-titanic",
+    "votes": 1205,
+    "rank": 3,
+    "charts": [
+        {
+            "describe": "x = 'Embarked', y = 'Survived'",
+            "chart": "pointplot",
+            "x": {
+                "attr": "Embarked",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "Survived",
+                "trans": "count",
+                "calcus": "percentage"
+            },
+            "color": {
+                "attr": "Survived",
+                "trans": "raw",
+                "groupby": true
+            }
+        },
+        {
+            "describe": "x = 'Embarked', y = 'Survived'",
+            "chart": "bar",
+            "x": {
+                "attr": "Embarked",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "Embarked",
+                "trans": "count",
+                "calcus": "raw"
+            },
+            "color": {
+                "attr": "Survived",
+                "trans": "raw",
+                "groupby": true
+            }
+        },
+        {
+            "describe": "x = 'Survived', y = 'Embarked'",
+            "chart": "bar",
+            "x": {
+                "attr": "Survived",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "Survived",
+                "trans": "count",
+                "calcus": "raw"
+            },
+            "color": {
+                "attr": "Embarked",
+                "trans": "raw",
+                "groupby": true
+            }
+        },
+        {
+            "describe": "x = 'Embarked', y = 'Survived'",
+            "chart": "bar",
+            "x": {
+                "attr": "Embarked",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "Survived",
+                "trans": "mean",
+                "calcus": "raw"
+            }
+        },
+        {
+            "describe": "Fare Histogram",
+            "chart": "histogram",
+            "x": {
+                "attr": "Fare",
+                "trans": "bin",
+                "bins": "default"
+            },
+            "y": {
+                "attr": "Fare",
+                "trans": "count",
+                "calcus": "raw"
+            }
+        },
+        {
+            "describe": "Survived and Fare",
+            "chart": "boxplot",
+            "x": {
+                "attr": "Survived",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "Fare",
+                "trans": "raw"
+            }
+        },
+        {
+            "describe": "Age Histogram",
+            "chart": "histogram",
+            "x": {
+                "attr": "Age",
+                "trans": "bin",
+                "bins": "70"
+            },
+            "y": {
+                "attr": "Age",
+                "trans": "count",
+                "calcus": "raw"
+            }
+        },
+        {
+            "describe": "Age kdeplot",
+            "chart": "kdeplot",
+            "x": {
+                "attr": "Age",
+                "trans": "raw"
+            },
+            "y": {
+                "attr": "Age",
+                "trans": "raw"
+            },
+            "color": {
+                "attr": "Survived",
+                "trans": "raw",
+                "groupby": true
+            }
+        },
+        {
+            "describe": "Age mean survived",
+            "chart": "bar",
+            "x": {
+                "attr": "Age",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "Survived",
+                "trans": "mean",
+                "calcus": "raw"
+            }
+        },
+        {
+            "describe": "IsAlone",
+            "chart": "bar",
+            "x": {
+                "attr": "IsAlone",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "IsAlone",
+                "trans": "count",
+                "calcus": "raw"
+            }
+        },
+        {
+            "describe": "IsAlone",
+            "chart": "bar",
+            "x": {
+                "attr": "IsAlone",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "Survived",
+                "trans": "mean",
+                "calcus": "raw"
+            }
+        },
+        {
+            "describe": "Person",
+            "chart": "bar",
+            "x": {
+                "attr": "Person",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "Person",
+                "trans": "count",
+                "calcus": "raw"
+            }
+        },
+        {
+            "describe": "Person",
+            "chart": "bar",
+            "x": {
+                "attr": "Person",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "Survived",
+                "trans": "mean",
+                "calcus": "raw"
+            }
+        },
+        {
+            "describe": "x = 'Pclass', y = 'Survived'",
+            "chart": "pointplot",
+            "x": {
+                "attr": "Pclass",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "Survived",
+                "trans": "count",
+                "calcus": "percentage"
+            },
+            "color": {
+                "attr": "Survived",
+                "trans": "raw",
+                "groupby": true
+            }
+        }
+    ]
+}

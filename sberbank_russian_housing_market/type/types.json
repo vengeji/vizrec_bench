@@ -1,0 +1,18 @@
+{
+    "timestamp": "object",
+    "full_sq": "float32",
+    "life_sq": "float32",
+    "floor": "object",
+    "max_floor": "object",
+    "material": "object",
+    "build_year": "object",
+    "num_room": "object",
+    "state": "object",
+    "product_type": "object",
+    "sub_area": "object",
+    "sport_objects_raion": "float32",
+    "culture_objects_top_25_raion": "float32",
+    "park_km": "float32",
+    "kremlin_km": "float32",
+    "price_doc": "float32"
+}

@@ -1,0 +1,140 @@
+{
+    "url": "https://www.kaggle.com/sudalairajkumar/simple-exploration-notebook-sberbank",
+    "votes": 251,
+    "rank": 2,
+    "charts": [
+        {
+            "describe": "scatter of index and price",
+            "chart": "scatter",
+            "x": {
+                "attr": "index",
+                "trans": "raw"
+            },
+            "y": {
+                "attr": "price_doc",
+                "trans": "raw"
+            }
+        },
+        {
+            "describe": "distribution of price",
+            "chart": "histogram",
+            "x": {
+                "attr": "price_doc",
+                "trans": "bin",
+                "bins": 50
+            },
+            "y": {
+                "attr": "price_doc",
+                "trans": "density",
+                "calcus": "raw"
+            }
+        },
+        {
+            "describe": "distribution of log price",
+            "chart": "histogram",
+            "x": {
+                "attr": "log(price_doc)",
+                "trans": "bin",
+                "bins": 50
+            },
+            "y": {
+                "attr": "log(price_doc)",
+                "trans": "density",
+                "calcus": "raw"
+            }
+        },
+        {
+            "describe": "mean price of different month",
+            "chart": "bar",
+            "x": {
+                "attr": "timestamp",
+                "trans": "year-month",
+                "groupby": true
+            },
+            "y": {
+                "attr": "price_doc",
+                "trans": "mean",
+                "calcus": "raw"
+            }
+        },
+        {
+            "describe": "Area of home and price",
+            "chart": "scatter",
+            "x": {
+                "attr": "full_sq",
+                "trans": "log"
+            },
+            "y": {
+                "attr": "price_doc",
+                "trans": "log"
+            }
+        },
+        {
+            "describe": "Area of home and price",
+            "chart": "scatter",
+            "x": {
+                "attr": "life_sq",
+                "trans": "log"
+            },
+            "y": {
+                "attr": "price_doc",
+                "trans": "log"
+            }
+        },
+        {
+            "describe": "Distribution of floor",
+            "chart": "bar",
+            "x": {
+                "attr": "floor",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "floor",
+                "trans": "count",
+                "calcus": "raw"
+            }
+        },
+        {
+            "describe": "Distribution of floor",
+            "chart": "pointplot",
+            "x": {
+                "attr": "floor",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "price_doc",
+                "trans": "mean",
+                "calcus": "raw"
+            }
+        },
+        {
+            "describe": "Distribution of max_floor",
+            "chart": "bar",
+            "x": {
+                "attr": "max_floor",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "max_floor",
+                "trans": "count",
+                "calcus": "raw"
+            }
+        },
+        {
+            "describe": "distribution of price by max floor",
+            "chart": "boxplot",
+            "x": {
+                "attr": "max_floor",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "price_doc",
+                "trans": "raw"
+            }
+        }
+    ]
+}

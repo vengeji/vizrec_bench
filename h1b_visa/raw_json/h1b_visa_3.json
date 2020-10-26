@@ -1,0 +1,289 @@
+{
+    "url": "https://www.kaggle.com/arathee2/story-telling-with-data-science",
+    "votes": 44,
+    "rank": 3,
+    "charts": [
+        {
+            "describe": "Number of applications of different status",
+            "chart": "bar",
+            "x": {
+                "attr": "CASE_STATUS",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "CASE_STATUS",
+                "trans": "count",
+                "calcus": "raw"
+            }
+        },
+        {
+            "describe": "Number of applications of different employers",
+            "chart": "bar",
+            "x": {
+                "attr": "EMPLOYER_NAME",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "EMPLOYER_NAME",
+                "trans": "percentage",
+                "calcus": "raw"
+            }
+        },
+        {
+            "describe": "Number of applications of different job titles",
+            "chart": "bar",
+            "x": {
+                "attr": "JOB_TITLE",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "JOB_TITLE",
+                "trans": "count",
+                "calcus": "percentage"
+            }
+        },
+        {
+            "describe": "Number of applications of different position type",
+            "chart": "bar",
+            "x": {
+                "attr": "FULL_TIME_POSITION",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "FULL_TIME_POSITION",
+                "trans": "count",
+                "calcus": "percentage"
+            }
+        },
+        {
+            "describe": "Number of different salary range",
+            "chart": "histogram",
+            "x": {
+                "attr": "PREVAILING_WAGE",
+                "trans": "bin",
+                "binwidth": 2500
+            },
+            "y": {
+                "attr": "PREVAILING_WAGE",
+                "trans": "count",
+                "calcus": "raw"
+            }
+        },
+        {
+            "describe": "Number of applications of different status of different years",
+            "chart": "line",
+            "x": {
+                "attr": "YEAR",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "YEAR",
+                "trans": "count",
+                "calcus": "raw"
+            },
+            "color": {
+                "attr": "CASE_STATUS",
+                "trans": "raw",
+                "groupby": true
+            }
+        },
+        {
+            "describe": "Number of applications of different position type of different years",
+            "chart": "line",
+            "x": {
+                "attr": "YEAR",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "YEAR",
+                "trans": "count",
+                "calcus": "raw"
+            },
+            "color": {
+                "attr": "FULL_TIME_POSITION",
+                "trans": "raw",
+                "groupby": true
+            }
+        },
+        {
+            "describe": "Number of applications of different cities",
+            "chart": "WORKSITE",
+            "x": {
+                "attr": "CASE_STATUS",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "CASE_STATUS",
+                "trans": "count",
+                "calcus": "percentage"
+            }
+        },
+        {
+            "describe": "Number of applications of different status",
+            "chart": "bar",
+            "x": {
+                "attr": "CASE_STATUS",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "CASE_STATUS",
+                "trans": "count",
+                "calcus": "percentage"
+            },
+            "filter": [
+                {
+                    "attr": "JOB_TITLE",
+                    "like": "%DATA SCIENTIST%"
+                }
+            ]
+        },
+        {
+            "describe": "Histogram of salary",
+            "chart": "histogram",
+            "x": {
+                "attr": "PREVAILING_WAGE",
+                "trans": "bin",
+                "binwidth": 2500
+            },
+            "y": {
+                "attr": "PREVAILING_WAGE",
+                "trans": "count",
+                "calcus": "raw"
+            },
+            "filter": [
+                {
+                    "attr": "JOB_TITLE",
+                    "like": "%DATA SCIENTIST%"
+                }
+            ]
+        },
+        {
+            "describe": "Salary trend of data scientists",
+            "chart": "line",
+            "x": {
+                "attr": "YEAR",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "PREVAILING_WAGE",
+                "trans": "mean",
+                "calcus": "raw"
+            },
+            "filter": [
+                {
+                    "attr": "JOB_TITLE",
+                    "like": "%DATA SCIENTIST%"
+                }
+            ]
+        },
+        {
+            "describe": "Petitions trend of data scientists",
+            "chart": "line",
+            "x": {
+                "attr": "YEAR",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "YEAR",
+                "trans": "count",
+                "calcus": "raw"
+            },
+            "filter": [
+                {
+                    "attr": "JOB_TITLE",
+                    "like": "%DATA SCIENTIST%"
+                }
+            ]
+        },
+        {
+            "describe": "Number of petitions of different employers",
+            "chart": "bar",
+            "x": {
+                "attr": "EMPLOYER_NAME",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "EMPLOYER_NAME",
+                "trans": "count",
+                "calcus": "raw"
+            },
+            "filter": [
+                {
+                    "attr": "JOB_TITLE",
+                    "like": "%DATA SCIENTIST%"
+                }
+            ]
+        },
+        {
+            "describe": "Average wage of different employers",
+            "chart": "bar",
+            "x": {
+                "attr": "EMPLOYER_NAME",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "PREVAILING_WAGE",
+                "trans": "mean",
+                "calcus": "raw"
+            },
+            "filter": [
+                {
+                    "attr": "JOB_TITLE",
+                    "like": "%DATA SCIENTIST%"
+                }
+            ]
+        },
+        {
+            "describe": "Number of petitions of different cities",
+            "chart": "bar",
+            "x": {
+                "attr": "WORKSITE",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "WORKSITE",
+                "trans": "count",
+                "calcus": "raw"
+            },
+            "filter": [
+                {
+                    "attr": "JOB_TITLE",
+                    "like": "%DATA SCIENTIST%"
+                }
+            ]
+        },
+        {
+            "describe": "Average wage of different cities",
+            "chart": "bar",
+            "x": {
+                "attr": "WORKSITE",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "PREVAILING_WAGE",
+                "trans": "mean",
+                "calcus": "raw"
+            },
+            "filter": [
+                {
+                    "attr": "JOB_TITLE",
+                    "like": "%DATA SCIENTIST%"
+                }
+            ]
+        }
+    ]
+}

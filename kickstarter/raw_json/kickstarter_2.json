@@ -1,0 +1,205 @@
+{
+    "url": "https://www.kaggle.com/nilanml/eda-of-kickstarter-projects",
+    "votes": 29,
+    "rank": 2,
+    "charts": [
+        {
+            "describe": "distribution of states",
+            "chart": "bar",
+            "x": {
+                "attr": "state",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "state",
+                "trans": "count",
+                "calcus": "raw"
+            }
+        },
+        {
+            "describe": "distribution of main_category",
+            "chart": "bar",
+            "x": {
+                "attr": "main_category",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "main_category",
+                "trans": "count",
+                "calcus": "raw"
+            }
+        },
+        {
+            "describe": "distribution of category",
+            "chart": "bar",
+            "x": {
+                "attr": "category",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "category",
+                "trans": "count",
+                "calcus": "raw"
+            }
+        },
+        {
+            "describe": "distribution of country",
+            "chart": "bar",
+            "x": {
+                "attr": "country",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "country",
+                "trans": "count",
+                "calcus": "raw"
+            }
+        },
+        {
+            "describe": "distribution of year",
+            "chart": "bar",
+            "x": {
+                "attr": "launched",
+                "trans": "year",
+                "groupby": true
+            },
+            "y": {
+                "attr": "launched",
+                "trans": "count",
+                "calcus": "raw"
+            }
+        },
+        {
+            "describe": "main categories distribution of different states",
+            "chart": "bar",
+            "x": {
+                "attr": "main_category",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "main_category",
+                "trans": "count",
+                "calcus": "raw"
+            },
+            "color": {
+                "attr": "state",
+                "trans": "raw",
+                "groupby": true
+            }
+        },
+        {
+            "describe": "top categories distribution of different states",
+            "chart": "bar",
+            "x": {
+                "attr": "category",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "category",
+                "trans": "count",
+                "calcus": "raw"
+            },
+            "color": {
+                "attr": "state",
+                "trans": "raw",
+                "groupby": true
+            }
+        },
+        {
+            "describe": "mean backers of main_category",
+            "chart": "bar",
+            "x": {
+                "attr": "main_category",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "backers",
+                "trans": "mean",
+                "calcus": "raw"
+            }
+        },
+        {
+            "describe": "mean usd pledged of main_category",
+            "chart": "bar",
+            "x": {
+                "attr": "main_category",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "usd pledged",
+                "trans": "mean",
+                "calcus": "raw"
+            }
+        },
+        {
+            "describe": "mean usd_goal_real of main_category",
+            "chart": "bar",
+            "x": {
+                "attr": "main_category",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "usd_goal_real",
+                "trans": "mean",
+                "calcus": "raw"
+            }
+        },
+        {
+            "describe": "mean duration(days) of main_category",
+            "chart": "bar",
+            "x": {
+                "attr": "main_category",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "duration(days)=deadline-launched",
+                "trans": "mean",
+                "calcus": "raw"
+            }
+        },
+        {
+            "describe": "relation between backers and pledge",
+            "chart": "scatter",
+            "x": {
+                "attr": "backers",
+                "trans": "raw"
+            },
+            "y": {
+                "attr": "usd pledged",
+                "trans": "raw"
+            },
+            "color": {
+                "attr": "state",
+                "trans": "raw",
+                "groupby": true
+            }
+        },
+        {
+            "describe": "relation between duration and pledge",
+            "chart": "scatter",
+            "x": {
+                "attr": "usd pledged",
+                "trans": "raw"
+            },
+            "y": {
+                "attr": "duration(days)=deadline-launched",
+                "trans": "raw"
+            },
+            "color": {
+                "attr": "state",
+                "trans": "raw",
+                "groupby": true
+            }
+        }
+    ]
+}

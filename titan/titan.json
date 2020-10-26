@@ -1,0 +1,509 @@
+{
+    "charts": [
+        {
+            "describe": "Embarked by Survived",
+            "id": "titan_1_extracted.json_id_1-titan_2_extracted.json_id_6",
+            "rank": 1,
+            "type": "bar",
+            "channels": {
+                "x": {
+                    "attr": "Embarked",
+                    "trans": "raw",
+                    "groupby": true
+                },
+                "y": {
+                    "attr": "Survived",
+                    "trans": "count",
+                    "calcus": "percentage"
+                },
+                "color": {
+                    "attr": "Survived",
+                    "trans": "raw",
+                    "groupby": true
+                }
+            }
+        },
+        {
+            "describe": "Pclass by Survived",
+            "id": "titan_1_extracted.json_id_2-titan_2_extracted.json_id_4",
+            "rank": 2,
+            "type": "bar",
+            "channels": {
+                "x": {
+                    "attr": "Pclass",
+                    "trans": "raw",
+                    "groupby": true
+                },
+                "y": {
+                    "attr": "Survived",
+                    "trans": "count",
+                    "calcus": "percentage"
+                },
+                "color": {
+                    "attr": "Survived",
+                    "trans": "raw",
+                    "groupby": true
+                }
+            }
+        },
+        {
+            "describe": "x = 'Sex', y = 'Survived', hue = 'Embarked'",
+            "id": "titan_1_extracted.json_id_3",
+            "rank": 3,
+            "type": "bar",
+            "channels": {
+                "x": {
+                    "attr": "Sex",
+                    "trans": "raw",
+                    "groupby": true
+                },
+                "y": {
+                    "attr": "Survived",
+                    "trans": "count",
+                    "calcus": "percentage"
+                },
+                "col": {
+                    "attr": "Survived",
+                    "trans": "raw",
+                    "groupby": true
+                },
+                "color": {
+                    "attr": "Embarked",
+                    "trans": "raw",
+                    "groupby": true
+                }
+            }
+        },
+        {
+            "describe": "x = 'Sex', y = 'Survived', hue = 'Pclass'",
+            "id": "titan_1_extracted.json_id_4",
+            "rank": 4,
+            "type": "bar",
+            "channels": {
+                "x": {
+                    "attr": "Sex",
+                    "trans": "raw",
+                    "groupby": true
+                },
+                "y": {
+                    "attr": "Survived",
+                    "trans": "count",
+                    "calcus": "percentage"
+                },
+                "col": {
+                    "attr": "Survived",
+                    "trans": "raw",
+                    "groupby": true
+                },
+                "color": {
+                    "attr": "Pclass",
+                    "trans": "raw",
+                    "groupby": true
+                }
+            }
+        },
+        {
+            "describe": "survival probability",
+            "id": "titan_2_extracted.json_id_1-titan_4_extracted.json_id_12",
+            "rank": 5,
+            "type": "bar",
+            "channels": {
+                "x": {
+                    "attr": "Parch",
+                    "trans": "raw",
+                    "groupby": true
+                },
+                "y": {
+                    "attr": "Survived",
+                    "trans": "count",
+                    "calcus": "percentage"
+                },
+                "color": {
+                    "attr": "Survived",
+                    "trans": "raw",
+                    "groupby": true
+                }
+            }
+        },
+        {
+            "describe": "survival probability",
+            "id": "titan_2_extracted.json_id_2-titan_4_extracted.json_id_11-titan_5_extracted.json_id_9",
+            "rank": 6,
+            "type": "bar",
+            "channels": {
+                "x": {
+                    "attr": "SibSp",
+                    "trans": "raw",
+                    "groupby": true
+                },
+                "y": {
+                    "attr": "Survived",
+                    "trans": "count",
+                    "calcus": "percentage"
+                },
+                "color": {
+                    "attr": "Survived",
+                    "trans": "raw",
+                    "groupby": true
+                }
+            }
+        },
+        {
+            "describe": "x = 'Sex', y = 'Survived'",
+            "id": "titan_2_extracted.json_id_3-titan_4_extracted.json_id_3-titan_5_extracted.json_id_5",
+            "rank": 7,
+            "type": "bar",
+            "channels": {
+                "x": {
+                    "attr": "Sex",
+                    "trans": "raw",
+                    "groupby": true
+                },
+                "y": {
+                    "attr": "Survived",
+                    "trans": "count",
+                    "calcus": "percentage"
+                },
+                "color": {
+                    "attr": "Survived",
+                    "trans": "raw",
+                    "groupby": true
+                }
+            }
+        },
+        {
+            "describe": "x = 'Pclass', y = 'Survived', hue='Sex'",
+            "id": "titan_2_extracted.json_id_5",
+            "rank": 8,
+            "type": "bar",
+            "channels": {
+                "x": {
+                    "attr": "Pclass",
+                    "trans": "raw",
+                    "groupby": true
+                },
+                "y": {
+                    "attr": "Survived",
+                    "trans": "count",
+                    "calcus": "percentage"
+                },
+                "col": {
+                    "attr": "Survived",
+                    "trans": "raw",
+                    "groupby": true
+                },
+                "color": {
+                    "attr": "Sex",
+                    "trans": "raw",
+                    "groupby": true
+                }
+            }
+        },
+        {
+            "describe": "x = 'Pclass', hue='Embarked'",
+            "id": "titan_2_extracted.json_id_7",
+            "rank": 9,
+            "type": "bar",
+            "channels": {
+                "x": {
+                    "attr": "Pclass",
+                    "trans": "raw",
+                    "groupby": true
+                },
+                "y": {
+                    "attr": "Pclass",
+                    "trans": "count",
+                    "calcus": "raw"
+                },
+                "color": {
+                    "attr": "Embarked",
+                    "trans": "raw",
+                    "groupby": true
+                }
+            }
+        },
+        {
+            "describe": "x = 'Embarked', y = 'Survived'",
+            "id": "titan_3_extracted.json_id_1-titan_4_extracted.json_id_9",
+            "rank": 10,
+            "type": "bar",
+            "channels": {
+                "x": {
+                    "attr": "Embarked",
+                    "trans": "raw",
+                    "groupby": true
+                },
+                "y": {
+                    "attr": "Embarked",
+                    "trans": "count",
+                    "calcus": "raw"
+                },
+                "color": {
+                    "attr": "Survived",
+                    "trans": "raw",
+                    "groupby": true
+                }
+            }
+        },
+        {
+            "describe": "x = 'Survived', y = 'Embarked'",
+            "id": "titan_3_extracted.json_id_2",
+            "rank": 11,
+            "type": "bar",
+            "channels": {
+                "x": {
+                    "attr": "Survived",
+                    "trans": "raw",
+                    "groupby": true
+                },
+                "y": {
+                    "attr": "Survived",
+                    "trans": "count",
+                    "calcus": "raw"
+                },
+                "color": {
+                    "attr": "Embarked",
+                    "trans": "raw",
+                    "groupby": true
+                }
+            }
+        },
+        {
+            "describe": "x = 'Embarked', y = 'Survived'",
+            "id": "titan_3_extracted.json_id_3",
+            "rank": 12,
+            "type": "bar",
+            "channels": {
+                "x": {
+                    "attr": "Embarked",
+                    "trans": "raw",
+                    "groupby": true
+                },
+                "y": {
+                    "attr": "Survived",
+                    "trans": "mean",
+                    "calcus": "raw"
+                }
+            }
+        },
+        {
+            "describe": "Age mean survived",
+            "id": "titan_3_extracted.json_id_4",
+            "rank": 13,
+            "type": "bar",
+            "channels": {
+                "x": {
+                    "attr": "Age",
+                    "trans": "raw",
+                    "groupby": true
+                },
+                "y": {
+                    "attr": "Survived",
+                    "trans": "mean",
+                    "calcus": "raw"
+                }
+            }
+        },
+        {
+            "describe": "Survived overview",
+            "id": "titan_4_extracted.json_id_1-titan_5_extracted.json_id_3",
+            "rank": 14,
+            "type": "pie",
+            "channels": {
+                "x": {
+                    "attr": "Survived",
+                    "trans": "raw",
+                    "groupby": true
+                },
+                "y": {
+                    "attr": "Survived",
+                    "trans": "count",
+                    "calcus": "percentage"
+                }
+            }
+        },
+        {
+            "describe": "Survived overview",
+            "id": "titan_4_extracted.json_id_2-titan_5_extracted.json_id_4",
+            "rank": 15,
+            "type": "bar",
+            "channels": {
+                "x": {
+                    "attr": "Survived",
+                    "trans": "raw",
+                    "groupby": true
+                },
+                "y": {
+                    "attr": "Survived",
+                    "trans": "count",
+                    "calcus": "raw"
+                }
+            }
+        },
+        {
+            "describe": "Survived by Sex",
+            "id": "titan_4_extracted.json_id_4-titan_5_extracted.json_id_6",
+            "rank": 16,
+            "type": "bar",
+            "channels": {
+                "x": {
+                    "attr": "Sex",
+                    "trans": "raw",
+                    "groupby": true
+                },
+                "y": {
+                    "attr": "Sex",
+                    "trans": "count",
+                    "calcus": "raw"
+                },
+                "color": {
+                    "attr": "Survived",
+                    "trans": "raw",
+                    "groupby": true
+                }
+            }
+        },
+        {
+            "describe": "Number of passengers by Pclass",
+            "id": "titan_4_extracted.json_id_5-titan_5_extracted.json_id_8",
+            "rank": 17,
+            "type": "bar",
+            "channels": {
+                "x": {
+                    "attr": "Pclass",
+                    "trans": "raw",
+                    "groupby": true
+                },
+                "y": {
+                    "attr": "Pclass",
+                    "trans": "count",
+                    "calcus": "raw"
+                }
+            }
+        },
+        {
+            "describe": "Number of passengers by Pclass",
+            "id": "titan_4_extracted.json_id_6-titan_5_extracted.json_id_7",
+            "rank": 18,
+            "type": "bar",
+            "channels": {
+                "x": {
+                    "attr": "Pclass",
+                    "trans": "raw",
+                    "groupby": true
+                },
+                "y": {
+                    "attr": "Pclass",
+                    "trans": "count",
+                    "calcus": "raw"
+                },
+                "color": {
+                    "attr": "Survived",
+                    "trans": "raw",
+                    "groupby": true
+                }
+            }
+        },
+        {
+            "describe": "Number of passengers by Embarked",
+            "id": "titan_4_extracted.json_id_7",
+            "rank": 19,
+            "type": "bar",
+            "channels": {
+                "x": {
+                    "attr": "Embarked",
+                    "trans": "raw",
+                    "groupby": true
+                },
+                "y": {
+                    "attr": "Embarked",
+                    "trans": "count",
+                    "calcus": "raw"
+                }
+            }
+        },
+        {
+            "describe": "Number of passengers by Embarked and Sex",
+            "id": "titan_4_extracted.json_id_8",
+            "rank": 20,
+            "type": "bar",
+            "channels": {
+                "x": {
+                    "attr": "Embarked",
+                    "trans": "raw",
+                    "groupby": true
+                },
+                "y": {
+                    "attr": "Embarked",
+                    "trans": "count",
+                    "calcus": "raw"
+                },
+                "color": {
+                    "attr": "Sex",
+                    "trans": "raw",
+                    "groupby": true
+                }
+            }
+        },
+        {
+            "describe": "Number of passengers by Embarked and Pclass",
+            "id": "titan_4_extracted.json_id_10",
+            "rank": 21,
+            "type": "bar",
+            "channels": {
+                "x": {
+                    "attr": "Embarked",
+                    "trans": "raw",
+                    "groupby": true
+                },
+                "y": {
+                    "attr": "Embarked",
+                    "trans": "count",
+                    "calcus": "raw"
+                },
+                "color": {
+                    "attr": "Pclass",
+                    "trans": "raw",
+                    "groupby": true
+                }
+            }
+        },
+        {
+            "describe": "Scatter plot of age and fare",
+            "id": "titan_5_extracted.json_id_1",
+            "rank": 22,
+            "type": "scatter",
+            "channels": {
+                "x": {
+                    "attr": "Fare",
+                    "trans": "raw"
+                },
+                "y": {
+                    "attr": "Age",
+                    "trans": "raw"
+                },
+                "color": {
+                    "attr": "Survived",
+                    "trans": "raw",
+                    "groupby": true
+                }
+            }
+        },
+        {
+            "describe": "Scatter plot of age and fare",
+            "id": "titan_5_extracted.json_id_2",
+            "rank": 23,
+            "type": "scatter",
+            "channels": {
+                "x": {
+                    "attr": "Age",
+                    "trans": "raw"
+                },
+                "y": {
+                    "attr": "Fare",
+                    "trans": "raw"
+                }
+            }
+        }
+    ]
+}

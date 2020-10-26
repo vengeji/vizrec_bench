@@ -1,0 +1,161 @@
+{
+    "url": "https://www.kaggle.com/javidimail/h-1b-wage-distribution",
+    "votes": 58,
+    "rank": 2,
+    "charts": [
+        {
+            "describe": "Number of different salary range",
+            "chart": "histogram",
+            "x": {
+                "attr": "PREVAILING_WAGE",
+                "trans": "bin",
+                "bins": 200
+            },
+            "y": {
+                "attr": "PREVAILING_WAGE",
+                "trans": "count",
+                "calcus": "raw"
+            }
+        },
+        {
+            "describe": "H1B wage distribution 2011-2016",
+            "chart": "violinplot",
+            "x": {
+                "attr": "YEAR",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "PREVAILING_WAGE",
+                "trans": "kernel_density"
+            }
+        },
+        {
+            "describe": "Number of applications of different employers",
+            "chart": "bar",
+            "x": {
+                "attr": "EMPLOYER_NAME",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "EMPLOYER_NAME",
+                "trans": "count",
+                "calcus": "raw"
+            }
+        },
+        {
+            "describe": "Number of different salary range",
+            "chart": "histogram",
+            "x": {
+                "attr": "PREVAILING_WAGE",
+                "trans": "bin",
+                "bins": 200
+            },
+            "y": {
+                "attr": "PREVAILING_WAGE",
+                "trans": "count",
+                "calcus": "raw"
+            },
+            "filter": [
+                {
+                    "attr": "EMPLOYER_NAME",
+                    "equal": "INFOSYS LIMITED"
+                }
+            ]
+        },
+        {
+            "describe": "Number of different salary range",
+            "chart": "histogram",
+            "x": {
+                "attr": "PREVAILING_WAGE",
+                "trans": "bin",
+                "bins": 200
+            },
+            "y": {
+                "attr": "PREVAILING_WAGE",
+                "trans": "count",
+                "calcus": "raw"
+            },
+            "filter": [
+                {
+                    "attr": "EMPLOYER_NAME",
+                    "equal": "TATA CONSULTANCY SERVICES LIMITED"
+                }
+            ]
+        },
+        {
+            "describe": "Number of different salary range",
+            "chart": "histogram",
+            "x": {
+                "attr": "PREVAILING_WAGE",
+                "trans": "bin",
+                "bins": 200
+            },
+            "y": {
+                "attr": "PREVAILING_WAGE",
+                "trans": "count",
+                "calcus": "raw"
+            },
+            "filter": [
+                {
+                    "attr": "EMPLOYER_NAME",
+                    "equal": "WIPRO LIMITED"
+                }
+            ]
+        },
+        {
+            "describe": "Number of different salary range",
+            "chart": "histogram",
+            "x": {
+                "attr": "PREVAILING_WAGE",
+                "trans": "bin",
+                "bins": 200
+            },
+            "y": {
+                "attr": "PREVAILING_WAGE",
+                "trans": "count",
+                "calcus": "raw"
+            },
+            "filter": [
+                {
+                    "attr": "EMPLOYER_NAME",
+                    "equal": "DELOITTE CONSULTING LLP"
+                }
+            ]
+        },
+        {
+            "describe": "Number of different salary range",
+            "chart": "histogram",
+            "x": {
+                "attr": "PREVAILING_WAGE",
+                "trans": "bin",
+                "bins": 200
+            },
+            "y": {
+                "attr": "PREVAILING_WAGE",
+                "trans": "count",
+                "calcus": "raw"
+            },
+            "filter": [
+                {
+                    "attr": "EMPLOYER_NAME",
+                    "equal": "ACCENTURE LLP"
+                }
+            ]
+        },
+        {
+            "describe": "Salary distribution of different cities",
+            "chart": "violinplot",
+            "x": {
+                "attr": "WORKSITE",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "PREVAILING_WAGE",
+                "trans": "kernel_density"
+            }
+        }
+    ]
+}

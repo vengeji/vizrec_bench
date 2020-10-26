@@ -1,0 +1,93 @@
+{
+    "url": "https://www.kaggle.com/abigaillarion/terrorist-attacks-in-united-states",
+    "votes": 153,
+    "rank": 2,
+    "charts": [
+        {
+            "describe": "Terrorist Attacks by Latitude/Longitude",
+            "chart": "map",
+            "lat": {
+                "attr": "latitude",
+                "trans": "raw"
+            },
+            "lon": {
+                "attr": "longitude",
+                "trans": "raw"
+            },
+            "point": [
+                {
+                    "attr": "nkill",
+                    "trans": "raw"
+                },
+                {
+                    "attr": "nwound",
+                    "trans": "raw"
+                }
+            ]
+        },
+        {
+            "describe": "trend in terrorist activities",
+            "chart": "line",
+            "x": {
+                "attr": "iyear",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "iyear",
+                "trans": "count",
+                "calcus": "raw"
+            }
+        },
+        {
+            "describe": "Terrorist Attacks by Latitude/Longitude",
+            "chart": "heatmap",
+            "x": {
+                "attr": "provstate",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "provstate",
+                "trans": "count",
+                "calcus": "raw"
+            }
+        },
+        {
+            "describe": "attacks by target",
+            "chart": "scatter",
+            "x": {
+                "attr": "nwound",
+                "trans": "sum",
+                "calcus": "raw"
+            },
+            "y": {
+                "attr": "nkill",
+                "trans": "sum",
+                "calcus": "raw"
+            },
+            "groupby": {
+                "attr": "targtype1_txt",
+                "trans": "raw"
+            }
+        },
+        {
+            "describe": "attacks by target",
+            "chart": "scatter",
+            "x": {
+                "attr": "nwound",
+                "trans": "sum",
+                "calcus": "raw"
+            },
+            "y": {
+                "attr": "nkill",
+                "trans": "sum",
+                "calcus": "raw"
+            },
+            "groupby": {
+                "attr": "weaptype1_txt",
+                "trans": "raw"
+            }
+        }
+    ]
+}

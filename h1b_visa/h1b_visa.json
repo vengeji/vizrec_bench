@@ -1,0 +1,271 @@
+{
+    "charts": [
+        {
+            "describe": "Number of applications of different status",
+            "id": "h1b_visa_1_extracted.json_id_1",
+            "rank": 1,
+            "type": "bar",
+            "channels": {
+                "x": {
+                    "attr": "CASE_STATUS",
+                    "trans": "raw",
+                    "groupby": true
+                },
+                "y": {
+                    "attr": "CASE_STATUS",
+                    "trans": "count",
+                    "calcus": "raw"
+                }
+            }
+        },
+        {
+            "describe": "Number of applications of different status of different years",
+            "id": "h1b_visa_1_extracted.json_id_2-h1b_visa_3_extracted.json_id_5",
+            "rank": 2,
+            "type": "line",
+            "channels": {
+                "x": {
+                    "attr": "YEAR",
+                    "trans": "raw",
+                    "groupby": true
+                },
+                "y": {
+                    "attr": "YEAR",
+                    "trans": "count",
+                    "calcus": "raw"
+                },
+                "color": {
+                    "attr": "CASE_STATUS",
+                    "trans": "raw",
+                    "groupby": true
+                }
+            }
+        },
+        {
+            "describe": "Number of applications of different soc_name",
+            "id": "h1b_visa_1_extracted.json_id_3",
+            "rank": 3,
+            "type": "bar",
+            "channels": {
+                "x": {
+                    "attr": "SOC_NAME",
+                    "trans": "raw",
+                    "groupby": true
+                },
+                "y": {
+                    "attr": "SOC_NAME",
+                    "trans": "count",
+                    "calcus": "raw"
+                }
+            }
+        },
+        {
+            "describe": "Number of applications of different soc_name of different years",
+            "id": "h1b_visa_1_extracted.json_id_4",
+            "rank": 4,
+            "type": "line",
+            "channels": {
+                "x": {
+                    "attr": "YEAR",
+                    "trans": "raw",
+                    "groupby": true
+                },
+                "y": {
+                    "attr": "YEAR",
+                    "trans": "count",
+                    "calcus": "raw"
+                },
+                "color": {
+                    "attr": "SOC_NAME",
+                    "trans": "raw",
+                    "groupby": true
+                }
+            }
+        },
+        {
+            "describe": "Number of applications of different job titles",
+            "id": "h1b_visa_1_extracted.json_id_5",
+            "rank": 5,
+            "type": "bar",
+            "channels": {
+                "x": {
+                    "attr": "JOB_TITLE",
+                    "trans": "raw",
+                    "groupby": true
+                },
+                "y": {
+                    "attr": "JOB_TITLE",
+                    "trans": "count",
+                    "calcus": "raw"
+                }
+            }
+        },
+        {
+            "describe": "Number of applications of different years",
+            "id": "h1b_visa_1_extracted.json_id_6",
+            "rank": 6,
+            "type": "bar",
+            "channels": {
+                "x": {
+                    "attr": "YEAR",
+                    "trans": "raw",
+                    "groupby": true
+                },
+                "y": {
+                    "attr": "YEAR",
+                    "trans": "count",
+                    "calcus": "raw"
+                }
+            }
+        },
+        {
+            "describe": "Number of applications of different position type",
+            "id": "h1b_visa_1_extracted.json_id_7",
+            "rank": 7,
+            "type": "pie",
+            "channels": {
+                "x": {
+                    "attr": "FULL_TIME_POSITION",
+                    "trans": "raw",
+                    "groupby": true
+                },
+                "y": {
+                    "attr": "FULL_TIME_POSITION",
+                    "trans": "count",
+                    "calcus": "percentage"
+                }
+            }
+        },
+        {
+            "describe": "Number of applications of different employers",
+            "id": "h1b_visa_1_extracted.json_id_8-h1b_visa_2_extracted.json_id_1",
+            "rank": 8,
+            "type": "bar",
+            "channels": {
+                "x": {
+                    "attr": "EMPLOYER_NAME",
+                    "trans": "raw",
+                    "groupby": true
+                },
+                "y": {
+                    "attr": "EMPLOYER_NAME",
+                    "trans": "count",
+                    "calcus": "raw"
+                }
+            }
+        },
+        {
+            "describe": "Average prevailing salary of applicants of years",
+            "id": "h1b_visa_1_extracted.json_id_9",
+            "rank": 9,
+            "type": "bar",
+            "channels": {
+                "x": {
+                    "attr": "YEAR",
+                    "trans": "raw",
+                    "groupby": true
+                },
+                "y": {
+                    "attr": "PREVAILING_WAGE",
+                    "trans": "mean",
+                    "calcus": "raw"
+                }
+            }
+        },
+        {
+            "describe": "Number of applications of different status",
+            "id": "h1b_visa_3_extracted.json_id_1",
+            "rank": 10,
+            "type": "bar",
+            "channels": {
+                "x": {
+                    "attr": "CASE_STATUS",
+                    "trans": "raw",
+                    "groupby": true
+                },
+                "y": {
+                    "attr": "CASE_STATUS",
+                    "trans": "count",
+                    "calcus": "percentage"
+                }
+            }
+        },
+        {
+            "describe": "Number of applications of different employers",
+            "id": "h1b_visa_3_extracted.json_id_2",
+            "rank": 11,
+            "type": "bar",
+            "channels": {
+                "x": {
+                    "attr": "EMPLOYER_NAME",
+                    "trans": "raw",
+                    "groupby": true
+                },
+                "y": {
+                    "attr": "EMPLOYER_NAME",
+                    "trans": "percentage",
+                    "calcus": "raw"
+                }
+            }
+        },
+        {
+            "describe": "Number of applications of different job titles",
+            "id": "h1b_visa_3_extracted.json_id_3",
+            "rank": 12,
+            "type": "bar",
+            "channels": {
+                "x": {
+                    "attr": "JOB_TITLE",
+                    "trans": "raw",
+                    "groupby": true
+                },
+                "y": {
+                    "attr": "JOB_TITLE",
+                    "trans": "count",
+                    "calcus": "percentage"
+                }
+            }
+        },
+        {
+            "describe": "Number of applications of different position type",
+            "id": "h1b_visa_3_extracted.json_id_4",
+            "rank": 13,
+            "type": "bar",
+            "channels": {
+                "x": {
+                    "attr": "FULL_TIME_POSITION",
+                    "trans": "raw",
+                    "groupby": true
+                },
+                "y": {
+                    "attr": "FULL_TIME_POSITION",
+                    "trans": "count",
+                    "calcus": "percentage"
+                }
+            }
+        },
+        {
+            "describe": "Number of applications of different position type of different years",
+            "id": "h1b_visa_3_extracted.json_id_6",
+            "rank": 14,
+            "type": "line",
+            "channels": {
+                "x": {
+                    "attr": "YEAR",
+                    "trans": "raw",
+                    "groupby": true
+                },
+                "y": {
+                    "attr": "YEAR",
+                    "trans": "count",
+                    "calcus": "raw"
+                },
+                "color": {
+                    "attr": "FULL_TIME_POSITION",
+                    "trans": "raw",
+                    "groupby": true
+                }
+            }
+        }
+    ]
+}

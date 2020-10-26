@@ -1,0 +1,1211 @@
+---
+title: "Global Terrorism Attacks"
+author: Gabriel Preda
+output:
+  html_document:
+    number_sections: false
+    toc: true
+    fig_width: 8
+    fig_height: 6
+    theme: cosmo
+    highlight: tango
+    code_folding: show
+---
+
+```{r setup, include=FALSE}
+library(ggplot2)
+library(leaflet)
+library(treemap)
+library(corrplot)
+library(tm)
+library(tidytext)
+library(tidyr)
+library(wordcloud)
+library(knitr)
+library(kableExtra)
+library(formattable)
+library(dplyr)
+library(topicmodels)
+options(knitr.table.format = "html") 
+```
+
+# **Read the data**
+
+```{r input_file, include=FALSE}
+df <- read.csv("../input/globalterrorismdb_0718dist.csv", stringsAsFactors=FALSE)
+```
+
+
+
+# **Introduction**
+
+
+## The Dataset
+
+This dataset contains very much information about the terrorism, from ``r min(df$iyear)`` to ``r max(df$iyear)``. 
+There are ``r nrow(df)`` records and ``r ncol(df)`` columns including date, time, location, number of hostages, killed, wounded, if there was a ransom, the outcome, if there was a suicide attack, claims, weapons used. 
+
+## Missing data
+
+There is a significant amount of missing information.
+For example, there are ``r sum(is.na(df$longitude))`` missing longitude values  and ``r sum(is.na(df$latitude))`` missing latitude values. 
+For only ``r sum(df$claimmode_txt!="")`` events is recorded a type of claim and only ``r sum(df$ransomnote!="")`` ransom notes are recorded.
+
+## Analysis
+
+We are analyzing the `killings`, `wounded`, the `american citizens killed`, the `americal citizens wounded`, looking as well to the development in time of the  terrorist groups activity.
+Three columns are also interesting from text analysis perspective, `summary`, `ransomnote` and `motive`. `Summary` gives a description of the terrorist incident, `ransomnote` is the description of the ransom note transmitted by the terrorist group  and `motive` is the description of the motivation of the attack.  We are analyzing as well the `perpetrators group` and the `perpetrators nationality`, the geographical `region` where the attacks occured, the `location of escape` of the perpetrators (the country or city they asked to go after the attack), the `weapons` used in the attack, the `claim` mode (channel used to transmit their claim), the  `property damages`.
+
+Looking to the specific terrorist groups activity, we also correlate those `groups` activity  with certain `political measures` in the countries where the groups are acting.  I hope you will enjoy this Kernel. Please scroll all down, do not miss the interesting maps and images.
+
+ 
+
+![9-11 terrorist attack, Wikimedia Commons, public domain](https://upload.wikimedia.org/wikipedia/commons/thumb/8/8a/UA_Flight_175_hits_WTC_south_tower_9-11_edit.jpeg/1024px-UA_Flight_175_hits_WTC_south_tower_9-11_edit.jpeg)
+
+
+# **Killings Worldwide**
+
+
+Let's start by looking to the killings in terror activities. In the following treemap, the size of the areas corresponding to each year is proportional with the number of kills in that year in the terrorist activities. We can easily see that there was a massive increase in killings in terrorist activities in the years from 2012 and in the last 3 years (2014-2016) the volume was significantly higher than in the previous years.
+
+
+```{r killing_worldwide_treemap_year}
+df %>% filter(nkill > 0) -> dfk
+treemap(dfk, 
+        index=c("iyear"), 
+        vSize = "nkill",  
+        palette = "Reds",  
+        title="Killings in Global Terrorism", 
+        fontsize.title = 14 
+)
+```
+
+## Killings by country
+
+If we look now to the country split, we see that there are few countries where the number of killed people in terrorist attacks is very large. Some of them have experienced recent massive increase, like Iraq and Syria and Afganistan while others have a long history, like Peru, Colombia, India, Pakistan. 
+
+
+
+```{r killing_worldwide_treemap_country}
+treemap(dfk, 
+        index=c("country_txt"), 
+        vSize = "nkill",  
+        palette = "Reds",  
+        title="Killings in Global Terrorism", 
+        fontsize.title = 14 
+)
+```
+
+## Killings by countries and years
+
+Let's look now to both countries and years in the same time. We also add, besides the number of killed people, the number of wounded (color is proportional with the number of wounded). 
+
+
+
+```{r killing_worldwide_treemap_country_year}
+treemap(dfk, #Your data frame object
+        index=c("country_txt", "iyear"),  
+        type = "value",
+        vSize = "nkill", 
+        vColor="nwound",
+        palette = "RdBu", 
+        title="Killings in Global terrorism  (Countries/Years) - size is proportional with the number of killings", 
+        title.legend = "Number of wounded",
+        fontsize.title = 10 
+)
+```
+
+
+We can observe that most killings in Global terrorism were in Iraq (with maximums in 2014, 2016, 2016), Afghanistan  (with peaks in 2015, 2016), Pakistan, Nigeria (with an especially high death toll in 2014 and 2015). The top of blodiest countries is as follows: Iraq, Afghanistan, Pakistan, Nigeria, India, Sri Lanka (here the top year in 1989), Colombia (here the top year in 1997). Syria (2014, 2015, 2016 being the blodiest), El Salvador, Somalia, Yemen, Turkey, Guatemala.
+
+The following leaflet map shows the terror events in entire World that resulted in killed people.   
+The date, place (city and country) and the number of killed and wounded persons is shown in the popup for each event.
+
+
+## Killings per year and region
+
+Let's plot now the killings number per year and per geographical region.  
+
+```{r killing_worldwide_plot_year_region}
+dfk %>% group_by(iyear,region_txt) %>% summarise(nkills = sum(nkill)) %>% ungroup() -> dfyr
+colnames(dfyr)<-c("Year","Region","Killed")
+ggplot(data = dfyr, aes(x = Year, y = Killed, colour = Region)) +       
+   geom_line() + geom_point() + theme_bw()
+```
+
+
+One can observe the large increase in the killings number for `Middle East & North Africa` as well as for `South Asia` and `Sub-Saharan Africa`, which provides the most killings in recent years.
+
+
+## Killings per province/state and years
+
+
+Let's look now to the killing grouped by province/state. We only select the first 50 regions.
+
+
+```{r killing_worldwide_treemap_province_year}
+dfk %>% group_by(provstate) %>% summarise(nk = sum(nkill)) %>% 
+  top_n(50, wt=nk) %>% ungroup -> dfkp_top
+
+dfk %>% filter(provstate %in% dfkp_top$provstate) %>% group_by(provstate, iyear) %>% 
+  summarise(nk = sum(nkill), nw = sum(nwound)) %>% ungroup -> dfkp
+
+
+treemap(dfkp, #Your data frame object
+        index=c("provstate", "iyear"),  
+        type = "value",
+        vSize = "nk", 
+        vColor="nw",
+        palette = "RdBu", 
+        title="Killings in Provinces/Years - size is proportional with the number of killings (top 50 regions only)", 
+
+        title.legend = "Number of wounded",
+        fontsize.title = 10 
+)
+```
+
+The image color scale is proportional with the number of wounded and area of tile is proportional with the number of killings.  
+Most of the killings were in regions from Irak, Afghanistan, Pakistan, Liban. Also New York, due to the 2001 events, is on this province/states map.
+
+
+## Killings per cities and years
+
+
+Let's look now to the killing grouped by city. We only select the first 20 cities.
+
+
+```{r killing_worldwide_treemap_city_year}
+dfk %>% group_by(city) %>% summarise(nk = sum(nkill)) %>% 
+  top_n(20, wt=nk) %>% ungroup -> dfkc_top
+
+dfk %>% filter(city %in% dfkc_top$city) %>% group_by(city, iyear) %>% 
+  summarise(nk = sum(nkill), nw = sum(nwound)) %>% ungroup -> dfkc
+
+
+treemap(dfkc, #Your data frame object
+        index=c("city", "iyear"),  
+        type = "value",
+        vSize = "nk", 
+        vColor="nw",
+        palette = "RdBu", 
+        title="Killings in Cities/Years - size is proportional with the number of killings (top 20 cities only)", 
+
+        title.legend = "Number of wounded",
+        fontsize.title = 10 
+)
+```
+
+The top is dominated (excepting `Unknown`) by Baghdad (with the years of the Irak wars dominating), Mosul, Mogadishu (due to Rwanda conflicts), Karachi and New York City (due to the attentats from 2001).
+
+
+# **American citizens killed**
+
+
+
+Let's look now to the numbers of american citizens killed worldwide. 
+We show also the number of wounded (color is proportional with the number of wounded).
+The leading country for US citizens killed in United States, followed by Afghanistan, Iraq, Lebanon, UK and Algeria.
+
+
+```{r killing_worldwide_treemap_us}
+df %>% filter(nkillus > 0) -> dfk_us
+treemap(dfk_us,
+        index=c("country_txt", "iyear"),  
+        type = "value",
+        vSize = "nkillus",  
+        vColor="nwoundus",
+        palette = "RdBu",  
+        title="Killings in Global terrorism - US Citizens (Countries/Years) - size is proportional with the number of killings", 
+        title.legend = "Number of wounded US citizens",
+        fontsize.title = 12
+)
+```
+
+## American killings per year and region
+
+Let's look to the killing of US citizens grouped by year and region.
+
+
+
+```{r killing_worldwide_plot_year_region_american}
+dfk_us %>% group_by(iyear,region_txt) %>% summarise(nkills = sum(nkillus)) %>% ungroup() -> dfyr
+colnames(dfyr)<-c("Year","Region","Killed")
+ggplot(data = dfyr, aes(x = Year, y = Killed, colour = Region)) +       
+   geom_line() + geom_point() + theme_bw()
+```
+
+
+Most of the american victims were in one single event, in 2001, during 9-11 terrorist attack.
+
+
+
+# **American citizens wounded**
+
+
+Let's see the stats for the US citizens wounded. The size of the tile is porportional with th number of wounded. The number of killed US citizens is proportional with the color of the tile. United States is leading with the nuumber of wounded US citizens, with 1995, 1984 events on the first places. Then,  follow Iraq (2004), Afganistan (2012), Saudi Arabia and again on US teritory on 2016, 2013, 1970.
+
+
+```{r wounded_worldwide_treemap_us}
+df %>% filter(nwoundus > 0) -> dfw_us
+treemap(dfw_us, 
+        index=c("country_txt", "iyear"),  
+        type = "value",
+        vSize = "nwoundus",  
+        vColor="nkillus",
+        palette = "RdBu",  
+        title="Wounded in Global terrorism - US Citizens (Countries/Years) - size ~  number of wounded", 
+        title.legend = "Number of killed US citizens",
+        fontsize.title = 11
+)
+
+```  
+
+Let's see a leaflet map with the US citizens killed.
+
+
+```{r killing_worldwide_leaflet_us}
+# Map with  citizens killed
+p <- leaflet(data = dfk_us) %>%
+  addTiles() %>%
+  addMarkers(lat=dfk_us$latitude, lng=dfk_us$longitude, clusterOptions = markerClusterOptions(),
+             popup= paste("<strong>Date: </strong>", dfk_us$iday,"/",dfk_us$imonth,"/", dfk_us$iyear,
+                          "<br><br><strong>Place: </strong>", dfk_us$city,"-",dfk_us$country_txt,
+                          "<br><strong>Killed: </strong>", dfk_us$nkill,
+                          "<br><strong>Wounded: </strong>", dfk_us$nwound
+             ))
+```
+
+## Americans wounded per year and region
+
+Let's see now the number of wounded US citizens grouped on year and geographical region.
+
+
+```{r wounded_worldwide_plot_year_region_american}
+dfw_us %>% group_by(iyear,region_txt) %>% summarise(nwounds = sum(nwoundus)) %>% ungroup() -> dfyr
+colnames(dfyr)<-c("Year","Region","Wounded")
+ggplot(data = dfyr, aes(x = Year, y = Wounded, colour = Region)) +       
+   geom_line() + geom_point() + theme_bw()
+```
+
+
+# **Type of attack**
+
+
+
+Let's inspect the evolution of events in time, grouped by type of attack perpetrated.
+
+
+```{r attack_type_treemap}
+df %>% group_by(iyear,attacktype1_txt) %>% summarise(n = length(iyear)) %>% ungroup() -> dfya
+colnames(dfya)<-c("Year","Type of attack","Number of events")
+ggplot(data = dfya, aes(x = Year, y = `Number of events`, colour = `Type of attack`)) + 
+   geom_line() + geom_point() + theme_bw()
+```
+
+
+We can observe that `Bombing/Explosion` was allways the most frequent type of attack, followed by `Armed Assault`. In recent years, the number of such events increased dramatically, accounting for the majority of the events in recent years.
+
+
+
+# **Events alternative classification**
+
+
+Let's see the event classification, under `alternative` field, where most of the events are not actually classified. The rest will show the following distribution.
+
+
+```{r fig.height=4, fig.width=6, alternative_classification}
+df %>% filter(alternative_txt != "") %>% group_by(alternative_txt) %>% 
+  summarise(n = length(alternative_txt))  %>% ungroup() -> dfa
+ggplot(data = dfa, aes(x = reorder(alternative_txt,n), y = n)) +  
+  geom_bar(stat="identity", fill="tomato", colour="black") +
+  coord_flip() + theme_bw(base_size = 10)  +
+   labs(title="", x ="Alternative classification", y = "Number of events")
+
+```
+
+
+Most of the events are not classified under this alternative classification.
+
+
+# **Suicide attacks**
+
+
+
+Let's see the distribution of suicide attacks.   
+There are a total of ``r sum(df$suicide==1)`` suicidal terrorist attacks.   
+The treemap here shows the size proportional with the number of kills and the color proportional with the number of wounded.   
+Most of the suicide atacks victims were in suicide attacks in Iraq in 2016, followed by 9/11 in 2001 in US (also with the largest number of wounded), then Iraq 2014, 2013, 2007 (with the second total number of wounded as well). Iraq is leading as well in 2004, 2005, 2006, 2008, 2009. In 2012 Afganistan has the first place, as well as 2011 (very close followed by Pakistan). Rusia has the first place for 2003 and Kenya for 1998.
+
+
+```{r suicide_worldwide_treemap}
+
+df %>% filter(suicide ==1) -> dfs
+treemap(dfs, 
+        index=c("iyear","country_txt"), 
+        type = "value",
+        vSize = "nkill",  
+        vColor="nwound",
+        palette = "RdBu",  
+        title="Suicide attacks - size is proportional with the number of kills", 
+        title.legend = "Number of wounded",
+        fontsize.title = 14
+)
+
+```
+
+
+We can present the same data using a leaflet map.
+
+
+```{r suicide_worldwide_leaflet}
+leaflet(data = dfs) %>%
+  addTiles() %>%
+  addMarkers(lat=dfs$latitude, lng=dfs$longitude, clusterOptions = markerClusterOptions(),
+             popup= paste("<strong>Date: </strong>", dfs$iday,"/",dfs$imonth,"/", dfs$iyear,
+                          "<br><br><strong>Place: </strong>", dfs$city,"-",dfs$country_txt,
+                          "<br><strong>Killed: </strong>", dfs$nkill,
+                          "<br><strong>Wounded: </strong>", dfs$nwound,
+                          "<br><strong>Killed US citizens: </strong>", dfs$nkillus,
+                          "<br><strong>Wounded US citizens: </strong>", dfs$nwoundus
+             ))
+
+```
+
+
+Let's see the number of killings in suicide attacks grouped by year and region.
+
+```{r suicide_worldwide_plot_year_region}
+dfs %>% group_by(iyear,region_txt) %>% summarise(nkills = sum(nkill)) %>% ungroup() -> dfyr
+colnames(dfyr)<-c("Year","Region","Killed")
+ggplot(data = dfyr, aes(x = Year, y = Killed, colour = Region)) +       
+   geom_line() + geom_point() + theme_bw()
+```
+
+
+
+# **Terror attacks with ransom demands**
+
+
+
+```{r ransom_demands}
+df %>% filter(ransompaid > 0) -> dfr
+```
+
+
+There is a total number of ``r nrow(dfr)`` terrorist events registered with a positive value of ransom paid.   
+We represent the distribution of these events on country and years using a treemap.
+The largest ransom paid was in Argentina in 1974, followed by Mexico and then Argentina again in 1973, then Germany and Greece.
+
+
+
+```{r ransom_demands_treemap}
+treemap(dfr, #Your data frame object
+        index=c("country_txt", "iyear"), 
+        type = "value",
+        vSize = "ransompaid", 
+        vColor="ransomamt",
+        palette = "RdBu",  
+        title="Ransom paid in Global terrorism  - size is proportional with the ransom paid", 
+        title.legend = "Ransom demand",
+        fontsize.title = 12
+)
+
+```
+
+## Map with ransom demands
+
+The same information, with more details, is shown in the following leaflet map.   
+
+Click on each marker on the map to see more details.
+
+
+```{r ransom_demands_leaflet}
+leaflet(data = dfr) %>%
+  addTiles() %>%
+  addMarkers(lat=dfr$latitude, lng=dfr$longitude, clusterOptions = markerClusterOptions(),
+             popup= paste("<strong>Date: </strong>", dfr$iday,"/",dfr$imonth,"/", dfr$iyear,
+                          "<br><br><strong>Place: </strong>", dfr$city,"-",dfr$country_txt,
+                          "<br><strong>Killed: </strong>", dfr$nkill,
+                          "<br><strong>Wounded: </strong>", dfr$nwound,
+                          "<br><strong>Killed US citizens: </strong>", dfr$nkillus,
+                          "<br><strong>Wounded US citizens: </strong>", dfr$nwoundus,
+                          "<br><strong>Suicide attack(0-No/1-Yes): </strong>", dfr$suicide,
+                          "<br><strong>Ransom paid: </strong>", dfr$ransompaid,
+                          "<br><strong>Ransom note: </strong>", dfr$ransomnote,
+                          "<br><strong>Hostages/kidnapped: </strong>", dfr$nhostkid,
+                          "<br><strong>Hostages/kidnapped outcome: </strong>", dfr$hostkidoutcome_txt
+             ))
+```
+
+## Ransom demands grouped by region and year
+
+Let's see the total amount of ransom requested grouped per region and year.
+
+
+```{r ransom_demands_plot_year_region}
+
+dfr %>% group_by(iyear,region_txt) %>% summarise(ransomsum = sum(ransompaid)) %>% ungroup() -> dfyr
+colnames(dfyr)<-c("Year","Region","Ransom")
+ggplot(data = dfyr, aes(x = Year, y = Ransom, colour = Region)) +       
+   geom_line() + geom_point() + theme_bw()
+```
+
+We can observe the top values from North (in the '90s) and South America (in the '70s) and as well from Western Europe(end of '90s and early 2000s).
+
+
+# **Hostage/kidnapping events with a ransom note**
+
+
+For the terror events with a ransom note, we show the treemap for the Hostage/Kidnapping outcome (grouped also per country) and the number of hostages (or kidnapped) people in the incidents.  
+The largest ransom paid were in Argentina, followed by Mexico and Greece - for the hostage crysis where hostages were released by perpetrators. 
+
+
+```{r hostage_kidnapping_}
+df %>% filter(!is.na(ransomnote)) -> dfho
+dfho %>% filter(ransompaid > 0) -> dfho1
+treemap(dfho1, 
+        index=c("hostkidoutcome_txt","country_txt"), 
+        type = "value",
+        vSize = "ransompaid",  
+        vColor="nhostkid",
+        palette = "RdBu",  
+        title="Ransom paid in Global terrorism  - size is proportional with the ransom paid", 
+        title.legend = "Number of hostages/kidnapped",
+        fontsize.title = 12 
+)
+
+```
+
+
+Let's see the number of hostages and kidnapped persons grouped per region and per year when there was a ransom note.
+
+
+
+```{r ransom_note_plot_year_region}
+dfho1 %>% group_by(iyear,region_txt) %>% summarise(nhostkidnp = sum(nhostkid)) %>% ungroup() -> dfyr
+colnames(dfyr)<-c("Year","Region","Hostages_Kidnapped")
+ggplot(data = dfyr, aes(x = Year, y = Hostages_Kidnapped, colour = Region)) +       
+   geom_line() + geom_point() + theme_bw() +
+   labs(title="Hostages and Kidnapped when there is a ransom note", x ="Year", y = "Hostages and Kidnapped")
+```
+
+
+
+# **Hostage/kidnapping events outcome**
+
+
+
+We see here the outcome of hostage events is global terrorism. The areas/sizes are proportional with the number of events. The color is proportional with the number of hostages/kidnapped. We can see that majority of events had the `Unknown` outcome (with Irak leading with the number of hostage/kidnapped as well as the number of events). Most frequent hostage events were in Iraq, Afganistan, Pakistan. The largest number of hostage/kidnapping events were in Iraq - with unknown outcome, India, with hostages released by perpetrators, in Iraq, with hostage killed (not during rescue attempt). Most numerous succesful requests were in India, folled by Columbia and Pakistan.
+
+
+```{r ransom, include=FALSE}
+df %>% filter(!is.na(hostkidoutcome)  & (nhostkid > 0)) %>% group_by(hostkidoutcome_txt, country_txt) %>% 
+  summarize(cnt=length(hostkidoutcome), sum=sum(nhostkid)) %>% ungroup() -> dfo
+```
+
+```{r ransom_note}
+treemap(dfo, #Your data frame object
+        index=c("hostkidoutcome_txt","country_txt"),  
+        type = "value",
+        vSize = "cnt",  
+        vColor="sum",
+        palette = "RdBu",  
+        title="Outcome of hostage events in Global terrorism - size is proportional with the number of events", 
+        title.legend = "Number of hostages or kidnapped in the events",
+        fontsize.title = 12
+)
+```
+
+
+# **Correlations between values**
+
+
+```{r correlation}
+terrorCor <- df[,c("iyear","imonth","iday","country", "nkill", "ransompaid","ransompaidus",
+               "nhostkidus","nhours","ndays")]
+terrorCor <- na.omit(terrorCor)
+correlations <- cor(terrorCor)
+p <- corrplot(correlations, method="circle")
+```
+
+We can see that there is a high correlation between the following values: `ransompaid`, `ransompaidus` and `nhostkidus` i.e. between the amount paid as ransom, the amount paid as ransom for cases when US citizens were involved and the number of hostage or kidnapped (when US citizens).
+
+
+# **Ransom note (text analysis)**
+
+
+The text in `ransomnote` is a actually a comment of the requests made by the perpetrators. There are many notes simply stating that no ransom request was made. A large part of the ransom requests are about money, releasing political or terrorist prisoners and political, social or even ecological requests.   
+
+Some of the requests are quite unusual, few examples are given here:  
+
+* *A handgun was also included in the ransom demand*;   
+* *The assailants demanded 15 sheep for the release of the hostage*;  
+* *The assailants demanded the return of four hundred sheep in exchange for the release of the hostage victims*;  
+* *The assailants demanded a blanket, clothes, and perfume for the release of the hostage victim*;  
+* *The assailants requested either a ransom or the apples stocked in the truck*;  
+* *The assailants demanded that electricity be extended to their village*;  
+* *The perpetrators demanded that citizens not participate in upcoming elections in exchange for the release of the kidnap victims*;  
+* *The perpetrators in this incident demanded jobs in the police force in exchange for the release of the abductees*;  
+* *Prior to the ransom demand, the assailants originally demanded that the victim's son resign as Bayelsa State Commissioner in exchange for her release. The assailants also demanded that the victim's family provide them with four Nokia handsets in exchange for her release*;  
+
+
+```{r ransom_note_text_analysis}
+df %>% filter(!is.na(ransomnote)) -> dfn0
+dfn0 %>% filter(ransomnote != "") -> dfn
+text <- dfn$ransomnote
+myCorpus <- Corpus(VectorSource(text))
+myCorpus = tm_map(myCorpus, content_transformer(tolower))
+# remove punctuation
+myCorpus = tm_map(myCorpus, removePunctuation)
+# remove numbers
+myCorpus = tm_map(myCorpus, removeNumbers)
+# remove stopwords for English
+myCorpus = tm_map(myCorpus, removeWords,c(stopwords("english"), stopwords("SMART")))
+#create DTM
+myDtm = TermDocumentMatrix(myCorpus,
+                           control = list(minWordLength = 1))
+#Frequent Terms and Associations
+freqTerms <- findFreqTerms(myDtm, lowfreq=1)
+m <- as.matrix(myDtm)
+# calculate the frequency of words
+v <- sort(rowSums(m), decreasing=TRUE)
+myNames <- names(v)
+d <- data.frame(word=myNames, freq=v)
+wctop <-wordcloud(d$word, d$freq, min.freq=5, colors=brewer.pal(9,"Set1"))
+```
+
+Let's see a cluster dendogram showing the relations between the frequent concepts used in the ransom notes.
+
+
+```{r ransom_note_cluster_dendogram}
+mydata.df <- as.data.frame(inspect(removeSparseTerms(myDtm, sparse=0.99)))
+mydata.df.scale <- scale(mydata.df)
+d <- dist(mydata.df.scale, method = "euclidean") # distance matrix
+fit <- hclust(d, method="ward.D")
+plot(fit, xaxt = 'n', yaxt='n', xlab = "Word clustering using ward.D method", ylab = "",
+     main="Cluster Dendogram for words used in ransom notes") # display dendogram?
+groups <- cutree(fit, k=5) # cut tree into 5 clusters
+# draw dendogram with blue borders around the 5 clusters
+rect.hclust(fit, k=5, border="blue")
+
+```
+
+
+## Map with ransom notes
+
+Let's see a leaflet map only with the events for which there is a ransom note available.
+
+
+```{r ransom_note_text_all}
+leaflet(data = dfr) %>%
+  addTiles() %>%
+  addMarkers(lat=dfr$latitude, lng=dfr$longitude, clusterOptions = markerClusterOptions(),
+             popup= paste("<strong>Date: </strong>", dfr$iday,"/",dfr$imonth,"/", dfr$iyear,
+                          "<br><br><strong>Place: </strong>", dfr$city,"-",dfr$country_txt,
+                          "<br><strong>Killed: </strong>", dfr$nkill,
+                          "<br><strong>Wounded: </strong>", dfr$nwound,
+                          "<br><strong>Killed US citizens: </strong>", dfr$nkillus,
+                          "<br><strong>Wounded US citizens: </strong>", dfr$nwoundus,
+                          "<br><strong>Suicide attack(0-No/1-Yes): </strong>", dfr$suicide,
+                          "<br><strong>Ransom paid: </strong>", dfr$ransompaid,
+                          "<br><strong>Ransom note: </strong>", dfr$ransomnote,
+                          "<br><strong>Hostages/kidnapped: </strong>", dfr$nhostkid,
+                          "<br><strong>Hostages/kidnapped outcome: </strong>", dfr$hostkidoutcome_txt
+             ))
+```
+
+We can see here how the main concepts are connected. For example, `ransom` is in close relationship with two sub-trees, {`hostage`, `release`} and {`assailants`, `demanded`}.
+
+## Ransom notes topic modelling
+
+Let's perform as well topic modelling on the ransom notes. 
+We define first a function to create a corpus, perform pre-processing, define the document-term matrix, preprare it for applying LDA, apply LDA and return the model.
+
+```{r topic_extract}
+topic_model_extract <- function(inputText, nTopics = 5) {
+  
+  # create a corpus
+  myCorpus <- Corpus(VectorSource(inputText))
+  # convert to lowercase
+  myCorpus = tm_map(myCorpus, content_transformer(tolower))
+  # remove punctuation
+  myCorpus = tm_map(myCorpus, removePunctuation)
+  # remove numbers
+  myCorpus = tm_map(myCorpus, removeNumbers)
+  # define archaisms to remove
+  # remove stopwords, 'SMART' english
+  myCorpus = tm_map(myCorpus, removeWords,c(stopwords("english"), 
+                                stopwords('SMART')))
+  # create a document-term matrix
+  myDtm <- tm::DocumentTermMatrix(myCorpus, control = list(stemming = TRUE, stopwords = TRUE,
+                                      minWordLength = 2, removeNumbers = TRUE, removePunctuation = TRUE))
+  
+  # remove rows with 0 words in each document
+  rowTotals <- apply(myDtm , 1, sum) #find the sum of words in each Document
+  myDtm   <- myDtm[rowTotals> 1, ]  
+  
+  # apply LDA
+  system.time(model <- topicmodels::LDA(myDtm, 5 , method = "Gibbs", control = list(iter=2000, seed =42)))
+  return (model)
+}
+```
+
+
+We apply the above defined function to extract the topics from the ransom notes. We extract top 5 terms for each topic.
+
+
+```{r find_and_plot_topics_ransom_notes}
+model = topic_model_extract(dfr$ransomnote)
+terms <- as.data.frame(topicmodels::terms(model, 5), stringsAsFactors = FALSE)
+head(t(terms), 5) %>%
+  kable( "html", escape=F, align="c") %>%
+   column_spec(1:1, bold = T) %>%
+   kable_styling(bootstrap_options = "striped", full_width = F, position = "center")
+```
+
+
+
+# **Summary (text analysis)**
+
+## Summary wordcloud
+
+Let's perform a similar text analysis on the `summary` field, the field that describes the terrorist event. Due to very large size of the nonb-void entries, we will subsample the data, extracting randomly only 1% of the `summary` text entries.
+
+
+
+```{r summary_text_analysis}
+df %>% filter(!is.na(summary)) -> dfn0
+dfn0 %>% filter(summary != "") -> dfn
+text <- sample(dfn$summary, nrow(dfn)/100)
+myCorpus <- Corpus(VectorSource(text))
+#myCorpus = tm_map(myCorpus, content_transformer(tolower))
+# remove punctuation
+myCorpus = tm_map(myCorpus, removePunctuation)
+# remove numbers
+myCorpus = tm_map(myCorpus, removeNumbers)
+# remove stopwords for English
+myCorpus = tm_map(myCorpus, removeWords,c(stopwords("english"), stopwords("SMART"), "the"))
+#create DTM
+myDtm = TermDocumentMatrix(myCorpus,
+                           control = list(minWordLength = 3))
+#Frequent Terms and Associations
+freqTerms <- findFreqTerms(myDtm, lowfreq=1)
+m <- as.matrix(myDtm)
+# calculate the frequency of words
+v <- sort(rowSums(m), decreasing=TRUE)
+myNames <- names(v)
+d <- data.frame(word=myNames, freq=v)
+wctop <-wordcloud(d$word, d$freq, min.freq=50, colors=brewer.pal(9,"Set1"))
+
+```
+
+
+We can see that the most frequent concepts used are `claimed`, `group`, `incident`, `attack`, `killed`, `assailants`, `detonated`, `irak`, `explosive`, `device`, `police`.  
+
+## Summary cluster dendogram
+
+
+Let's see a cluster dendogram showing the relations between the frequent concepts used in the summary description.
+
+
+```{r summary_cluster_dendogram}
+mydata.df <- as.data.frame(inspect(removeSparseTerms(myDtm, sparse=0.99)))
+mydata.df.scale <- scale(mydata.df)
+d <- dist(mydata.df.scale, method = "euclidean") # distance matrix
+fit <- hclust(d, method="ward.D")
+plot(fit, xaxt = 'n', yaxt='n', xlab = "Word clustering using ward.D method", ylab = "",
+     main="Cluster Dendogram for words used in summary description") # display dendogram?
+groups <- cutree(fit, k=5) # cut tree into 5 clusters
+# draw dendogram with blue borders around the 5 clusters
+rect.hclust(fit, k=5, border="blue")
+```
+
+We can see here how the main concepts are connected. For example, `group` is in close relationship with two sub-trees, {`detonated`, {`killed`,{`claimed`,`responsibility`}}}.
+
+
+
+# **Motive (text analysis)**
+
+
+## Motive wordcloud
+
+Let's analyze the motive of the attacks. We will subsample the entries (2% from the entries will be randomly sampled).   
+We will also remove such very frequent, specific terms like `attack`, `specific`, `motive`,`sources`, `targeted`, `claimed`, `noted`, `carried`, `incident`, `stated`, `responsibility` and `unknown`.
+
+
+```{r fig.width=10, fig.height=10,motive_text_analysis}
+df %>% filter(!is.na(motive)) -> dfm0
+dfm0 %>% filter(motive != "") -> dfm
+text <- sample(dfm$motive, nrow(dfm)/50)
+specificWords <- c("The", "Unknown", "attack", "specific", "motive", "sources", "unknown", "claimed", "targeted",
+                   "carried", "noted", "incident", "stated", "responsibility", "the")
+
+text<-sapply(text, function(x) gsub("\n"," ",x))
+
+myCorpus<-VCorpus(VectorSource(text))
+myCorpusClean <- myCorpus %>% 
+  #tm_map(content_transformer(tolower)) %>% 
+  tm_map(content_transformer(removeNumbers)) %>% 
+  tm_map(content_transformer(removePunctuation)) %>%
+  tm_map(content_transformer(removeWords),tidytext::stop_words$word) %>%
+  tm_map(content_transformer(removeWords),specificWords)
+myDtm = TermDocumentMatrix(myCorpusClean,
+                           control = list(minWordLength = 3))
+freqTerms <- findFreqTerms(myDtm, lowfreq=1)
+m <- as.matrix(myDtm)
+v <- sort(rowSums(m), decreasing=TRUE)
+myNames <- names(v)
+d <- data.frame(word=myNames, freq=v)
+wctop <-wordcloud(d$word, d$freq, min.freq=5, colors=brewer.pal(9,"Set1"))
+```
+
+
+## Motive 2-grams
+
+After eliminated a part of the frequent, specific terms used to describe the attacks, we can see some interesting keywords appearing, such as `sectarian`, `islamic`, `violence`, `shiite`, `sunni`, `government`, `retaliation`, `iraq`, `military`, `violence`, `protest`, `military`.  
+Let's check now n-grams. We start with 2-grams.
+
+
+```{r fig.width=16, fig.height=10,motive_text_analysis_2_grams}
+#define 2-gram
+BigramTokenizer <- function(x) unlist(lapply(ngrams(words(x), 2), paste, collapse = " "), use.names = FALSE)
+tdm_2<- TermDocumentMatrix(myCorpusClean, control = list(tokenize = BigramTokenizer))
+m_tdm_2 <-as.matrix(tdm_2)
+word.freq.2<-sort(rowSums(m_tdm_2), decreasing=T)
+set.seed(314)
+wordcloud(words=names(word.freq.2),freq = word.freq.2,random.order=F,colors=brewer.pal(9,"Set1"),max.words=100)
+title(paste0('Most frequent 2-grams in Motive'),col.main='black',cex.main=2)
+```
+
+
+Most frequent 2-grams are `larger trend`, `sectarian violence`, `trend sectarian`, `security forces`.  
+
+## Motive 3-grams
+
+And let's check now 3-grams.
+
+
+```{r fig.width=16, fig.height=10,motive_text_analysis_3_grams}
+TrigramTokenizer <- function(x) unlist(lapply(ngrams(words(x), 3), paste, collapse = " "), use.names = FALSE)
+tdm_3 <- TermDocumentMatrix(myCorpusClean, control = list(tokenize = TrigramTokenizer))
+m_tdm_3 <-as.matrix(tdm_3)
+word.freq.3<-sort(rowSums(m_tdm_3), decreasing=T)
+set.seed(314)
+wordcloud(words=names(word.freq.3),freq = word.freq.3,random.order=F,colors=brewer.pal(9,"Set1"),max.words=100)
+title(paste0('Most frequent 3-grams in Motive'),col.main='black',cex.main=2)
+```
+
+
+Most frequent 3-grams are `trend sectarian violence`, `larger sectarian violence`, `larger trend violence`, `sectarian violence iraqs`, `trend violence related`, `violence iraqs sunni`, `iraqs sunni minority`.
+
+
+# **Perpetrators group**
+
+
+Let's see now the distribution of events and impact grouped on the perpetrators name. First we show the top 10 for perpetrators group based on the number of victims.
+
+
+```{r kill_plot_year_group}
+df %>% group_by(gname) %>% summarise(nkills = sum(nkill)) %>% top_n(n=10) %>% ungroup() -> dfg
+ggplot(data = dfg, aes(x = reorder(gname,nkills), y = nkills)) +  
+  geom_bar(stat="identity", fill="tomato", colour="black") +
+  coord_flip() + theme_bw(base_size = 8)  +
+   labs(title="", x ="Group", y = "Killed")
+```
+
+
+Most deadly attacks belongs to `Al-Qaida`.  
+Let's see also the top 10 based on number of terrorist attacks.
+
+
+```{r terror_events_plot_year_group}
+df %>% group_by(gname) %>% summarise(nevents = length(gname)) %>% top_n(n=10) %>% ungroup() -> dfg
+ggplot(data = dfg, aes(x = reorder(gname,nevents), y = nevents)) +  
+  geom_bar(stat="identity", fill="yellow", colour="black") +
+  coord_flip() + theme_bw(base_size = 8)  +
+   labs(title="", x ="Group", y = "Terrorist attacks")
+```
+
+The majority of attacks have an unknown perpetrator (most probably some of them are actually not set), the next 3 places belongs to `Taliban`, `Shining Path (SL)` and `ISIL`.
+Let's look now from time perspective the activity of these groups. We remove the `Unknown` entries.
+
+
+```{r fig.width=8, fig.height=8,most_active_terrorist_groups_yearly}
+#eliminate the unknown 
+dfg %>% filter(gname != "Unknown") -> fGroup
+df %>%  filter(gname %in% fGroup$gname) %>% group_by(iyear,gname) %>% summarise(nevents = length(gname)) %>% ungroup() -> dfyg
+colnames(dfyg)<-c("Year","Group","Events")
+ggplot(data = dfyg, aes(x = Year, y = Events, colour = Group)) +       
+   geom_line() + geom_point() + theme_bw() + theme(legend.position=c(0.25,0.8))
+```
+
+We can observe the variation of the terrorist events perpetrated by various groups in conjunction with Government measures in the countries the terrorist groups have main action area.  
+
+![Sendero Luminoso (Shining Path) poster supporting an electoral boycott (Peru)](https://upload.wikimedia.org/wikipedia/en/6/6e/Shining_Path_electoral_boycott_poster.jpg)
+
+A good example is the drastic drop in the activity of `Sendero Luminoso` (or `Shining Path`) after Alberto Fujimori, president of Peru, passed starting with 1991 legislation to give `Rondas` (anti SL peasant militias) more power and also military support.  
+
+![IRA Ceasfire in 1994](https://ichef.bbci.co.uk/news/660/media/images/77199000/jpg/_77199662_beltelceasefire.jpg)
+
+As well we see a significant drop in `IRA` activity after the official ceasefire in 1994. `FMLN` activity dropped and dissapeared after in 1992 `FMLN` became a political party.
+
+
+# **Perpetrators nationality**
+
+
+Let's see now the distribution of events and impact grouped on the perpetrators nationality.
+We show the top 20 for perpetrators nationality based on the number of events.
+
+
+```{r perpetrators_country}
+
+df %>% group_by(natlty1_txt) %>% summarise(nevents = length(natlty1_txt)) %>% top_n(n=20) %>% ungroup() -> dfg
+ggplot(data = dfg, aes(x = reorder(natlty1_txt,nevents), y = nevents)) +  
+  geom_bar(stat="identity", fill="blue", colour="black") +
+  coord_flip() + theme_bw(base_size = 8)  +
+   labs(title="", x ="Perpetrators nationality", y = "Terrorist attacks")
+```  
+
+Most attacks were conducted by perpetrators in `Iraq`, `Pakistan`, `India`, `Afghanistan` and `Colombia`.
+
+
+# **Location of escape for kidnapping/hijack events**
+
+
+
+Let's see what were the locations for escape for kidnapping or hijack events.   
+We will list the top 20 of countries/locations used as escape.We will remove the empty fields.
+
+
+```{r location_kidn_hij}
+df %>% filter(kidhijcountry != "") %>% group_by(kidhijcountry) %>% summarise(nevents = length(kidhijcountry)) %>% top_n(n=20) %>% ungroup() -> dfc
+ggplot(data = dfc, aes(x = reorder(kidhijcountry,nevents), y = nevents)) +  
+  geom_bar(stat="identity", fill="blue", colour="black") +
+  coord_flip() + theme_bw(base_size = 8)  +
+   labs(title="", x ="Location of escape", y = "Terrorist attacks")
+```
+
+# **Weapons**
+
+There are 4 weapon type classifications and 4 weapons subtype classifications.
+We will represent the types and subtypes of weapons and how many events were using each type of weapons for all 4 classifications.
+
+## Weapons type (1)
+
+Let's see what were the type of weapons used and how many events were using each type of weapons.
+
+
+```{r weapons}
+df %>% group_by(weaptype1_txt) %>% summarise(nweapons = length(weaptype1_txt)) %>% ungroup() -> dfw
+ggplot(data = dfw, aes(x = reorder(weaptype1_txt,nweapons), y = nweapons)) +  
+  geom_bar(stat="identity", fill="lightblue", colour="black") +
+  coord_flip() + theme_bw(base_size = 8)  +
+   labs(title="Weapons type (1)", x ="Type of weapon used", y = "Number of events")
+```
+
+
+
+The most frequently used weapons were `Explosives/Bombs/Dynamite` and `Firearms`. 
+
+
+## Weapons subtype (1)
+
+Let's see now the distribution of the sub-categories for the weapons used; we will remove the void entries.
+
+```{r weapons_sub_type_1}
+df %>% filter(weapsubtype1_txt != "") %>% group_by(weapsubtype1_txt) %>% summarise(nweapons = length(weapsubtype1_txt)) %>% ungroup() -> dfsw
+ggplot(data = dfsw, aes(x = reorder(weapsubtype1_txt,nweapons), y = nweapons)) +  
+  geom_bar(stat="identity", fill="darkblue", colour="black") +
+  coord_flip() + theme_bw(base_size = 8)  +
+   labs(title="Weapons subtype (1)", x ="Sub-type of weapon used", y = "Number of events")
+```
+
+
+## Combined weapons type and subtype (1)
+
+And here we can see the combined distribution of weapon types and weapon subtypes (1). 
+
+Totally there are 4 weapon subtypes categories.
+
+
+```{r fig.width=12, fig.height=12, weapons_type_subtype}
+df %>% group_by(weaptype1_txt, weapsubtype1_txt) %>% summarise(nweapons = length(weaptype1_txt)) %>% ungroup() -> dfw2
+ggplot(data = dfw2, aes(x = reorder(weaptype1_txt,nweapons), y = nweapons, fill = weapsubtype1_txt)) +  
+  geom_bar(aes(fill=weapsubtype1_txt), stat="identity", colour="black") +
+  coord_flip() +
+  theme_bw(base_size = 8)  +
+   labs(title="Weapons type/subtype (1)", x ="Type of weapon used", y = "Number of events", fill = "Sub-type") + 
+  theme(legend.position="top")
+```
+
+## Weapons type (2)
+
+Let's see what were the type of weapons (2) used and how many events were using each type of weapons.
+
+
+```{r weapons_2}
+df %>% group_by(weaptype2_txt) %>% summarise(nweapons = length(weaptype2_txt)) %>% ungroup() -> dfw2
+ggplot(data = dfw2, aes(x = reorder(weaptype2_txt,nweapons), y = nweapons)) +  
+  geom_bar(stat="identity", fill="red", colour="black") +
+  coord_flip() + theme_bw(base_size = 8)  +
+   labs(title="Weapons type (2)", x ="Type of weapon used", y = "Number of events")
+```
+
+## Weapons subtype (2)
+
+
+```{r weapons_sub_type_2}
+df %>% filter(weapsubtype2_txt != "") %>% group_by(weapsubtype2_txt) %>% summarise(nweapons = length(weapsubtype2_txt)) %>% ungroup() -> dfsw2
+ggplot(data = dfsw2, aes(x = reorder(weapsubtype2_txt,nweapons), y = nweapons)) +  
+  geom_bar(stat="identity", fill="orange", colour="black") +
+  coord_flip() + theme_bw(base_size = 8)  +
+   labs(title="Weapons subtype (2)", x ="Sub-type of weapon used", y = "Number of events")
+```
+
+## Weapons type (3)
+
+Let's see what were the type of weapons (3) used and how many events were using each type of weapons.
+
+
+```{r weapons_3}
+df %>% group_by(weaptype3_txt) %>% summarise(nweapons = length(weaptype3_txt)) %>% ungroup() -> dfw3
+ggplot(data = dfw3, aes(x = reorder(weaptype3_txt,nweapons), y = nweapons)) +  
+  geom_bar(stat="identity", fill="lightgreen", colour="black") +
+  coord_flip() + theme_bw(base_size = 8)  +
+   labs(title="Weapons type (3)", x ="Type of weapon used", y = "Number of events")
+```
+
+## Weapons subtype (3)
+
+
+```{r weapons_sub_type_3}
+df %>% filter(weapsubtype3_txt != "") %>% group_by(weapsubtype3_txt) %>% summarise(nweapons = length(weapsubtype3_txt)) %>% ungroup() -> dfsw3
+ggplot(data = dfsw3, aes(x = reorder(weapsubtype3_txt,nweapons), y = nweapons)) +  
+  geom_bar(stat="identity", fill="magenta", colour="black") +
+  coord_flip() + theme_bw(base_size = 8)  +
+   labs(title="Weapons subtype (3)", x ="Sub-type of weapon used", y = "Number of events")
+```
+
+
+## Weapons type (4)
+
+Let's see what were the type of weapons (4) used and how many events were using each type of weapons.
+
+
+```{r weapons_4}
+df %>% group_by(weaptype4_txt) %>% summarise(nweapons = length(weaptype4_txt)) %>% ungroup() -> dfw4
+ggplot(data = dfw4, aes(x = reorder(weaptype4_txt,nweapons), y = nweapons)) +  
+  geom_bar(stat="identity", fill="lightblue", colour="black") +
+  coord_flip() + theme_bw(base_size = 8)  +
+   labs(title="Weapons type (4)", x ="Type of weapon used", y = "Number of events")
+```
+
+## Weapons subtype (4)
+
+
+```{r weapons_sub_type_4}
+df %>% filter(weapsubtype4_txt != "") %>% group_by(weapsubtype4_txt) %>% summarise(nweapons = length(weapsubtype4_txt)) %>% ungroup() -> dfsw4
+ggplot(data = dfsw4, aes(x = reorder(weapsubtype4_txt,nweapons), y = nweapons)) +  
+  geom_bar(stat="identity", fill="red", colour="black") +
+  coord_flip() + theme_bw(base_size = 8)  +
+   labs(title="Weapons subtype (3)", x ="Sub-type of weapon used", y = "Number of events")
+```
+
+
+
+# **Target type and subtypes**
+
+
+## Target type (1)
+
+Let's see first the target types distribution, by **targtype1_txt**.
+
+
+
+```{r target_type_1}
+df %>% filter(targtype1_txt != "") %>% group_by(targtype1_txt) %>% summarise(nt = length(targtype1_txt)) %>% ungroup() -> dft
+ggplot(data = dft, aes(x = reorder(targtype1_txt,nt), y = nt)) +  
+  geom_bar(stat="identity", fill="gold", colour="black") +
+  coord_flip() + theme_bw(base_size = 8)  +
+   labs(title="Target type (1) distribution", x ="Target type", y = "Number of events")
+```
+
+
+Majority of the targets is given by `Private Citizens & Property`, followed by `Military` and `Police`.
+
+
+## Target sub-type (1)
+
+Let's see the first level of sub-categories of targets, by **targsubtype1_txt**.
+
+
+
+```{r fig.height=16, target_subtype_1}
+df %>% filter(targsubtype1_txt != "") %>% group_by(targsubtype1_txt) %>% summarise(nt = length(targsubtype1_txt)) %>% ungroup() -> dft2
+ggplot(data = dft2, aes(x = reorder(targsubtype1_txt,nt), y = nt)) +  
+  geom_bar(stat="identity", fill="tomato", colour="black") +
+  coord_flip() + theme_bw(base_size = 8)  +
+   labs(title="Target subtype (1) distribution", x ="Target sub-type", y = "Number of events")
+```
+
+## Target type (2)
+
+Let's show now the distribution of attacks by target type 2.
+
+
+```{r target_type_2}
+df %>% filter(targtype2_txt != "") %>% group_by(targtype2_txt) %>% summarise(nt = length(targtype2_txt)) %>% ungroup() -> dft2
+ggplot(data = dft2, aes(x = reorder(targtype2_txt,nt), y = nt)) +  
+  geom_bar(stat="identity", fill="lightblue", colour="black") +
+  coord_flip() + theme_bw(base_size = 8)  +
+   labs(title="Target type (2) distribution", x ="Target type", y = "Number of events")
+```
+
+
+## Target sub-type (2)
+
+Let's show now the distribution of attacks by target sub-type 2.
+
+
+```{r fig.height=16, target_subtype_2}
+df %>% filter(targsubtype2_txt != "") %>% group_by(targsubtype2_txt) %>% summarise(nt = length(targsubtype2_txt)) %>% ungroup() -> dfst2
+ggplot(data = dfst2, aes(x = reorder(targsubtype2_txt,nt), y = nt)) +  
+  geom_bar(stat="identity", fill="lightgreen", colour="black") +
+  coord_flip() + theme_bw(base_size = 8)  +
+   labs(title="Target subtype (2) distribution", x ="Target sub-type", y = "Number of events")
+```
+
+## Target type (3)
+
+Let's show now the distribution of attacks by target type 3.
+
+
+```{r target_type_3}
+df %>% filter(targtype3_txt != "") %>% group_by(targtype3_txt) %>% summarise(nt = length(targtype3_txt)) %>% ungroup() -> dft3
+ggplot(data = dft3, aes(x = reorder(targtype3_txt,nt), y = nt)) +  
+  geom_bar(stat="identity", fill="darkblue", colour="black") +
+  coord_flip() + theme_bw(base_size = 8)  +
+   labs(title="Target type (3) distribution", x ="Target type", y = "Number of events")
+```
+
+## Target sub-type (3)
+
+Let's show now the distribution of attacks by target sub-type 3.
+
+
+```{r fig.height=16, target_subtype_3}
+df %>% filter(targsubtype3_txt != "") %>% group_by(targsubtype3_txt) %>% summarise(nt = length(targsubtype3_txt)) %>% ungroup() -> dfst3
+ggplot(data = dfst3, aes(x = reorder(targsubtype3_txt,nt), y = nt)) +  
+  geom_bar(stat="identity", fill="darkgreen", colour="black") +
+  coord_flip() + theme_bw(base_size = 8)  +
+   labs(title="Target subtype (3) distribution", x ="Target sub-type", y = "Number of events")
+```
+
+
+
+# **Claim mode**
+
+
+
+Let's see now what were the claim modes used and how many events were for each type of claim.
+
+
+
+```{r claims}
+df %>% group_by(claimmode_txt) %>% summarise(nclm = length(claimmode_txt)) %>% ungroup() -> dfc
+ggplot(data = dfc, aes(x = reorder(claimmode_txt,nclm), y = nclm)) +  
+  geom_bar(stat="identity", fill="green", colour="black") +
+  coord_flip() + theme_bw(base_size = 8)  +
+   labs(title="", x ="Claim mode", y = "Number of events")
+```
+
+Let's set aside the one void entry and focus on the other types of `Claim mode`.
+
+
+```{r claims_2}
+df %>% filter(claimmode_txt != "") %>% group_by(claimmode_txt) %>% summarise(nclm = length(claimmode_txt)) %>% ungroup() -> dfc
+ggplot(data = dfc, aes(x = reorder(claimmode_txt,nclm), y = nclm)) +  
+  geom_bar(stat="identity", fill="darkgreen", colour="black") +
+  coord_flip() + theme_bw(base_size = 8)  +
+   labs(title="", x ="Claim mode", y = "Number of events")
+```
+
+Most of the claims are not documented. On the following three positions are `Personal claim`, `Posted to website, blog, etc.` and `Unknown`.
+
+
+# **Property damages**
+
+
+Let's analyze the property damages.
+
+
+
+```{r kill_plot_propextent}
+df %>% group_by(propextent_txt) %>% summarise(nevents = length(nkill)) %>% 
+   ungroup() -> dfp
+names(dfp) <- c("Property damages", "Number of events")
+dfp %>%
+  kable( "html", escape=F, align="c") %>%
+   kable_styling(bootstrap_options = "striped", full_width = F, position = "center") 
+```
+
+
+
+There are 6 events with propery damages extent evaluated to more than one billion USD.
+Let's list these events.
+
+
+
+```{r kill_plot_propextent_major}
+df %>% filter(propextent == 1) %>% select(city,country_txt,iday,imonth,iyear, 
+    nkill,nwound,propvalue,attacktype1_txt,gname) %>% 
+   ungroup() -> dfp
+names(dfp) <- c("City", "Country","Day", "Month", "Year", "Killed", "Wounded", "Property value", 
+                "Attack type", "Perpetrators")
+dfp %>%
+  kable( "html", escape=F, align="c") %>%
+   kable_styling(bootstrap_options = "striped", full_width = F, position = "center") 
+```
+
+
+As we can see, the most severe terrorist attacks in terms of property damage are also some of the most significant in terms of number of victims and wounded. 
+
+
+# **Data sources**
+
+
+The data presented are from multiple data sources. Let's see what were the sources of data.  
+
+
+```{r data_sources}
+df %>% filter(dbsource != "") %>% group_by(dbsource) %>% summarise(nd = length(dbsource)) %>% ungroup() -> dfd
+ggplot(data = dfd, aes(x = reorder(dbsource,nd), y = nd)) +  
+  geom_bar(stat="identity", fill="darkgreen", colour="black") +
+  coord_flip() + theme_bw(base_size = 8)  +
+   labs(title="", x ="Data source used", y = "Number of entries")
+```
+
+
+The majority of data is from [START - National Consortium for the Study of Terrorism and Responses to Terrorism](https://www.start.umd.edu/gtd/), the next are from [PGIS - Pinkerton Global Intelligence Services](https://www.pinkerton.com/intelligence-services/), [ISVG - Institute for the Study of Violent Groups](http://www.isvg.org/organization.php) and [CETIS - Center for Terrorism and Intelligence Studies](http://www.cetisresearch.org/).  
+
+
+# **Feedback**
+
+Please give me your feedback and your suggestions for improvement of this Kernel. If you find it useful as a starting point for your work, please fork and continue the analysis. 
+Happy Kaggling!
+
+# **References**
+
+
+[1] START - National Consortium for the Study of Terrorism and Responses to Terrorism https://www.start.umd.edu/gtd/  
+[2] PGIS - Pinkerton Global Intelligence Services https://www.pinkerton.com/intelligence-services/  
+[3] ISVG - Institute for the Study of Violent Groups http://www.isvg.org/organization.php  
+[4] CETIS - Center for Terrorism and Intelligence Studies http://www.cetisresearch.org/  
+[5] Sendero Luminoso https://en.wikipedia.org/wiki/Shining_Path  
+[6] Islamic State of Iraq and the Levant https://en.wikipedia.org/wiki/Islamic_State_of_Iraq_and_the_Levant  
+[7] Farabundo MartÃ� National Liberation Front https://en.wikipedia.org/wiki/Farabundo_Mart%C3%AD_National_Liberation_Front  
+[8] Al Shabaab https://en.wikipedia.org/wiki/Al-Shabaab_(militant_group)  
+[9] FARC - Fuerzas Armadas Revolucionarias de Colombia (Revolutionary Armed Forces of Colombia) -  https://en.wikipedia.org/wiki/Revolutionary_Armed_Forces_of_Colombia  
+[10] Taliban https://en.wikipedia.org/wiki/Taliban  
+[11] Al-Qaeda  https://en.wikipedia.org/wiki/Al-Qaeda  
+[12] Irish Republican Army (IRA) https://en.wikipedia.org/wiki/Irish_Republican_Army  

@@ -1,0 +1,1058 @@
+{
+    "url": "https://www.kaggle.com/slamnz/ibm-employee-attrition-analysis-by-numerics",
+    "votes": 33,
+    "rank": 4,
+    "charts": [
+        {
+            "describe": "mean age by attrition",
+            "chart": "bar",
+            "x": {
+                "attr": "Attrition",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "Age",
+                "trans": "mean",
+                "calcus": "raw"
+            }
+        },
+        {
+            "describe": "age by attrition",
+            "chart": "boxplot",
+            "x": {
+                "attr": "Attrition",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "Age",
+                "trans": "raw"
+            }
+        },
+        {
+            "describe": "age by attrition",
+            "chart": "densityplot",
+            "x": {
+                "attr": "Age",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "Age",
+                "trans": "density"
+            },
+            "color": {
+                "attr": "Attrition",
+                "trans": "raw",
+                "groupby": true
+            }
+        },
+        {
+            "describe": "DailyRate by attrition",
+            "chart": "bar",
+            "x": {
+                "attr": "Attrition",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "DailyRate",
+                "trans": "mean",
+                "calcus": "raw"
+            }
+        },
+        {
+            "describe": "DailyRate by attrition",
+            "chart": "boxplot",
+            "x": {
+                "attr": "Attrition",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "DailyRate",
+                "trans": "raw"
+            }
+        },
+        {
+            "describe": "DailyRate by attrition",
+            "chart": "densityplot",
+            "x": {
+                "attr": "DailyRate",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "DailyRate",
+                "trans": "density"
+            },
+            "color": {
+                "attr": "Attrition",
+                "trans": "raw",
+                "groupby": true
+            }
+        },
+        {
+            "describe": "DistanceFromeHome by attrition",
+            "chart": "bar",
+            "x": {
+                "attr": "Attrition",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "DistanceFromeHome",
+                "trans": "mean",
+                "calcus": "raw"
+            }
+        },
+        {
+            "describe": "DistanceFromeHome by attrition",
+            "chart": "boxplot",
+            "x": {
+                "attr": "Attrition",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "DistanceFromeHome",
+                "trans": "raw"
+            }
+        },
+        {
+            "describe": "DistanceFromeHome by attrition",
+            "chart": "densityplot",
+            "x": {
+                "attr": "DistanceFromeHome",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "DistanceFromeHome",
+                "trans": "density"
+            },
+            "color": {
+                "attr": "Attrition",
+                "trans": "raw",
+                "groupby": true
+            }
+        },
+        {
+            "describe": "EnvironmentSatisfaction by attrition",
+            "chart": "bar",
+            "x": {
+                "attr": "Attrition",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "EnvironmentSatisfaction",
+                "trans": "mean",
+                "calcus": "raw"
+            }
+        },
+        {
+            "describe": "EnvironmentSatisfaction by attrition",
+            "chart": "boxplot",
+            "x": {
+                "attr": "Attrition",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "EnvironmentSatisfaction",
+                "trans": "raw"
+            }
+        },
+        {
+            "describe": "EnvironmentSatisfaction by attrition",
+            "chart": "bar",
+            "x": {
+                "attr": "EnvironmentSatisfaction",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "EnvironmentSatisfaction",
+                "trans": "count",
+                "calcus": "raw"
+            },
+            "color": {
+                "attr": "Attrition",
+                "trans": "raw",
+                "groupby": true
+            }
+        },
+        {
+            "describe": "JobInvolvement by attrition",
+            "chart": "bar",
+            "x": {
+                "attr": "Attrition",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "JobInvolvement",
+                "trans": "mean",
+                "calcus": "raw"
+            }
+        },
+        {
+            "describe": "JobInvolvement by attrition",
+            "chart": "boxplot",
+            "x": {
+                "attr": "Attrition",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "JobInvolvement",
+                "trans": "raw"
+            }
+        },
+        {
+            "describe": "JobInvolvement by attrition",
+            "chart": "bar",
+            "x": {
+                "attr": "JobInvolvement",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "JobInvolvement",
+                "trans": "count",
+                "calcus": "raw"
+            },
+            "color": {
+                "attr": "Attrition",
+                "trans": "raw",
+                "groupby": true
+            }
+        },
+        {
+            "describe": "JobLevel by attrition",
+            "chart": "bar",
+            "x": {
+                "attr": "Attrition",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "JobLevel",
+                "trans": "mean",
+                "calcus": "raw"
+            }
+        },
+        {
+            "describe": "JobLevel by attrition",
+            "chart": "boxplot",
+            "x": {
+                "attr": "Attrition",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "JobLevel",
+                "trans": "raw"
+            }
+        },
+        {
+            "describe": "JobLevel by attrition",
+            "chart": "bar",
+            "x": {
+                "attr": "JobLevel",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "JobLevel",
+                "trans": "count",
+                "calcus": "raw"
+            },
+            "color": {
+                "attr": "Attrition",
+                "trans": "raw",
+                "groupby": true
+            }
+        },
+        {
+            "describe": "JobSatisfaction by attrition",
+            "chart": "bar",
+            "x": {
+                "attr": "Attrition",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "JobSatisfaction",
+                "trans": "mean",
+                "calcus": "raw"
+            }
+        },
+        {
+            "describe": "JobSatisfaction by attrition",
+            "chart": "boxplot",
+            "x": {
+                "attr": "Attrition",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "JobSatisfaction",
+                "trans": "raw"
+            }
+        },
+        {
+            "describe": "JobSatisfaction by attrition",
+            "chart": "bar",
+            "x": {
+                "attr": "JobSatisfaction",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "JobSatisfaction",
+                "trans": "count",
+                "calcus": "raw"
+            },
+            "color": {
+                "attr": "Attrition",
+                "trans": "raw",
+                "groupby": true
+            }
+        },
+        {
+            "describe": "MonthlyIncome by attrition",
+            "chart": "bar",
+            "x": {
+                "attr": "Attrition",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "MonthlyIncome",
+                "trans": "mean",
+                "calcus": "raw"
+            }
+        },
+        {
+            "describe": "MonthlyIncome by attrition",
+            "chart": "boxplot",
+            "x": {
+                "attr": "Attrition",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "MonthlyIncome",
+                "trans": "raw"
+            }
+        },
+        {
+            "describe": "MonthlyIncome by attrition",
+            "chart": "densityplot",
+            "x": {
+                "attr": "MonthlyIncome",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "MonthlyIncome",
+                "trans": "density"
+            },
+            "color": {
+                "attr": "Attrition",
+                "trans": "raw",
+                "groupby": true
+            }
+        },
+        {
+            "describe": "StockOptionLevel by attrition",
+            "chart": "bar",
+            "x": {
+                "attr": "Attrition",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "StockOptionLevel",
+                "trans": "mean",
+                "calcus": "raw"
+            }
+        },
+        {
+            "describe": "StockOptionLevel by attrition",
+            "chart": "boxplot",
+            "x": {
+                "attr": "Attrition",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "StockOptionLevel",
+                "trans": "raw"
+            }
+        },
+        {
+            "describe": "StockOptionLevel by attrition",
+            "chart": "bar",
+            "x": {
+                "attr": "StockOptionLevel",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "StockOptionLevel",
+                "trans": "count",
+                "calcus": "raw"
+            },
+            "color": {
+                "attr": "Attrition",
+                "trans": "raw",
+                "groupby": true
+            }
+        },
+        {
+            "describe": "TotalWorkingYears by attrition",
+            "chart": "bar",
+            "x": {
+                "attr": "Attrition",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "TotalWorkingYears",
+                "trans": "mean",
+                "calcus": "raw"
+            }
+        },
+        {
+            "describe": "TotalWorkingYears by attrition",
+            "chart": "boxplot",
+            "x": {
+                "attr": "Attrition",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "TotalWorkingYears",
+                "trans": "raw"
+            }
+        },
+        {
+            "describe": "TotalWorkingYears by attrition",
+            "chart": "densityplot",
+            "x": {
+                "attr": "TotalWorkingYears",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "TotalWorkingYears",
+                "trans": "density"
+            },
+            "color": {
+                "attr": "Attrition",
+                "trans": "raw",
+                "groupby": true
+            }
+        },
+        {
+            "describe": "TrainingTimeLastYear by attrition",
+            "chart": "bar",
+            "x": {
+                "attr": "Attrition",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "TrainingTimeLastYear",
+                "trans": "mean",
+                "calcus": "raw"
+            }
+        },
+        {
+            "describe": "TrainingTimeLastYear by attrition",
+            "chart": "boxplot",
+            "x": {
+                "attr": "Attrition",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "TrainingTimeLastYear",
+                "trans": "raw"
+            }
+        },
+        {
+            "describe": "TrainingTimeLastYear by attrition",
+            "chart": "bar",
+            "x": {
+                "attr": "TrainingTimeLastYear",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "TrainingTimeLastYear",
+                "trans": "count",
+                "calcus": "raw"
+            },
+            "color": {
+                "attr": "Attrition",
+                "trans": "raw",
+                "groupby": true
+            }
+        },
+        {
+            "describe": "WorkLifeBalance by attrition",
+            "chart": "bar",
+            "x": {
+                "attr": "Attrition",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "WorkLifeBalance",
+                "trans": "mean",
+                "calcus": "raw"
+            }
+        },
+        {
+            "describe": "WorkLifeBalance by attrition",
+            "chart": "boxplot",
+            "x": {
+                "attr": "Attrition",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "WorkLifeBalance",
+                "trans": "raw"
+            }
+        },
+        {
+            "describe": "WorkLifeBalance by attrition",
+            "chart": "bar",
+            "x": {
+                "attr": "WorkLifeBalance",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "WorkLifeBalance",
+                "trans": "count",
+                "calcus": "raw"
+            },
+            "color": {
+                "attr": "Attrition",
+                "trans": "raw",
+                "groupby": true
+            }
+        },
+        {
+            "describe": "YearsAtCompany by attrition",
+            "chart": "bar",
+            "x": {
+                "attr": "Attrition",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "YearsAtCompany",
+                "trans": "mean",
+                "calcus": "raw"
+            }
+        },
+        {
+            "describe": "YearsAtCompany by attrition",
+            "chart": "boxplot",
+            "x": {
+                "attr": "Attrition",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "YearsAtCompany",
+                "trans": "raw"
+            }
+        },
+        {
+            "describe": "YearsAtCompany by attrition",
+            "chart": "densityplot",
+            "x": {
+                "attr": "YearsAtCompany",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "YearsAtCompany",
+                "trans": "density",
+                "calcus": "raw"
+            },
+            "color": {
+                "attr": "Attrition",
+                "trans": "raw",
+                "groupby": true
+            }
+        },
+        {
+            "describe": "YearsInCurrentRole by attrition",
+            "chart": "bar",
+            "x": {
+                "attr": "Attrition",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "YearsInCurrentRole",
+                "trans": "mean",
+                "calcus": "raw"
+            }
+        },
+        {
+            "describe": "YearsInCurrentRole by attrition",
+            "chart": "boxplot",
+            "x": {
+                "attr": "Attrition",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "YearsInCurrentRole",
+                "trans": "raw"
+            }
+        },
+        {
+            "describe": "YearsInCurrentRole by attrition",
+            "chart": "bar",
+            "x": {
+                "attr": "YearsInCurrentRole",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "YearsInCurrentRole",
+                "trans": "count",
+                "calcus": "raw"
+            },
+            "color": {
+                "attr": "Attrition",
+                "trans": "raw",
+                "groupby": true
+            }
+        },
+        {
+            "describe": "YearsWithCurrManager by attrition",
+            "chart": "bar",
+            "x": {
+                "attr": "Attrition",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "YearsWithCurrManager",
+                "trans": "mean",
+                "calcus": "raw"
+            }
+        },
+        {
+            "describe": "YearsWithCurrManager by attrition",
+            "chart": "boxplot",
+            "x": {
+                "attr": "Attrition",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "YearsWithCurrManager",
+                "trans": "raw"
+            }
+        },
+        {
+            "describe": "YearsWithCurrManager by attrition",
+            "chart": "bar",
+            "x": {
+                "attr": "YearsWithCurrManager",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "YearsWithCurrManager",
+                "trans": "count",
+                "calcus": "raw"
+            },
+            "color": {
+                "attr": "Attrition",
+                "trans": "raw",
+                "groupby": true
+            }
+        },
+        {
+            "describe": "Education by attrition",
+            "chart": "bar",
+            "x": {
+                "attr": "Attrition",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "Education",
+                "trans": "mean",
+                "calcus": "raw"
+            }
+        },
+        {
+            "describe": "Education by attrition",
+            "chart": "boxplot",
+            "x": {
+                "attr": "Attrition",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "Education",
+                "trans": "raw"
+            }
+        },
+        {
+            "describe": "Education by attrition",
+            "chart": "bar",
+            "x": {
+                "attr": "Education",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "Education",
+                "trans": "count",
+                "calcus": "raw"
+            },
+            "color": {
+                "attr": "Attrition",
+                "trans": "raw",
+                "groupby": true
+            }
+        },
+        {
+            "describe": "HourlyRate by attrition",
+            "chart": "bar",
+            "x": {
+                "attr": "Attrition",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "HourlyRate",
+                "trans": "mean",
+                "calcus": "raw"
+            }
+        },
+        {
+            "describe": "HourlyRate by attrition",
+            "chart": "boxplot",
+            "x": {
+                "attr": "Attrition",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "HourlyRate",
+                "trans": "raw"
+            }
+        },
+        {
+            "describe": "HourlyRate by attrition",
+            "chart": "densityplot",
+            "x": {
+                "attr": "HourlyRate",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "HourlyRate",
+                "trans": "density"
+            },
+            "color": {
+                "attr": "Attrition",
+                "trans": "raw",
+                "groupby": true
+            }
+        },
+        {
+            "describe": "MonthlyRate by attrition",
+            "chart": "bar",
+            "x": {
+                "attr": "Attrition",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "MonthlyRate",
+                "trans": "mean",
+                "calcus": "raw"
+            }
+        },
+        {
+            "describe": "MonthlyRate by attrition",
+            "chart": "boxplot",
+            "x": {
+                "attr": "Attrition",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "MonthlyRate",
+                "trans": "raw"
+            }
+        },
+        {
+            "describe": "MonthlyRate by attrition",
+            "chart": "densityplot",
+            "x": {
+                "attr": "MonthlyRate",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "MonthlyRate",
+                "trans": "density"
+            },
+            "color": {
+                "attr": "Attrition",
+                "trans": "raw",
+                "groupby": true
+            }
+        },
+        {
+            "describe": "NumCompaniesWorked by attrition",
+            "chart": "bar",
+            "x": {
+                "attr": "Attrition",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "NumCompaniesWorked",
+                "trans": "mean",
+                "calcus": "raw"
+            }
+        },
+        {
+            "describe": "NumCompaniesWorked by attrition",
+            "chart": "boxplot",
+            "x": {
+                "attr": "Attrition",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "NumCompaniesWorked",
+                "trans": "raw"
+            }
+        },
+        {
+            "describe": "NumCompaniesWorked by attrition",
+            "chart": "bar",
+            "x": {
+                "attr": "NumCompaniesWorked",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "NumCompaniesWorked",
+                "trans": "count",
+                "calcus": "raw"
+            },
+            "color": {
+                "attr": "Attrition",
+                "trans": "raw",
+                "groupby": true
+            }
+        },
+        {
+            "describe": "PercentSalaryHike by attrition",
+            "chart": "bar",
+            "x": {
+                "attr": "Attrition",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "PercentSalaryHike",
+                "trans": "mean",
+                "calcus": "raw"
+            }
+        },
+        {
+            "describe": "PercentSalaryHike by attrition",
+            "chart": "boxplot",
+            "x": {
+                "attr": "Attrition",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "PercentSalaryHike",
+                "trans": "raw"
+            }
+        },
+        {
+            "describe": "PercentSalaryHike by attrition",
+            "chart": "bar",
+            "x": {
+                "attr": "PercentSalaryHike",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "PercentSalaryHike",
+                "trans": "count",
+                "calcus": "raw"
+            },
+            "color": {
+                "attr": "Attrition",
+                "trans": "raw",
+                "groupby": true
+            }
+        },
+        {
+            "describe": "PerformanceRating by attrition",
+            "chart": "bar",
+            "x": {
+                "attr": "Attrition",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "PerformanceRating",
+                "trans": "mean",
+                "calcus": "raw"
+            }
+        },
+        {
+            "describe": "PerformanceRating by attrition",
+            "chart": "boxplot",
+            "x": {
+                "attr": "Attrition",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "PerformanceRating",
+                "trans": "raw"
+            }
+        },
+        {
+            "describe": "PerformanceRating by attrition",
+            "chart": "bar",
+            "x": {
+                "attr": "PerformanceRating",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "PerformanceRating",
+                "trans": "count",
+                "calcus": "raw"
+            },
+            "color": {
+                "attr": "Attrition",
+                "trans": "raw",
+                "groupby": true
+            }
+        },
+        {
+            "describe": "RelationshipSatisfaction by attrition",
+            "chart": "bar",
+            "x": {
+                "attr": "Attrition",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "RelationshipSatisfaction",
+                "trans": "mean",
+                "calcus": "raw"
+            }
+        },
+        {
+            "describe": "RelationshipSatisfaction by attrition",
+            "chart": "boxplot",
+            "x": {
+                "attr": "Attrition",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "RelationshipSatisfaction",
+                "trans": "raw"
+            }
+        },
+        {
+            "describe": "RelationshipSatisfaction by attrition",
+            "chart": "bar",
+            "x": {
+                "attr": "RelationshipSatisfaction",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "RelationshipSatisfaction",
+                "trans": "count",
+                "calcus": "raw"
+            },
+            "color": {
+                "attr": "Attrition",
+                "trans": "raw",
+                "groupby": true
+            }
+        },
+        {
+            "describe": "YearsSinceLastPromotion by attrition",
+            "chart": "bar",
+            "x": {
+                "attr": "Attrition",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "YearsSinceLastPromotion",
+                "trans": "mean",
+                "calcus": "raw"
+            }
+        },
+        {
+            "describe": "YearsSinceLastPromotion by attrition",
+            "chart": "boxplot",
+            "x": {
+                "attr": "Attrition",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "YearsSinceLastPromotion",
+                "trans": "raw"
+            }
+        },
+        {
+            "describe": "YearsSinceLastPromotion by attrition",
+            "chart": "bar",
+            "x": {
+                "attr": "YearsSinceLastPromotion",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "YearsSinceLastPromotion",
+                "trans": "count",
+                "calcus": "raw"
+            },
+            "color": {
+                "attr": "Attrition",
+                "trans": "raw",
+                "groupby": true
+            }
+        }
+    ]
+}

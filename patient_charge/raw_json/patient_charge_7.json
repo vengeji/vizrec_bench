@@ -1,0 +1,127 @@
+{
+    "url": "https://www.kaggle.com/sudhirnl7/linear-regrssion-tutorial",
+    "votes": 29,
+    "rank": 7,
+    "charts": [
+        {
+            "describe": "Distribution of charges and bmi",
+            "chart": "scatter",
+            "x": {
+                "attr": "bmi",
+                "trans": "raw"
+            },
+            "y": {
+                "attr": "charges",
+                "trans": "raw"
+            }
+        },
+        {
+            "describe": "scattermatrix of smoker",
+            "chart": "scattermatrix",
+            "x": {
+                "attr": "all",
+                "trans": "raw"
+            },
+            "y": {
+                "attr": "all",
+                "trans": "raw"
+            }
+        },
+        {
+            "describe": "violinplot of sex and charges",
+            "chart": "violinplot",
+            "x": {
+                "attr": "sex",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "charges",
+                "trans": "raw"
+            }
+        },
+        {
+            "describe": "violinplot of smoker and charges",
+            "chart": "violinplot",
+            "x": {
+                "attr": "smoker",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "charges",
+                "trans": "raw"
+            }
+        },
+        {
+            "describe": "boxplot of children and charges",
+            "chart": "boxplot",
+            "x": {
+                "attr": "children",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "charges",
+                "trans": "raw"
+            },
+            "color": {
+                "attr": "sex",
+                "trans": "raw",
+                "groupby": true
+            }
+        },
+        {
+            "describe": "violinplot of region and charges",
+            "chart": "violinplot",
+            "x": {
+                "attr": "region",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "charges",
+                "trans": "raw"
+            },
+            "color": {
+                "attr": "sex",
+                "trans": "raw",
+                "groupby": true
+            }
+        },
+        {
+            "describe": "Distribution of charges and age of smoker",
+            "chart": "scatter",
+            "x": {
+                "attr": "age",
+                "trans": "raw"
+            },
+            "y": {
+                "attr": "charges",
+                "trans": "raw"
+            },
+            "color": {
+                "attr": "smoker",
+                "trans": "raw",
+                "groupby": true
+            }
+        },
+        {
+            "describe": "Distribution of charges and bmi of smoker",
+            "chart": "scatter",
+            "x": {
+                "attr": "bmi",
+                "trans": "raw"
+            },
+            "y": {
+                "attr": "charges",
+                "trans": "raw"
+            },
+            "color": {
+                "attr": "smoker",
+                "trans": "raw",
+                "groupby": true
+            }
+        }
+    ]
+}

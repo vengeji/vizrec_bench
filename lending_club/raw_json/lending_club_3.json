@@ -1,0 +1,670 @@
+{
+    "url": "https://www.kaggle.com/kabure/lending-club-insightful-financial-eda",
+    "votes": 139,
+    "rank": 3,
+    "charts": [
+        {
+            "describe": "Loan status count",
+            "chart": "bar",
+            "x": {
+                "attr": "loan_status",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "loan_status",
+                "trans": "count",
+                "calcus": "raw"
+            }
+        },
+        {
+            "describe": "Loan purpose",
+            "chart": "bar",
+            "x": {
+                "attr": "purpose",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "purpose",
+                "trans": "count",
+                "calcus": "raw"
+            }
+        },
+        {
+            "describe": "Loan amount distribution",
+            "chart": "histogram",
+            "x": {
+                "attr": "loan_amnt",
+                "trans": "bin",
+                "bins": "default"
+            },
+            "y": {
+                "attr": "loan_amnt",
+                "trans": "count",
+                "calcus": "raw"
+            }
+        },
+        {
+            "describe": "Interest rate count",
+            "chart": "bar",
+            "x": {
+                "attr": "int_rate",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "int_rate",
+                "trans": "count",
+                "calcus": "raw"
+            }
+        },
+        {
+            "describe": "Interest rate by loan status",
+            "chart": "boxplot",
+            "x": {
+                "attr": "loan_status",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "int_rate",
+                "trans": "raw"
+            }
+        },
+        {
+            "describe": "Interest rate by loan status",
+            "chart": "boxplot",
+            "x": {
+                "attr": "loan_status",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "loan_amnt",
+                "trans": "raw"
+            }
+        },
+        {
+            "describe": "Loan amount of different month and year",
+            "chart": "bar",
+            "x": {
+                "attr": "issue_d",
+                "trans": "month",
+                "groupby": true
+            },
+            "y": {
+                "attr": "issue_d",
+                "trans": "count",
+                "calcus": "raw"
+            },
+            "color": {
+                "attr": "issue_d",
+                "trans": "year",
+                "groupby": true
+            }
+        },
+        {
+            "describe": "Loan amount of different year and term",
+            "chart": "bar",
+            "x": {
+                "attr": "issue_d",
+                "trans": "year",
+                "groupby": true
+            },
+            "y": {
+                "attr": "issue_d",
+                "trans": "count",
+                "calcus": "raw"
+            },
+            "color": {
+                "attr": "term",
+                "trans": "raw",
+                "groupby": true
+            }
+        },
+        {
+            "describe": "Purpose by loan status",
+            "chart": "crosstab",
+            "x": {
+                "attr": "loan_status",
+                "trans": "raw",
+                "groupby": true
+            },
+            "color": {
+                "attr": "loan_status",
+                "trans": "count",
+                "calcus": "raw"
+            },
+            "y": {
+                "attr": "purpose",
+                "trans": "raw",
+                "groupby": true
+            }
+        },
+        {
+            "describe": "Grade by loan status",
+            "chart": "crosstab",
+            "x": {
+                "attr": "grade",
+                "trans": "raw",
+                "groupby": true
+            },
+            "color": {
+                "attr": "grade",
+                "trans": "count",
+                "calcus": "raw"
+            },
+            "y": {
+                "attr": "loan_status",
+                "trans": "raw",
+                "groupby": true
+            }
+        },
+        {
+            "describe": "Average interest rate by grade and loan status",
+            "chart": "crosstab",
+            "x": {
+                "attr": "grade",
+                "trans": "raw",
+                "groupby": true
+            },
+            "color": {
+                "attr": "int_rate",
+                "trans": "mean",
+                "calcus": "raw"
+            },
+            "y": {
+                "attr": "loan_status",
+                "trans": "raw",
+                "groupby": true
+            }
+        },
+        {
+            "describe": "Verification status count",
+            "chart": "bar",
+            "x": {
+                "attr": "verification_status",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "verification_status",
+                "trans": "count",
+                "calcus": "raw"
+            }
+        },
+        {
+            "describe": "Verification status by loan status",
+            "chart": "crosstab",
+            "x": {
+                "attr": "verification_status",
+                "trans": "raw",
+                "groupby": true
+            },
+            "color": {
+                "attr": "verification_status",
+                "trans": "count",
+                "calcus": "raw"
+            },
+            "y": {
+                "attr": "loan_status",
+                "trans": "raw",
+                "groupby": true
+            }
+        },
+        {
+            "describe": "Installment distribution",
+            "chart": "histogram",
+            "x": {
+                "attr": "installment",
+                "trans": "bin",
+                "bins": "default"
+            },
+            "y": {
+                "attr": "installment",
+                "trans": "density",
+                "calcus": "raw"
+            }
+        },
+        {
+            "describe": "Installment by loan status",
+            "chart": "violinplot",
+            "x": {
+                "attr": "loan_status",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "installment",
+                "trans": "raw"
+            }
+        },
+        {
+            "describe": "Total account lines distribution by loan status",
+            "chart": "violinplot",
+            "x": {
+                "attr": "loan_status",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "total_acc",
+                "trans": "raw"
+            }
+        },
+        {
+            "describe": "loan status by application type",
+            "chart": "crosstab",
+            "x": {
+                "attr": "application_type",
+                "trans": "raw",
+                "groupby": true
+            },
+            "color": {
+                "attr": "application_type",
+                "trans": "count",
+                "calcus": "raw"
+            },
+            "y": {
+                "attr": "loan_status",
+                "trans": "raw",
+                "groupby": true
+            }
+        },
+        {
+            "describe": "Distribuition of application type thought the Loan Amount",
+            "chart": "violinplot",
+            "x": {
+                "attr": "application_type",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "loan_amnt",
+                "trans": "raw"
+            }
+        },
+        {
+            "describe": "Distribuition of application type thought the Interest Rate",
+            "chart": "violinplot",
+            "x": {
+                "attr": "application_type",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "int_rate",
+                "trans": "raw"
+            }
+        },
+        {
+            "describe": "Looking the Home Ownership by Loan_Amount",
+            "chart": "violinplot",
+            "x": {
+                "attr": "home_ownership",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "loan_amnt",
+                "trans": "raw"
+            }
+        },
+        {
+            "describe": "Looking the Home Ownership by Int_Rate",
+            "chart": "violinplot",
+            "x": {
+                "attr": "home_ownership",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "int_rate",
+                "trans": "raw"
+            }
+        },
+        {
+            "describe": "loan status by application type",
+            "chart": "crosstab",
+            "x": {
+                "attr": "home_ownership",
+                "trans": "raw",
+                "groupby": true
+            },
+            "color": {
+                "attr": "home_ownership",
+                "trans": "count",
+                "calcus": "raw"
+            },
+            "y": {
+                "attr": "loan_status",
+                "trans": "raw",
+                "groupby": true
+            }
+        },
+        {
+            "describe": "Looking the Purpose by int_rate",
+            "chart": "violinplot",
+            "x": {
+                "attr": "purpose",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "int_rate",
+                "trans": "raw"
+            }
+        },
+        {
+            "describe": "Looking the Home Ownership by loan_amnt",
+            "chart": "violinplot",
+            "x": {
+                "attr": "home_ownership",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "loan_amnt",
+                "trans": "raw"
+            }
+        },
+        {
+            "describe": "Looking the loan_amnt by application type and grade",
+            "chart": "boxplot",
+            "x": {
+                "attr": "grade",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "loan_amnt",
+                "trans": "raw"
+            },
+            "color": {
+                "attr": "application_type",
+                "trans": "raw",
+                "groupby": true
+            }
+        },
+        {
+            "describe": "Looking the int_rate by application type and grade",
+            "chart": "boxplot",
+            "x": {
+                "attr": "grade",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "int_rate",
+                "trans": "raw"
+            },
+            "color": {
+                "attr": "application_type",
+                "trans": "raw",
+                "groupby": true
+            }
+        },
+        {
+            "describe": "Looking the int_rate by sub grade",
+            "chart": "boxplot",
+            "x": {
+                "attr": "sub_grade",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "int_rate",
+                "trans": "raw"
+            }
+        },
+        {
+            "describe": "mean interest rate by grade and subgrade",
+            "chart": "crosstab",
+            "x": {
+                "attr": "grade",
+                "trans": "raw",
+                "groupby": true
+            },
+            "color": {
+                "attr": "int_rate",
+                "trans": "mean",
+                "calcus": "raw"
+            },
+            "y": {
+                "attr": "sub_grade",
+                "trans": "raw",
+                "groupby": true
+            }
+        },
+        {
+            "describe": "Employment name count",
+            "chart": "bar",
+            "x": {
+                "attr": "emp_title",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "emp_title",
+                "trans": "count",
+                "calcus": "raw"
+            }
+        },
+        {
+            "describe": "subgrade by title",
+            "chart": "crosstab",
+            "x": {
+                "attr": "sub_grade",
+                "trans": "raw",
+                "groupby": true
+            },
+            "color": {
+                "attr": "sub_grade",
+                "trans": "count",
+                "calcus": "percentage"
+            },
+            "y": {
+                "attr": "emp_title",
+                "trans": "raw",
+                "groupby": true
+            }
+        },
+        {
+            "describe": "Title count",
+            "chart": "bar",
+            "x": {
+                "attr": "title",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "title",
+                "trans": "count",
+                "calcus": "raw"
+            }
+        },
+        {
+            "describe": "Interest rate by emp length",
+            "chart": "boxplot",
+            "x": {
+                "attr": "emp_length",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "int_rate",
+                "trans": "raw"
+            }
+        },
+        {
+            "describe": "Loan amount by emp length",
+            "chart": "violinplot",
+            "x": {
+                "attr": "emp_length",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "loan_amnt",
+                "trans": "raw"
+            }
+        },
+        {
+            "describe": "Term count distribution",
+            "chart": "bar",
+            "x": {
+                "attr": "term",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "term",
+                "trans": "count",
+                "calcus": "raw"
+            }
+        },
+        {
+            "describe": "Int rate by term",
+            "chart": "violinplot",
+            "x": {
+                "attr": "term",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "int_rate",
+                "trans": "raw"
+            }
+        },
+        {
+            "describe": "Loan amount by term",
+            "chart": "violinplot",
+            "x": {
+                "attr": "term",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "loan_amnt",
+                "trans": "raw"
+            }
+        },
+        {
+            "describe": "state by loan status",
+            "chart": "crosstab",
+            "x": {
+                "attr": "loan_status",
+                "trans": "raw",
+                "groupby": true
+            },
+            "color": {
+                "attr": "loan_status",
+                "trans": "count",
+                "calcus": "percentage"
+            },
+            "y": {
+                "attr": "addr_state",
+                "trans": "raw",
+                "groupby": true
+            }
+        },
+        {
+            "describe": "Settlement status distribution",
+            "chart": "bar",
+            "x": {
+                "attr": "settlement_status",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "settlement_status",
+                "trans": "count",
+                "calcus": "raw"
+            }
+        },
+        {
+            "describe": "Int rate by settlement status",
+            "chart": "violinplot",
+            "x": {
+                "attr": "settlement_status",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "int_rate",
+                "trans": "raw"
+            }
+        },
+        {
+            "describe": "Loan amount by settlement_status",
+            "chart": "violinplot",
+            "x": {
+                "attr": "settlement_status",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "loan_amnt",
+                "trans": "raw"
+            }
+        },
+        {
+            "describe": "delinq_2yrs by loan status",
+            "chart": "crosstab",
+            "x": {
+                "attr": "loan_status",
+                "trans": "raw",
+                "groupby": true
+            },
+            "color": {
+                "attr": "loan_status",
+                "trans": "count",
+                "calcus": "percentage"
+            },
+            "y": {
+                "attr": "delinq_2yrs",
+                "trans": "raw",
+                "groupby": true
+            }
+        },
+        {
+            "describe": "purpose by loan status",
+            "chart": "crosstab",
+            "x": {
+                "attr": "loan_status",
+                "trans": "raw",
+                "groupby": true
+            },
+            "color": {
+                "attr": "dti",
+                "trans": "mean",
+                "calcus": "raw"
+            },
+            "y": {
+                "attr": "dti",
+                "trans": "raw",
+                "groupby": true
+            }
+        },
+        {
+            "describe": "purpose by loan status",
+            "chart": "crosstab",
+            "x": {
+                "attr": "loan_status",
+                "trans": "raw",
+                "groupby": true
+            },
+            "color": {
+                "attr": "revol_util",
+                "trans": "mean",
+                "calcus": "raw"
+            },
+            "y": {
+                "attr": "purpose",
+                "trans": "raw",
+                "groupby": true
+            }
+        }
+    ]
+}

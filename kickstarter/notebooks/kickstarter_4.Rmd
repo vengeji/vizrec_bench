@@ -1,0 +1,434 @@
+---
+title: "Kickstarter: Exploratory Data Analysis with R"
+author: "Andrew Mah"
+date: "Last Updated: August 14, 2018"
+output: 
+  html_document: 
+    code_folding: hide
+---
+
+Libraries:
+```{r, message=F, warning=F}
+library(tidyverse)
+library(ggthemes)
+library(lubridate)
+library(rworldmap)
+library(gplots)
+library(knitr)
+```
+
+Let's load in the data and check to see if it was read in correctly.
+```{r}
+ksdata <- read.csv("../input/ks-projects-201801.csv", fileEncoding="latin1")
+
+str(ksdata)
+kable(head(ksdata, 5))
+kable(tail(ksdata, 5))
+```
+
+Everything looks okay so far. Now let's check to see if there are any N/A values that we have to clean up.
+```{r}
+sapply(ksdata, function(x) sum(is.na(x)))
+```
+
+There appears to only be N/A values for *usd.pledged*. We actually don't need that column since we'll be using *usd_pledged_real* instead, so let's get rid of it and rename *usd_pledged_real* to *usd_pledged*. Likewise, we'll do the same with *usd_goal_real* and simply name it *usd_goal*.
+```{r}
+ksdata <- ksdata[,-13]
+colnames(ksdata)[13] <- "usd_pledged"
+colnames(ksdata)[14] <- "usd_goal"
+```
+
+#What types of projects are most popular?
+
+We'll answer this question in the perspective of the project-starter and based on two levels: category (called *main_category* in the dataset) and subcategory (called *category* in the dataset). We first begin by examining the number of projects by category.
+
+```{r, fig.height=6, fig.width=12}
+cat.freq <- ksdata %>%
+  group_by(main_category) %>%
+  summarize(count=n()) %>%
+  arrange(desc(count))
+
+cat.freq$main_category <- factor(cat.freq$main_category, levels=cat.freq$main_category)
+
+ggplot(cat.freq, aes(main_category, count, fill=count)) + geom_bar(stat="identity") + 
+  ggtitle("Projects by Category") + xlab("Project Category") + ylab("Frequency") + 
+  geom_text(aes(label=count), vjust=-0.5) + theme_economist() + 
+  theme(plot.title=element_text(hjust=0.5), axis.title=element_text(size=12, face="bold"), 
+        axis.text.x=element_text(size=12, angle=90), legend.position="null") + 
+  scale_fill_gradient(low="skyblue1", high="royalblue4")
+```
+
+*Film & Video* appears to be the most popular project category and *Dance* the least popular.
+
+Now we'll do the same thing for subcategories. There are 159 subcategory levels, which is far too many to plot individually, so we'll just plot the ten subcategories with the greatest number of projects.
+
+```{r, fig.height=6, fig.width=12}
+subcat.freq <- ksdata %>%
+  group_by(category) %>%
+  summarize(count=n()) %>%
+  arrange(desc(count))
+
+subcat.freq$category <- factor(subcat.freq$category, levels=subcat.freq$category)
+
+ggplot(head(subcat.freq, 10), aes(category, count, fill=count)) + geom_bar(stat="identity") + 
+  ggtitle("Projects by Subcategory") + xlab("Project Subcategory") + ylab("Frequency") + 
+  geom_text(aes(label=count), vjust=-0.5) + theme_economist() + 
+  theme(plot.title=element_text(hjust=0.5), axis.title=element_text(size=12, face="bold"), 
+        axis.text.x=element_text(size=12, angle=90), legend.position="null") + 
+  scale_fill_gradient(low="skyblue1", high="royalblue4")
+```
+
+*Product Design* is the most popular subcategory here, stemming from the category of *Design*.
+
+#What types of projects are being funded?
+
+This question is akin to the first question but phrased from the perspective of the backers. In other words, the most funded projects are the most popular projects in the perspective of the backers.
+
+Let's start by taking a look at the top 15 highest funded projects.
+
+```{r}
+kable(head(ksdata[order(-ksdata$usd_pledged), c(2,3,13)], 15))
+```
+
+A lot of the projects here fall under the *Product Design* subcategory.
+
+Similarly, let's list the top 15 most backed projects (i.e. projects with the most backers).
+
+```{r}
+kable(head(ksdata[order(-ksdata$backers), c(2,3,11)], 15))
+```
+
+The most common subcategory here appears to be *Video Games*.
+
+Now let's determine what types of projects funding is going towards. We'll do this by aggregating the amount of funds pledged for each category, providing us with the total amount pledged for each category.
+
+```{r, fig.height=6, fig.width=12}
+pledged.tot <- ksdata %>%
+  group_by(main_category) %>%
+  summarize(total=sum(usd_pledged)) %>%
+  arrange(desc(total))
+
+pledged.tot$main_category <- factor(pledged.tot$main_category, levels=pledged.tot$main_category)
+
+ggplot(pledged.tot, aes(main_category, total/1000000, fill=total)) + geom_bar(stat="identity") + 
+  ggtitle("Total Amount Pledged by Category") + xlab("Project Category") + 
+  ylab("Amount Pledged (USD millions)") + 
+  geom_text(aes(label=paste0("$", round(total/1000000,1))), vjust=-0.5) + theme_economist() + 
+  theme(plot.title=element_text(hjust=0.5), axis.title=element_text(size=12, face="bold"), 
+        axis.text.x=element_text(size=12, angle=90), legend.position="null") + 
+  scale_fill_gradient(low="skyblue1", high="royalblue4")
+```
+
+*Games*, *Design*, and *Technology* are the highest grossing categories by far.
+
+It's important to take the number of backers into account as well, so let's determine the average amount pledged per backer for each category. We'll calculate this by taking the total amount pledged for each category and dividing it by the total number of backers for each category.
+
+```{r, fig.height=6, fig.width=12}
+pledged.avg <- ksdata %>%
+  group_by(main_category) %>%
+  summarize(pledged=sum(usd_pledged), backers=sum(backers)) %>%
+  mutate(avg=pledged/backers) %>%
+  arrange(desc(avg))
+
+pledged.avg$main_category <- factor(pledged.avg$main_category, levels=pledged.avg$main_category)
+
+ggplot(pledged.avg, aes(main_category, avg, fill=avg)) + geom_bar(stat="identity") + 
+  ggtitle("Average Amount Pledged per Backer") + xlab("Project Category") + 
+  ylab("Amount Pledged (USD)") + 
+  geom_text(aes(label=paste0("$", round(avg,2))), vjust=-0.5) + theme_economist() + 
+  theme(plot.title=element_text(hjust=0.5), axis.title=element_text(size=12, face="bold"), 
+        axis.text.x=element_text(size=12, angle=90), legend.position="null") + 
+  scale_fill_gradient(low="skyblue1", high="royalblue4")
+```
+
+*Technology* has the highest average amount pledged, whereas *Comics* has the lowest average amount pledged. An interesting note here is that the average amount pledged for *Technology* is nearly double that of *Games*, even though *Games* had the higher aggregate amount pledged as shown in the previous graph.
+
+Next we'll examine the distribution of amounts pledged for individual projects using box plots. There are no doubt a lot of projects that received little to no funding as well as huge outliers, which will cause the box plots to appear "squished" near the bottom.
+
+```{r, fig.height=6, fig.width=12}
+ggplot(ksdata, aes(main_category, usd_pledged, fill=main_category)) + geom_boxplot() + 
+  ggtitle("Amount Pledged vs. Project Category") + xlab("Project Category") + 
+  ylab("Amount Pledged (USD)") + 
+  theme(plot.title=element_text(size=15, face="bold", hjust=0.5), 
+        axis.title=element_text(size=12, face="bold"), 
+        axis.text.x=element_text(size=12, angle=90), legend.position="null") + 
+  coord_cartesian(ylim=c(0,20000))
+```
+
+*Design* and *Games* have a high upper quartile compared to other categories. *Design*, *Dance*, and *Theater* have a high median amount pledged relative to other categories. *Comics* has a surprisingly high upper quartile and median, even though it had a lower amount pledged (both in aggregate and average terms) relative to other categories, suggesting that the average number of backers must be relatively high for each indiviual project in this category. *Technology* on the other hand has a low median amount pledged, despite having a high amount pledged (both in aggregate and average terms), suggesting that there are a lot of high outliers. *Crafts* and *Journalism* have a very small IQR and low median compared to the other categories.
+
+#How much funding is required?
+
+Having looked at the amounts pledged in funds, we will turn to the funding goals for projects. Let's begin by examining the top 15 most ambitious projects, that is, projects with the highest set funding goals.
+
+```{r}
+kable(head(ksdata[order(-ksdata$usd_goal), c(2,3,14,10)], 15))
+```
+
+Aside from the one project that was suspended, all other projects failed here. Their goals must have been set too high and seen as being too unreasonable for the idea they were selling. Let's look at the top 15 most ambitious projects that were successfully funded instead.
+
+```{r}
+goal.tops <- ksdata[ksdata$state=="successful",]
+
+kable(head(goal.tops[order(-goal.tops$usd_goal), c(2,3,14,10)], 15))
+```
+
+Some projects listed here were also found in the top 15 highest funded projects list as well. The most common subcategories listed here are *Video Games* and *Narrative Film*.
+
+Let's look at the average project goal for each category. Perhaps it will give us some insight into what types of projects were successful or unsuccessful later on.
+
+```{r, fig.height=6, fig.width=12}
+goal.avg <- ksdata %>%
+  group_by(main_category) %>%
+  summarize(goal=sum(usd_goal), projects=n()) %>%
+  mutate(avg=goal/projects) %>%
+  arrange(desc(avg))
+
+goal.avg$main_category <- factor(goal.avg$main_category, levels=goal.avg$main_category)
+
+ggplot(goal.avg, aes(main_category, avg, fill=avg)) + geom_bar(stat="identity") + 
+  ggtitle("Average Project Goal") + xlab("Project Category") + ylab("Project Goal (USD)") + 
+  geom_text(aes(label=paste0("$", round(avg,0))), vjust=-0.5) + theme_economist() + 
+  theme(plot.title=element_text(hjust=0.5), axis.title=element_text(size=12, face="bold"), 
+        axis.text.x=element_text(size=12, angle=90), legend.position="null") + 
+  scale_fill_gradient(low="skyblue1", high="royalblue4")
+```
+
+*Technology*, *Journalism*, and *Film & Video* have the highest average project goals by far. On the opposite side, we find *Dance*, *Crafts*, and *Photography*.
+
+We'll examine the distribution of project goal amounts for individual projects using box plots here as well.
+
+```{r, fig.height=6, fig.width=12}
+ggplot(ksdata, aes(main_category, usd_goal, fill=main_category)) + geom_boxplot() + 
+  ggtitle("Project Goal vs. Project Category") + xlab("Project Category") + 
+  ylab("Project Goal (USD)") + 
+  theme(plot.title=element_text(size=15, face="bold", hjust=0.5), 
+        axis.title=element_text(size=12, face="bold"), 
+        axis.text.x=element_text(size=12, angle=90), legend.position="null") + 
+  coord_cartesian(ylim=c(0,60000))
+```
+
+*Technology* has an incredibly high upper quartile and median. Although not nearly as high, *Design* and *Food* also have relatively high upper quartile and median values as well. The average project goal for these two categories was lower than that of *Journalism* and *Film & Video*, but they have higher median and upper quartile values, suggesting that the former must have many projects with smaller goal amounts, the latter must have many high outliers, or both.
+
+Having looked at both the amount pledged and goal for different kinds of projects, let's see how the distribution of each compares to one another. Since we can expect both distributions to be heavily right-skewed due to many projects that received little to no funding and extremely high outliers, we will use a log transformation on both variables to better visualize their distributions.
+
+```{r, message=F, fig.height=6, fig.width=12}
+usd.amounts <- gather(ksdata, type, amount, usd_pledged, usd_goal, factor_key=T)
+
+ggplot(usd.amounts, aes(log(amount+1), fill=type)) + 
+  geom_histogram(alpha=0.5, position="identity") + 
+  ggtitle("Distribution of log(USD Pledged) vs. log(USD Goal)") + xlab("log(USD + 1)") + 
+  ylab("Frequency") + scale_fill_discrete("Type", labels=c("USD Pledged", "USD Goal"))
+```
+
+USD Goal appears to be relatively normally distributed. USD Pledged on the other hand has a bimodal distribution, with a tall left peak, which would represent projects that received either little or no funding. The approximate centre of the distribution of USD Pledged is located to the left side of the distribution of USD Goal, illustrating how for the most part, many projects did not receive the required funding they were looking for.
+
+On the subject of comparing the amount the amount pledged and goal for each project, an interesting figure to look at would be the ratio of *usd_pledged* to *usd_goal*. This number would represent the multiplicative amount by which a project's funding exceeded its goal. Let's examine a list of the top 15 projects with the highest of such ratio.
+
+```{r}
+ksdata$ratio <- ksdata$usd_pledged/ksdata$usd_goal
+
+kable(head(ksdata[order(-ksdata$ratio), c(2,3,13,14,15)], 15))
+```
+
+Most of the projects here only have a goal of 1 USD. Let's only look at projects with a minimum goal of 1000 USD.
+
+```{r}
+goal.min <- ksdata[ksdata$usd_goal>=1000,]
+
+kable(head(goal.min[order(-goal.min$ratio), c(2,3,13,14,15)], 15))
+```
+
+Again, we can recognize some of the projects here from the highest funded projects list from earlier. The most common projects listed here are *Tabletop Games* and *Product Design*.
+
+#What types of projects were successful and unsuccessful?
+
+Let's break down the number of projects by their status (e.g. successful, failed, cancelled, etc.).
+
+```{r, fig.height=6, fig.width=12}
+state.freq <- ksdata %>%
+  group_by(state) %>%
+  summarize(count=n()) %>%
+  arrange(desc(count))
+
+state.freq$state <- factor(state.freq$state, levels=state.freq$state)
+
+ggplot(state.freq, aes(state, count, fill=count)) + geom_bar(stat="identity") + 
+  ggtitle("Projects by Status") + xlab("Project Status") + ylab("Frequency") + 
+  geom_text(aes(label=count), vjust=-0.5) + theme_economist() + 
+  theme(plot.title=element_text(hjust=0.5), axis.title=element_text(size=12, face="bold"), 
+        axis.text.x=element_text(size=12), legend.position="null") + 
+  scale_fill_gradient(low="skyblue1", high="royalblue4")
+```
+
+More projects failed than succeeded. It seems most projects don't see the light of day. We can further group the projects into two different categories, "complete" projects (projects that have reached their deadline, i.e. successful and failed pojects) and "incomplete" projects (projects that have not reached their deadline, i.e. live, cancelled, or suspended projects). Let's do this and look at the project status proportion for each group.
+
+```{r, fig.height=6, fig.width=12}
+state.grp <- ksdata %>%
+  filter(state!="undefined") %>%
+  mutate(grp=ifelse(state %in% c("successful", "failed"), "complete", "incomplete")) %>%
+  group_by(grp, state) %>%
+  summarize(count=n()) %>%
+  mutate(pct=count/sum(count)) %>%
+  arrange(grp, desc(state))
+
+state.grp$state <- factor(state.grp$state, levels=state.grp$state)
+
+ggplot(state.grp, aes(grp, pct, fill=state)) + geom_bar(stat="identity") + 
+  ggtitle("Project Status by Completion") + xlab("Project Completion") + ylab("Percentage") + 
+  scale_x_discrete(labels=c("Complete", "Incomplete")) + 
+  scale_y_continuous(labels=scales::percent) + 
+  scale_fill_brewer(name="Project Status", 
+                    labels=c("Successful", "Failed", "Suspended", "Live", "Cancelled"), 
+                    palette="Set1") + 
+  geom_text(aes(label=paste0(round(pct*100,1),"%")), position=position_stack(vjust=0.5), 
+            colour="white", size=5) + theme_economist() + 
+  theme(plot.title=element_text(hjust=0.5), axis.title=element_text(size=12, face="bold"), 
+        axis.text.x=element_text(size=12), legend.position="bottom", 
+        legend.title=element_text(size=12, face="bold"))
+```
+
+Now we know that approximately 60% of completed projects failed and only approximately 40% succeeded. Approximately 90% of incomplete projects were cancelled.
+
+```{r, fig.height=6, fig.width=12}
+state.pct <- ksdata %>%
+  filter(state %in% c("successful", "failed")) %>%
+  group_by(main_category, state) %>%
+  summarize(count=n()) %>%
+  mutate(pct=count/sum(count)) %>%
+  arrange(desc(state), pct)
+
+state.pct$main_category <- factor(state.pct$main_category, 
+                                  levels=state.pct$main_category[1:(nrow(state.pct)/2)])
+
+ggplot(state.pct, aes(main_category, pct, fill=state)) + geom_bar(stat="identity") + 
+  ggtitle("Success vs. Failure Rate by Project Category") + 
+  xlab("Project Category") + ylab("Percentage") + scale_y_continuous(labels=scales::percent) + 
+  scale_fill_discrete(name="Project Status", breaks=c("successful", "failed"),
+                      labels=c("Success", "Failure")) + 
+  geom_text(aes(label=paste0(round(pct*100,1),"%")), position=position_stack(vjust=0.5), 
+            colour="white", size=5) + theme_economist() + 
+  theme(plot.title=element_text(hjust=0.5), axis.title=element_text(size=12, face="bold"), 
+        axis.text.x=element_text(size=12), legend.position="bottom", 
+        legend.title=element_text(size=12, face="bold")) + coord_flip()
+```
+
+*Dance*, *Theater*, and *Comics* have the highest success rates and *Technology*, *Journalism*, and *Crafts* have the lowest. This agrees with the box plots for amounts pledged and project goal amounts above as *Dance* and *Comics* both had high median amounts pledged and low median goals, with *Theater* having a low median goal as well. *Technology*, *Journalism*, and *Crafts* had low median amounts pledged, with *Technology* having a high median goal. In general, the higher the amount pledged and/or the lower the goal, the more likely a project will be successful. Interestingly enough, *Crafts*, having a low median amount pledged, also has a low success rate despite having a low median goal, which may indicate that people generally are not as interested in this category as a whole.
+
+#Does project length affect success rate?
+
+The maximum project duration according to Kickstarter's rules is 60 days. Kickstarter also recommends that projects be set to 30 days or less. Their reasoning is that projects that have not been funded within 30 days are not likely to be funded by their deadline either.
+
+We can find the length of each project by taking the difference between the project deadline and the project launch date, then dividing by the number of whole days. Now let's plot the success rate of projects based on their length in days.
+
+```{r, message=F, fig.height=6, fig.width=12}
+ksdata$length <- interval(ymd_hms(ksdata$launched), ymd(ksdata$deadline)) %/% days(1)
+
+length.pct <- ksdata %>%
+  filter(state %in% c("successful", "failed"), length <= 61) %>%
+  group_by(length, state) %>%
+  summarize(count=n()) %>%
+  mutate(pct=count/sum(count))
+
+ggplot(length.pct[length.pct$state=="successful",], aes(length, pct)) + 
+  geom_point(colour="royalblue4", size=2.5) + ggtitle("Success Rate vs. Project Length") + 
+  xlab("Project Length (Days)") + ylab("Success Rate (%)") + 
+  scale_x_continuous(breaks=c(0,10,20,30,40,50,60)) + geom_vline(xintercept=30, colour="red") + 
+  theme_economist() + 
+  theme(plot.title=element_text(hjust=0.5), axis.title=element_text(size=12, face="bold"))
+```
+
+It seems that overall, projects exceeding 30 days have a lower success rate than projects lasting fewer than 30 days, so there is some truth to what Kickstarter says. In fact, there seems to be a negative relationship between success rate and project length for projects exceeding 30 days. This begs the question, are projects following Kickstarter's recommendation of setting their length to be less than 30 days? Let's answer this by examining the distribution of projects by project length.
+
+```{r, fig.height=6, fig.width=12}
+ggplot(ksdata[ksdata$length <= 61,], aes(length)) + geom_density(colour="royalblue4", size=1) + 
+  ggtitle("Distribution of Projects by Campaign Length") + xlab("Project Length (Days)") + 
+  ylab("Density (%)") + scale_x_continuous(breaks=c(0,10,20,30,40,50,60)) + 
+  geom_vline(xintercept=30, colour="red") + theme_economist() + 
+  theme(plot.title=element_text(hjust=0.5), axis.title=element_text(size=12, face="bold"))
+```
+
+It does appear that the vast majority of projects are set to just under 30 days.
+
+#Projects by year
+
+Let's examine the number of projects and their success/failure rate by launch year.
+
+```{r, fig.height=6, fig.width=12}
+year.freq <- ksdata %>%
+  filter(year(launched)!="1970") %>%
+  group_by(year=year(launched)) %>%
+  summarize(count=n())
+
+ggplot(year.freq, aes(year, count, fill=count)) + geom_bar(stat="identity") + 
+  ggtitle("Number of Projects by Launch Year") + xlab("Year") + ylab("Frequency") + 
+  scale_x_discrete(limits=c(2009:2018)) + 
+  geom_text(aes(label=paste0(count)), vjust=-0.5) + theme_economist() + 
+  theme(plot.title=element_text(hjust=0.5), axis.title=element_text(size=12, face="bold"), 
+        axis.text.x=element_text(size=12), legend.position="null") + 
+  scale_fill_gradient(low="skyblue1", high="royalblue4")
+```
+
+2015 was the year with the greatest number of projects. It seems the number of projects per year has been gradually decreasing from then, with the number of projects in 2016 and 2017 being lower than both that of 2015 and 2014.
+
+```{r, fig.height=6, fig.width=12}
+state.pct2 <- ksdata %>%
+  filter(year(launched)!="1970", state %in% c("successful", "failed")) %>%
+  group_by(year=year(launched), state) %>%
+  summarize(count=n()) %>%
+  mutate(pct=count/sum(count)) %>%
+  arrange(desc(state))
+
+ggplot(state.pct2, aes(year, pct, fill=state)) + geom_bar(stat="identity") + 
+  ggtitle("Success vs. Failure Rate by Year Launched") + 
+  xlab("Year") + ylab("Percentage") + scale_x_discrete(limits=c(2009:2017)) + 
+  scale_y_continuous(labels=scales::percent) + 
+  scale_fill_discrete(name="Project Status", breaks=c("successful", "failed"),
+                      labels=c("Success", "Failure")) + 
+  geom_text(aes(label=paste0(round(pct*100,1),"%")), position=position_stack(vjust=0.5), 
+            colour="white", size=5) + theme_economist() + 
+  theme(plot.title=element_text(hjust=0.5), axis.title=element_text(size=12, face="bold"), 
+        axis.text.x=element_text(size=12), legend.position="bottom", 
+        legend.title=element_text(size=12, face="bold"))
+```
+
+Interestingly enough, 2014 and 2015 had the lowest project success rates. Maybe a lot of people tried jumping onto the digital crowdfunding bandwagon at the time, but to no success. This would explain the greater number of projects for those two years as well.
+
+Let's see if there is any variation between types of projects based on year. A heat map can illustrate the number of projects for each category type and year.
+
+```{r, fig.height=6, fig.width=12}
+cat.year <- ksdata %>%
+  filter(!year(launched) %in% c("1970", "2018")) %>%
+  group_by(main_category, year=year(launched)) %>%
+  summarize(count=n())
+
+cat.year2 <- t(matrix(cat.year$count, nrow=9))
+colnames(cat.year2) <- c("2009", "2010", "2011", "2012", "2013", "2014", "2015", "2016", "2017")
+rownames(cat.year2) <- levels(ksdata$main_category)
+
+heatmap.2(cat.year2, dendrogram="row", Colv=F, trace="none", margins=c(10,10))
+```
+
+Some notable areas in the heat map are *Technology* in 2015, which was very popular during that year; an early rise in the popularity of *Film & Video* and *Music*; and a late fall in the popularity of *Food*, *Fashion*, and *Art*.
+
+#Projects by country
+
+It would be nice to know what countries Kickstarter projects are originating from. We could create a table or a bar plot for the number of projects by country, but I think it would look much nicer if we used a geographical heat map instead.
+
+```{r, fig.height=6, fig.width=12}
+countries.freq <- ksdata %>%
+  filter(country!='N,0"') %>%
+  group_by(country) %>%
+  summarize(count=n())
+
+countries.match <- joinCountryData2Map(countries.freq, joinCode="ISO2", nameJoinColumn="country")
+
+mapCountryData(countries.match, nameColumnToPlot="count", 
+               mapTitle="Number of Projects by Country", catMethod="logFixedWidth", 
+               colourPalette="heat")
+```
+
+Projects seem to primarily originate from North America, Europe, and Oceania, with the odd Japan standing out from the rest of Asia. The United States, and to a lesser extent the United Kingdom, have the highest number of projects.
+
+
+Thanks for reading. Any feedback and comments are welcome.

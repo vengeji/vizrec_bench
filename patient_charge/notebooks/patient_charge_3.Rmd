@@ -1,0 +1,204 @@
+---
+title: "Hypothesis Testing and EDA"
+author: "Francis Paul C. Flores"
+date: "April 20, 2018"
+output: html_document
+---
+
+
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+
+
+# Introduction
+
+Given the simplicity, ease to comprehend, and size of the dataset, make it great for introductory kernels like this one that is intended for people with little knowledge of regression analysis. At the end of this kernel expect to learn more about most common type of regression: ordinary least squares.
+To give you some background, to make their profit, insurance companies should collect higher premium than the amount paid to the insured person. Due to this, insurance companies invests a lot of time, effort, and money in creating models that accurately predicts health care costs.
+In this kernel, we will try to build the most accurate model as possible but at the same time we would keep everything simple.
+
+## Load packages and dataset
+
+
+
+```{r,warning=FALSE,message=FALSE}
+# Load libraries
+library(ggplot2)
+library(ggthemes)
+library(psych)
+library(relaimpo)
+```
+
+```{r,warning=FALSE,message=FALSE}
+# Read in our dataset
+insurance <- read.csv("../input/insurance.csv")
+
+# Have a peek at our dataset
+head(insurance, n = 5)
+str(insurance)
+```
+
+As we can see, we are working with a rather small dataset with only 1338 observations and 7 variables. What we'd be most interested here, is with the variable *charges*, that is what we would try to predict.
+
+## Exploratory Data Analysis
+
+```{r,warning=FALSE,message=FALSE}
+# Descriptive Statistics
+summary(insurance)
+```
+
+The respondents' gender and region of origin is evenly distributed, having age ranging from 18 to 64 years old. Non-smokers outnumber smokers 4 to 1. The average, medical cost is USD 13,270 with a median value of USD 9382.
+
+```{r,warning=FALSE,message=FALSE}
+# Per region
+describeBy(insurance$charges,insurance$region)
+ggplot(data = insurance,aes(region,charges)) + geom_boxplot(fill = c(2:5)) +
+  theme_classic() + ggtitle("Boxplot of Medical Charges per Region")
+```
+
+Bsed from above plot, we can disclose that region of origin doesn't have much impact with the amount of medical cost.
+
+```{r, warning=FALSE, message=FALSE}
+# Smoking status
+describeBy(insurance$charges,insurance$smoker)
+ggplot(data = insurance,aes(smoker,charges)) + geom_boxplot(fill = c(2:3)) +
+  theme_classic() + ggtitle("Boxplot of Medical Charges by Smoking Status")
+```
+
+On the other hand, the same cannot be said with smoking status. It can be clearly deceived that smokers spends a lot more in terms of medical expenses compared to non-smokers by almost 4x.
+
+```{r,warning=FALSE,message=FALSE}
+# By gender
+describeBy(insurance$charges,insurance$sex)
+ggplot(data = insurance,aes(sex,charges)) + geom_boxplot(fill = c(2:3)) +
+  theme_classic() + ggtitle("Boxplot of Medical Charges by Gender")
+```
+
+Medical expenses doesn't seem to be affected by gender as well.
+
+```{r,warning=FALSE,message=FALSE}
+# By number of children
+describeBy(insurance$charges,insurance$children)
+ggplot(data = insurance,aes(as.factor(children),charges)) + geom_boxplot(fill = c(2:7)) +
+  theme_classic() +  xlab("children") +
+  ggtitle("Boxplot of Medical Charges by Number of Children")
+```
+
+People with 5 children, on average, has less medical expenditures compared to the other groups.
+
+```{r,warning=FALSE,message=FALSE}
+# Create new variable derived from bmi
+insurance$bmi30 <- ifelse(insurance$bmi>=30,"yes","no")
+
+# By obesity status
+describeBy(insurance$charges,insurance$bmi30)
+ggplot(data = insurance,aes(bmi30,charges)) + geom_boxplot(fill = c(2:3)) +
+  theme_classic() + ggtitle("Boxplot of Medical Charges by Obesity")
+```
+
+The idea behind deriving a new variable *bmi30* is that, 30 is the bmi threshold for obesity and we all know that obesity plays a huge role in a person's health.
+As we can see, although obese and non-obese people has the same median medical expenses, their average expenditure differ by almost USD 5000.
+
+```{r,warning=FALSE,message=FALSE}
+pairs.panels(insurance[c("age", "bmi", "children", "charges")])
+```
+
+We can see that *age* has the highest correlation with *charges* amongst our numeric variables. Another observation we can make from this plot is that none of our numeric values is highly correlated with each other, so multicollinearity wouldn't be a problem. Another thing to note is that the relationship between age and charges might not be really linear at all. (we would get into this later)
+
+## Model Building
+
+```{r,warning=FALSE,message=FALSE}
+# Build a model using the original set of variables
+ins_model <- lm(charges ~ age + sex + bmi + children + smoker + region, data = insurance)
+summary(ins_model)
+```
+
+On the first model we only utilized those original variables included in the dataset and got a decent r-squared of 0.7509 which implies that 75.09% of the variation of *charges* could be explained by the set of independent variables we have included. We could also observe that all of the independent variables we have included with the exception of gender is a statistically significant predictor of medical charges (p-value less than 0.05 <- level of significance).
+
+
+
+```{r,warning=FALSE,message=FALSE}
+# Create new variable square of age
+insurance$age2 <- insurance$age^2
+
+# Build a second model using derived variables
+ins_model2 <- lm(charges ~ age + age2 + children + bmi + sex + bmi30*smoker + region, data = insurance)
+summary(ins_model2)
+```
+
+First thing I did in this chunk is to create a new variable age2 which is basically age squared. Like I've said earlier, relationship between age and charges might not be totally linear so the idea behind this is to include the variable age2 to deal with this non-linearity in our model.
+As we can see, by adding those variables we have derived has significantly improved our model. We now have a r-squared of 0.8664 which implies 86.64% of variation of charges can be explained by our independent variables in the model. Adjusted R-squared of the second model is also a lot better compared to that of the previous one which further solidify our claim.
+
+## Visualizing linear regression model
+
+Let's first have a look on the relationship of medical charges and a person's age and smoking status.
+
+```{r,warning=FALSE,message=FALSE}
+attach(insurance)
+plot(age,charges,col=smoker)
+summary(charges[smoker=="no"])
+summary(charges[smoker=="yes"])
+```
+
+We could see an interesting trend here, as people get older the higher their medical expenses would be which is kinda expected. But, regardless of age, smokers has higher medical expenses than non-smokers as previously inferred. We'll try to create a model using only age and smoking status just for comparison. It really seems like *smoker* is the single most important variable in predicting medical charges.
+
+```{r,warning=FALSE,message=FALSE}
+ins_model3<-lm(charges~age+smoker,insurance)
+summary(ins_model3)
+```
+
+Using just age and smoker as independent variables, we have built a model with an r-squared of 72.14% which is comparable with our first model which use all of the original variables.
+In regression analysis, we would want to create a model that is accurate but at the same time as simple as possible. So if I would have to choose, I would select this third model than the first one. But of course, the second model is way better than any of these models so it is what we would recommend for implementation.
+
+```{r,warning=FALSE,message=FALSE}
+intercepts<-c(coef(ins_model3)["(Intercept)"],coef(ins_model3)["(Intercept)"]+coef(ins_model3)["smokeryes"])
+lines.df<- data.frame(intercepts = intercepts,
+                      slopes = rep(coef(ins_model3)["age"], 2),
+                      smoker = levels(insurance$smoker))
+qplot(x=age,y=charges,color=smoker,data=insurance)+geom_abline(aes(intercept=intercepts,slope=slopes,color=smoker),data=lines.df) + theme_few() + scale_y_continuous(breaks = seq(0,65000,5000))
+```
+
+If we would visualize the most recent regression model we built, this is how it would like. As you can see, we have 2 parallel lines which indicates we have 2 different regression equations having the same slope but different intercepts.
+Slope of the regression lines is equal to the coefficient of the variable *age* (274.87). While in terms of the intercept, intercept for smokers is higher by 23,855.30 compared to non-smokers. This indicates that, on average, smokers' medical charges is higher by about USD 24,000 adjusting for age. (Smoking is bad for your health!)
+
+## Variable Importance
+
+
+```{r,warning=FALSE,message=FALSE}
+ins_model2_shapley<-calc.relimp(ins_model2,type="lmg")
+ins_model2_shapley
+ins_model2_shapley$lmg
+```
+
+As we have concluded, the second model has the best performance with the highest r-squared out of the 3 models we have built. We would use it to derive the variable importance of our predictors.
+We will use a statistical method called `shapley value regression` which is a solution that originated from the Game Theory concept developed by Lloyd Shapley in the 1950s. It’s aim is to fairly allocate predictor importance in regression analysis. Given n number of independent variables (IV), we will run all combination of linear regression models using this list of IVs against the dependent variable (DV) and get each model's R-Squared. To get the importance measure of each independent variable (IV), the average contribution to the total R-squared of each IV is computed by decomposing the total R-squared and computing for the proportion marginal contribution of each IV.
+
+Let’s say we have 2 IVs A and B and a dependent variable Y. We can build 3 models as follows:
+1) Y~A
+2) Y~B
+3) Y~A+B
+and each model would have their respective R-squared.
+
+To get the Shapley Value of A we have to decompose the r-squared of the third model and derive Attribute A’s marginal contribution.
+
+Shapley Value (A) = {[R-squared (AB)- R-squared (B)] + R-squared (A)}/2
+
+We have used the calc.relimp() function from the relaimpo package to determine the Shapley Value of our predictors.
+
+```{r,warning=FALSE,message=FALSE}
+sum(ins_model2_shapley$lmg)
+```
+
+As we can see, the Shapley Value of our attributes sums up to the R-squared of our second regression model. Like what I have said, Shapley Value Regression is a variance decomposition method by means of computing the marginal contribution of each attribute.
+
+```{r,warning=FALSE,message=FALSE,fig.width=11}
+barplot(sort(ins_model2_shapley$lmg,decreasing = TRUE),col=c(2:10),main="Relative Importance of Predictors",xlab="Predictor Labels",ylab="Shapley Value Regression",font.lab=2)
+```
+
+The Shapley Value scores of each attribute shows their marginal contribution to the overall r-squared (0.8664) of the second model. So we can conclude that, on the 86.64% total variance explained by our model a little over 60% of it is due to the attribute smoker. Results also cemented our previous hypothesis that variable *smoker* is the singlemost important variable in predicting medical charges. If you would also notice, *smoker* is followed by bmi30:smoker, age2, age, and bmi30 where majority of which are variables we have derived and not included in the original dataset. Glad we have engineered those variables up! :)
+
+# Wrapping it up
+
+In this analysis we have used Shapley Value Regression in deriving key drivers of medical charges. It is very useful when dealing with multicollinearity problem since ordinary least squares estimation would be troublesome to use. On the other hand, Shapley Value Regression decomposes the r-squared proportionally to solve the problem of multicollinearity (although multicollinearity is not an issue in this dataset). We also learn the importance of feature engineering in improving our model's accuracy. And to top it all up, cigarette smoking is dangerous to your health! (pun intended haha!)

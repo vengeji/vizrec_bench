@@ -1,0 +1,269 @@
+{
+    "url": "https://www.kaggle.com/hakkisimsek/plotly-tutorial-2",
+    "votes": 54,
+    "rank": 2,
+    "charts": [
+        {
+            "describe": "origin airport distribution",
+            "chart": "pie",
+            "x": {
+                "attr": "ORIGIN_AIRPORT",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "ORIGIN_AIRPORT",
+                "trans": "count",
+                "calcus": "percentage"
+            }
+        },
+        {
+            "describe": "origin city distribution",
+            "chart": "bar",
+            "x": {
+                "attr": "ORIGIN_CITY",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "ORIGIN_CITY",
+                "trans": "count",
+                "calcus": "raw"
+            }
+        },
+        {
+            "describe": "airline distribution",
+            "chart": "bar",
+            "x": {
+                "attr": "AIRLINE",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "AIRLINE",
+                "trans": "count",
+                "calcus": "raw"
+            }
+        },
+        {
+            "describe": "number of flights monthly",
+            "chart": "bar",
+            "x": {
+                "attr": "DATE",
+                "trans": "month",
+                "groupby": true
+            },
+            "y": {
+                "attr": "DATE",
+                "trans": "count",
+                "calcus": "raw"
+            }
+        },
+        {
+            "describe": "mean departure delay monthly",
+            "chart": "bar",
+            "x": {
+                "attr": "DATE",
+                "trans": "month",
+                "groupby": true
+            },
+            "y": {
+                "attr": "DEPARTURE_DELAY",
+                "trans": "mean",
+                "calcus": "raw"
+            }
+        },
+        {
+            "describe": "mean arrival delay monthly",
+            "chart": "bar",
+            "x": {
+                "attr": "DATE",
+                "trans": "month",
+                "groupby": true
+            },
+            "y": {
+                "attr": "ARRIVAL_DELAY",
+                "trans": "mean",
+                "calcus": "raw"
+            }
+        },
+        {
+            "describe": "number of flights weekly",
+            "chart": "bar",
+            "x": {
+                "attr": "DATE",
+                "trans": "week",
+                "groupby": true
+            },
+            "y": {
+                "attr": "DATE",
+                "trans": "count",
+                "calcus": "raw"
+            }
+        },
+        {
+            "describe": "air traffic by city",
+            "chart": "heatmap",
+            "x": {
+                "attr": "DATE",
+                "trans": "dayofweek",
+                "groupby": true
+            },
+            "y": {
+                "attr": "ORIGIN_CITY",
+                "trans": "raw",
+                "groupby": true
+            },
+            "color": {
+                "attr": "DATE",
+                "trans": "count",
+                "calcus": "raw"
+            }
+        },
+        {
+            "describe": "mean departure delay day of week",
+            "chart": "bar",
+            "x": {
+                "attr": "DATE",
+                "trans": "week",
+                "groupby": true
+            },
+            "y": {
+                "attr": "DEPARTURE_DELAY",
+                "trans": "mean",
+                "calcus": "raw"
+            }
+        },
+        {
+            "describe": "mean arrival delay day of week",
+            "chart": "bar",
+            "x": {
+                "attr": "DATE",
+                "trans": "week",
+                "groupby": true
+            },
+            "y": {
+                "attr": "ARRIVAL_DELAY",
+                "trans": "mean",
+                "calcus": "raw"
+            }
+        },
+        {
+            "describe": "mean departure delay by airline",
+            "chart": "bar",
+            "x": {
+                "attr": "AIRLINE",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "DEPARTURE_DELAY",
+                "trans": "mean",
+                "calcus": "raw"
+            }
+        },
+        {
+            "describe": "mean arrival delay by airline",
+            "chart": "bar",
+            "x": {
+                "attr": "AIRLINE",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "ARRIVAL_DELAY",
+                "trans": "mean",
+                "calcus": "raw"
+            }
+        },
+        {
+            "describe": "mean departure delay by city",
+            "chart": "bar",
+            "x": {
+                "attr": "ORIGIN_CITY",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "DEPARTURE_DELAY",
+                "trans": "mean",
+                "calcus": "raw"
+            }
+        },
+        {
+            "describe": "mean arrival delay by city",
+            "chart": "bar",
+            "x": {
+                "attr": "DESTINATION_CITY",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "ARRIVAL_DELAY",
+                "trans": "mean",
+                "calcus": "raw"
+            }
+        },
+        {
+            "describe": "arrival delay by city and day of week",
+            "chart": "heatmap",
+            "x": {
+                "attr": "DATE",
+                "trans": "week",
+                "groupby": true
+            },
+            "y": {
+                "attr": "DESTINATION_CITY",
+                "trans": "raw",
+                "groupby": true
+            },
+            "color": {
+                "attr": "ARRIVAL_DELAY",
+                "trans": "mean",
+                "calcus": "raw"
+            }
+        },
+        {
+            "describe": "mean text out",
+            "chart": "bar",
+            "x": {
+                "attr": "AIRLINE",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "TAXI_OUT",
+                "trans": "mean",
+                "calcus": "raw"
+            }
+        },
+        {
+            "describe": "mean text in",
+            "chart": "bar",
+            "x": {
+                "attr": "AIRLINE",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "TAXI_IN",
+                "trans": "mean",
+                "calcus": "raw"
+            }
+        },
+        {
+            "describe": "mean speed by airline",
+            "chart": "bar",
+            "x": {
+                "attr": "AIRLINE",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "SPEED",
+                "trans": "mean",
+                "calcus": "raw"
+            }
+        }
+    ]
+}

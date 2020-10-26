@@ -1,0 +1,399 @@
+{
+    "url": "https://www.kaggle.com/ash316/eda-to-prediction-dietanic",
+    "votes": 1142,
+    "rank": 4,
+    "charts": [
+        {
+            "describe": "Survived overview",
+            "chart": "pie",
+            "x": {
+                "attr": "Survived",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "Survived",
+                "trans": "count",
+                "calcus": "percentage"
+            }
+        },
+        {
+            "describe": "Survived overview",
+            "chart": "bar",
+            "x": {
+                "attr": "Survived",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "Survived",
+                "trans": "count",
+                "calcus": "raw"
+            }
+        },
+        {
+            "describe": "Survived by Sex",
+            "chart": "bar",
+            "x": {
+                "attr": "Sex",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "Survived",
+                "trans": "count",
+                "calcus": "raw"
+            },
+            "color": {
+                "attr": "Survived",
+                "trans": "raw",
+                "groupby": true
+            }
+        },
+        {
+            "describe": "Survived by Sex",
+            "chart": "bar",
+            "x": {
+                "attr": "Sex",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "Sex",
+                "trans": "count",
+                "calcus": "raw"
+            },
+            "color": {
+                "attr": "Survived",
+                "trans": "raw",
+                "groupby": true
+            }
+        },
+        {
+            "describe": "Number of passengers by Pclass",
+            "chart": "bar",
+            "x": {
+                "attr": "Pclass",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "Pclass",
+                "trans": "count",
+                "calcus": "raw"
+            }
+        },
+        {
+            "describe": "Number of passengers by Pclass",
+            "chart": "bar",
+            "x": {
+                "attr": "Pclass",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "Pclass",
+                "trans": "count",
+                "calcus": "raw"
+            },
+            "color": {
+                "attr": "Survived",
+                "trans": "raw",
+                "groupby": true
+            }
+        },
+        {
+            "describe": "x = 'Pclass', y = 'Survived', hue='Sex'",
+            "chart": "pointplot",
+            "x": {
+                "attr": "Pclass",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "Survived",
+                "trans": "count",
+                "calcus": "percentage"
+            },
+            "col": {
+                "attr": "Survived",
+                "trans": "raw",
+                "groupby": true
+            },
+            "color": {
+                "attr": "Sex",
+                "trans": "raw",
+                "groupby": true
+            }
+        },
+        {
+            "describe": "Survived and Age and Pclass",
+            "chart": "violinplot",
+            "x": {
+                "attr": "Pclass",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "Age",
+                "trans": "raw"
+            },
+            "color": {
+                "attr": "Survived",
+                "trans": "raw",
+                "groupby": true
+            }
+        },
+        {
+            "describe": "Survived and Age and Sex",
+            "chart": "violinplot",
+            "x": {
+                "attr": "Sex",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "Age",
+                "trans": "raw"
+            },
+            "color": {
+                "attr": "Survived",
+                "trans": "raw",
+                "groupby": true
+            }
+        },
+        {
+            "describe": "Age Histogram by Survival",
+            "chart": "histogram",
+            "x": {
+                "attr": "Age",
+                "trans": "bin",
+                "bins": "default"
+            },
+            "y": {
+                "attr": "Age",
+                "trans": "count",
+                "calcus": "raw"
+            },
+            "color": {
+                "attr": "Survived",
+                "trans": "raw",
+                "groupby": true
+            }
+        },
+        {
+            "describe": "x = 'Embarked', y = 'Survived'",
+            "chart": "pointplot",
+            "x": {
+                "attr": "Embarked",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "Survived",
+                "trans": "count",
+                "calcus": "percentage"
+            },
+            "color": {
+                "attr": "Survived",
+                "trans": "raw",
+                "groupby": true
+            }
+        },
+        {
+            "describe": "Number of passengers by Embarked",
+            "chart": "bar",
+            "x": {
+                "attr": "Embarked",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "Embarked",
+                "trans": "count",
+                "calcus": "raw"
+            }
+        },
+        {
+            "describe": "Number of passengers by Embarked and Sex",
+            "chart": "bar",
+            "x": {
+                "attr": "Embarked",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "Embarked",
+                "trans": "count",
+                "calcus": "raw"
+            },
+            "color": {
+                "attr": "Sex",
+                "trans": "raw",
+                "groupby": true
+            }
+        },
+        {
+            "describe": "Number of passengers by Embarked and Survived",
+            "chart": "bar",
+            "x": {
+                "attr": "Embarked",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "Embarked",
+                "trans": "count",
+                "calcus": "raw"
+            },
+            "color": {
+                "attr": "Survived",
+                "trans": "raw",
+                "groupby": true
+            }
+        },
+        {
+            "describe": "Number of passengers by Embarked and Pclass",
+            "chart": "bar",
+            "x": {
+                "attr": "Embarked",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "Embarked",
+                "trans": "count",
+                "calcus": "raw"
+            },
+            "color": {
+                "attr": "Pclass",
+                "trans": "raw",
+                "groupby": true
+            }
+        },
+        {
+            "describe": "pointplot of pclass sex embarked and survived",
+            "chart": "pointplot",
+            "x": {
+                "attr": "Pclass",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "Survived",
+                "trans": "count",
+                "calcus": "percentage"
+            },
+            "color": {
+                "attr": "Sex",
+                "trans": "raw",
+                "groupby": true
+            },
+            "col": {
+                "attr": "Embarked",
+                "trans": "raw",
+                "groupby": true
+            },
+            "row": {
+                "attr": "Survived",
+                "trans": "raw",
+                "groupby": true
+            }
+        },
+        {
+            "describe": "SibSp survival probability",
+            "chart": "bar",
+            "x": {
+                "attr": "SibSp",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "Survived",
+                "trans": "count",
+                "calcus": "raw"
+            },
+            "color": {
+                "attr": "Survived",
+                "trans": "raw",
+                "groupby": true
+            }
+        },
+        {
+            "describe": "SibSp survival probability",
+            "chart": "pointplot",
+            "x": {
+                "attr": "SibSp",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "Survived",
+                "trans": "count",
+                "calcus": "percentage"
+            },
+            "color": {
+                "attr": "Survived",
+                "trans": "raw",
+                "groupby": true
+            }
+        },
+        {
+            "describe": "Parch survival probability",
+            "chart": "bar",
+            "x": {
+                "attr": "Parch",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "Survived",
+                "trans": "count",
+                "calcus": "raw"
+            },
+            "color": {
+                "attr": "Survived",
+                "trans": "raw",
+                "groupby": true
+            }
+        },
+        {
+            "describe": "Parch survival probability",
+            "chart": "pointplot",
+            "x": {
+                "attr": "Parch",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "Survived",
+                "trans": "count",
+                "calcus": "percentage"
+            },
+            "color": {
+                "attr": "Survived",
+                "trans": "raw",
+                "groupby": true
+            }
+        },
+        {
+            "describe": "Fare Histogram by Pclass",
+            "chart": "histogram",
+            "x": {
+                "attr": "Fare",
+                "trans": "bin",
+                "bins": "default"
+            },
+            "y": {
+                "attr": "Fare",
+                "trans": "count",
+                "calcus": "raw"
+            },
+            "color": {
+                "attr": "Pclass",
+                "trans": "raw",
+                "groupby": true
+            }
+        }
+    ]
+}

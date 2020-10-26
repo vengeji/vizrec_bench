@@ -1,0 +1,777 @@
+{
+    "charts": [
+        {
+            "describe": "most affected cities",
+            "id": "terrorism_1_extracted.json_id_1",
+            "rank": 1,
+            "type": "bar",
+            "channels": {
+                "x": {
+                    "attr": "city",
+                    "trans": "raw",
+                    "groupby": true
+                },
+                "y": {
+                    "attr": "city",
+                    "trans": "count",
+                    "calcus": "raw"
+                }
+            }
+        },
+        {
+            "describe": "trend in terrorist activities",
+            "id": "terrorism_1_extracted.json_id_2-terrorism_2_extracted.json_id_1",
+            "rank": 2,
+            "type": "line",
+            "channels": {
+                "x": {
+                    "attr": "iyear",
+                    "trans": "raw",
+                    "groupby": true
+                },
+                "y": {
+                    "attr": "iyear",
+                    "trans": "count",
+                    "calcus": "raw"
+                }
+            }
+        },
+        {
+            "describe": "number of terrorist activities each year",
+            "id": "terrorism_1_extracted.json_id_3",
+            "rank": 3,
+            "type": "bar",
+            "channels": {
+                "x": {
+                    "attr": "iyear",
+                    "trans": "raw",
+                    "groupby": true
+                },
+                "y": {
+                    "attr": "iyear",
+                    "trans": "count",
+                    "calcus": "raw"
+                }
+            }
+        },
+        {
+            "describe": "attacking methods by terrorists",
+            "id": "terrorism_1_extracted.json_id_4",
+            "rank": 4,
+            "type": "bar",
+            "channels": {
+                "x": {
+                    "attr": "attacktype1_txt",
+                    "trans": "raw",
+                    "groupby": true
+                },
+                "y": {
+                    "attr": "attacktype1_txt",
+                    "trans": "count",
+                    "calcus": "raw"
+                }
+            }
+        },
+        {
+            "describe": "favorite targets",
+            "id": "terrorism_1_extracted.json_id_5-terrorism_3_extracted.json_id_21",
+            "rank": 5,
+            "type": "bar",
+            "channels": {
+                "x": {
+                    "attr": "targtype1_txt",
+                    "trans": "raw",
+                    "groupby": true
+                },
+                "y": {
+                    "attr": "targtype1_txt",
+                    "trans": "count",
+                    "calcus": "raw"
+                }
+            }
+        },
+        {
+            "describe": "number of terrorist activities by region",
+            "id": "terrorism_1_extracted.json_id_6",
+            "rank": 6,
+            "type": "bar",
+            "channels": {
+                "x": {
+                    "attr": "region_txt",
+                    "trans": "raw",
+                    "groupby": true
+                },
+                "y": {
+                    "attr": "region_txt",
+                    "trans": "count",
+                    "calcus": "raw"
+                }
+            }
+        },
+        {
+            "describe": "trend in terrorist activities of different region",
+            "id": "terrorism_1_extracted.json_id_7",
+            "rank": 7,
+            "type": "line",
+            "channels": {
+                "x": {
+                    "attr": "iyear",
+                    "trans": "raw",
+                    "groupby": true
+                },
+                "y": {
+                    "attr": "iyear",
+                    "trans": "count",
+                    "calcus": "raw"
+                },
+                "color": {
+                    "attr": "region_txt",
+                    "trans": "raw",
+                    "groupby": true
+                }
+            }
+        },
+        {
+            "describe": "attacktype vs region",
+            "id": "terrorism_1_extracted.json_id_8",
+            "rank": 8,
+            "type": "bar",
+            "channels": {
+                "x": {
+                    "attr": "region_txt",
+                    "trans": "raw",
+                    "groupby": true
+                },
+                "y": {
+                    "attr": "region_txt",
+                    "trans": "count",
+                    "calcus": "raw"
+                },
+                "color": {
+                    "attr": "attacktype1_txt",
+                    "trans": "raw",
+                    "groupby": true
+                }
+            }
+        },
+        {
+            "describe": "top affected countries",
+            "id": "terrorism_1_extracted.json_id_9",
+            "rank": 9,
+            "type": "bar",
+            "channels": {
+                "x": {
+                    "attr": "country_txt",
+                    "trans": "raw",
+                    "groupby": true
+                },
+                "y": {
+                    "attr": "country_txt",
+                    "trans": "count",
+                    "calcus": "raw"
+                }
+            }
+        },
+        {
+            "describe": "killed number of country",
+            "id": "terrorism_1_extracted.json_id_10",
+            "rank": 10,
+            "type": "bar",
+            "channels": {
+                "x": {
+                    "attr": "country_txt",
+                    "trans": "raw",
+                    "groupby": true
+                },
+                "y": {
+                    "attr": "nkill",
+                    "trans": "sum",
+                    "calcus": "raw"
+                }
+            }
+        },
+        {
+            "describe": "terrorist groups with highest terror attacks",
+            "id": "terrorism_1_extracted.json_id_11-terrorism_3_extracted.json_id_8",
+            "rank": 11,
+            "type": "bar",
+            "channels": {
+                "x": {
+                    "attr": "gname",
+                    "trans": "raw",
+                    "groupby": true
+                },
+                "y": {
+                    "attr": "gname",
+                    "trans": "count",
+                    "calcus": "raw"
+                }
+            }
+        },
+        {
+            "describe": "activity of top terrorist groups",
+            "id": "terrorism_1_extracted.json_id_12-terrorism_3_extracted.json_id_9",
+            "rank": 12,
+            "type": "line",
+            "channels": {
+                "x": {
+                    "attr": "iyear",
+                    "trans": "raw",
+                    "groupby": true
+                },
+                "y": {
+                    "attr": "iyear",
+                    "trans": "count",
+                    "calcus": "raw"
+                },
+                "color": {
+                    "attr": "gname",
+                    "trans": "raw",
+                    "groupby": true
+                }
+            }
+        },
+        {
+            "describe": "attacks by target",
+            "id": "terrorism_2_extracted.json_id_2",
+            "rank": 13,
+            "type": "scatter",
+            "channels": {
+                "x": {
+                    "attr": "nwound",
+                    "trans": "sum",
+                    "calcus": "raw"
+                },
+                "y": {
+                    "attr": "nkill",
+                    "trans": "sum",
+                    "calcus": "raw"
+                },
+                "groupby": {
+                    "attr": "targtype1_txt",
+                    "trans": "raw"
+                }
+            }
+        },
+        {
+            "describe": "attacks by target",
+            "id": "terrorism_2_extracted.json_id_3",
+            "rank": 14,
+            "type": "scatter",
+            "channels": {
+                "x": {
+                    "attr": "nwound",
+                    "trans": "sum",
+                    "calcus": "raw"
+                },
+                "y": {
+                    "attr": "nkill",
+                    "trans": "sum",
+                    "calcus": "raw"
+                },
+                "groupby": {
+                    "attr": "weaptype1_txt",
+                    "trans": "raw"
+                }
+            }
+        },
+        {
+            "describe": "trend in kills of different region",
+            "id": "terrorism_3_extracted.json_id_1",
+            "rank": 15,
+            "type": "line",
+            "channels": {
+                "x": {
+                    "attr": "iyear",
+                    "trans": "raw",
+                    "groupby": true
+                },
+                "y": {
+                    "attr": "nkill",
+                    "trans": "sum",
+                    "calcus": "raw"
+                },
+                "color": {
+                    "attr": "region_txt",
+                    "trans": "raw",
+                    "groupby": true
+                }
+            }
+        },
+        {
+            "describe": "trend in wounds of different region",
+            "id": "terrorism_3_extracted.json_id_2",
+            "rank": 16,
+            "type": "line",
+            "channels": {
+                "x": {
+                    "attr": "iyear",
+                    "trans": "raw",
+                    "groupby": true
+                },
+                "y": {
+                    "attr": "nwound",
+                    "trans": "sum",
+                    "calcus": "raw"
+                },
+                "color": {
+                    "attr": "region_txt",
+                    "trans": "raw",
+                    "groupby": true
+                }
+            }
+        },
+        {
+            "describe": "trend in terrorist activities of different attacktype",
+            "id": "terrorism_3_extracted.json_id_3",
+            "rank": 17,
+            "type": "line",
+            "channels": {
+                "x": {
+                    "attr": "iyear",
+                    "trans": "raw",
+                    "groupby": true
+                },
+                "y": {
+                    "attr": "iyear",
+                    "trans": "count",
+                    "calcus": "raw"
+                },
+                "color": {
+                    "attr": "attacktype1_txt",
+                    "trans": "raw",
+                    "groupby": true
+                }
+            }
+        },
+        {
+            "describe": "alternative calssification",
+            "id": "terrorism_3_extracted.json_id_4",
+            "rank": 18,
+            "type": "bar",
+            "channels": {
+                "x": {
+                    "attr": "alternative_txt",
+                    "trans": "raw",
+                    "groupby": true
+                },
+                "y": {
+                    "attr": "alternative_txt",
+                    "trans": "count",
+                    "calcus": "raw"
+                }
+            }
+        },
+        {
+            "describe": "ransompaid by year of differen region",
+            "id": "terrorism_3_extracted.json_id_5",
+            "rank": 19,
+            "type": "line",
+            "channels": {
+                "x": {
+                    "attr": "iyear",
+                    "trans": "raw",
+                    "groupby": true
+                },
+                "y": {
+                    "attr": "ransompaid",
+                    "trans": "sum",
+                    "calcus": "raw"
+                },
+                "color": {
+                    "attr": "region_txt",
+                    "trans": "raw",
+                    "groupby": true
+                }
+            }
+        },
+        {
+            "describe": "hostages and kidnapped of year and region",
+            "id": "terrorism_3_extracted.json_id_6",
+            "rank": 20,
+            "type": "line",
+            "channels": {
+                "x": {
+                    "attr": "iyear",
+                    "trans": "raw",
+                    "groupby": true
+                },
+                "y": {
+                    "attr": "nhostkid",
+                    "trans": "sum",
+                    "calcus": "raw"
+                },
+                "color": {
+                    "attr": "region_txt",
+                    "trans": "raw",
+                    "groupby": true
+                }
+            }
+        },
+        {
+            "describe": "killings by gname",
+            "id": "terrorism_3_extracted.json_id_7",
+            "rank": 21,
+            "type": "bar",
+            "channels": {
+                "x": {
+                    "attr": "gname",
+                    "trans": "raw",
+                    "groupby": true
+                },
+                "y": {
+                    "attr": "nkill",
+                    "trans": "sum",
+                    "calcus": "raw"
+                }
+            }
+        },
+        {
+            "describe": "Perpetrators nationality",
+            "id": "terrorism_3_extracted.json_id_10",
+            "rank": 22,
+            "type": "bar",
+            "channels": {
+                "x": {
+                    "attr": "natlty1_txt",
+                    "trans": "raw",
+                    "groupby": true
+                },
+                "y": {
+                    "attr": "natlty1_txt",
+                    "trans": "count",
+                    "calcus": "raw"
+                }
+            }
+        },
+        {
+            "describe": "Perpetrators nationality",
+            "id": "terrorism_3_extracted.json_id_11",
+            "rank": 23,
+            "type": "bar",
+            "channels": {
+                "x": {
+                    "attr": "kidhijcountry",
+                    "trans": "raw",
+                    "groupby": true
+                },
+                "y": {
+                    "attr": "kidhijcountry",
+                    "trans": "count",
+                    "calcus": "raw"
+                }
+            }
+        },
+        {
+            "describe": "weapon type",
+            "id": "terrorism_3_extracted.json_id_12",
+            "rank": 24,
+            "type": "bar",
+            "channels": {
+                "x": {
+                    "attr": "weaptype1_txt",
+                    "trans": "raw",
+                    "groupby": true
+                },
+                "y": {
+                    "attr": "weaptype1_txt",
+                    "trans": "count",
+                    "calcus": "raw"
+                }
+            }
+        },
+        {
+            "describe": "weapon subtype",
+            "id": "terrorism_3_extracted.json_id_13",
+            "rank": 25,
+            "type": "bar",
+            "channels": {
+                "x": {
+                    "attr": "weapsubtype1_txt",
+                    "trans": "raw",
+                    "groupby": true
+                },
+                "y": {
+                    "attr": "weapsubtype1_txt",
+                    "trans": "count",
+                    "calcus": "raw"
+                }
+            }
+        },
+        {
+            "describe": "weapon type and subtype",
+            "id": "terrorism_3_extracted.json_id_14",
+            "rank": 26,
+            "type": "bar",
+            "channels": {
+                "x": {
+                    "attr": "weaptype1_txt",
+                    "trans": "raw",
+                    "groupby": true
+                },
+                "y": {
+                    "attr": "weaptype1_txt",
+                    "trans": "count",
+                    "calcus": "raw"
+                },
+                "color": {
+                    "attr": "weapsubtype1_txt",
+                    "trans": "raw",
+                    "groupby": true
+                }
+            }
+        },
+        {
+            "describe": "weapon type2",
+            "id": "terrorism_3_extracted.json_id_15",
+            "rank": 27,
+            "type": "bar",
+            "channels": {
+                "x": {
+                    "attr": "weaptype2_txt",
+                    "trans": "raw",
+                    "groupby": true
+                },
+                "y": {
+                    "attr": "weaptype2_txt",
+                    "trans": "count",
+                    "calcus": "raw"
+                }
+            }
+        },
+        {
+            "describe": "weapon subtype2",
+            "id": "terrorism_3_extracted.json_id_16",
+            "rank": 28,
+            "type": "bar",
+            "channels": {
+                "x": {
+                    "attr": "weapsubtype2_txt",
+                    "trans": "raw",
+                    "groupby": true
+                },
+                "y": {
+                    "attr": "weapsubtype2_txt",
+                    "trans": "count",
+                    "calcus": "raw"
+                }
+            }
+        },
+        {
+            "describe": "weapon type3",
+            "id": "terrorism_3_extracted.json_id_17",
+            "rank": 29,
+            "type": "bar",
+            "channels": {
+                "x": {
+                    "attr": "weaptype3_txt",
+                    "trans": "raw",
+                    "groupby": true
+                },
+                "y": {
+                    "attr": "weaptype3_txt",
+                    "trans": "count",
+                    "calcus": "raw"
+                }
+            }
+        },
+        {
+            "describe": "weapon subtype3",
+            "id": "terrorism_3_extracted.json_id_18",
+            "rank": 30,
+            "type": "bar",
+            "channels": {
+                "x": {
+                    "attr": "weapsubtype3_txt",
+                    "trans": "raw",
+                    "groupby": true
+                },
+                "y": {
+                    "attr": "weapsubtype3_txt",
+                    "trans": "count",
+                    "calcus": "raw"
+                }
+            }
+        },
+        {
+            "describe": "weapon type4",
+            "id": "terrorism_3_extracted.json_id_19",
+            "rank": 31,
+            "type": "bar",
+            "channels": {
+                "x": {
+                    "attr": "weaptype4_txt",
+                    "trans": "raw",
+                    "groupby": true
+                },
+                "y": {
+                    "attr": "weaptype4_txt",
+                    "trans": "count",
+                    "calcus": "raw"
+                }
+            }
+        },
+        {
+            "describe": "weapon subtype4",
+            "id": "terrorism_3_extracted.json_id_20",
+            "rank": 32,
+            "type": "bar",
+            "channels": {
+                "x": {
+                    "attr": "weapsubtype4_txt",
+                    "trans": "raw",
+                    "groupby": true
+                },
+                "y": {
+                    "attr": "weapsubtype4_txt",
+                    "trans": "count",
+                    "calcus": "raw"
+                }
+            }
+        },
+        {
+            "describe": "favorite target sub 1",
+            "id": "terrorism_3_extracted.json_id_22",
+            "rank": 33,
+            "type": "bar",
+            "channels": {
+                "x": {
+                    "attr": "targsubtype1_txt",
+                    "trans": "raw",
+                    "groupby": true
+                },
+                "y": {
+                    "attr": "targsubtype1_txt",
+                    "trans": "count",
+                    "calcus": "raw"
+                }
+            }
+        },
+        {
+            "describe": "favorite target 2",
+            "id": "terrorism_3_extracted.json_id_23",
+            "rank": 34,
+            "type": "bar",
+            "channels": {
+                "x": {
+                    "attr": "targtype2_txt",
+                    "trans": "raw",
+                    "groupby": true
+                },
+                "y": {
+                    "attr": "targtype2_txt",
+                    "trans": "count",
+                    "calcus": "raw"
+                }
+            }
+        },
+        {
+            "describe": "favorite target sub 2",
+            "id": "terrorism_3_extracted.json_id_24",
+            "rank": 35,
+            "type": "bar",
+            "channels": {
+                "x": {
+                    "attr": "targsubtype2_txt",
+                    "trans": "raw",
+                    "groupby": true
+                },
+                "y": {
+                    "attr": "targsubtype2_txt",
+                    "trans": "count",
+                    "calcus": "raw"
+                }
+            }
+        },
+        {
+            "describe": "favorite target 3",
+            "id": "terrorism_3_extracted.json_id_25",
+            "rank": 36,
+            "type": "bar",
+            "channels": {
+                "x": {
+                    "attr": "targtype3_txt",
+                    "trans": "raw",
+                    "groupby": true
+                },
+                "y": {
+                    "attr": "targtype3_txt",
+                    "trans": "count",
+                    "calcus": "raw"
+                }
+            }
+        },
+        {
+            "describe": "favorite target sub 3",
+            "id": "terrorism_3_extracted.json_id_26",
+            "rank": 37,
+            "type": "bar",
+            "channels": {
+                "x": {
+                    "attr": "targsubtype3_txt",
+                    "trans": "raw",
+                    "groupby": true
+                },
+                "y": {
+                    "attr": "targsubtype3_txt",
+                    "trans": "count",
+                    "calcus": "raw"
+                }
+            }
+        },
+        {
+            "describe": "claim mode",
+            "id": "terrorism_3_extracted.json_id_27",
+            "rank": 38,
+            "type": "bar",
+            "channels": {
+                "x": {
+                    "attr": "claimmode_txt",
+                    "trans": "raw",
+                    "groupby": true
+                },
+                "y": {
+                    "attr": "claimmode_txt",
+                    "trans": "count",
+                    "calcus": "raw"
+                }
+            }
+        },
+        {
+            "describe": "propextent_txt",
+            "id": "terrorism_3_extracted.json_id_28",
+            "rank": 39,
+            "type": "bar",
+            "channels": {
+                "x": {
+                    "attr": "propextent_txt",
+                    "trans": "raw",
+                    "groupby": true
+                },
+                "y": {
+                    "attr": "propextent_txt",
+                    "trans": "count",
+                    "calcus": "raw"
+                }
+            }
+        },
+        {
+            "describe": "dbsource",
+            "id": "terrorism_3_extracted.json_id_29",
+            "rank": 40,
+            "type": "bar",
+            "channels": {
+                "x": {
+                    "attr": "dbsource",
+                    "trans": "raw",
+                    "groupby": true
+                },
+                "y": {
+                    "attr": "dbsource",
+                    "trans": "count",
+                    "calcus": "raw"
+                }
+            }
+        }
+    ]
+}

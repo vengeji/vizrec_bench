@@ -1,0 +1,564 @@
+{
+    "url": "https://www.kaggle.com/shivamb/homecreditrisk-extensive-eda-baseline-0-772",
+    "votes": 216,
+    "rank": 3,
+    "charts": [
+        {
+            "describe": "Count TARGET",
+            "chart": "bar",
+            "x": {
+                "attr": "TARGET",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "TARGET",
+                "trans": "count",
+                "calcus": "raw"
+            }
+        },
+        {
+            "describe": "Client gender",
+            "chart": "bar",
+            "x": {
+                "attr": "CODE_GENDER",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "CODE_GENDER",
+                "trans": "count",
+                "calcus": "raw"
+            }
+        },
+        {
+            "describe": "Client gender of different target",
+            "chart": "bar",
+            "x": {
+                "attr": "CODE_GENDER",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "CODE_GENDER",
+                "trans": "count",
+                "calcus": "raw"
+            },
+            "color": {
+                "attr": "TARGET",
+                "trans": "raw",
+                "groupby": true
+            }
+        },
+        {
+            "describe": "Family status",
+            "chart": "bar",
+            "x": {
+                "attr": "NAME_FAMILY_STATUS",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "NAME_FAMILY_STATUS",
+                "trans": "count",
+                "calcus": "raw"
+            }
+        },
+        {
+            "describe": "Family status of different target type",
+            "chart": "bar",
+            "x": {
+                "attr": "NAME_FAMILY_STATUS",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "NAME_FAMILY_STATUS",
+                "trans": "count",
+                "calcus": "raw"
+            },
+            "color": {
+                "attr": "TARGET",
+                "trans": "raw",
+                "groupby": true
+            }
+        },
+        {
+            "describe": "Own realty",
+            "chart": "pie",
+            "x": {
+                "attr": "FLAG_OWN_REALTY",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "FLAG_OWN_REALTY",
+                "trans": "count",
+                "calcus": "percentage"
+            }
+        },
+        {
+            "describe": "Own car",
+            "chart": "pie",
+            "x": {
+                "attr": "FLAG_OWN_CAR",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "FLAG_OWN_CAR",
+                "trans": "count",
+                "calcus": "percentage"
+            }
+        },
+        {
+            "describe": "Own realty",
+            "chart": "bar",
+            "x": {
+                "attr": "FLAG_OWN_REALTY",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "FLAG_OWN_REALTY",
+                "trans": "count",
+                "calcus": "raw"
+            }
+        },
+        {
+            "describe": "Own realty of different target type",
+            "chart": "bar",
+            "x": {
+                "attr": "FLAG_OWN_REALTY",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "FLAG_OWN_REALTY",
+                "trans": "count",
+                "calcus": "percentage"
+            },
+            "color": {
+                "attr": "TARGET",
+                "trans": "raw",
+                "groupby": true
+            }
+        },
+        {
+            "describe": "Own car of different target type",
+            "chart": "bar",
+            "x": {
+                "attr": "FLAG_OWN_CAR",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "FLAG_OWN_CAR",
+                "trans": "count",
+                "calcus": "percentage"
+            },
+            "color": {
+                "attr": "TARGET",
+                "trans": "raw",
+                "groupby": true
+            }
+        },
+        {
+            "describe": "Who accompanied client when applying for the application",
+            "chart": "bar",
+            "x": {
+                "attr": "NAME_TYPE_SUITE",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "NAME_TYPE_SUITE",
+                "trans": "count",
+                "calcus": "raw"
+            }
+        },
+        {
+            "describe": "NAME_INCOME_TYPE",
+            "chart": "bar",
+            "x": {
+                "attr": "NAME_INCOME_TYPE",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "NAME_INCOME_TYPE",
+                "trans": "count",
+                "calcus": "raw"
+            }
+        },
+        {
+            "describe": "Number of applicances of different NAME_TYPE_SUITE and target type",
+            "chart": "bar",
+            "x": {
+                "attr": "NAME_TYPE_SUITE",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "NAME_TYPE_SUITE",
+                "trans": "count",
+                "calcus": "percentage"
+            },
+            "color": {
+                "attr": "TARGET",
+                "trans": "raw",
+                "groupby": true
+            }
+        },
+        {
+            "describe": "Number of applicances of different sources and target type",
+            "chart": "bar",
+            "x": {
+                "attr": "NAME_INCOME_TYPE",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "NAME_INCOME_TYPE",
+                "trans": "count",
+                "calcus": "percentage"
+            },
+            "color": {
+                "attr": "TARGET",
+                "trans": "raw",
+                "groupby": true
+            }
+        },
+        {
+            "describe": "Types of loans",
+            "chart": "pie",
+            "x": {
+                "attr": "NAME_CONTRACT_TYPE",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "NAME_CONTRACT_TYPE",
+                "trans": "count",
+                "calcus": "percentage"
+            }
+        },
+        {
+            "describe": "Education level of applicants",
+            "chart": "bar",
+            "x": {
+                "attr": "NAME_EDUCATION_TYPE",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "NAME_EDUCATION_TYPE",
+                "trans": "count",
+                "calcus": "raw"
+            }
+        },
+        {
+            "describe": "Housing type of applicants",
+            "chart": "bar",
+            "x": {
+                "attr": "NAME_HOUSING_TYPE",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "NAME_HOUSING_TYPE",
+                "trans": "count",
+                "calcus": "raw"
+            }
+        },
+        {
+            "describe": "Number of applicances of different education and target type",
+            "chart": "bar",
+            "x": {
+                "attr": "NAME_EDUCATION_TYPE",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "NAME_EDUCATION_TYPE",
+                "trans": "count",
+                "calcus": "percentage"
+            },
+            "color": {
+                "attr": "TARGET",
+                "trans": "raw",
+                "groupby": true
+            }
+        },
+        {
+            "describe": "Number of applicances of different housing type and target type",
+            "chart": "bar",
+            "x": {
+                "attr": "NAME_HOUSING_TYPE",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "NAME_HOUSING_TYPE",
+                "trans": "count",
+                "calcus": "percentage"
+            },
+            "color": {
+                "attr": "TARGET",
+                "trans": "raw",
+                "groupby": true
+            }
+        },
+        {
+            "describe": "Organization types of applicants",
+            "chart": "bar",
+            "x": {
+                "attr": "ORGANIZATION_TYPE",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "ORGANIZATION_TYPE",
+                "trans": "count",
+                "calcus": "raw"
+            }
+        },
+        {
+            "describe": "Occupation types of applicants",
+            "chart": "bar",
+            "x": {
+                "attr": "OCCUPATION_TYPE",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "OCCUPATION_TYPE",
+                "trans": "count",
+                "calcus": "raw"
+            }
+        },
+        {
+            "describe": "Number of applicances of different organization and target type",
+            "chart": "bar",
+            "x": {
+                "attr": "ORGANIZATION_TYPE",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "ORGANIZATION_TYPE",
+                "trans": "count",
+                "calcus": "percentage"
+            },
+            "color": {
+                "attr": "TARGET",
+                "trans": "raw",
+                "groupby": true
+            }
+        },
+        {
+            "describe": "Number of applicances of different occupation and target type",
+            "chart": "bar",
+            "x": {
+                "attr": "OCCUPATION_TYPE",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "OCCUPATION_TYPE",
+                "trans": "count",
+                "calcus": "percentage"
+            },
+            "color": {
+                "attr": "TARGET",
+                "trans": "raw",
+                "groupby": true
+            }
+        },
+        {
+            "describe": "House mode of applicants",
+            "chart": "bar",
+            "x": {
+                "attr": "HOUSETYPE_MODE",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "HOUSETYPE_MODE",
+                "trans": "count",
+                "calcus": "raw"
+            }
+        },
+        {
+            "describe": "WALLSMATERIAL_MODE of applicants",
+            "chart": "bar",
+            "x": {
+                "attr": "WALLSMATERIAL_MODE",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "WALLSMATERIAL_MODE",
+                "trans": "count",
+                "calcus": "raw"
+            }
+        },
+        {
+            "describe": "house mode and target type",
+            "chart": "bar",
+            "x": {
+                "attr": "HOUSETYPE_MODE",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "HOUSETYPE_MODE",
+                "trans": "count",
+                "calcus": "percentage"
+            },
+            "color": {
+                "attr": "TARGET",
+                "trans": "raw",
+                "groupby": true
+            }
+        },
+        {
+            "describe": "wall mode and target type",
+            "chart": "bar",
+            "x": {
+                "attr": "WALLSMATERIAL_MODE",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "WALLSMATERIAL_MODE",
+                "trans": "count",
+                "calcus": "percentage"
+            },
+            "color": {
+                "attr": "TARGET",
+                "trans": "raw",
+                "groupby": true
+            }
+        },
+        {
+            "describe": "Distribution of AMT_CREDIT",
+            "chart": "histgoram",
+            "x": {
+                "attr": "AMT_CREDIT",
+                "trans": "bin"
+            },
+            "y": {
+                "attr": "AMT_CREDIT",
+                "trans": "count",
+                "calcus": "percentage"
+            }
+        },
+        {
+            "describe": "Distribution of AMT_ANNUITY",
+            "chart": "histgoram",
+            "x": {
+                "attr": "AMT_ANNUITY",
+                "trans": "bin"
+            },
+            "y": {
+                "attr": "AMT_ANNUITY",
+                "trans": "count",
+                "calcus": "percentage"
+            }
+        },
+        {
+            "describe": "Distribution of AMT_GOODS_PRICE",
+            "chart": "histgoram",
+            "x": {
+                "attr": "AMT_GOODS_PRICE",
+                "trans": "bin"
+            },
+            "y": {
+                "attr": "AMT_GOODS_PRICE",
+                "trans": "count",
+                "calcus": "percentage"
+            }
+        },
+        {
+            "describe": "Distribution of REGION_POPULATION_RELATIVE",
+            "chart": "histgoram",
+            "x": {
+                "attr": "REGION_POPULATION_RELATIVE",
+                "trans": "bin"
+            },
+            "y": {
+                "attr": "REGION_POPULATION_RELATIVE",
+                "trans": "count",
+                "calcus": "percentage"
+            }
+        },
+        {
+            "describe": "Distribution of DAYS_BIRTH",
+            "chart": "histgoram",
+            "x": {
+                "attr": "DAYS_BIRTH",
+                "trans": "bin"
+            },
+            "y": {
+                "attr": "DAYS_BIRTH",
+                "trans": "count",
+                "calcus": "percentage"
+            }
+        },
+        {
+            "describe": "Distribution of DAYS_EMPLOYED",
+            "chart": "histgoram",
+            "x": {
+                "attr": "DAYS_EMPLOYED",
+                "trans": "bin"
+            },
+            "y": {
+                "attr": "DAYS_EMPLOYED",
+                "trans": "count",
+                "calcus": "percentage"
+            }
+        },
+        {
+            "describe": "Distribution of DAYS_REGISTRATION",
+            "chart": "histgoram",
+            "x": {
+                "attr": "DAYS_REGISTRATION",
+                "trans": "bin"
+            },
+            "y": {
+                "attr": "DAYS_REGISTRATION",
+                "trans": "count",
+                "calcus": "percentage"
+            }
+        },
+        {
+            "describe": "Number of family menber",
+            "chart": "bar",
+            "x": {
+                "attr": "CNT_FAM_MEMBERS",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "CNT_FAM_MEMBERS",
+                "trans": "count",
+                "calcus": "raw"
+            }
+        },
+        {
+            "describe": "Number of children",
+            "chart": "bar",
+            "x": {
+                "attr": "CNT_CHILDREN",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "CNT_CHILDREN",
+                "trans": "count",
+                "calcus": "raw"
+            }
+        }
+    ]
+}

@@ -1,0 +1,227 @@
+
+```{r echo=F, warning=F, include=F}
+# This is a code block
+library(ggplot2) # Data visualization
+library(readr) # CSV file I/O, e.g. the read_csv function
+```
+```{r echo = F, include = F}
+system("ls ../input", intern=TRUE)
+```
+
+#### Hey there ! In this script we'd be creating some new features and then we'd take a look at how those relate with the outcome variable.
+
+#### Along with that we'd take a look at a some variables which makes us raise an eyebrow because of some fishy values that they contain. We'd try to clean them too.
+
+
+### Loading the code
+```{r warning=F, echo=F, include=F}
+library(readr)
+library(dplyr)
+library(caret)
+library(Metrics)
+library(ggplot2)
+
+rus <- read_csv("../input/train.csv")
+rus <- data.frame(rus)
+```
+
+### Dimensions of data
+```{r warning=F, echo=F}
+dim(rus)
+```
+
+### Structure of data
+```{r warning=F, echo=F}
+
+str(rus)
+
+```
+
+### Missing values
+```{r warning=F, echo=F}
+missing <- data.frame(sapply(rus, function(x) sum(is.na(x))*100/length(x)))
+missing$feature <- names(rus)
+missing$num <- c(1:nrow(missing))
+colnames(missing) <- c("missing_ratio", "feature", "num")
+missing <- missing[, c("num", "feature","missing_ratio")]
+print(missing[missing$missing_ratio != 0,], row.names = F)
+
+```
+
+Total features with missing values
+```{r warning=F, echo=F}
+nrow(missing[missing$missing_ratio != 0,])
+
+```
+
+
+So lot of variables with missing values. 51 out of 292 features have missing data. Some of them have high percentage of missing values.
+
+### Variables with almost zero variance
+
+```{r warning = F, echo=F}
+# zero variance variables
+
+insignificant <- nearZeroVar(rus)
+print(names(rus[ , insignificant]))
+
+```
+
+The above variables are not going to help in predictive models. It is better to remove them.
+
+### Extracting date, month, year, weekday from timestamp
+
+```{r warning = F, echo=F}
+rus$date <- as.POSIXct(strptime(rus$timestamp, format = "%Y-%m-%d"))
+rus$day <- as.integer(format(rus$date, "%d")) # day
+rus$month <- as.factor(format(rus$date, "%m")) # month
+rus$year <- as.integer(format(rus$date, "%Y")) # year
+rus$weekday <- as.factor(format(rus$date, "%u")) # weekday
+rus$yearmonth <- paste0(rus$year, rus$month)
+rus$timestamp <- NULL
+rus$date <- NULL
+
+
+ggplot(data = rus, aes(x = as.factor(day), y = price_doc)) + geom_boxplot(fill = "#5C7457") + labs(title = "Date of the month vs Price", x = "Date", y = "Price")
+ggplot(data = rus, aes(x = as.factor(month), y = price_doc)) + geom_boxplot(fill = "#EAC435") + labs(title = "Month vs Price", x = "Month", y = "Price")
+ggplot(data = rus, aes(x = as.factor(year), y = price_doc)) + 
+    geom_boxplot(fill = "#345995") +
+    coord_cartesian(ylim = c(0,10000000)) + labs(title = "Year vs Price", x = "Year", y = "Price")
+
+ggplot(data = rus, aes(x = as.factor(weekday), y = price_doc)) + geom_boxplot(fill = "#E40066") + labs(title = "Day of the week vs Price", x = "Day", y = "Price")
+
+```
+
+An upward trend with each passing year. But no trend with months, days or weekdays.
+
+```{r warning = F, echo = F}
+# max floor
+rus$max_floor <- as.integer(rus$max_floor)
+
+# number of rooms
+rus$num_room <- as.integer(rus$num_room)
+
+# kitchen area
+rus$kitch_sq <- as.integer(rus$kitch_sq)
+
+# floor
+rus$floor_ratio <- rus$floor/rus$max_floor
+
+```
+
+## Creating new Features !
+
+This involves cleaning some variables that are already present.
+
+### Build year
+
+Let us look at the distrbution table of Build_Year.
+```{r warning=F, echo=F}
+table(as.factor(rus$build_year))
+
+```
+
+Needs a little cleaning. I'm replacing the values values like 0,1,2 with NA
+
+
+```{r warning = F}
+
+rus$build_year <- as.character(rus$build_year)
+
+rus$build_year[rus$build_year == "20052009"] <- "2005"
+rus$build_year[rus$build_year == "0"] <- NA
+rus$build_year[rus$build_year == "1"] <- NA
+rus$build_year[rus$build_year == "20"] <- "2000"
+rus$build_year[rus$build_year == "215"] <- "2015"
+rus$build_year[rus$build_year == "3"] <- NA
+rus$build_year[rus$build_year == "4965"] <- NA
+rus$build_year[rus$build_year == "71"] <- NA
+
+rus$build_year <- as.integer(rus$build_year)
+```
+
+### Let us create a new variable. Year_Old = 2020 - Build_Year
+
+```{r warning=F, echo=F}
+rus$year_old <- 2020 - rus$build_year
+ggplot(data = subset(rus, rus$year_old < quantile(rus$year_old,0.99, na.rm = T) & rus$year_old > quantile(rus$year_old, 0.01, na.rm = T)), aes(x = year_old, y = price_doc)) + geom_jitter(alpha = 0.4, color = "#A2FAA3") + scale_x_continuous(breaks = seq(0,2000,50)) +
+    labs(title = "House Age vs Price", x = "Years Old", y = "Price")
+
+```
+
+
+### Floor Inverse
+
+The new variable is floor_inverse If a building has 100 floors and a specific house is on 40th floor then the floor_proportion would be 100 - 40 = 60
+
+```{r warning=F, echo=F}
+rus$floor_inverse <- as.integer(rus$max_floor) - as.integer(rus$floor)
+ggplot(data = subset(rus, rus$floor_inverse > 0 & rus$floor_inverse < quantile(rus$floor_inverse, 0.99, na.rm = T)), aes( x = floor_inverse, y = price_doc)) + geom_jitter(alpha = 0.4, color = "#4F759B") +
+    labs(title = "Floor(if building were upside down) vs Price", x = "Floor Inverse", y = "Price")
+
+
+```
+
+### Non-residential area to living area ratio
+
+```{r warning=F, echo=F}
+rus$non_living_area <- (rus$full_sq-rus$life_sq)*100/rus$full_sq
+
+ggplot(data = subset(rus, rus$non_living_area > 0), aes(x = non_living_area, y = price_doc)) + geom_point(alpha = 0.4, color = "#1E555C") +
+    labs(title = "Non Living Area vs Price", x = "Non Living Area", y = "Price")
+
+
+```
+
+### Area per Room
+
+This is calculated by dividing total living area by number of rooms
+
+```{r warning=F, echo=F}
+rus$room_area <- rus$life_sq/rus$num_room
+ggplot(data = subset(rus, rus$room_area < quantile(rus$room_area, 0.99, na.rm = T)), aes(x = room_area, y = price_doc)) + geom_jitter(alpha = 0.8, color = "#04724D") +
+    labs(title = "Average Room Area", x = "Average Room Area", y = "Price")
+
+
+```
+
+### State of the apartment
+
+```{r warning = F, echo=F}
+table(as.factor(rus$state))
+```
+
+"33" seems to be an odd value.
+So replace "33" with "3"
+
+```{r warning=F, echo=F}
+rus$state[rus$state == "33"] <- "3"
+rus$state <- factor(rus$state)
+ggplot(data = rus, aes(x = state, fill = state)) + geom_bar() +
+    theme(legend.position = "none") +
+    labs(title = "Apartment Condition vs Price", x = "State", y = "Price")
+
+
+```
+
+### ID features
+
+Features which have ID in their name are not much of a use to predictive model. So it is better to remove them. All these features start with id_*
+
+Following features have id in their names.
+```{r warning = F, echo=F}
+names(rus) <- tolower(names(rus))
+id.vars <- grep("^[i][d]",names(rus))
+print(names(rus[ , id.vars]))
+# remove id variables
+rus <- rus[ , -id.vars]
+
+```
+
+There is a lot of cleaning to be done. We can try to impute the missing values because some models can't handle missing values. I tried knn imputation but it did not improve the performance of XGBOOST model.
+
+Stay tuned for more feature engineering.
+
+### Please like the kernel. Your likes are my motivation. ;)
+
+

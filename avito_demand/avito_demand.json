@@ -1,0 +1,587 @@
+{
+    "charts": [
+        {
+            "describe": "Number of ads of different regions",
+            "id": "avito_demand_1_extracted.json_id_1-avito_demand_3_extracted.json_id_2",
+            "rank": 1,
+            "type": "pie",
+            "channels": {
+                "x": {
+                    "attr": "region",
+                    "trans": "raw",
+                    "groupby": true
+                },
+                "y": {
+                    "attr": "region",
+                    "trans": "count",
+                    "calcus": "percentage"
+                }
+            }
+        },
+        {
+            "describe": "Number of ads of different cities",
+            "id": "avito_demand_1_extracted.json_id_2-avito_demand_2_extracted.json_id_6-avito_demand_3_extracted.json_id_4",
+            "rank": 2,
+            "type": "bar",
+            "channels": {
+                "x": {
+                    "attr": "city",
+                    "trans": "raw",
+                    "groupby": true
+                },
+                "y": {
+                    "attr": "city",
+                    "trans": "count",
+                    "calcus": "raw"
+                }
+            }
+        },
+        {
+            "describe": "Number of ads of different parent categories",
+            "id": "avito_demand_1_extracted.json_id_3",
+            "rank": 3,
+            "type": "pie",
+            "channels": {
+                "x": {
+                    "attr": "parent_category_name",
+                    "trans": "raw",
+                    "groupby": true
+                },
+                "y": {
+                    "attr": "parent_category_name",
+                    "trans": "count",
+                    "calcus": "percentage"
+                }
+            }
+        },
+        {
+            "describe": "Number of ads of different subcategories",
+            "id": "avito_demand_1_extracted.json_id_4-avito_demand_2_extracted.json_id_4-avito_demand_3_extracted.json_id_6",
+            "rank": 4,
+            "type": "bar",
+            "channels": {
+                "x": {
+                    "attr": "category_name",
+                    "trans": "raw",
+                    "groupby": true
+                },
+                "y": {
+                    "attr": "category_name",
+                    "trans": "count",
+                    "calcus": "raw"
+                }
+            }
+        },
+        {
+            "describe": "Number of ads of different user types",
+            "id": "avito_demand_1_extracted.json_id_5-avito_demand_3_extracted.json_id_9",
+            "rank": 5,
+            "type": "pie",
+            "channels": {
+                "x": {
+                    "attr": "user_type",
+                    "trans": "raw",
+                    "groupby": true
+                },
+                "y": {
+                    "attr": "user_type",
+                    "trans": "count",
+                    "calcus": "percentage"
+                }
+            }
+        },
+        {
+            "describe": "Number of ads of different dates",
+            "id": "avito_demand_1_extracted.json_id_6",
+            "rank": 6,
+            "type": "bar",
+            "channels": {
+                "x": {
+                    "attr": "activation_date",
+                    "trans": "raw",
+                    "groupby": true
+                },
+                "y": {
+                    "attr": "activation_date",
+                    "trans": "count",
+                    "calcus": "raw"
+                }
+            }
+        },
+        {
+            "describe": "Number of words in title",
+            "id": "avito_demand_1_extracted.json_id_7-avito_demand_2_extracted.json_id_11",
+            "rank": 7,
+            "type": "bar",
+            "channels": {
+                "x": {
+                    "attr": "title",
+                    "trans": "len",
+                    "groupby": true
+                },
+                "y": {
+                    "attr": "title",
+                    "trans": "count",
+                    "calcus": "raw"
+                }
+            }
+        },
+        {
+            "describe": "Bar of deal probability distribution",
+            "id": "avito_demand_2_extracted.json_id_1",
+            "rank": 8,
+            "type": "bar",
+            "channels": {
+                "x": {
+                    "attr": "deal_probability",
+                    "trans": "bin",
+                    "bins": 10
+                },
+                "y": {
+                    "attr": "deal_probability",
+                    "trans": "count",
+                    "calcus": "raw"
+                }
+            }
+        },
+        {
+            "describe": "Bar of deal probability distribution",
+            "id": "avito_demand_2_extracted.json_id_2",
+            "rank": 9,
+            "type": "bar",
+            "channels": {
+                "x": {
+                    "attr": "deal_probability",
+                    "trans": "bin",
+                    "bins": 2
+                },
+                "y": {
+                    "attr": "deal_probability",
+                    "trans": "count",
+                    "calcus": "raw"
+                }
+            }
+        },
+        {
+            "describe": "Number of ads of different parent categories",
+            "id": "avito_demand_2_extracted.json_id_3-avito_demand_3_extracted.json_id_7",
+            "rank": 10,
+            "type": "bar",
+            "channels": {
+                "x": {
+                    "attr": "parent_category_name",
+                    "trans": "raw",
+                    "groupby": true
+                },
+                "y": {
+                    "attr": "parent_category_name",
+                    "trans": "count",
+                    "calcus": "raw"
+                }
+            }
+        },
+        {
+            "describe": "Number of ads of different regions",
+            "id": "avito_demand_2_extracted.json_id_5-avito_demand_3_extracted.json_id_5",
+            "rank": 11,
+            "type": "bar",
+            "channels": {
+                "x": {
+                    "attr": "region",
+                    "trans": "raw",
+                    "groupby": true
+                },
+                "y": {
+                    "attr": "region",
+                    "trans": "count",
+                    "calcus": "raw"
+                }
+            }
+        },
+        {
+            "describe": "Values in param 1",
+            "id": "avito_demand_2_extracted.json_id_7",
+            "rank": 12,
+            "type": "bar",
+            "channels": {
+                "x": {
+                    "attr": "param_1",
+                    "trans": "raw",
+                    "groupby": true
+                },
+                "y": {
+                    "attr": "param_1",
+                    "trans": "count",
+                    "calcus": "raw"
+                }
+            }
+        },
+        {
+            "describe": "Values in param 2",
+            "id": "avito_demand_2_extracted.json_id_8",
+            "rank": 13,
+            "type": "bar",
+            "channels": {
+                "x": {
+                    "attr": "param_2",
+                    "trans": "raw",
+                    "groupby": true
+                },
+                "y": {
+                    "attr": "param_2",
+                    "trans": "count",
+                    "calcus": "raw"
+                }
+            }
+        },
+        {
+            "describe": "Number of ads posted in different week days",
+            "id": "avito_demand_2_extracted.json_id_9",
+            "rank": 14,
+            "type": "bar",
+            "channels": {
+                "x": {
+                    "attr": "activation_date",
+                    "trans": "dayofweek",
+                    "groupby": true
+                },
+                "y": {
+                    "attr": "activation_date",
+                    "trans": "count",
+                    "calcus": "raw"
+                }
+            }
+        },
+        {
+            "describe": "Number of ads posted in different month days",
+            "id": "avito_demand_2_extracted.json_id_10",
+            "rank": 15,
+            "type": "bar",
+            "channels": {
+                "x": {
+                    "attr": "activation_date",
+                    "trans": "dayofmonth",
+                    "groupby": true
+                },
+                "y": {
+                    "attr": "activation_date",
+                    "trans": "count",
+                    "calcus": "raw"
+                }
+            }
+        },
+        {
+            "describe": "Number of ads of different image top 1",
+            "id": "avito_demand_2_extracted.json_id_12",
+            "rank": 16,
+            "type": "bar",
+            "channels": {
+                "x": {
+                    "attr": "image_top_1",
+                    "trans": "raw",
+                    "groupby": true
+                },
+                "y": {
+                    "attr": "image_top_1",
+                    "trans": "count",
+                    "calcus": "raw"
+                }
+            }
+        },
+        {
+            "describe": "Number of ads of different user id",
+            "id": "avito_demand_2_extracted.json_id_13",
+            "rank": 17,
+            "type": "bar",
+            "channels": {
+                "x": {
+                    "attr": "user_id",
+                    "trans": "raw",
+                    "groupby": true
+                },
+                "y": {
+                    "attr": "user_id",
+                    "trans": "count",
+                    "calcus": "raw"
+                }
+            }
+        },
+        {
+            "describe": "Number of ads of different user type",
+            "id": "avito_demand_2_extracted.json_id_14",
+            "rank": 18,
+            "type": "bar",
+            "channels": {
+                "x": {
+                    "attr": "user_type",
+                    "trans": "raw",
+                    "groupby": true
+                },
+                "y": {
+                    "attr": "user_type",
+                    "trans": "count",
+                    "calcus": "raw"
+                }
+            }
+        },
+        {
+            "describe": "Mean price of different week days",
+            "id": "avito_demand_2_extracted.json_id_15",
+            "rank": 19,
+            "type": "bar",
+            "channels": {
+                "x": {
+                    "attr": "activation_date",
+                    "trans": "dayofweek",
+                    "groupby": true
+                },
+                "y": {
+                    "attr": "price",
+                    "trans": "mean"
+                }
+            }
+        },
+        {
+            "describe": "Mean price of different month days",
+            "id": "avito_demand_2_extracted.json_id_16",
+            "rank": 20,
+            "type": "bar",
+            "channels": {
+                "x": {
+                    "attr": "activation_date",
+                    "trans": "dayofmonth",
+                    "groupby": true
+                },
+                "y": {
+                    "attr": "price",
+                    "trans": "mean"
+                }
+            }
+        },
+        {
+            "describe": "Mean price of different regions",
+            "id": "avito_demand_2_extracted.json_id_17",
+            "rank": 21,
+            "type": "bar",
+            "channels": {
+                "x": {
+                    "attr": "region",
+                    "trans": "raw",
+                    "groupby": true
+                },
+                "y": {
+                    "attr": "price",
+                    "trans": "mean"
+                }
+            }
+        },
+        {
+            "describe": "Mean price of different cities",
+            "id": "avito_demand_2_extracted.json_id_18",
+            "rank": 22,
+            "type": "bar",
+            "channels": {
+                "x": {
+                    "attr": "city",
+                    "trans": "raw",
+                    "groupby": true
+                },
+                "y": {
+                    "attr": "price",
+                    "trans": "mean"
+                }
+            }
+        },
+        {
+            "describe": "Mean price of different categories",
+            "id": "avito_demand_2_extracted.json_id_19",
+            "rank": 23,
+            "type": "bar",
+            "channels": {
+                "x": {
+                    "attr": "category_name",
+                    "trans": "raw",
+                    "groupby": true
+                },
+                "y": {
+                    "attr": "price",
+                    "trans": "mean"
+                }
+            }
+        },
+        {
+            "describe": "Mean price of different parent categories",
+            "id": "avito_demand_2_extracted.json_id_20",
+            "rank": 24,
+            "type": "bar",
+            "channels": {
+                "x": {
+                    "attr": "parent_category_name",
+                    "trans": "raw",
+                    "groupby": true
+                },
+                "y": {
+                    "attr": "price",
+                    "trans": "mean"
+                }
+            }
+        },
+        {
+            "describe": "Mean price by count of words in title",
+            "id": "avito_demand_2_extracted.json_id_21",
+            "rank": 25,
+            "type": "bar",
+            "channels": {
+                "x": {
+                    "attr": "title",
+                    "trans": "len",
+                    "groupby": true
+                },
+                "y": {
+                    "attr": "price",
+                    "trans": "mean"
+                }
+            }
+        },
+        {
+            "describe": "Pie of deal probability distribution",
+            "id": "avito_demand_3_extracted.json_id_1",
+            "rank": 26,
+            "type": "pie",
+            "channels": {
+                "x": {
+                    "attr": "deal_probability",
+                    "trans": "bin",
+                    "bins": 2
+                },
+                "y": {
+                    "attr": "deal_probability",
+                    "trans": "count",
+                    "calcus": "percentage"
+                }
+            }
+        },
+        {
+            "describe": "Number of different ad titles",
+            "id": "avito_demand_3_extracted.json_id_3",
+            "rank": 27,
+            "type": "bar",
+            "channels": {
+                "x": {
+                    "attr": "title",
+                    "trans": "raw",
+                    "groupby": true
+                },
+                "y": {
+                    "attr": "title",
+                    "trans": "count",
+                    "calcus": "raw"
+                }
+            }
+        },
+        {
+            "describe": "Scatter of deal probability and price",
+            "id": "avito_demand_3_extracted.json_id_8",
+            "rank": 28,
+            "type": "scatter",
+            "channels": {
+                "x": {
+                    "attr": "price",
+                    "trans": "raw"
+                },
+                "y": {
+                    "attr": "deal_probability",
+                    "trans": "raw"
+                }
+            }
+        },
+        {
+            "describe": "Ad sequential number for user vs deal probability",
+            "id": "avito_demand_3_extracted.json_id_10",
+            "rank": 29,
+            "type": "scatter",
+            "channels": {
+                "x": {
+                    "attr": "item_seq_number",
+                    "trans": "raw"
+                },
+                "y": {
+                    "attr": "deal_probability",
+                    "trans": "raw"
+                }
+            }
+        },
+        {
+            "describe": "Trend of ad price",
+            "id": "avito_demand_3_extracted.json_id_11",
+            "rank": 30,
+            "type": "line",
+            "channels": {
+                "x": {
+                    "attr": "activation_date",
+                    "trans": "week",
+                    "groupby": true
+                },
+                "y": {
+                    "attr": "price",
+                    "trans": "sum",
+                    "calcus": "raw"
+                }
+            }
+        },
+        {
+            "describe": "Mean price every day",
+            "id": "avito_demand_3_extracted.json_id_12",
+            "rank": 31,
+            "type": "line",
+            "channels": {
+                "x": {
+                    "attr": "activation_date",
+                    "trans": "raw",
+                    "groupby": true
+                },
+                "y": {
+                    "attr": "price",
+                    "trans": "mean",
+                    "calcus": "raw"
+                }
+            }
+        },
+        {
+            "describe": "Mean deal probability every day",
+            "id": "avito_demand_3_extracted.json_id_13",
+            "rank": 32,
+            "type": "line",
+            "channels": {
+                "x": {
+                    "attr": "activation_date",
+                    "trans": "raw",
+                    "groupby": true
+                },
+                "y": {
+                    "attr": "deal_probability",
+                    "trans": "mean",
+                    "calcus": "raw"
+                }
+            }
+        },
+        {
+            "describe": "Number of ads of different dates",
+            "id": "avito_demand_3_extracted.json_id_14",
+            "rank": 33,
+            "type": "bar",
+            "channels": {
+                "x": {
+                    "attr": "activation_date",
+                    "trans": "raw",
+                    "groupby": true
+                },
+                "y": {
+                    "attr": "activation_date",
+                    "trans": "count",
+                    "calcus": "percentage"
+                }
+            }
+        }
+    ]
+}

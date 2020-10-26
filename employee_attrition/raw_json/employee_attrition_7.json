@@ -1,0 +1,422 @@
+{
+    "url": "https://www.kaggle.com/devendray/ibm-hr-data-visualization",
+    "votes": 24,
+    "rank": 7,
+    "charts": [
+        {
+            "describe": "Gender distribution",
+            "chart": "bar",
+            "x": {
+                "attr": "Gender",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "Gender",
+                "trans": "count",
+                "calcus": "raw"
+            },
+            "color": {
+                "attr": "Attrition",
+                "trans": "raw",
+                "groupby": true
+            }
+        },
+        {
+            "describe": "MaritalStatus distribution",
+            "chart": "bar",
+            "x": {
+                "attr": "MaritalStatus",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "MaritalStatus",
+                "trans": "count",
+                "calcus": "percentage"
+            },
+            "color": {
+                "attr": "Attrition",
+                "trans": "raw",
+                "groupby": true
+            }
+        },
+        {
+            "describe": "WorkLifeBalance distribution",
+            "chart": "bar",
+            "x": {
+                "attr": "WorkLifeBalance",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "WorkLifeBalance",
+                "trans": "count",
+                "calcus": "raw"
+            },
+            "color": {
+                "attr": "Attrition",
+                "trans": "raw",
+                "groupby": true
+            }
+        },
+        {
+            "describe": "EnvironmentSatisfaction by attrition",
+            "chart": "bar",
+            "x": {
+                "attr": "EnvironmentSatisfaction",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "EnvironmentSatisfaction",
+                "trans": "count",
+                "calcus": "raw"
+            },
+            "color": {
+                "attr": "Attrition",
+                "trans": "raw",
+                "groupby": true
+            }
+        },
+        {
+            "describe": "JobSatisfaction distribution",
+            "chart": "bar",
+            "x": {
+                "attr": "JobSatisfaction",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "JobSatisfaction",
+                "trans": "count",
+                "calcus": "raw"
+            },
+            "color": {
+                "attr": "Attrition",
+                "trans": "raw",
+                "groupby": true
+            }
+        },
+        {
+            "describe": "JobLevel distribution",
+            "chart": "bar",
+            "x": {
+                "attr": "JobLevel",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "JobLevel",
+                "trans": "count",
+                "calcus": "raw"
+            },
+            "color": {
+                "attr": "Attrition",
+                "trans": "raw",
+                "groupby": true
+            }
+        },
+        {
+            "describe": "BusinessTravel distribution",
+            "chart": "bar",
+            "x": {
+                "attr": "BusinessTravel",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "BusinessTravel",
+                "trans": "count",
+                "calcus": "raw"
+            },
+            "color": {
+                "attr": "Attrition",
+                "trans": "raw",
+                "groupby": true
+            }
+        },
+        {
+            "describe": "Department distribution",
+            "chart": "bar",
+            "x": {
+                "attr": "Department",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "Department",
+                "trans": "count",
+                "calcus": "raw"
+            },
+            "color": {
+                "attr": "Attrition",
+                "trans": "raw",
+                "groupby": true
+            }
+        },
+        {
+            "describe": "MaritalStatus distribution",
+            "chart": "bar",
+            "x": {
+                "attr": "Attrition",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "DistanceFromeHome",
+                "trans": "mean",
+                "calcus": "raw"
+            },
+            "color": {
+                "attr": "MaritalStatus",
+                "trans": "raw",
+                "groupby": true
+            }
+        },
+        {
+            "describe": "WorkLifeBalance distribution",
+            "chart": "bar",
+            "x": {
+                "attr": "Attrition",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "WorkLifeBalance",
+                "trans": "mean",
+                "calcus": "raw"
+            },
+            "color": {
+                "attr": "MaritalStatus",
+                "trans": "raw",
+                "groupby": true
+            }
+        },
+        {
+            "describe": "JobLevel distribution",
+            "chart": "bar",
+            "x": {
+                "attr": "Attrition",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "DistanceFromeHome",
+                "trans": "mean",
+                "calcus": "raw"
+            },
+            "color": {
+                "attr": "JobLevel",
+                "trans": "raw",
+                "groupby": true
+            }
+        },
+        {
+            "describe": "JobLevel distribution",
+            "chart": "bar",
+            "x": {
+                "attr": "Attrition",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "WorkLifeBalance",
+                "trans": "mean",
+                "calcus": "raw"
+            },
+            "color": {
+                "attr": "JobLevel",
+                "trans": "raw",
+                "groupby": true
+            }
+        },
+        {
+            "describe": "JobLevel distribution",
+            "chart": "bar",
+            "x": {
+                "attr": "Attrition",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "PercentSalaryHike",
+                "trans": "mean",
+                "calcus": "raw"
+            },
+            "color": {
+                "attr": "JobLevel",
+                "trans": "raw",
+                "groupby": true
+            }
+        },
+        {
+            "describe": "MonthlyIncome by attrition",
+            "chart": "boxplot",
+            "x": {
+                "attr": "Attrition",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "MonthlyIncome",
+                "trans": "raw"
+            }
+        },
+        {
+            "describe": "MonthlyIncome by Gender",
+            "chart": "boxplot",
+            "x": {
+                "attr": "Gender",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "MonthlyIncome",
+                "trans": "raw"
+            }
+        },
+        {
+            "describe": "MonthlyIncome by Department",
+            "chart": "boxplot",
+            "x": {
+                "attr": "Department",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "MonthlyIncome",
+                "trans": "raw"
+            }
+        },
+        {
+            "describe": "MonthlyIncome by JobRole",
+            "chart": "boxplot",
+            "x": {
+                "attr": "JobRole",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "MonthlyIncome",
+                "trans": "raw"
+            }
+        },
+        {
+            "describe": "MonthlyIncome by Department",
+            "chart": "swarmplot",
+            "x": {
+                "attr": "Department",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "MonthlyIncome",
+                "trans": "raw"
+            }
+        },
+        {
+            "describe": "MonthlyIncome by JobRole",
+            "chart": "swarmplot",
+            "x": {
+                "attr": "JobRole",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "MonthlyIncome",
+                "trans": "raw"
+            }
+        },
+        {
+            "describe": "MonthlyIncome by JobLevel",
+            "chart": "swarmplot",
+            "x": {
+                "attr": "JobLevel",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "MonthlyIncome",
+                "trans": "raw"
+            }
+        },
+        {
+            "describe": "MonthlyIncome by department and JobLevel",
+            "chart": "facetgrid",
+            "x": {
+                "attr": "Department",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "MonthlyIncome",
+                "trans": "raw"
+            },
+            "col": {
+                "attr": "JobLevel",
+                "trans": "raw",
+                "groupby": true
+            }
+        },
+        {
+            "describe": "Age vs MonthlyIncome",
+            "chart": "scatter",
+            "x": {
+                "attr": "Age",
+                "trans": "raw"
+            },
+            "y": {
+                "attr": "MonthlyIncome",
+                "trans": "raw"
+            }
+        },
+        {
+            "describe": "TotalWorkingYears vs MonthlyIncome",
+            "chart": "scatter",
+            "x": {
+                "attr": "TotalWorkingYears",
+                "trans": "raw"
+            },
+            "y": {
+                "attr": "MonthlyIncome",
+                "trans": "raw"
+            }
+        },
+        {
+            "describe": "scattermatrix",
+            "chart": "scattermatrix",
+            "x": {
+                "attr": "all",
+                "trans": "raw"
+            },
+            "y": {
+                "attr": "all",
+                "trans": "raw"
+            }
+        },
+        {
+            "describe": "MonthlyIncome by department and JobLevel",
+            "chart": "facetboxplot",
+            "x": {
+                "attr": "Attrition",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "MonthlyIncome",
+                "trans": "raw"
+            },
+            "color": {
+                "attr": "Gender",
+                "trans": "raw",
+                "groupby": true
+            },
+            "col": {
+                "attr": "Department",
+                "trans": "raw",
+                "groupby": true
+            }
+        }
+    ]
+}

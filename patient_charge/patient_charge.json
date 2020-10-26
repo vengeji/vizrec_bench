@@ -1,0 +1,279 @@
+{
+    "charts": [
+        {
+            "describe": "Count of smoker and sex",
+            "id": "patient_charge_1_extracted.json_id_1",
+            "rank": 1,
+            "type": "bar",
+            "channels": {
+                "x": {
+                    "attr": "smoker",
+                    "trans": "raw",
+                    "groupby": true
+                },
+                "y": {
+                    "attr": "smoker",
+                    "trans": "count",
+                    "calcus": "raw"
+                },
+                "color": {
+                    "attr": "sex",
+                    "trans": "raw",
+                    "groupby": true
+                }
+            }
+        },
+        {
+            "describe": "Distribution of charges and age",
+            "id": "patient_charge_1_extracted.json_id_2-patient_charge_5_extracted.json_id_1-patient_charge_6_extracted.json_id_1",
+            "rank": 2,
+            "type": "scatter",
+            "channels": {
+                "x": {
+                    "attr": "age",
+                    "trans": "raw"
+                },
+                "y": {
+                    "attr": "charges",
+                    "trans": "raw"
+                }
+            }
+        },
+        {
+            "describe": "Distribution of charges and age",
+            "id": "patient_charge_1_extracted.json_id_3-patient_charge_2_extracted.json_id_4-patient_charge_3_extracted.json_id_1-patient_charge_7_extracted.json_id_2",
+            "rank": 3,
+            "type": "scatter",
+            "channels": {
+                "x": {
+                    "attr": "age",
+                    "trans": "raw"
+                },
+                "y": {
+                    "attr": "charges",
+                    "trans": "raw"
+                },
+                "color": {
+                    "attr": "smoker",
+                    "trans": "raw",
+                    "groupby": true
+                }
+            }
+        },
+        {
+            "describe": "Distribution of bmi and charges",
+            "id": "patient_charge_1_extracted.json_id_4-patient_charge_4_extracted.json_id_1-patient_charge_5_extracted.json_id_2-patient_charge_6_extracted.json_id_2-patient_charge_7_extracted.json_id_1",
+            "rank": 4,
+            "type": "scatter",
+            "channels": {
+                "x": {
+                    "attr": "bmi",
+                    "trans": "raw"
+                },
+                "y": {
+                    "attr": "charges",
+                    "trans": "raw"
+                }
+            }
+        },
+        {
+            "describe": "Distribution of bmi and charges",
+            "id": "patient_charge_1_extracted.json_id_5-patient_charge_2_extracted.json_id_10-patient_charge_6_extracted.json_id_3-patient_charge_7_extracted.json_id_3",
+            "rank": 5,
+            "type": "scatter",
+            "channels": {
+                "x": {
+                    "attr": "bmi",
+                    "trans": "raw"
+                },
+                "y": {
+                    "attr": "charges",
+                    "trans": "raw"
+                },
+                "color": {
+                    "attr": "smoker",
+                    "trans": "raw",
+                    "groupby": true
+                }
+            }
+        },
+        {
+            "describe": "Count of children number",
+            "id": "patient_charge_1_extracted.json_id_6",
+            "rank": 6,
+            "type": "bar",
+            "channels": {
+                "x": {
+                    "attr": "children",
+                    "trans": "raw",
+                    "groupby": true
+                },
+                "y": {
+                    "attr": "children",
+                    "trans": "count",
+                    "calcus": "raw"
+                }
+            }
+        },
+        {
+            "describe": "Share of each age category",
+            "id": "patient_charge_2_extracted.json_id_1",
+            "rank": 7,
+            "type": "pie",
+            "channels": {
+                "x": {
+                    "attr": "age_group",
+                    "trans": "raw",
+                    "groupby": true
+                },
+                "y": {
+                    "attr": "age_group",
+                    "trans": "count",
+                    "calcus": "percentage"
+                }
+            }
+        },
+        {
+            "describe": "average charges by age group",
+            "id": "patient_charge_2_extracted.json_id_2",
+            "rank": 8,
+            "type": "bar",
+            "channels": {
+                "x": {
+                    "attr": "age_group",
+                    "trans": "raw",
+                    "groupby": true
+                },
+                "y": {
+                    "attr": "charges",
+                    "trans": "mean",
+                    "calcus": "raw"
+                }
+            }
+        },
+        {
+            "describe": "age vs charges of bmi_group",
+            "id": "patient_charge_2_extracted.json_id_3",
+            "rank": 9,
+            "type": "scatter",
+            "channels": {
+                "x": {
+                    "attr": "age",
+                    "trans": "raw"
+                },
+                "y": {
+                    "attr": "charges",
+                    "trans": "raw"
+                },
+                "color": {
+                    "attr": "bmi_group",
+                    "trans": "raw",
+                    "groupby": true
+                }
+            }
+        },
+        {
+            "describe": "Average charges of different regions",
+            "id": "patient_charge_2_extracted.json_id_5",
+            "rank": 10,
+            "type": "bar",
+            "channels": {
+                "x": {
+                    "attr": "region",
+                    "trans": "raw",
+                    "groupby": true
+                },
+                "y": {
+                    "attr": "charges",
+                    "trans": "mean",
+                    "calcus": "raw"
+                }
+            }
+        },
+        {
+            "describe": "Average charges of different regions",
+            "id": "patient_charge_2_extracted.json_id_6",
+            "rank": 11,
+            "type": "bar",
+            "channels": {
+                "x": {
+                    "attr": "region",
+                    "trans": "raw",
+                    "groupby": true
+                },
+                "y": {
+                    "attr": "charges",
+                    "trans": "mean",
+                    "calcus": "raw"
+                },
+                "color": {
+                    "attr": "bmi_group",
+                    "trans": "raw",
+                    "groupby": true
+                }
+            }
+        },
+        {
+            "describe": "Average charges of different bmi_group",
+            "id": "patient_charge_2_extracted.json_id_7",
+            "rank": 12,
+            "type": "bar",
+            "channels": {
+                "x": {
+                    "attr": "bmi_group",
+                    "trans": "raw",
+                    "groupby": true
+                },
+                "y": {
+                    "attr": "charges",
+                    "trans": "mean",
+                    "calcus": "raw"
+                }
+            }
+        },
+        {
+            "describe": "Average charges of different bmi_group",
+            "id": "patient_charge_2_extracted.json_id_8",
+            "rank": 13,
+            "type": "bar",
+            "channels": {
+                "x": {
+                    "attr": "bmi_group",
+                    "trans": "raw",
+                    "groupby": true
+                },
+                "y": {
+                    "attr": "charges",
+                    "trans": "mean",
+                    "calcus": "raw"
+                },
+                "color": {
+                    "attr": "region",
+                    "trans": "raw",
+                    "groupby": true
+                }
+            }
+        },
+        {
+            "describe": "bmi vs charges of bmi_group",
+            "id": "patient_charge_2_extracted.json_id_9",
+            "rank": 14,
+            "type": "scatter",
+            "channels": {
+                "x": {
+                    "attr": "bmi",
+                    "trans": "raw"
+                },
+                "y": {
+                    "attr": "charges",
+                    "trans": "raw"
+                },
+                "color": {
+                    "attr": "bmi_group",
+                    "trans": "raw",
+                    "groupby": true
+                }
+            }
+        }
+    ]
+}

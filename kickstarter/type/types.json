@@ -1,0 +1,12 @@
+{
+    "category": "object",
+    "main_category": "object",
+    "goal": "float32",
+    "launched": "object",
+    "state": "object",
+    "backers": "float32",
+    "country": "object",
+    "usd pledged": "float32",
+    "usd_pledged_real": "float32",
+    "usd_goal_real": "float32"
+}

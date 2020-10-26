@@ -1,0 +1,70 @@
+{
+    "url": "https://www.kaggle.com/usharengaraju/data-analysis-using-pandas-matplotlib-and-seaborn",
+    "votes": 59,
+    "rank": 4,
+    "charts": [
+        {
+            "describe": "Boxplot of charges per region",
+            "chart": "boxplot",
+            "x": {
+                "attr": "region",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "charges",
+                "trans": "raw"
+            }
+        },
+        {
+            "describe": "Distribution of charges and bmi",
+            "chart": "scatter",
+            "x": {
+                "attr": "bmi",
+                "trans": "raw"
+            },
+            "y": {
+                "attr": "charges",
+                "trans": "raw"
+            }
+        },
+        {
+            "describe": "scattermatrix of smoker",
+            "chart": "scattermatrix",
+            "x": {
+                "attr": "all",
+                "trans": "raw"
+            },
+            "y": {
+                "attr": "all",
+                "trans": "raw"
+            }
+        },
+        {
+            "describe": "violinplot of smoker and charges",
+            "chart": "violinplot",
+            "x": {
+                "attr": "smoker",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "charges",
+                "trans": "raw"
+            }
+        },
+        {
+            "describe": "swarmplot of region and charges",
+            "chart": "swarmplot",
+            "x": {
+                "attr": "region",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "charges",
+                "trans": "raw"
+            }
+        }
+    ]
+}

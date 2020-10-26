@@ -1,0 +1,16 @@
+{
+    "user_id":  "object",
+    "region": "object",
+    "city": "object",
+    "parent_category_name": "object",
+    "category_name": "object",
+    "param_1": "object",
+    "param_2": "object",
+    "title": "object",
+    "price": "float32",
+    "item_seq_number": "object",
+    "activation_date": "object",
+    "user_type": "object",
+    "image_top_1": "object",
+    "deal_probability": "float32"
+}

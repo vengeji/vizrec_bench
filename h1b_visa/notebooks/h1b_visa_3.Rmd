@@ -1,0 +1,449 @@
+
+```{r}
+system("ls ../input", intern=TRUE)
+```
+
+## Analysis of the H1B visa petitions made.
+
+## PART 1: Basic Analysis.
+
+### We'll start by loading the necessary libraries.
+
+```{r warning = F, echo = F, echo = F}
+
+library(readr)
+library(stringr)
+library(ggplot2)
+library(ggthemes)
+library(ggmap)
+library(gridExtra)
+library(dplyr)
+
+```
+
+### Get input.
+
+```{r warning=F}
+
+visa <- read_csv("../input/h1b_kaggle.csv")
+visa <- data.frame(visa)
+
+```
+
+### Changing some data types and removing the first ID column
+```{r warning=F, echo=F}
+
+visa$X1 <- NULL
+visa$CASE_STATUS[visa$CASE_STATUS == 
+                "PENDING QUALITY AND COMPLIANCE REVIEW - UNASSIGNED"] <- "PENDING"
+visa$CASE_STATUS <- factor(visa$CASE_STATUS)
+visa$YEAR <- factor(visa$YEAR)
+visa$FULL_TIME_POSITION <- factor(visa$FULL_TIME_POSITION)
+
+```
+
+### Again looking at the summary
+
+```{r warning=F}
+
+summary(visa)
+```
+
+### Looks better ! Now the analysis part. We'll go feature by feature.
+
+### The first feature is Case_Status. It is the status associated with the petition.
+
+```{r warning=F}
+
+# set colors
+mycolors <- c("#FF7F11","#058C42","#FF3F00","#5D2E8C","#590925","#581908","#B80C09",
+              "#276FBF","#337357","#B6D7B9","#8338EC","#0F4C5C","#FB8B24","#E16036",
+              "#420039","#7A8B99","#8DB580","#00B295","#502419","#BB7E5D")
+
+case.status <- as.data.frame(visa %>% filter(!is.na(CASE_STATUS)) %>% group_by(CASE_STATUS) %>%
+                        summarise(PROPORTION = round(n()*100/nrow(visa),1)))
+
+ggplot(data = case.status, aes(x = reorder(CASE_STATUS, PROPORTION), 
+                               y = PROPORTION, fill = CASE_STATUS)) + 
+    geom_bar(stat = "identity") +
+    geom_text(aes(label = paste(PROPORTION,"%")), hjust = 1) + 
+    labs(x = "Case Status", y = "Percent", title = "Status of petitioned applications") + 
+    scale_fill_manual(values = mycolors) +
+    scale_y_continuous(breaks = seq(0,100,10)) +
+    coord_flip()
+
+
+```
+### Good news ! Almost 90% of petitions are certified.
+
+### The next features is EMPLOYER_NAME. It is the company which submits the application for its employee. Let us look at the top 15 recruiters.
+
+```{r warning=F}
+
+visa$EMPLOYER_NAME <- factor(visa$EMPLOYER_NAME)
+top_employer <- as.data.frame(visa %>% group_by(EMPLOYER_NAME) %>%
+                              summarise(count = n(), percent = round(count*100/nrow(visa),1)) %>% 
+                              arrange(desc(count))%>% 
+                              top_n(15, wt = count))
+
+ggplot(data = top_employer, aes(x = reorder(EMPLOYER_NAME, percent),
+                                y = percent, fill = EMPLOYER_NAME)) +
+    geom_bar(stat = "identity") +
+    geom_text(aes(label = percent), vjust = 1.1, hjust = 1.2) + 
+    labs(x = "EMPLOYER_NAME", y = "Petitions Made(in percentage)") + 
+    scale_fill_manual(values = mycolors) + 
+    theme(legend.position = "none") +
+    coord_flip()
+visa$EMPLOYER_NAME <- as.character(visa$EMPLOYER_NAME)
+
+```
+
+### The top three companies are Indian.
+
+### Note: In the above graph the cumulative percentage is not 100 because there are a lot of other companies which have not been shown. The graph shows only the first 15 companies.
+
+### The next feature is JOB_TITLE. Let us look at top 15 Job positions for which petitions are made.
+
+```{r warning=F}
+
+visa$JOB_TITLE <- factor(visa$JOB_TITLE)
+top_employer <- as.data.frame(visa %>% group_by(JOB_TITLE) %>%
+                              summarise(count = n(), percent = round(count*100/nrow(visa),1)) %>% 
+                              arrange(desc(count))%>% 
+                              top_n(15, wt = count))
+
+ggplot(data = top_employer, aes(x = reorder(JOB_TITLE, percent),
+                                y = percent, fill = JOB_TITLE)) +
+    geom_bar(stat = "identity") +
+    geom_text(aes(label = percent), vjust = 1.1, hjust = 1.2) + 
+    labs(x = "JOB TITLE", y = "Petitions Made(in percentage)") + 
+    scale_fill_manual(values = mycolors) +
+    theme(legend.position = "none") +
+    coord_flip()
+
+visa$JOB_TITLE <- as.character(visa$JOB_TITLE)
+
+```
+
+### "Analyst Programmer" is the most famous job. Moreover, the top 10 jobs as we can see in the graph are purely technical jobs.
+
+### The next feature is FULL_TIME_POSITION. It is a categorical feature. "Y" means the job is full time. "N" means it is part time.
+
+```{r warning=F, results='asis'}
+
+knitr::kable(as.data.frame(prop.table(table(visa$FULL_TIME_POSITION))*100))
+
+ggplot(data = subset(visa, !is.na(visa$FULL_TIME_POSITION)),
+        aes(x = FULL_TIME_POSITION, y = (..count..)*100/3002458, fill = FULL_TIME_POSITION)) + 
+        geom_bar() +
+        labs(y = "Petitions Made(in percentage)") +
+        theme(legend.position = "none") +
+        scale_y_continuous(breaks = seq(0,100,10))
+
+```
+
+### Around 85% of the total jobs are full time.
+
+### Next up is PREVAILING_WAGE. Prevailing Wage for the job being requested for temporary labor condition. The wage is listed at annual scale in USD. The prevailing wage for a job position is defined as the average wage paid to similarly employed workers in the requested occupation in the area of intended employment. The prevailing wage is based on the employer’s minimum requirements for the position.
+
+```{r waning=F}
+
+ggplot(data = subset(visa, visa$PREVAILING_WAGE < quantile(visa$PREVAILING_WAGE, 0.99, na.rm = T)),
+       aes(x = PREVAILING_WAGE/1000)) +
+    geom_histogram(color = "black", fill = mycolors[1], binwidth = 2.5) +
+    scale_x_continuous(breaks = seq(0,150,25)) +
+    scale_y_continuous(breaks = seq(0,500000,25000)) +
+    labs(x = "Salary (in thousand USD)", y = "Number of petitions")
+
+```
+
+### Almost normal looking distribution after removing outliers.
+
+### The next feature is YEAR: Year in which the H-1B visa petition was filed. The data contains petitions from 2011-2016.
+
+```{r warning=F}
+
+year1 <- ggplot(data = visa %>% filter((!is.na(YEAR)) & 
+        (visa$CASE_STATUS == "CERTIFIED-WITHDRAWN" | visa$CASE_STATUS == "WITHDRAWN" |
+        visa$CASE_STATUS == "DENIED") ) %>% 
+        group_by(YEAR, CASE_STATUS) %>% summarise(count = n()),
+        aes(x = as.numeric(as.character(YEAR)), y = count/1000)) + 
+        geom_line(linejoin = "round", lineend = "round", aes(color = CASE_STATUS)) +
+        geom_point() +
+        coord_cartesian(ylim = c(0,50)) +
+        scale_color_manual(values = c("#59C3C3", "#FC0402","#FFC145")) +
+        scale_y_continuous(breaks = seq(0,50, 5)) +
+        labs(title = "Petition and Case Status trend with time", x = "YEAR",
+        y = "Number of petitions(in thousands)")
+
+year2 <- ggplot(data = visa %>% filter((!is.na(YEAR)) &
+         (visa$CASE_STATUS == "CERTIFIED")) %>%
+         group_by(YEAR, CASE_STATUS) %>% summarise(count = n()),
+         aes(x = as.numeric(as.character(YEAR)), y = count/1000)) +
+         geom_line(linejoin = "round", lineend = "round", aes(color = CASE_STATUS)) +
+         geom_point() +
+         coord_cartesian(ylim = c(300,600)) +
+         scale_color_manual(values = c("#43B21E")) +
+         scale_y_continuous(breaks = seq(0,650, 50)) +
+         labs(title = "Petition and Case Status trend with time", x = "YEAR",
+         y = "Number of petitions(in thousands)")
+
+grid.arrange(year2,year1, nrow = 2)
+
+```
+
+### More good news! Everything except the DENIED petitions seem to be increasing with every passing year.
+
+### Let's check how the JOB_TYPE has changed ovver the years.
+
+```{r warning=F}
+
+ggplot(data = visa %>% group_by(YEAR, FULL_TIME_POSITION) %>%
+        summarise(count = n()) %>% filter(!is.na(YEAR) & !is.na(FULL_TIME_POSITION)),
+        aes(x = as.numeric(as.character(YEAR)), y = count/1000, color = FULL_TIME_POSITION)) + 
+        geom_line(na.rm = T) + geom_point(na.rm = T) +
+        scale_y_continuous(breaks = seq(0,650,40)) +
+        labs(x = "YEAR", y = "Number of Petitions",
+        title = "Petition trend and Job Type over the years")
+
+```
+
+### Looks like there is a sudden increase in number of part time jobs in 2016. In fact there are more petitions for part time jobs than full time jobs for that year. Any guesses why ??
+
+### Let's check the most popular cities to work.
+```{r warning=F}
+
+visa$WORKSITE <- factor(visa$WORKSITE)
+top_employer <- as.data.frame(visa %>% group_by(WORKSITE) %>%
+                summarise(count = n(), percent = round(count*100/nrow(visa),1)) %>% 
+                arrange(desc(count))%>% 
+                top_n(15, wt = count))
+
+ggplot(data = top_employer, aes(x = reorder(WORKSITE, percent),
+                                y = percent, fill = WORKSITE)) +
+    geom_bar(stat = "identity") +
+    geom_text(aes(label = percent), vjust = 1.1, hjust = 1.2) + 
+    labs(x = "WORKSITE", y = "Petitions made(in percentage)") + 
+    scale_y_continuous(breaks = seq(0,7,1)) +
+    scale_fill_manual(values = mycolors) +
+    theme(legend.position = "none") +
+    coord_flip()
+
+visa$WORKSITE <- as.character(visa$WORKSITE)
+
+```
+### Looks like New York City is the most preferred work place for the employees.
+
+### Let us take a look at the most denied and most accepted jobs.
+
+```{r warning=F, results='asis'}
+
+denied_jobs <- visa %>% filter(CASE_STATUS == "DENIED") %>%
+    group_by(JOB_TITLE) %>% summarise(JOBS_DENIED_COUNT = n()) %>%
+    arrange(desc(JOBS_DENIED_COUNT)) %>% top_n(7)
+knitr::kable(denied_jobs)
+
+accepted_jobs <- visa %>% filter(CASE_STATUS == "CERTIFIED") %>%
+    group_by(JOB_TITLE) %>% summarise(JOBS_CERTIFIED_COUNT = n()) %>%
+    arrange(desc(JOBS_CERTIFIED_COUNT)) %>% top_n(7)
+knitr::kable(accepted_jobs)
+
+```
+
+### Results for both are almost same. Accountant job petition seems to be rejected quite often.
+
+
+## PART 2: DATA SCIENCE JOBS
+
+### Filter data science jobs
+
+```{r warning=F}
+
+data_job_pattern <- "^DATA SCIENTIST*"
+data_jobs <- subset(visa, grepl(data_job_pattern, toupper(visa$JOB_TITLE)) == T)
+str(data_jobs)
+data_jobs$WORKSITE <- factor(data_jobs$WORKSITE)
+
+```
+
+### Let us look at the CASE_STATUS of data science job petitions
+
+```{r warning=F}
+
+ggplot(data = data_jobs %>% group_by(CASE_STATUS) %>% summarise(PERCENT = n()*100/nrow(data_jobs)),
+        aes(x = reorder(CASE_STATUS, PERCENT), y = PERCENT, fill = CASE_STATUS)) +
+        geom_bar(stat = "identity") + 
+        scale_fill_manual(values = mycolors) +
+        geom_text(aes(label = paste0(round(PERCENT,1),"%")), hjust = 1.2) +
+        theme(legend.position = "none") +
+        scale_y_continuous(breaks = seq(0,100,10)) +
+        coord_flip() +
+        labs(y = "Petitions made(in percentage)", x = "CASE_STATUS",
+        title = "PETITION STATUS of DATA SCIENCE JOBS")
+
+```
+### Similar results as seen in case of other jobs
+
+### Now, the salary distribution of data Science jobs.
+
+```{r warning=F}
+
+ggplot(data = subset(data_jobs, data_jobs$PREVAILING_WAGE < 
+                quantile(data_jobs$PREVAILING_WAGE,0.999)),
+                aes(PREVAILING_WAGE/1000)) + 
+                geom_histogram(color = "black", fill = mycolors[11], binwidth = 2.5) + 
+                scale_x_continuous(breaks = seq(0,150,10)) +
+                labs(x = "Salary (in thousand USD)", y = "Number of Data Science jobs",
+                title = "Data Scientists' Salary Distribution")
+
+summary(data_jobs$PREVAILING_WAGE)
+```
+
+### Normally distributed. Meidan salary is around USD 90k.
+
+### Salary of data science jobs and number of petitions made with time.
+
+```{r warning=F}
+
+ds_wage <- data_jobs %>% group_by(YEAR) %>% 
+    summarise(median_salary = median(PREVAILING_WAGE), count = n())
+
+ggplot(data = ds_wage, aes(x = as.numeric(as.character(YEAR)), y = median_salary)) +
+    geom_line() +
+    geom_point() +
+    labs(x = "YEAR", y = "Median Salary(in USD)", title = "Data Scientists' salary trend")
+
+ggplot(data = ds_wage, aes(x = as.numeric(as.character(YEAR)), y = count)) +
+    geom_line() +
+    geom_point() +
+    labs(x = "YEAR", y = "Petitions made", title = "Data Scientists' job petitions")
+
+```
+
+### The median salary stays around USD 90k with a little decrease over the years. But it is still around USD 90k. However, a clear upward trend can be seen in number of petitions made each year.
+
+### Let us now see how trends are different for data science jobs and non data science jobs
+
+```{r warning=F, results='asis'}
+
+ds_jobs <- as.data.frame(data_jobs %>% group_by(YEAR) %>% 
+    summarise(median_salary = median(PREVAILING_WAGE), count = n()))
+ds_jobs$percent_change = rep(0,nrow(ds_jobs))
+for(i in 2:nrow(ds_jobs))
+{
+    ds_jobs$percent_change[i] <- (ds_jobs$count[i]-ds_jobs$count[i-1])*100/ds_jobs$count[i-1]
+    
+}
+knitr::kable(ds_jobs)
+
+non_ds_jobs <- subset(visa, grepl(data_job_pattern, toupper(visa$JOB_TITLE)) == F)
+non_ds_jobs <- as.data.frame(non_ds_jobs %>% filter(!is.na(YEAR) & !is.na(PREVAILING_WAGE)) %>%
+    group_by(YEAR) %>% 
+    summarise(median_salary = median(PREVAILING_WAGE), count = n()))
+non_ds_jobs$percent_change = rep(0,nrow(non_ds_jobs))
+for(i in 2:nrow(non_ds_jobs))
+{
+    non_ds_jobs$percent_change[i] <- (non_ds_jobs$count[i]-non_ds_jobs$count[i-1])*100/
+        non_ds_jobs$count[i-1]
+    
+}
+knitr::kable(non_ds_jobs)
+
+```
+
+### Median salary and percentage change in petitions as compared to previous year
+
+```{r warning=F}
+
+
+median(non_ds_jobs$median_salary)
+median(ds_jobs$median_salary)
+
+# percent change
+median(non_ds_jobs$percent_change)
+median(ds_jobs$percent_change)
+
+```
+
+### Data Scientists median salary is 30% more than other jobs' salary. It is indeed a high paying job.
+### Similarly, there seems to be a boom in the DS industry because the percent change in petitions filed for DS jobs is more than 100% except last year whereas in other jobs it is around a mere 5-20%.
+
+### EMPLOYERS: let's see who provides more salary and more jobs in data science field.
+
+```{r warning=F}
+
+data_jobs$EMPLOYER_NAME <- factor(data_jobs$EMPLOYER_NAME)
+
+top_employer_count <- data_jobs %>% group_by(EMPLOYER_NAME) %>% 
+        summarise(count = n()) %>%
+    arrange(desc(count)) %>%
+    top_n(15, wt = count)
+
+ggplot(data = top_employer_count, aes(x = reorder(EMPLOYER_NAME, count),
+    y = count, fill = EMPLOYER_NAME)) +
+    geom_bar(stat = "identity") +
+    labs(x = "EMPLOYER", y = "Number of Data Scientist",
+    title = "Top Data Science Employers (in terms of petitions made)") +
+    theme(legend.position = "none") +
+    scale_y_continuous(breaks = seq(0,150,15)) +
+    coord_flip()
+
+top_employer_salary <- data_jobs %>% group_by(EMPLOYER_NAME) %>% 
+    summarise(median_wage = median(PREVAILING_WAGE)) %>%
+    arrange(desc(median_wage)) %>%
+    top_n(15, wt = median_wage)
+
+ggplot(data = top_employer_salary, aes(x = reorder(EMPLOYER_NAME, median_wage),
+     y = median_wage/1000, fill = EMPLOYER_NAME)) +
+    geom_bar(stat = "identity") +
+    labs(x = "EMPLOYER", y = "Median Wage (in USD)",
+    title = "Top Data Science Employers (in terms of salary offered)") +
+    geom_text(aes(label = paste0("$",median_wage)), hjust = 1.2) +
+    theme(legend.position = "none", axis.text.x = element_blank(), 
+    axis.ticks.x = element_blank()) +
+    coord_flip()
+
+```
+
+### Microsoft and Facebook are way ahead in filing petitions for Data Scienctist jobs. On the other hand some not so familiar companies are paying the highest salaries in the field.
+
+### Workplace: What are the most popular work places for data scientists ?
+
+```{r warning=F}
+
+data_jobs$WORKSITE <- factor(data_jobs$WORKSITE)
+
+top_worksite_count <- data_jobs %>% group_by(WORKSITE) %>%
+    summarise(count = n()) %>%
+    arrange(desc(count)) %>%
+    top_n(15, wt = count)
+
+ggplot(data = top_worksite_count, aes(x = reorder(WORKSITE, count),
+    y = count, fill = WORKSITE)) +
+    geom_bar(stat = "identity") + 
+    labs(x = "CITY", y = "Number of Data Scientists",
+    title = "TOP Work Locations (in terms of petitions made)") +
+    theme(legend.position = "none") +
+    scale_y_continuous(breaks = seq(0,120000,15000)) +
+    coord_flip()
+
+top_worksite_salary <- data_jobs %>% group_by(WORKSITE) %>%
+    summarise(median_wage = median(PREVAILING_WAGE)) %>%
+    arrange(desc(median_wage)) %>%
+    top_n(15, wt = median_wage)
+
+ggplot(data = top_worksite_salary, aes(x = reorder(WORKSITE, median_wage),
+    y = median_wage, fill = WORKSITE)) +
+    geom_bar(stat = "identity") + 
+    labs(x = "CITY", y = "MEDIAN SALARY",
+    title = "TOP Work Locations (in terms of salary offered)") +
+    geom_text(aes(label = paste0("$",median_wage)), hjust = 1.2) +
+    theme(legend.position = "none", axis.text.x = element_blank(),
+    axis.ticks.x = element_blank()) +
+    coord_flip()
+
+```
+
+### The most popular and highest paid location is undoubtedly San Francisco, California.
+
+## The End. Please upvote if you liked my work.

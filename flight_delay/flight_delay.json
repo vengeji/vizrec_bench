@@ -1,0 +1,328 @@
+{
+    "charts": [
+        {
+            "describe": "% of flight per company",
+            "id": "flight_delay_1_extracted.json_id_1",
+            "rank": 1,
+            "type": "pie",
+            "channels": {
+                "x": {
+                    "attr": "AIRLINE",
+                    "trans": "raw",
+                    "groupby": true
+                },
+                "y": {
+                    "attr": "AIRLINE",
+                    "trans": "count",
+                    "calcus": "percentage"
+                }
+            }
+        },
+        {
+            "describe": "mean delay at origin",
+            "id": "flight_delay_1_extracted.json_id_2-flight_delay_3_extracted.json_id_1",
+            "rank": 2,
+            "type": "pie",
+            "channels": {
+                "x": {
+                    "attr": "AIRLINE",
+                    "trans": "raw",
+                    "groupby": true
+                },
+                "y": {
+                    "attr": "DEPARTURE_DELAY",
+                    "trans": "mean",
+                    "calcus": "percentage"
+                }
+            }
+        },
+        {
+            "describe": "mean departure delay",
+            "id": "flight_delay_1_extracted.json_id_3-flight_delay_2_extracted.json_id_9-flight_delay_3_extracted.json_id_5",
+            "rank": 3,
+            "type": "bar",
+            "channels": {
+                "x": {
+                    "attr": "AIRLINE",
+                    "trans": "raw",
+                    "groupby": true
+                },
+                "y": {
+                    "attr": "DEPARTURE_DELAY",
+                    "trans": "mean",
+                    "calcus": "raw"
+                }
+            }
+        },
+        {
+            "describe": "mean arrival delay",
+            "id": "flight_delay_1_extracted.json_id_4-flight_delay_2_extracted.json_id_10-flight_delay_3_extracted.json_id_6",
+            "rank": 4,
+            "type": "bar",
+            "channels": {
+                "x": {
+                    "attr": "AIRLINE",
+                    "trans": "raw",
+                    "groupby": true
+                },
+                "y": {
+                    "attr": "ARRIVAL_DELAY",
+                    "trans": "mean",
+                    "calcus": "raw"
+                }
+            }
+        },
+        {
+            "describe": "Number of airports visited",
+            "id": "flight_delay_1_extracted.json_id_5",
+            "rank": 5,
+            "type": "bar",
+            "channels": {
+                "x": {
+                    "attr": "AIRLINE",
+                    "trans": "raw",
+                    "groupby": true
+                },
+                "y": {
+                    "attr": "ORIGIN_AIRPORT",
+                    "trans": "count",
+                    "calcus": "raw"
+                }
+            }
+        },
+        {
+            "describe": "departure delay along date",
+            "id": "flight_delay_1_extracted.json_id_6",
+            "rank": 6,
+            "type": "line",
+            "channels": {
+                "x": {
+                    "attr": "DATE",
+                    "trans": "raw",
+                    "groupby": true
+                },
+                "y": {
+                    "attr": "DEPARTURE_DELAY",
+                    "trans": "mean",
+                    "calcus": "raw"
+                }
+            }
+        },
+        {
+            "describe": "departure delay along date",
+            "id": "flight_delay_1_extracted.json_id_7",
+            "rank": 7,
+            "type": "line",
+            "channels": {
+                "x": {
+                    "attr": "SCHEDULED_DEPARTURE",
+                    "trans": "time",
+                    "groupby": true
+                },
+                "y": {
+                    "attr": "DEPARTURE_DELAY",
+                    "trans": "mean",
+                    "calcus": "raw"
+                }
+            }
+        },
+        {
+            "describe": "origin airport distribution",
+            "id": "flight_delay_2_extracted.json_id_1",
+            "rank": 8,
+            "type": "pie",
+            "channels": {
+                "x": {
+                    "attr": "ORIGIN_AIRPORT",
+                    "trans": "raw",
+                    "groupby": true
+                },
+                "y": {
+                    "attr": "ORIGIN_AIRPORT",
+                    "trans": "count",
+                    "calcus": "percentage"
+                }
+            }
+        },
+        {
+            "describe": "airline distribution",
+            "id": "flight_delay_2_extracted.json_id_2",
+            "rank": 9,
+            "type": "bar",
+            "channels": {
+                "x": {
+                    "attr": "AIRLINE",
+                    "trans": "raw",
+                    "groupby": true
+                },
+                "y": {
+                    "attr": "AIRLINE",
+                    "trans": "count",
+                    "calcus": "raw"
+                }
+            }
+        },
+        {
+            "describe": "number of flights monthly",
+            "id": "flight_delay_2_extracted.json_id_3",
+            "rank": 10,
+            "type": "bar",
+            "channels": {
+                "x": {
+                    "attr": "DATE",
+                    "trans": "month",
+                    "groupby": true
+                },
+                "y": {
+                    "attr": "DATE",
+                    "trans": "count",
+                    "calcus": "raw"
+                }
+            }
+        },
+        {
+            "describe": "mean departure delay monthly",
+            "id": "flight_delay_2_extracted.json_id_4",
+            "rank": 11,
+            "type": "bar",
+            "channels": {
+                "x": {
+                    "attr": "DATE",
+                    "trans": "month",
+                    "groupby": true
+                },
+                "y": {
+                    "attr": "DEPARTURE_DELAY",
+                    "trans": "mean",
+                    "calcus": "raw"
+                }
+            }
+        },
+        {
+            "describe": "mean arrival delay monthly",
+            "id": "flight_delay_2_extracted.json_id_5",
+            "rank": 12,
+            "type": "bar",
+            "channels": {
+                "x": {
+                    "attr": "DATE",
+                    "trans": "month",
+                    "groupby": true
+                },
+                "y": {
+                    "attr": "ARRIVAL_DELAY",
+                    "trans": "mean",
+                    "calcus": "raw"
+                }
+            }
+        },
+        {
+            "describe": "number of flights weekly",
+            "id": "flight_delay_2_extracted.json_id_6",
+            "rank": 13,
+            "type": "bar",
+            "channels": {
+                "x": {
+                    "attr": "DATE",
+                    "trans": "week",
+                    "groupby": true
+                },
+                "y": {
+                    "attr": "DATE",
+                    "trans": "count",
+                    "calcus": "raw"
+                }
+            }
+        },
+        {
+            "describe": "mean departure delay day of week",
+            "id": "flight_delay_2_extracted.json_id_7",
+            "rank": 14,
+            "type": "bar",
+            "channels": {
+                "x": {
+                    "attr": "DATE",
+                    "trans": "week",
+                    "groupby": true
+                },
+                "y": {
+                    "attr": "DEPARTURE_DELAY",
+                    "trans": "mean",
+                    "calcus": "raw"
+                }
+            }
+        },
+        {
+            "describe": "mean arrival delay day of week",
+            "id": "flight_delay_2_extracted.json_id_8",
+            "rank": 15,
+            "type": "bar",
+            "channels": {
+                "x": {
+                    "attr": "DATE",
+                    "trans": "week",
+                    "groupby": true
+                },
+                "y": {
+                    "attr": "ARRIVAL_DELAY",
+                    "trans": "mean",
+                    "calcus": "raw"
+                }
+            }
+        },
+        {
+            "describe": "mean text out",
+            "id": "flight_delay_2_extracted.json_id_11-flight_delay_3_extracted.json_id_3",
+            "rank": 16,
+            "type": "bar",
+            "channels": {
+                "x": {
+                    "attr": "AIRLINE",
+                    "trans": "raw",
+                    "groupby": true
+                },
+                "y": {
+                    "attr": "TAXI_OUT",
+                    "trans": "mean",
+                    "calcus": "raw"
+                }
+            }
+        },
+        {
+            "describe": "mean text in",
+            "id": "flight_delay_2_extracted.json_id_12-flight_delay_3_extracted.json_id_4",
+            "rank": 17,
+            "type": "bar",
+            "channels": {
+                "x": {
+                    "attr": "AIRLINE",
+                    "trans": "raw",
+                    "groupby": true
+                },
+                "y": {
+                    "attr": "TAXI_IN",
+                    "trans": "mean",
+                    "calcus": "raw"
+                }
+            }
+        },
+        {
+            "describe": "mean delay at arrival",
+            "id": "flight_delay_3_extracted.json_id_2",
+            "rank": 18,
+            "type": "pie",
+            "channels": {
+                "x": {
+                    "attr": "AIRLINE",
+                    "trans": "raw",
+                    "groupby": true
+                },
+                "y": {
+                    "attr": "ARRIVAL_DELAY",
+                    "trans": "mean",
+                    "calcus": "percentage"
+                }
+            }
+        }
+    ]
+}

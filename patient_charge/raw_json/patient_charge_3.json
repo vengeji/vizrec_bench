@@ -1,0 +1,101 @@
+{
+    "url": "https://www.kaggle.com/grosvenpaul/regression-eda-and-statistics-tutorial",
+    "votes": 77,
+    "rank": 3,
+    "charts": [
+        {
+            "describe": "Boxplot of charges per region",
+            "chart": "boxplot",
+            "x": {
+                "attr": "region",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "charges",
+                "trans": "raw"
+            }
+        },
+        {
+            "describe": "Boxplot of charges by smoker",
+            "chart": "boxplot",
+            "x": {
+                "attr": "smoker",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "charges",
+                "trans": "raw"
+            }
+        },
+        {
+            "describe": "Boxplot of charges by sex",
+            "chart": "boxplot",
+            "x": {
+                "attr": "sex",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "charges",
+                "trans": "raw"
+            }
+        },
+        {
+            "describe": "Boxplot of charges by children number",
+            "chart": "boxplot",
+            "x": {
+                "attr": "children",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "charges",
+                "trans": "raw"
+            }
+        },
+        {
+            "describe": "Boxplot of charges by bmi_group",
+            "chart": "boxplot",
+            "x": {
+                "attr": "bmi_group",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "charges",
+                "trans": "raw"
+            }
+        },
+        {
+            "describe": "scattermatrix of smoker",
+            "chart": "scattermatrix",
+            "x": {
+                "attr": "all",
+                "trans": "raw"
+            },
+            "y": {
+                "attr": "all",
+                "trans": "raw"
+            }
+        },
+        {
+            "describe": "Distribution of charges and age",
+            "chart": "scatter",
+            "x": {
+                "attr": "age",
+                "trans": "raw"
+            },
+            "y": {
+                "attr": "charges",
+                "trans": "raw"
+            },
+            "color": {
+                "attr": "smoker",
+                "trans": "raw",
+                "groupby": true
+            }
+        }
+    ]
+}

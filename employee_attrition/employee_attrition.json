@@ -1,0 +1,1781 @@
+{
+    "charts": [
+        {
+            "describe": "employee attrition amount",
+            "id": "employee_attrition_1_extracted.json_id_1-employee_attrition_2_extracted.json_id_1-employee_attrition_6_extracted.json_id_17",
+            "rank": 1,
+            "type": "bar",
+            "channels": {
+                "x": {
+                    "attr": "Attrition",
+                    "trans": "raw",
+                    "groupby": true
+                },
+                "y": {
+                    "attr": "Attrition",
+                    "trans": "count",
+                    "calcus": "raw"
+                }
+            }
+        },
+        {
+            "describe": "average Monthly Income by Gender",
+            "id": "employee_attrition_1_extracted.json_id_2",
+            "rank": 2,
+            "type": "bar",
+            "channels": {
+                "x": {
+                    "attr": "Gender",
+                    "trans": "raw",
+                    "groupby": true
+                },
+                "y": {
+                    "attr": "MonthlyIncome",
+                    "trans": "mean",
+                    "calcus": "raw"
+                }
+            }
+        },
+        {
+            "describe": "Number of Employees by Department and Gender",
+            "id": "employee_attrition_1_extracted.json_id_3",
+            "rank": 3,
+            "type": "bar",
+            "channels": {
+                "x": {
+                    "attr": "Department",
+                    "trans": "raw",
+                    "groupby": true
+                },
+                "y": {
+                    "attr": "Department",
+                    "trans": "count",
+                    "calcus": "raw"
+                },
+                "color": {
+                    "attr": "Gender",
+                    "trans": "raw",
+                    "groupby": true
+                }
+            }
+        },
+        {
+            "describe": "Number of Employees by Department",
+            "id": "employee_attrition_1_extracted.json_id_4-employee_attrition_2_extracted.json_id_21",
+            "rank": 4,
+            "type": "pie",
+            "channels": {
+                "x": {
+                    "attr": "Department",
+                    "trans": "raw",
+                    "groupby": true
+                },
+                "y": {
+                    "attr": "Department",
+                    "trans": "count",
+                    "calcus": "percentage"
+                }
+            }
+        },
+        {
+            "describe": "attrition by education level",
+            "id": "employee_attrition_1_extracted.json_id_5-employee_attrition_2_extracted.json_id_28-employee_attrition_4_extracted.json_id_23-employee_attrition_5_extracted.json_id_8",
+            "rank": 5,
+            "type": "bar",
+            "channels": {
+                "x": {
+                    "attr": "Education",
+                    "trans": "raw",
+                    "groupby": true
+                },
+                "y": {
+                    "attr": "Education",
+                    "trans": "count",
+                    "calcus": "raw"
+                },
+                "color": {
+                    "attr": "Attrition",
+                    "trans": "raw",
+                    "groupby": true
+                }
+            }
+        },
+        {
+            "describe": "average income by department and attrition",
+            "id": "employee_attrition_1_extracted.json_id_6-employee_attrition_6_extracted.json_id_4",
+            "rank": 6,
+            "type": "bar",
+            "channels": {
+                "x": {
+                    "attr": "Department",
+                    "trans": "raw",
+                    "groupby": true
+                },
+                "y": {
+                    "attr": "MonthlyIncome",
+                    "trans": "mean",
+                    "calcus": "raw"
+                },
+                "color": {
+                    "attr": "Attrition",
+                    "trans": "raw",
+                    "groupby": true
+                }
+            }
+        },
+        {
+            "describe": "average income by jobsatisfaction and attrition",
+            "id": "employee_attrition_1_extracted.json_id_7",
+            "rank": 7,
+            "type": "bar",
+            "channels": {
+                "x": {
+                    "attr": "JobSatisfaction",
+                    "trans": "raw",
+                    "groupby": true
+                },
+                "y": {
+                    "attr": "MonthlyIncome",
+                    "trans": "mean",
+                    "calcus": "raw"
+                },
+                "color": {
+                    "attr": "Attrition",
+                    "trans": "raw",
+                    "groupby": true
+                }
+            }
+        },
+        {
+            "describe": "income and its impact on attrition",
+            "id": "employee_attrition_1_extracted.json_id_8",
+            "rank": 8,
+            "type": "scatter",
+            "channels": {
+                "x": {
+                    "attr": "PercentSalaryHike",
+                    "trans": "raw"
+                },
+                "y": {
+                    "attr": "MonthlyIncome",
+                    "trans": "raw"
+                },
+                "color": {
+                    "attr": "Attrition",
+                    "trans": "raw",
+                    "groupby": true
+                }
+            }
+        },
+        {
+            "describe": "Daily Rates by Job Role",
+            "id": "employee_attrition_1_extracted.json_id_9",
+            "rank": 9,
+            "type": "bar",
+            "channels": {
+                "x": {
+                    "attr": "JobRole",
+                    "trans": "raw",
+                    "groupby": true
+                },
+                "y": {
+                    "attr": "DailyRate",
+                    "trans": "mean",
+                    "calcus": "raw"
+                },
+                "color": {
+                    "attr": "Attrition",
+                    "trans": "raw",
+                    "groupby": true
+                }
+            }
+        },
+        {
+            "describe": "Level of Attrition by Overtime Status",
+            "id": "employee_attrition_1_extracted.json_id_10-employee_attrition_2_extracted.json_id_15",
+            "rank": 10,
+            "type": "pie",
+            "channels": {
+                "x": {
+                    "attr": "OverTime",
+                    "trans": "raw",
+                    "groupby": true
+                },
+                "y": {
+                    "attr": "OverTime",
+                    "trans": "count",
+                    "calcus": "percentage"
+                }
+            }
+        },
+        {
+            "describe": "Level of Attrition by Overtime Status",
+            "id": "employee_attrition_1_extracted.json_id_11",
+            "rank": 11,
+            "type": "bar",
+            "channels": {
+                "x": {
+                    "attr": "OverTime",
+                    "trans": "raw",
+                    "groupby": true
+                },
+                "y": {
+                    "attr": "OverTime",
+                    "trans": "count",
+                    "calcus": "raw"
+                }
+            }
+        },
+        {
+            "describe": "Level of Attrition by Overtime Status",
+            "id": "employee_attrition_1_extracted.json_id_12-employee_attrition_2_extracted.json_id_16-employee_attrition_3_extracted.json_id_3-employee_attrition_5_extracted.json_id_20-employee_attrition_6_extracted.json_id_11",
+            "rank": 12,
+            "type": "bar",
+            "channels": {
+                "x": {
+                    "attr": "OverTime",
+                    "trans": "raw",
+                    "groupby": true
+                },
+                "y": {
+                    "attr": "OverTime",
+                    "trans": "count",
+                    "calcus": "raw"
+                },
+                "color": {
+                    "attr": "Attrition",
+                    "trans": "raw",
+                    "groupby": true
+                }
+            }
+        },
+        {
+            "describe": "mean Salary by Job Role",
+            "id": "employee_attrition_1_extracted.json_id_13-employee_attrition_5_extracted.json_id_7",
+            "rank": 13,
+            "type": "bar",
+            "channels": {
+                "x": {
+                    "attr": "JobRole",
+                    "trans": "raw",
+                    "groupby": true
+                },
+                "y": {
+                    "attr": "MonthlyIncome",
+                    "trans": "mean",
+                    "calcus": "raw"
+                }
+            }
+        },
+        {
+            "describe": "attrition by Job Role",
+            "id": "employee_attrition_1_extracted.json_id_14-employee_attrition_2_extracted.json_id_20-employee_attrition_6_extracted.json_id_6",
+            "rank": 14,
+            "type": "bar",
+            "channels": {
+                "x": {
+                    "attr": "JobRole",
+                    "trans": "raw",
+                    "groupby": true
+                },
+                "y": {
+                    "attr": "JobRole",
+                    "trans": "count",
+                    "calcus": "raw"
+                },
+                "color": {
+                    "attr": "Attrition",
+                    "trans": "raw",
+                    "groupby": true
+                }
+            }
+        },
+        {
+            "describe": "monthly income vs working years",
+            "id": "employee_attrition_1_extracted.json_id_15-employee_attrition_7_extracted.json_id_13",
+            "rank": 15,
+            "type": "scatter",
+            "channels": {
+                "x": {
+                    "attr": "TotalWorkingYears",
+                    "trans": "raw"
+                },
+                "y": {
+                    "attr": "MonthlyIncome",
+                    "trans": "raw"
+                }
+            }
+        },
+        {
+            "describe": "age vs monthly income",
+            "id": "employee_attrition_1_extracted.json_id_16-employee_attrition_7_extracted.json_id_12",
+            "rank": 16,
+            "type": "scatter",
+            "channels": {
+                "x": {
+                    "attr": "Age",
+                    "trans": "raw"
+                },
+                "y": {
+                    "attr": "MonthlyIncome",
+                    "trans": "raw"
+                }
+            }
+        },
+        {
+            "describe": "employee attrition amount",
+            "id": "employee_attrition_2_extracted.json_id_2",
+            "rank": 17,
+            "type": "pie",
+            "channels": {
+                "x": {
+                    "attr": "Attrition",
+                    "trans": "raw",
+                    "groupby": true
+                },
+                "y": {
+                    "attr": "Attrition",
+                    "trans": "count",
+                    "calcus": "percentage"
+                }
+            }
+        },
+        {
+            "describe": "age distribution",
+            "id": "employee_attrition_2_extracted.json_id_3",
+            "rank": 18,
+            "type": "bar",
+            "channels": {
+                "x": {
+                    "attr": "Age",
+                    "trans": "raw",
+                    "groupby": true
+                },
+                "y": {
+                    "attr": "Age",
+                    "trans": "count",
+                    "calcus": "raw"
+                },
+                "color": {
+                    "attr": "Attrition",
+                    "trans": "raw",
+                    "groupby": true
+                }
+            }
+        },
+        {
+            "describe": "DistanceFromHome distribution",
+            "id": "employee_attrition_2_extracted.json_id_4",
+            "rank": 19,
+            "type": "bar",
+            "channels": {
+                "x": {
+                    "attr": "DistanceFromHome",
+                    "trans": "raw",
+                    "groupby": true
+                },
+                "y": {
+                    "attr": "DistanceFromHome",
+                    "trans": "count",
+                    "calcus": "raw"
+                },
+                "color": {
+                    "attr": "Attrition",
+                    "trans": "raw",
+                    "groupby": true
+                }
+            }
+        },
+        {
+            "describe": "NumCompaniesWorked distribution",
+            "id": "employee_attrition_2_extracted.json_id_5-employee_attrition_4_extracted.json_id_27-employee_attrition_5_extracted.json_id_9-employee_attrition_6_extracted.json_id_9",
+            "rank": 20,
+            "type": "bar",
+            "channels": {
+                "x": {
+                    "attr": "NumCompaniesWorked",
+                    "trans": "raw",
+                    "groupby": true
+                },
+                "y": {
+                    "attr": "NumCompaniesWorked",
+                    "trans": "count",
+                    "calcus": "raw"
+                },
+                "color": {
+                    "attr": "Attrition",
+                    "trans": "raw",
+                    "groupby": true
+                }
+            }
+        },
+        {
+            "describe": "PercentSalaryHike distribution",
+            "id": "employee_attrition_2_extracted.json_id_6-employee_attrition_4_extracted.json_id_29",
+            "rank": 21,
+            "type": "bar",
+            "channels": {
+                "x": {
+                    "attr": "PercentSalaryHike",
+                    "trans": "raw",
+                    "groupby": true
+                },
+                "y": {
+                    "attr": "PercentSalaryHike",
+                    "trans": "count",
+                    "calcus": "raw"
+                },
+                "color": {
+                    "attr": "Attrition",
+                    "trans": "raw",
+                    "groupby": true
+                }
+            }
+        },
+        {
+            "describe": "TotalWorkingYears distribution",
+            "id": "employee_attrition_2_extracted.json_id_7",
+            "rank": 22,
+            "type": "bar",
+            "channels": {
+                "x": {
+                    "attr": "TotalWorkingYears",
+                    "trans": "raw",
+                    "groupby": true
+                },
+                "y": {
+                    "attr": "TotalWorkingYears",
+                    "trans": "count",
+                    "calcus": "raw"
+                },
+                "color": {
+                    "attr": "Attrition",
+                    "trans": "raw",
+                    "groupby": true
+                }
+            }
+        },
+        {
+            "describe": "TrainingTimesLastYear distribution",
+            "id": "employee_attrition_2_extracted.json_id_8",
+            "rank": 23,
+            "type": "bar",
+            "channels": {
+                "x": {
+                    "attr": "TrainingTimesLastYear",
+                    "trans": "raw",
+                    "groupby": true
+                },
+                "y": {
+                    "attr": "TrainingTimesLastYear",
+                    "trans": "count",
+                    "calcus": "raw"
+                },
+                "color": {
+                    "attr": "Attrition",
+                    "trans": "raw",
+                    "groupby": true
+                }
+            }
+        },
+        {
+            "describe": "YearsAtCompany distribution",
+            "id": "employee_attrition_2_extracted.json_id_9",
+            "rank": 24,
+            "type": "bar",
+            "channels": {
+                "x": {
+                    "attr": "YearsAtCompany",
+                    "trans": "raw",
+                    "groupby": true
+                },
+                "y": {
+                    "attr": "YearsAtCompany",
+                    "trans": "count",
+                    "calcus": "raw"
+                },
+                "color": {
+                    "attr": "Attrition",
+                    "trans": "raw",
+                    "groupby": true
+                }
+            }
+        },
+        {
+            "describe": "YearsInCurrentRole distribution",
+            "id": "employee_attrition_2_extracted.json_id_10-employee_attrition_4_extracted.json_id_19",
+            "rank": 25,
+            "type": "bar",
+            "channels": {
+                "x": {
+                    "attr": "YearsInCurrentRole",
+                    "trans": "raw",
+                    "groupby": true
+                },
+                "y": {
+                    "attr": "YearsInCurrentRole",
+                    "trans": "count",
+                    "calcus": "raw"
+                },
+                "color": {
+                    "attr": "Attrition",
+                    "trans": "raw",
+                    "groupby": true
+                }
+            }
+        },
+        {
+            "describe": "YearsSinceLastPromotion distribution",
+            "id": "employee_attrition_2_extracted.json_id_11-employee_attrition_4_extracted.json_id_35",
+            "rank": 26,
+            "type": "bar",
+            "channels": {
+                "x": {
+                    "attr": "YearsSinceLastPromotion",
+                    "trans": "raw",
+                    "groupby": true
+                },
+                "y": {
+                    "attr": "YearsSinceLastPromotion",
+                    "trans": "count",
+                    "calcus": "raw"
+                },
+                "color": {
+                    "attr": "Attrition",
+                    "trans": "raw",
+                    "groupby": true
+                }
+            }
+        },
+        {
+            "describe": "YearsWithCurrManager distribution",
+            "id": "employee_attrition_2_extracted.json_id_12-employee_attrition_4_extracted.json_id_21",
+            "rank": 27,
+            "type": "bar",
+            "channels": {
+                "x": {
+                    "attr": "YearsWithCurrManager",
+                    "trans": "raw",
+                    "groupby": true
+                },
+                "y": {
+                    "attr": "YearsWithCurrManager",
+                    "trans": "count",
+                    "calcus": "raw"
+                },
+                "color": {
+                    "attr": "Attrition",
+                    "trans": "raw",
+                    "groupby": true
+                }
+            }
+        },
+        {
+            "describe": "gender distribution",
+            "id": "employee_attrition_2_extracted.json_id_13",
+            "rank": 28,
+            "type": "pie",
+            "channels": {
+                "x": {
+                    "attr": "Gender",
+                    "trans": "raw",
+                    "groupby": true
+                },
+                "y": {
+                    "attr": "Gender",
+                    "trans": "count",
+                    "calcus": "percentage"
+                }
+            }
+        },
+        {
+            "describe": "Gender distribution",
+            "id": "employee_attrition_2_extracted.json_id_14-employee_attrition_6_extracted.json_id_2-employee_attrition_7_extracted.json_id_1",
+            "rank": 29,
+            "type": "bar",
+            "channels": {
+                "x": {
+                    "attr": "Gender",
+                    "trans": "raw",
+                    "groupby": true
+                },
+                "y": {
+                    "attr": "Gender",
+                    "trans": "count",
+                    "calcus": "raw"
+                },
+                "color": {
+                    "attr": "Attrition",
+                    "trans": "raw",
+                    "groupby": true
+                }
+            }
+        },
+        {
+            "describe": "BusinessTravel distribution",
+            "id": "employee_attrition_2_extracted.json_id_17",
+            "rank": 30,
+            "type": "pie",
+            "channels": {
+                "x": {
+                    "attr": "BusinessTravel",
+                    "trans": "raw",
+                    "groupby": true
+                },
+                "y": {
+                    "attr": "BusinessTravel",
+                    "trans": "count",
+                    "calcus": "percentage"
+                }
+            }
+        },
+        {
+            "describe": "BusinessTravel distribution",
+            "id": "employee_attrition_2_extracted.json_id_18-employee_attrition_3_extracted.json_id_4-employee_attrition_5_extracted.json_id_4-employee_attrition_6_extracted.json_id_5-employee_attrition_7_extracted.json_id_7",
+            "rank": 31,
+            "type": "bar",
+            "channels": {
+                "x": {
+                    "attr": "BusinessTravel",
+                    "trans": "raw",
+                    "groupby": true
+                },
+                "y": {
+                    "attr": "BusinessTravel",
+                    "trans": "count",
+                    "calcus": "raw"
+                },
+                "color": {
+                    "attr": "Attrition",
+                    "trans": "raw",
+                    "groupby": true
+                }
+            }
+        },
+        {
+            "describe": "JobRole distribution",
+            "id": "employee_attrition_2_extracted.json_id_19",
+            "rank": 32,
+            "type": "pie",
+            "channels": {
+                "x": {
+                    "attr": "JobRole",
+                    "trans": "raw",
+                    "groupby": true
+                },
+                "y": {
+                    "attr": "JobRole",
+                    "trans": "count",
+                    "calcus": "percentage"
+                }
+            }
+        },
+        {
+            "describe": "Department distribution",
+            "id": "employee_attrition_2_extracted.json_id_22-employee_attrition_5_extracted.json_id_2-employee_attrition_7_extracted.json_id_8",
+            "rank": 33,
+            "type": "bar",
+            "channels": {
+                "x": {
+                    "attr": "Department",
+                    "trans": "raw",
+                    "groupby": true
+                },
+                "y": {
+                    "attr": "Department",
+                    "trans": "count",
+                    "calcus": "raw"
+                },
+                "color": {
+                    "attr": "Attrition",
+                    "trans": "raw",
+                    "groupby": true
+                }
+            }
+        },
+        {
+            "describe": "MaritalStatus distribution",
+            "id": "employee_attrition_2_extracted.json_id_23",
+            "rank": 34,
+            "type": "pie",
+            "channels": {
+                "x": {
+                    "attr": "MaritalStatus",
+                    "trans": "raw",
+                    "groupby": true
+                },
+                "y": {
+                    "attr": "MaritalStatus",
+                    "trans": "count",
+                    "calcus": "percentage"
+                }
+            }
+        },
+        {
+            "describe": "MaritalStatus distribution",
+            "id": "employee_attrition_2_extracted.json_id_24",
+            "rank": 35,
+            "type": "bar",
+            "channels": {
+                "x": {
+                    "attr": "MaritalStatus",
+                    "trans": "raw",
+                    "groupby": true
+                },
+                "y": {
+                    "attr": "MaritalStatus",
+                    "trans": "count",
+                    "calcus": "raw"
+                },
+                "color": {
+                    "attr": "Attrition",
+                    "trans": "raw",
+                    "groupby": true
+                }
+            }
+        },
+        {
+            "describe": "EducationField distribution",
+            "id": "employee_attrition_2_extracted.json_id_25",
+            "rank": 36,
+            "type": "pie",
+            "channels": {
+                "x": {
+                    "attr": "EducationField",
+                    "trans": "raw",
+                    "groupby": true
+                },
+                "y": {
+                    "attr": "EducationField",
+                    "trans": "count",
+                    "calcus": "percentage"
+                }
+            }
+        },
+        {
+            "describe": "EducationField distribution",
+            "id": "employee_attrition_2_extracted.json_id_26-employee_attrition_6_extracted.json_id_1",
+            "rank": 37,
+            "type": "bar",
+            "channels": {
+                "x": {
+                    "attr": "EducationField",
+                    "trans": "raw",
+                    "groupby": true
+                },
+                "y": {
+                    "attr": "EducationField",
+                    "trans": "count",
+                    "calcus": "raw"
+                },
+                "color": {
+                    "attr": "Attrition",
+                    "trans": "raw",
+                    "groupby": true
+                }
+            }
+        },
+        {
+            "describe": "Education distribution",
+            "id": "employee_attrition_2_extracted.json_id_27",
+            "rank": 38,
+            "type": "pie",
+            "channels": {
+                "x": {
+                    "attr": "Education",
+                    "trans": "raw",
+                    "groupby": true
+                },
+                "y": {
+                    "attr": "Education",
+                    "trans": "count",
+                    "calcus": "percentage"
+                }
+            }
+        },
+        {
+            "describe": "EnvironmentSatisfaction distribution",
+            "id": "employee_attrition_2_extracted.json_id_29",
+            "rank": 39,
+            "type": "pie",
+            "channels": {
+                "x": {
+                    "attr": "EnvironmentSatisfaction",
+                    "trans": "raw",
+                    "groupby": true
+                },
+                "y": {
+                    "attr": "EnvironmentSatisfaction",
+                    "trans": "count",
+                    "calcus": "percentage"
+                }
+            }
+        },
+        {
+            "describe": "EnvironmentSatisfaction distribution",
+            "id": "employee_attrition_2_extracted.json_id_30-employee_attrition_4_extracted.json_id_4-employee_attrition_5_extracted.json_id_19-employee_attrition_6_extracted.json_id_13-employee_attrition_7_extracted.json_id_4",
+            "rank": 40,
+            "type": "bar",
+            "channels": {
+                "x": {
+                    "attr": "EnvironmentSatisfaction",
+                    "trans": "raw",
+                    "groupby": true
+                },
+                "y": {
+                    "attr": "EnvironmentSatisfaction",
+                    "trans": "count",
+                    "calcus": "raw"
+                },
+                "color": {
+                    "attr": "Attrition",
+                    "trans": "raw",
+                    "groupby": true
+                }
+            }
+        },
+        {
+            "describe": "JobInvolvement distribution",
+            "id": "employee_attrition_2_extracted.json_id_31",
+            "rank": 41,
+            "type": "pie",
+            "channels": {
+                "x": {
+                    "attr": "JobInvolvement",
+                    "trans": "raw",
+                    "groupby": true
+                },
+                "y": {
+                    "attr": "JobInvolvement",
+                    "trans": "count",
+                    "calcus": "percentage"
+                }
+            }
+        },
+        {
+            "describe": "JobInvolvement distribution",
+            "id": "employee_attrition_2_extracted.json_id_32-employee_attrition_4_extracted.json_id_6-employee_attrition_5_extracted.json_id_14-employee_attrition_6_extracted.json_id_8",
+            "rank": 42,
+            "type": "bar",
+            "channels": {
+                "x": {
+                    "attr": "JobInvolvement",
+                    "trans": "raw",
+                    "groupby": true
+                },
+                "y": {
+                    "attr": "JobInvolvement",
+                    "trans": "count",
+                    "calcus": "raw"
+                },
+                "color": {
+                    "attr": "Attrition",
+                    "trans": "raw",
+                    "groupby": true
+                }
+            }
+        },
+        {
+            "describe": "JobLevel distribution",
+            "id": "employee_attrition_2_extracted.json_id_33",
+            "rank": 43,
+            "type": "pie",
+            "channels": {
+                "x": {
+                    "attr": "JobLevel",
+                    "trans": "raw",
+                    "groupby": true
+                },
+                "y": {
+                    "attr": "JobLevel",
+                    "trans": "count",
+                    "calcus": "percentage"
+                }
+            }
+        },
+        {
+            "describe": "JobLevel distribution",
+            "id": "employee_attrition_2_extracted.json_id_34-employee_attrition_4_extracted.json_id_8-employee_attrition_6_extracted.json_id_7-employee_attrition_7_extracted.json_id_6",
+            "rank": 44,
+            "type": "bar",
+            "channels": {
+                "x": {
+                    "attr": "JobLevel",
+                    "trans": "raw",
+                    "groupby": true
+                },
+                "y": {
+                    "attr": "JobLevel",
+                    "trans": "count",
+                    "calcus": "raw"
+                },
+                "color": {
+                    "attr": "Attrition",
+                    "trans": "raw",
+                    "groupby": true
+                }
+            }
+        },
+        {
+            "describe": "JobSatisfaction distribution",
+            "id": "employee_attrition_2_extracted.json_id_35",
+            "rank": 45,
+            "type": "pie",
+            "channels": {
+                "x": {
+                    "attr": "JobSatisfaction",
+                    "trans": "raw",
+                    "groupby": true
+                },
+                "y": {
+                    "attr": "JobSatisfaction",
+                    "trans": "count",
+                    "calcus": "percentage"
+                }
+            }
+        },
+        {
+            "describe": "JobSatisfaction distribution",
+            "id": "employee_attrition_2_extracted.json_id_36-employee_attrition_4_extracted.json_id_10-employee_attrition_5_extracted.json_id_15-employee_attrition_6_extracted.json_id_14-employee_attrition_7_extracted.json_id_5",
+            "rank": 46,
+            "type": "bar",
+            "channels": {
+                "x": {
+                    "attr": "JobSatisfaction",
+                    "trans": "raw",
+                    "groupby": true
+                },
+                "y": {
+                    "attr": "JobSatisfaction",
+                    "trans": "count",
+                    "calcus": "raw"
+                },
+                "color": {
+                    "attr": "Attrition",
+                    "trans": "raw",
+                    "groupby": true
+                }
+            }
+        },
+        {
+            "describe": "PerformanceRating distribution",
+            "id": "employee_attrition_2_extracted.json_id_37",
+            "rank": 47,
+            "type": "pie",
+            "channels": {
+                "x": {
+                    "attr": "PerformanceRating",
+                    "trans": "raw",
+                    "groupby": true
+                },
+                "y": {
+                    "attr": "PerformanceRating",
+                    "trans": "count",
+                    "calcus": "percentage"
+                }
+            }
+        },
+        {
+            "describe": "PerformanceRating distribution",
+            "id": "employee_attrition_2_extracted.json_id_38-employee_attrition_4_extracted.json_id_31-employee_attrition_5_extracted.json_id_16-employee_attrition_6_extracted.json_id_16",
+            "rank": 48,
+            "type": "bar",
+            "channels": {
+                "x": {
+                    "attr": "PerformanceRating",
+                    "trans": "raw",
+                    "groupby": true
+                },
+                "y": {
+                    "attr": "PerformanceRating",
+                    "trans": "count",
+                    "calcus": "raw"
+                },
+                "color": {
+                    "attr": "Attrition",
+                    "trans": "raw",
+                    "groupby": true
+                }
+            }
+        },
+        {
+            "describe": "RelationshipSatisfaction distribution",
+            "id": "employee_attrition_2_extracted.json_id_39",
+            "rank": 49,
+            "type": "pie",
+            "channels": {
+                "x": {
+                    "attr": "RelationshipSatisfaction",
+                    "trans": "raw",
+                    "groupby": true
+                },
+                "y": {
+                    "attr": "RelationshipSatisfaction",
+                    "trans": "count",
+                    "calcus": "percentage"
+                }
+            }
+        },
+        {
+            "describe": "RelationshipSatisfaction distribution",
+            "id": "employee_attrition_2_extracted.json_id_40-employee_attrition_4_extracted.json_id_33-employee_attrition_5_extracted.json_id_17-employee_attrition_6_extracted.json_id_15",
+            "rank": 50,
+            "type": "bar",
+            "channels": {
+                "x": {
+                    "attr": "RelationshipSatisfaction",
+                    "trans": "raw",
+                    "groupby": true
+                },
+                "y": {
+                    "attr": "RelationshipSatisfaction",
+                    "trans": "count",
+                    "calcus": "raw"
+                },
+                "color": {
+                    "attr": "Attrition",
+                    "trans": "raw",
+                    "groupby": true
+                }
+            }
+        },
+        {
+            "describe": "StockOptionLevel distribution",
+            "id": "employee_attrition_2_extracted.json_id_41",
+            "rank": 51,
+            "type": "pie",
+            "channels": {
+                "x": {
+                    "attr": "StockOptionLevel",
+                    "trans": "raw",
+                    "groupby": true
+                },
+                "y": {
+                    "attr": "StockOptionLevel",
+                    "trans": "count",
+                    "calcus": "percentage"
+                }
+            }
+        },
+        {
+            "describe": "StockOptionLevel distribution",
+            "id": "employee_attrition_2_extracted.json_id_42-employee_attrition_4_extracted.json_id_13-employee_attrition_6_extracted.json_id_12",
+            "rank": 52,
+            "type": "bar",
+            "channels": {
+                "x": {
+                    "attr": "StockOptionLevel",
+                    "trans": "raw",
+                    "groupby": true
+                },
+                "y": {
+                    "attr": "StockOptionLevel",
+                    "trans": "count",
+                    "calcus": "raw"
+                },
+                "color": {
+                    "attr": "Attrition",
+                    "trans": "raw",
+                    "groupby": true
+                }
+            }
+        },
+        {
+            "describe": "WorkLifeBalance distribution",
+            "id": "employee_attrition_2_extracted.json_id_43",
+            "rank": 53,
+            "type": "pie",
+            "channels": {
+                "x": {
+                    "attr": "WorkLifeBalance",
+                    "trans": "raw",
+                    "groupby": true
+                },
+                "y": {
+                    "attr": "WorkLifeBalance",
+                    "trans": "count",
+                    "calcus": "percentage"
+                }
+            }
+        },
+        {
+            "describe": "WorkLifeBalance distribution",
+            "id": "employee_attrition_2_extracted.json_id_44-employee_attrition_4_extracted.json_id_16-employee_attrition_5_extracted.json_id_18-employee_attrition_6_extracted.json_id_10-employee_attrition_7_extracted.json_id_3",
+            "rank": 54,
+            "type": "bar",
+            "channels": {
+                "x": {
+                    "attr": "WorkLifeBalance",
+                    "trans": "raw",
+                    "groupby": true
+                },
+                "y": {
+                    "attr": "WorkLifeBalance",
+                    "trans": "count",
+                    "calcus": "raw"
+                },
+                "color": {
+                    "attr": "Attrition",
+                    "trans": "raw",
+                    "groupby": true
+                }
+            }
+        },
+        {
+            "describe": "YearsAtCompany vs YearsSinceLastPromotion",
+            "id": "employee_attrition_3_extracted.json_id_1",
+            "rank": 55,
+            "type": "scatter",
+            "channels": {
+                "x": {
+                    "attr": "YearsAtCompany",
+                    "trans": "raw"
+                },
+                "y": {
+                    "attr": "YearsSinceLastPromotion",
+                    "trans": "raw"
+                },
+                "color": {
+                    "attr": "OverTime",
+                    "trans": "raw",
+                    "groupby": true
+                }
+            }
+        },
+        {
+            "describe": "YearsAtCompany vs YearsSinceLastPromotion",
+            "id": "employee_attrition_3_extracted.json_id_2",
+            "rank": 56,
+            "type": "scatter",
+            "channels": {
+                "x": {
+                    "attr": "YearsAtCompany",
+                    "trans": "raw"
+                },
+                "y": {
+                    "attr": "YearsSinceLastPromotion",
+                    "trans": "raw"
+                },
+                "color": {
+                    "attr": "Attrition",
+                    "trans": "raw",
+                    "groupby": true
+                }
+            }
+        },
+        {
+            "describe": "mean age by attrition",
+            "id": "employee_attrition_4_extracted.json_id_1",
+            "rank": 57,
+            "type": "bar",
+            "channels": {
+                "x": {
+                    "attr": "Attrition",
+                    "trans": "raw",
+                    "groupby": true
+                },
+                "y": {
+                    "attr": "Age",
+                    "trans": "mean",
+                    "calcus": "raw"
+                }
+            }
+        },
+        {
+            "describe": "DailyRate by attrition",
+            "id": "employee_attrition_4_extracted.json_id_2",
+            "rank": 58,
+            "type": "bar",
+            "channels": {
+                "x": {
+                    "attr": "Attrition",
+                    "trans": "raw",
+                    "groupby": true
+                },
+                "y": {
+                    "attr": "DailyRate",
+                    "trans": "mean",
+                    "calcus": "raw"
+                }
+            }
+        },
+        {
+            "describe": "EnvironmentSatisfaction by attrition",
+            "id": "employee_attrition_4_extracted.json_id_3",
+            "rank": 59,
+            "type": "bar",
+            "channels": {
+                "x": {
+                    "attr": "Attrition",
+                    "trans": "raw",
+                    "groupby": true
+                },
+                "y": {
+                    "attr": "EnvironmentSatisfaction",
+                    "trans": "mean",
+                    "calcus": "raw"
+                }
+            }
+        },
+        {
+            "describe": "JobInvolvement by attrition",
+            "id": "employee_attrition_4_extracted.json_id_5",
+            "rank": 60,
+            "type": "bar",
+            "channels": {
+                "x": {
+                    "attr": "Attrition",
+                    "trans": "raw",
+                    "groupby": true
+                },
+                "y": {
+                    "attr": "JobInvolvement",
+                    "trans": "mean",
+                    "calcus": "raw"
+                }
+            }
+        },
+        {
+            "describe": "JobLevel by attrition",
+            "id": "employee_attrition_4_extracted.json_id_7",
+            "rank": 61,
+            "type": "bar",
+            "channels": {
+                "x": {
+                    "attr": "Attrition",
+                    "trans": "raw",
+                    "groupby": true
+                },
+                "y": {
+                    "attr": "JobLevel",
+                    "trans": "mean",
+                    "calcus": "raw"
+                }
+            }
+        },
+        {
+            "describe": "JobSatisfaction by attrition",
+            "id": "employee_attrition_4_extracted.json_id_9",
+            "rank": 62,
+            "type": "bar",
+            "channels": {
+                "x": {
+                    "attr": "Attrition",
+                    "trans": "raw",
+                    "groupby": true
+                },
+                "y": {
+                    "attr": "JobSatisfaction",
+                    "trans": "mean",
+                    "calcus": "raw"
+                }
+            }
+        },
+        {
+            "describe": "MonthlyIncome by attrition",
+            "id": "employee_attrition_4_extracted.json_id_11",
+            "rank": 63,
+            "type": "bar",
+            "channels": {
+                "x": {
+                    "attr": "Attrition",
+                    "trans": "raw",
+                    "groupby": true
+                },
+                "y": {
+                    "attr": "MonthlyIncome",
+                    "trans": "mean",
+                    "calcus": "raw"
+                }
+            }
+        },
+        {
+            "describe": "StockOptionLevel by attrition",
+            "id": "employee_attrition_4_extracted.json_id_12",
+            "rank": 64,
+            "type": "bar",
+            "channels": {
+                "x": {
+                    "attr": "Attrition",
+                    "trans": "raw",
+                    "groupby": true
+                },
+                "y": {
+                    "attr": "StockOptionLevel",
+                    "trans": "mean",
+                    "calcus": "raw"
+                }
+            }
+        },
+        {
+            "describe": "TotalWorkingYears by attrition",
+            "id": "employee_attrition_4_extracted.json_id_14",
+            "rank": 65,
+            "type": "bar",
+            "channels": {
+                "x": {
+                    "attr": "Attrition",
+                    "trans": "raw",
+                    "groupby": true
+                },
+                "y": {
+                    "attr": "TotalWorkingYears",
+                    "trans": "mean",
+                    "calcus": "raw"
+                }
+            }
+        },
+        {
+            "describe": "WorkLifeBalance by attrition",
+            "id": "employee_attrition_4_extracted.json_id_15",
+            "rank": 66,
+            "type": "bar",
+            "channels": {
+                "x": {
+                    "attr": "Attrition",
+                    "trans": "raw",
+                    "groupby": true
+                },
+                "y": {
+                    "attr": "WorkLifeBalance",
+                    "trans": "mean",
+                    "calcus": "raw"
+                }
+            }
+        },
+        {
+            "describe": "YearsAtCompany by attrition",
+            "id": "employee_attrition_4_extracted.json_id_17",
+            "rank": 67,
+            "type": "bar",
+            "channels": {
+                "x": {
+                    "attr": "Attrition",
+                    "trans": "raw",
+                    "groupby": true
+                },
+                "y": {
+                    "attr": "YearsAtCompany",
+                    "trans": "mean",
+                    "calcus": "raw"
+                }
+            }
+        },
+        {
+            "describe": "YearsInCurrentRole by attrition",
+            "id": "employee_attrition_4_extracted.json_id_18",
+            "rank": 68,
+            "type": "bar",
+            "channels": {
+                "x": {
+                    "attr": "Attrition",
+                    "trans": "raw",
+                    "groupby": true
+                },
+                "y": {
+                    "attr": "YearsInCurrentRole",
+                    "trans": "mean",
+                    "calcus": "raw"
+                }
+            }
+        },
+        {
+            "describe": "YearsWithCurrManager by attrition",
+            "id": "employee_attrition_4_extracted.json_id_20",
+            "rank": 69,
+            "type": "bar",
+            "channels": {
+                "x": {
+                    "attr": "Attrition",
+                    "trans": "raw",
+                    "groupby": true
+                },
+                "y": {
+                    "attr": "YearsWithCurrManager",
+                    "trans": "mean",
+                    "calcus": "raw"
+                }
+            }
+        },
+        {
+            "describe": "Education by attrition",
+            "id": "employee_attrition_4_extracted.json_id_22",
+            "rank": 70,
+            "type": "bar",
+            "channels": {
+                "x": {
+                    "attr": "Attrition",
+                    "trans": "raw",
+                    "groupby": true
+                },
+                "y": {
+                    "attr": "Education",
+                    "trans": "mean",
+                    "calcus": "raw"
+                }
+            }
+        },
+        {
+            "describe": "HourlyRate by attrition",
+            "id": "employee_attrition_4_extracted.json_id_24",
+            "rank": 71,
+            "type": "bar",
+            "channels": {
+                "x": {
+                    "attr": "Attrition",
+                    "trans": "raw",
+                    "groupby": true
+                },
+                "y": {
+                    "attr": "HourlyRate",
+                    "trans": "mean",
+                    "calcus": "raw"
+                }
+            }
+        },
+        {
+            "describe": "MonthlyRate by attrition",
+            "id": "employee_attrition_4_extracted.json_id_25",
+            "rank": 72,
+            "type": "bar",
+            "channels": {
+                "x": {
+                    "attr": "Attrition",
+                    "trans": "raw",
+                    "groupby": true
+                },
+                "y": {
+                    "attr": "MonthlyRate",
+                    "trans": "mean",
+                    "calcus": "raw"
+                }
+            }
+        },
+        {
+            "describe": "NumCompaniesWorked by attrition",
+            "id": "employee_attrition_4_extracted.json_id_26",
+            "rank": 73,
+            "type": "bar",
+            "channels": {
+                "x": {
+                    "attr": "Attrition",
+                    "trans": "raw",
+                    "groupby": true
+                },
+                "y": {
+                    "attr": "NumCompaniesWorked",
+                    "trans": "mean",
+                    "calcus": "raw"
+                }
+            }
+        },
+        {
+            "describe": "PercentSalaryHike by attrition",
+            "id": "employee_attrition_4_extracted.json_id_28",
+            "rank": 74,
+            "type": "bar",
+            "channels": {
+                "x": {
+                    "attr": "Attrition",
+                    "trans": "raw",
+                    "groupby": true
+                },
+                "y": {
+                    "attr": "PercentSalaryHike",
+                    "trans": "mean",
+                    "calcus": "raw"
+                }
+            }
+        },
+        {
+            "describe": "PerformanceRating by attrition",
+            "id": "employee_attrition_4_extracted.json_id_30",
+            "rank": 75,
+            "type": "bar",
+            "channels": {
+                "x": {
+                    "attr": "Attrition",
+                    "trans": "raw",
+                    "groupby": true
+                },
+                "y": {
+                    "attr": "PerformanceRating",
+                    "trans": "mean",
+                    "calcus": "raw"
+                }
+            }
+        },
+        {
+            "describe": "RelationshipSatisfaction by attrition",
+            "id": "employee_attrition_4_extracted.json_id_32",
+            "rank": 76,
+            "type": "bar",
+            "channels": {
+                "x": {
+                    "attr": "Attrition",
+                    "trans": "raw",
+                    "groupby": true
+                },
+                "y": {
+                    "attr": "RelationshipSatisfaction",
+                    "trans": "mean",
+                    "calcus": "raw"
+                }
+            }
+        },
+        {
+            "describe": "YearsSinceLastPromotion by attrition",
+            "id": "employee_attrition_4_extracted.json_id_34",
+            "rank": 77,
+            "type": "bar",
+            "channels": {
+                "x": {
+                    "attr": "Attrition",
+                    "trans": "raw",
+                    "groupby": true
+                },
+                "y": {
+                    "attr": "YearsSinceLastPromotion",
+                    "trans": "mean",
+                    "calcus": "raw"
+                }
+            }
+        },
+        {
+            "describe": "MaritalStatus distribution",
+            "id": "employee_attrition_5_extracted.json_id_1-employee_attrition_6_extracted.json_id_3-employee_attrition_7_extracted.json_id_2",
+            "rank": 78,
+            "type": "bar",
+            "channels": {
+                "x": {
+                    "attr": "MaritalStatus",
+                    "trans": "raw",
+                    "groupby": true
+                },
+                "y": {
+                    "attr": "MaritalStatus",
+                    "trans": "count",
+                    "calcus": "percentage"
+                },
+                "color": {
+                    "attr": "Attrition",
+                    "trans": "raw",
+                    "groupby": true
+                }
+            }
+        },
+        {
+            "describe": "Department distribution",
+            "id": "employee_attrition_5_extracted.json_id_3",
+            "rank": 79,
+            "type": "bar",
+            "channels": {
+                "x": {
+                    "attr": "Attrition",
+                    "trans": "raw",
+                    "groupby": true
+                },
+                "y": {
+                    "attr": "Department",
+                    "trans": "count",
+                    "calcus": "raw"
+                },
+                "color": {
+                    "attr": "Department",
+                    "trans": "raw",
+                    "groupby": true
+                }
+            }
+        },
+        {
+            "describe": "TotalWorkingYears vs PercentSalaryHike by attrition",
+            "id": "employee_attrition_5_extracted.json_id_5",
+            "rank": 80,
+            "type": "scatter",
+            "channels": {
+                "x": {
+                    "attr": "TotalWorkingYears",
+                    "trans": "raw"
+                },
+                "y": {
+                    "attr": "PercentSalaryHike",
+                    "trans": "raw"
+                },
+                "color": {
+                    "attr": "Attrition",
+                    "trans": "raw",
+                    "groupby": true
+                }
+            }
+        },
+        {
+            "describe": "YearsAtCompany vs PercentSalaryHike",
+            "id": "employee_attrition_5_extracted.json_id_6",
+            "rank": 81,
+            "type": "scatter",
+            "channels": {
+                "x": {
+                    "attr": "YearsAtCompany",
+                    "trans": "raw"
+                },
+                "y": {
+                    "attr": "PercentSalaryHike",
+                    "trans": "raw"
+                }
+            }
+        },
+        {
+            "describe": "monthly income vs NumCompaniesWorked",
+            "id": "employee_attrition_5_extracted.json_id_10",
+            "rank": 82,
+            "type": "scatter",
+            "channels": {
+                "x": {
+                    "attr": "NumCompaniesWorked",
+                    "trans": "raw"
+                },
+                "y": {
+                    "attr": "MonthlyIncome",
+                    "trans": "raw"
+                },
+                "color": {
+                    "attr": "Attrition",
+                    "trans": "raw",
+                    "groupby": true
+                }
+            }
+        },
+        {
+            "describe": "monthly income vs TotalWorkingYears",
+            "id": "employee_attrition_5_extracted.json_id_11",
+            "rank": 83,
+            "type": "scatter",
+            "channels": {
+                "x": {
+                    "attr": "TotalWorkingYears",
+                    "trans": "raw"
+                },
+                "y": {
+                    "attr": "MonthlyIncome",
+                    "trans": "raw"
+                },
+                "color": {
+                    "attr": "Attrition",
+                    "trans": "raw",
+                    "groupby": true
+                }
+            }
+        },
+        {
+            "describe": "YearsAtCompany vs YearsInCurrentRole",
+            "id": "employee_attrition_5_extracted.json_id_12",
+            "rank": 84,
+            "type": "scatter",
+            "channels": {
+                "x": {
+                    "attr": "YearsAtCompany",
+                    "trans": "raw"
+                },
+                "y": {
+                    "attr": "YearsInCurrentRole",
+                    "trans": "raw"
+                },
+                "color": {
+                    "attr": "JobRole",
+                    "trans": "raw",
+                    "groupby": true
+                }
+            }
+        },
+        {
+            "describe": "YearsAtCompany vs YearsInCurrentRole",
+            "id": "employee_attrition_5_extracted.json_id_13",
+            "rank": 85,
+            "type": "scatter",
+            "channels": {
+                "x": {
+                    "attr": "YearsAtCompany",
+                    "trans": "raw"
+                },
+                "y": {
+                    "attr": "YearsInCurrentRole",
+                    "trans": "raw"
+                },
+                "color": {
+                    "attr": "Attrition",
+                    "trans": "raw",
+                    "groupby": true
+                }
+            }
+        },
+        {
+            "describe": "WorkLifeBalance distribution",
+            "id": "employee_attrition_7_extracted.json_id_9",
+            "rank": 86,
+            "type": "bar",
+            "channels": {
+                "x": {
+                    "attr": "Attrition",
+                    "trans": "raw",
+                    "groupby": true
+                },
+                "y": {
+                    "attr": "WorkLifeBalance",
+                    "trans": "mean",
+                    "calcus": "raw"
+                },
+                "color": {
+                    "attr": "MaritalStatus",
+                    "trans": "raw",
+                    "groupby": true
+                }
+            }
+        },
+        {
+            "describe": "JobLevel distribution",
+            "id": "employee_attrition_7_extracted.json_id_10",
+            "rank": 87,
+            "type": "bar",
+            "channels": {
+                "x": {
+                    "attr": "Attrition",
+                    "trans": "raw",
+                    "groupby": true
+                },
+                "y": {
+                    "attr": "WorkLifeBalance",
+                    "trans": "mean",
+                    "calcus": "raw"
+                },
+                "color": {
+                    "attr": "JobLevel",
+                    "trans": "raw",
+                    "groupby": true
+                }
+            }
+        },
+        {
+            "describe": "JobLevel distribution",
+            "id": "employee_attrition_7_extracted.json_id_11",
+            "rank": 88,
+            "type": "bar",
+            "channels": {
+                "x": {
+                    "attr": "Attrition",
+                    "trans": "raw",
+                    "groupby": true
+                },
+                "y": {
+                    "attr": "PercentSalaryHike",
+                    "trans": "mean",
+                    "calcus": "raw"
+                },
+                "color": {
+                    "attr": "JobLevel",
+                    "trans": "raw",
+                    "groupby": true
+                }
+            }
+        }
+    ]
+}

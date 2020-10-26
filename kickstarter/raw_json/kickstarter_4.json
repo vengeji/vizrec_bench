@@ -1,0 +1,244 @@
+{
+    "url": "https://www.kaggle.com/andrewjmah/kickstarter-exploratory-data-analysis-with-r",
+    "votes": 26,
+    "rank": 4,
+    "charts": [
+        {
+            "describe": "distribution of main_category",
+            "chart": "bar",
+            "x": {
+                "attr": "main_category",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "main_category",
+                "trans": "count",
+                "calcus": "raw"
+            }
+        },
+        {
+            "describe": "distribution of category",
+            "chart": "bar",
+            "x": {
+                "attr": "category",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "category",
+                "trans": "count",
+                "calcus": "raw"
+            }
+        },
+        {
+            "describe": "sum usd pledged of main_category",
+            "chart": "bar",
+            "x": {
+                "attr": "main_category",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "usd pledged",
+                "trans": "sum",
+                "calcus": "raw"
+            }
+        },
+        {
+            "describe": "funds per backer of different main categories",
+            "chart": "bar",
+            "x": {
+                "attr": "main_category",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "sum(usd pledged)/sum(backers)",
+                "trans": "raw",
+                "calcus": "raw"
+            }
+        },
+        {
+            "describe": "usd pledged of different main categories",
+            "chart": "boxplot",
+            "x": {
+                "attr": "main_category",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "usd pledged",
+                "trans": "raw"
+            }
+        },
+        {
+            "describe": "avg goal of main_category",
+            "chart": "bar",
+            "x": {
+                "attr": "main_category",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "goal",
+                "trans": "sum",
+                "calcus": "raw"
+            }
+        },
+        {
+            "describe": "usd pledged of different main categories",
+            "chart": "boxplot",
+            "x": {
+                "attr": "main_category",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "goal",
+                "trans": "raw"
+            }
+        },
+        {
+            "describe": "histogram of usd pledged",
+            "chart": "histogram",
+            "x": {
+                "attr": "usd pledged",
+                "trans": "bin",
+                "bins": "default"
+            },
+            "y": {
+                "attr": "usd pledged",
+                "trans": "count",
+                "calcus": "raw"
+            }
+        },
+        {
+            "describe": "histogram of goal",
+            "chart": "histogram",
+            "x": {
+                "attr": "goal",
+                "trans": "bin",
+                "bins": "default"
+            },
+            "y": {
+                "attr": "goal",
+                "trans": "count",
+                "calcus": "raw"
+            }
+        },
+        {
+            "describe": "distribution of states",
+            "chart": "bar",
+            "x": {
+                "attr": "state",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "state",
+                "trans": "count",
+                "calcus": "raw"
+            }
+        },
+        {
+            "describe": "distribution of states",
+            "chart": "bar",
+            "x": {
+                "attr": "state",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "state",
+                "trans": "count",
+                "calcus": "raw"
+            }
+        },
+        {
+            "describe": "success rate of projects in different categories",
+            "chart": "bar",
+            "x": {
+                "attr": "main_category",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "state",
+                "trans": "count",
+                "calcus": "raw"
+            },
+            "color": {
+                "attr": "state",
+                "trans": "raw",
+                "groupby": true
+            }
+        },
+        {
+            "describe": "number of projects by year",
+            "chart": "bar",
+            "x": {
+                "attr": "launched",
+                "trans": "year",
+                "groupby": true
+            },
+            "y": {
+                "attr": "launched",
+                "trans": "count",
+                "calcus": "raw"
+            }
+        },
+        {
+            "describe": "number of projects by year",
+            "chart": "bar",
+            "x": {
+                "attr": "launched",
+                "trans": "year",
+                "groupby": true
+            },
+            "y": {
+                "attr": "state",
+                "trans": "count",
+                "calcus": "raw"
+            },
+            "color": {
+                "attr": "state",
+                "trans": "raw",
+                "groupby": true
+            }
+        },
+        {
+            "describe": "count of year and main categories",
+            "chart": "heatmap",
+            "x": {
+                "attr": "launched",
+                "trans": "year",
+                "groupby": true
+            },
+            "y": {
+                "attr": "main_category",
+                "trans": "raw",
+                "groupby": true
+            },
+            "color": {
+                "attr": "launched",
+                "trans": "count",
+                "calcus": "raw"
+            }
+        },
+        {
+            "describe": "fund raisers from the globe",
+            "chart": "map",
+            "x": {
+                "attr": "country",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "country",
+                "trans": "count",
+                "calcus": "raw"
+            }
+        }
+    ]
+}

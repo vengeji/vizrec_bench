@@ -1,0 +1,485 @@
+{
+    "url": "https://www.kaggle.com/kabure/kickstarter-projects-eda-stat-tests-pipeline",
+    "votes": 103,
+    "rank": 1,
+    "charts": [
+        {
+            "describe": "distribution of states",
+            "chart": "pie",
+            "x": {
+                "attr": "state",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "state",
+                "trans": "count",
+                "calcus": "percentage"
+            }
+        },
+        {
+            "describe": "histogram of goals of different state",
+            "chart": "histogram",
+            "x": {
+                "attr": "usd_goal_real",
+                "trans": "bin",
+                "bins": 30
+            },
+            "y": {
+                "attr": "usd_goal_real",
+                "trans": "count",
+                "calcus": "percentage"
+            },
+            "color": {
+                "attr": "state",
+                "trans": "raw",
+                "groupby": true
+            }
+        },
+        {
+            "describe": "goal log and pledged log by state of projects",
+            "chart": "boxplot",
+            "x": {
+                "attr": "state",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "usd_goal_real",
+                "trans": "log"
+            }
+        },
+        {
+            "describe": "goal and pledged log by state of projects",
+            "chart": "boxplot",
+            "x": {
+                "attr": "state",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "usd_pledged_real",
+                "trans": "log"
+            }
+        },
+        {
+            "describe": "scatter of goal and pledged",
+            "chart": "scatter",
+            "x": {
+                "attr": "usd_goal_real",
+                "trans": "log"
+            },
+            "y": {
+                "attr": "usd_pledged_real",
+                "trans": "log"
+            }
+        },
+        {
+            "describe": "main categories distribution",
+            "chart": "bar",
+            "x": {
+                "attr": "main_category",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "main_category",
+                "trans": "count",
+                "calcus": "raw"
+            }
+        },
+        {
+            "describe": "main categories distribution of different states",
+            "chart": "bar",
+            "x": {
+                "attr": "main_category",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "main_category",
+                "trans": "count",
+                "calcus": "raw"
+            },
+            "color": {
+                "attr": "state",
+                "trans": "raw",
+                "groupby": true
+            }
+        },
+        {
+            "describe": "top categories distribution",
+            "chart": "bar",
+            "x": {
+                "attr": "category",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "category",
+                "trans": "count",
+                "calcus": "raw"
+            }
+        },
+        {
+            "describe": "top categories distribution of different states",
+            "chart": "bar",
+            "x": {
+                "attr": "category",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "category",
+                "trans": "count",
+                "calcus": "raw"
+            },
+            "color": {
+                "attr": "state",
+                "trans": "raw",
+                "groupby": true
+            }
+        },
+        {
+            "describe": "category distribution",
+            "chart": "boxplot",
+            "x": {
+                "attr": "category",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "usd_pledged_real",
+                "trans": "log"
+            }
+        },
+        {
+            "describe": "category distribution of different states",
+            "chart": "boxplot",
+            "x": {
+                "attr": "category",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "usd_pledged_real",
+                "trans": "log"
+            },
+            "color": {
+                "attr": "state",
+                "trans": "raw",
+                "groupby": true
+            }
+        },
+        {
+            "describe": "category distribution of different states",
+            "chart": "boxplot",
+            "x": {
+                "attr": "category",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "usd_goal_real",
+                "trans": "log"
+            },
+            "color": {
+                "attr": "state",
+                "trans": "raw",
+                "groupby": true
+            }
+        },
+        {
+            "describe": "category distribution of different states",
+            "chart": "boxplot",
+            "x": {
+                "attr": "category",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "diff_pledged_goal=pledged/goal*100",
+                "trans": "raw"
+            },
+            "color": {
+                "attr": "state",
+                "trans": "raw",
+                "groupby": true
+            }
+        },
+        {
+            "describe": "faceted grid of main category , category of different state",
+            "chart": "facetgrid",
+            "x": {
+                "attr": "category",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "category",
+                "trans": "count",
+                "calcus": "raw"
+            },
+            "row": {
+                "attr": "main_category",
+                "trans": "raw",
+                "groupby": true
+            },
+            "col": {
+                "attr": "state",
+                "trans": "raw",
+                "groupby": true
+            }
+        },
+        {
+            "describe": "month s to campaign",
+            "chart": "bar",
+            "x": {
+                "attr": "time_campaign=(deadline-launched)/30",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "time_campaign=(deadline-launched)/30",
+                "trans": "count",
+                "calcus": "raw"
+            },
+            "color": {
+                "attr": "state",
+                "trans": "raw",
+                "groupby": true
+            }
+        },
+        {
+            "describe": "project pledged by year",
+            "chart": "boxplot",
+            "x": {
+                "attr": "launched",
+                "trans": "year",
+                "groupbe": true
+            },
+            "y": {
+                "attr": "usd_pledged_real",
+                "trans": "log"
+            }
+        },
+        {
+            "describe": "project count by year",
+            "chart": "bar",
+            "x": {
+                "attr": "launched",
+                "trans": "year",
+                "groupbe": true
+            },
+            "y": {
+                "attr": "launched",
+                "trans": "count",
+                "calcus": "raw"
+            },
+            "color": {
+                "attr": "state",
+                "trans": "year",
+                "groupbe": true
+            }
+        },
+        {
+            "describe": "project pledged by month",
+            "chart": "boxplot",
+            "x": {
+                "attr": "launched",
+                "trans": "month",
+                "groupbe": true
+            },
+            "y": {
+                "attr": "usd_pledged_real",
+                "trans": "log"
+            }
+        },
+        {
+            "describe": "project count by month",
+            "chart": "bar",
+            "x": {
+                "attr": "launched",
+                "trans": "month",
+                "groupbe": true
+            },
+            "y": {
+                "attr": "launched",
+                "trans": "count",
+                "calcus": "raw"
+            },
+            "color": {
+                "attr": "state",
+                "trans": "raw",
+                "groupbe": true
+            }
+        },
+        {
+            "describe": "histogram of diff goal pledge of different state",
+            "chart": "histogram",
+            "x": {
+                "attr": "diff_pledged_goal=pledged/goal*100",
+                "trans": "bin",
+                "bins": 30
+            },
+            "y": {
+                "attr": "diff_pledged_goal=pledged/goal*100",
+                "trans": "count",
+                "calcus": "percentage"
+            },
+            "color": {
+                "attr": "state",
+                "trans": "raw",
+                "groupby": true
+            }
+        },
+        {
+            "describe": "project count by year",
+            "chart": "bar",
+            "x": {
+                "attr": "launched",
+                "trans": "year",
+                "groupbe": true
+            },
+            "y": {
+                "attr": "launched",
+                "trans": "count",
+                "calcus": "raw"
+            }
+        },
+        {
+            "describe": "boxplot of diff goal pledge of different year and state",
+            "chart": "boxplot",
+            "x": {
+                "attr": "launched",
+                "trans": "year",
+                "groupby": true
+            },
+            "y": {
+                "attr": "diff_pledged_goal=pledged/goal*100",
+                "trans": "raw"
+            },
+            "color": {
+                "attr": "state",
+                "trans": "raw",
+                "groupby": true
+            }
+        },
+        {
+            "describe": "months to campaign",
+            "chart": "bar",
+            "x": {
+                "attr": "state",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "usd_goal_real",
+                "trans": "log"
+            },
+            "color": {
+                "attr": "time_campaign=(deadline-launched)/30",
+                "trans": "raw",
+                "groupby": true
+            }
+        },
+        {
+            "describe": "months to campaign",
+            "chart": "bar",
+            "x": {
+                "attr": "state",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "usd_pledged_real",
+                "trans": "log"
+            },
+            "color": {
+                "attr": "time_campaign=(deadline-launched)/30",
+                "trans": "raw",
+                "groupby": true
+            }
+        },
+        {
+            "describe": "goal reached by state",
+            "chart": "boxplot",
+            "x": {
+                "attr": "state",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "diff_pledged_goal=pledged/goal*100",
+                "trans": "raw"
+            }
+        },
+        {
+            "describe": "histogram of backers",
+            "chart": "histogram",
+            "x": {
+                "attr": "backers",
+                "trans": "bin",
+                "bins": "default"
+            },
+            "y": {
+                "attr": "backers",
+                "trans": "count",
+                "calcus": "raw"
+            }
+        },
+        {
+            "describe": "violinplot of backers",
+            "chart": "violinplot",
+            "x": {
+                "attr": "state",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "backers",
+                "trans": "raw"
+            }
+        },
+        {
+            "describe": "violinplot of backers",
+            "chart": "violinplot",
+            "x": {
+                "attr": "main_category",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "backers",
+                "trans": "raw"
+            }
+        },
+        {
+            "describe": "violinplot of backers",
+            "chart": "violinplot",
+            "x": {
+                "attr": "launched",
+                "trans": "year",
+                "groupby": true
+            },
+            "y": {
+                "attr": "backers",
+                "trans": "raw"
+            }
+        },
+        {
+            "describe": "projecte name",
+            "chart": "wordcloud",
+            "x": {
+                "attr": "name",
+                "trans": "split",
+                "groupby": true
+            },
+            "y": {
+                "attr": "name",
+                "trans": "count",
+                "calcus": "raw"
+            }
+        }
+    ]
+}

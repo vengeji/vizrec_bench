@@ -1,0 +1,493 @@
+{
+    "charts": [
+        {
+            "describe": "distribution of states",
+            "id": "kickstarter_1_extracted.json_id_1-kickstarter_3_extracted.json_id_3",
+            "rank": 1,
+            "type": "pie",
+            "channels": {
+                "x": {
+                    "attr": "state",
+                    "trans": "raw",
+                    "groupby": true
+                },
+                "y": {
+                    "attr": "state",
+                    "trans": "count",
+                    "calcus": "percentage"
+                }
+            }
+        },
+        {
+            "describe": "scatter of goal and pledged",
+            "id": "kickstarter_1_extracted.json_id_2",
+            "rank": 2,
+            "type": "scatter",
+            "channels": {
+                "x": {
+                    "attr": "usd_goal_real",
+                    "trans": "log"
+                },
+                "y": {
+                    "attr": "usd_pledged_real",
+                    "trans": "log"
+                }
+            }
+        },
+        {
+            "describe": "main categories distribution",
+            "id": "kickstarter_1_extracted.json_id_3-kickstarter_2_extracted.json_id_2-kickstarter_3_extracted.json_id_1-kickstarter_4_extracted.json_id_1",
+            "rank": 3,
+            "type": "bar",
+            "channels": {
+                "x": {
+                    "attr": "main_category",
+                    "trans": "raw",
+                    "groupby": true
+                },
+                "y": {
+                    "attr": "main_category",
+                    "trans": "count",
+                    "calcus": "raw"
+                }
+            }
+        },
+        {
+            "describe": "main categories distribution of different states",
+            "id": "kickstarter_1_extracted.json_id_4-kickstarter_2_extracted.json_id_6-kickstarter_3_extracted.json_id_5",
+            "rank": 4,
+            "type": "bar",
+            "channels": {
+                "x": {
+                    "attr": "main_category",
+                    "trans": "raw",
+                    "groupby": true
+                },
+                "y": {
+                    "attr": "main_category",
+                    "trans": "count",
+                    "calcus": "raw"
+                },
+                "color": {
+                    "attr": "state",
+                    "trans": "raw",
+                    "groupby": true
+                }
+            }
+        },
+        {
+            "describe": "top categories distribution",
+            "id": "kickstarter_1_extracted.json_id_5-kickstarter_2_extracted.json_id_3-kickstarter_3_extracted.json_id_2-kickstarter_4_extracted.json_id_2",
+            "rank": 5,
+            "type": "bar",
+            "channels": {
+                "x": {
+                    "attr": "category",
+                    "trans": "raw",
+                    "groupby": true
+                },
+                "y": {
+                    "attr": "category",
+                    "trans": "count",
+                    "calcus": "raw"
+                }
+            }
+        },
+        {
+            "describe": "top categories distribution of different states",
+            "id": "kickstarter_1_extracted.json_id_6-kickstarter_2_extracted.json_id_7",
+            "rank": 6,
+            "type": "bar",
+            "channels": {
+                "x": {
+                    "attr": "category",
+                    "trans": "raw",
+                    "groupby": true
+                },
+                "y": {
+                    "attr": "category",
+                    "trans": "count",
+                    "calcus": "raw"
+                },
+                "color": {
+                    "attr": "state",
+                    "trans": "raw",
+                    "groupby": true
+                }
+            }
+        },
+        {
+            "describe": "project count by year",
+            "id": "kickstarter_1_extracted.json_id_7",
+            "rank": 7,
+            "type": "bar",
+            "channels": {
+                "x": {
+                    "attr": "launched",
+                    "trans": "year",
+                    "groupbe": true
+                },
+                "y": {
+                    "attr": "launched",
+                    "trans": "count",
+                    "calcus": "raw"
+                },
+                "color": {
+                    "attr": "state",
+                    "trans": "year",
+                    "groupbe": true
+                }
+            }
+        },
+        {
+            "describe": "project count by month",
+            "id": "kickstarter_1_extracted.json_id_8",
+            "rank": 8,
+            "type": "bar",
+            "channels": {
+                "x": {
+                    "attr": "launched",
+                    "trans": "month",
+                    "groupbe": true
+                },
+                "y": {
+                    "attr": "launched",
+                    "trans": "count",
+                    "calcus": "raw"
+                },
+                "color": {
+                    "attr": "state",
+                    "trans": "raw",
+                    "groupbe": true
+                }
+            }
+        },
+        {
+            "describe": "project count by year",
+            "id": "kickstarter_1_extracted.json_id_9",
+            "rank": 9,
+            "type": "bar",
+            "channels": {
+                "x": {
+                    "attr": "launched",
+                    "trans": "year",
+                    "groupbe": true
+                },
+                "y": {
+                    "attr": "launched",
+                    "trans": "count",
+                    "calcus": "raw"
+                }
+            }
+        },
+        {
+            "describe": "distribution of states",
+            "id": "kickstarter_2_extracted.json_id_1-kickstarter_4_extracted.json_id_5",
+            "rank": 10,
+            "type": "bar",
+            "channels": {
+                "x": {
+                    "attr": "state",
+                    "trans": "raw",
+                    "groupby": true
+                },
+                "y": {
+                    "attr": "state",
+                    "trans": "count",
+                    "calcus": "raw"
+                }
+            }
+        },
+        {
+            "describe": "distribution of country",
+            "id": "kickstarter_2_extracted.json_id_4",
+            "rank": 11,
+            "type": "bar",
+            "channels": {
+                "x": {
+                    "attr": "country",
+                    "trans": "raw",
+                    "groupby": true
+                },
+                "y": {
+                    "attr": "country",
+                    "trans": "count",
+                    "calcus": "raw"
+                }
+            }
+        },
+        {
+            "describe": "distribution of year",
+            "id": "kickstarter_2_extracted.json_id_5-kickstarter_4_extracted.json_id_8",
+            "rank": 12,
+            "type": "bar",
+            "channels": {
+                "x": {
+                    "attr": "launched",
+                    "trans": "year",
+                    "groupby": true
+                },
+                "y": {
+                    "attr": "launched",
+                    "trans": "count",
+                    "calcus": "raw"
+                }
+            }
+        },
+        {
+            "describe": "mean backers of main_category",
+            "id": "kickstarter_2_extracted.json_id_8",
+            "rank": 13,
+            "type": "bar",
+            "channels": {
+                "x": {
+                    "attr": "main_category",
+                    "trans": "raw",
+                    "groupby": true
+                },
+                "y": {
+                    "attr": "backers",
+                    "trans": "mean",
+                    "calcus": "raw"
+                }
+            }
+        },
+        {
+            "describe": "mean usd pledged of main_category",
+            "id": "kickstarter_2_extracted.json_id_9",
+            "rank": 14,
+            "type": "bar",
+            "channels": {
+                "x": {
+                    "attr": "main_category",
+                    "trans": "raw",
+                    "groupby": true
+                },
+                "y": {
+                    "attr": "usd pledged",
+                    "trans": "mean",
+                    "calcus": "raw"
+                }
+            }
+        },
+        {
+            "describe": "mean usd_goal_real of main_category",
+            "id": "kickstarter_2_extracted.json_id_10",
+            "rank": 15,
+            "type": "bar",
+            "channels": {
+                "x": {
+                    "attr": "main_category",
+                    "trans": "raw",
+                    "groupby": true
+                },
+                "y": {
+                    "attr": "usd_goal_real",
+                    "trans": "mean",
+                    "calcus": "raw"
+                }
+            }
+        },
+        {
+            "describe": "relation between backers and pledge",
+            "id": "kickstarter_2_extracted.json_id_11",
+            "rank": 16,
+            "type": "scatter",
+            "channels": {
+                "x": {
+                    "attr": "backers",
+                    "trans": "raw"
+                },
+                "y": {
+                    "attr": "usd pledged",
+                    "trans": "raw"
+                },
+                "color": {
+                    "attr": "state",
+                    "trans": "raw",
+                    "groupby": true
+                }
+            }
+        },
+        {
+            "describe": "sum backers of main_category",
+            "id": "kickstarter_3_extracted.json_id_4",
+            "rank": 17,
+            "type": "bar",
+            "channels": {
+                "x": {
+                    "attr": "main_category",
+                    "trans": "raw",
+                    "groupby": true
+                },
+                "y": {
+                    "attr": "backers",
+                    "trans": "sum",
+                    "calcus": "raw"
+                }
+            }
+        },
+        {
+            "describe": "avg goal real and avg backers",
+            "id": "kickstarter_3_extracted.json_id_6",
+            "rank": 18,
+            "type": "scatter",
+            "channels": {
+                "x": {
+                    "attr": "backers",
+                    "trans": "mean",
+                    "calcus": "raw"
+                },
+                "y": {
+                    "attr": "usd_goal_real",
+                    "trans": "mean",
+                    "calcus": "raw"
+                },
+                "groupby": {
+                    "attr": "state",
+                    "trans": "raw"
+                }
+            }
+        },
+        {
+            "describe": "boxplot of funds raised",
+            "id": "kickstarter_3_extracted.json_id_7",
+            "rank": 19,
+            "type": "scatter",
+            "channels": {
+                "x": {
+                    "attr": "main_category",
+                    "trans": "raw",
+                    "groupby": true
+                },
+                "y": {
+                    "attr": "usd_pledged_real",
+                    "trans": "raw"
+                }
+            }
+        },
+        {
+            "describe": "success rate of projects in different categories",
+            "id": "kickstarter_3_extracted.json_id_8-kickstarter_4_extracted.json_id_7",
+            "rank": 20,
+            "type": "bar",
+            "channels": {
+                "x": {
+                    "attr": "main_category",
+                    "trans": "raw",
+                    "groupby": true
+                },
+                "y": {
+                    "attr": "state",
+                    "trans": "count",
+                    "calcus": "percentage"
+                },
+                "color": {
+                    "attr": "state",
+                    "trans": "raw",
+                    "groupby": true
+                }
+            }
+        },
+        {
+            "describe": "number of projects by year of different categories",
+            "id": "kickstarter_3_extracted.json_id_9",
+            "rank": 21,
+            "type": "bar",
+            "channels": {
+                "x": {
+                    "attr": "launched",
+                    "trans": "year",
+                    "groupby": true
+                },
+                "y": {
+                    "attr": "launched",
+                    "trans": "count",
+                    "calcus": "raw"
+                },
+                "color": {
+                    "attr": "main_category",
+                    "trans": "raw",
+                    "groupby": true
+                }
+            }
+        },
+        {
+            "describe": "sum usd pledged of main_category",
+            "id": "kickstarter_4_extracted.json_id_3",
+            "rank": 22,
+            "type": "bar",
+            "channels": {
+                "x": {
+                    "attr": "main_category",
+                    "trans": "raw",
+                    "groupby": true
+                },
+                "y": {
+                    "attr": "usd pledged",
+                    "trans": "sum",
+                    "calcus": "raw"
+                }
+            }
+        },
+        {
+            "describe": "avg goal of main_category",
+            "id": "kickstarter_4_extracted.json_id_4",
+            "rank": 23,
+            "type": "bar",
+            "channels": {
+                "x": {
+                    "attr": "main_category",
+                    "trans": "raw",
+                    "groupby": true
+                },
+                "y": {
+                    "attr": "goal",
+                    "trans": "sum",
+                    "calcus": "raw"
+                }
+            }
+        },
+        {
+            "describe": "distribution of states",
+            "id": "kickstarter_4_extracted.json_id_6",
+            "rank": 24,
+            "type": "bar",
+            "channels": {
+                "x": {
+                    "attr": "state",
+                    "trans": "raw",
+                    "groupby": true
+                },
+                "y": {
+                    "attr": "state",
+                    "trans": "count",
+                    "calcus": "percentage"
+                }
+            }
+        },
+        {
+            "describe": "number of projects by year",
+            "id": "kickstarter_4_extracted.json_id_9",
+            "rank": 25,
+            "type": "bar",
+            "channels": {
+                "x": {
+                    "attr": "launched",
+                    "trans": "year",
+                    "groupby": true
+                },
+                "y": {
+                    "attr": "state",
+                    "trans": "count",
+                    "calcus": "percentage"
+                },
+                "color": {
+                    "attr": "state",
+                    "trans": "raw",
+                    "groupby": true
+                }
+            }
+        }
+    ]
+}

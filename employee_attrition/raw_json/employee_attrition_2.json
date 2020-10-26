@@ -1,0 +1,1335 @@
+{
+    "url": "https://www.kaggle.com/vincentlugat/ibm-attrition-analysis-and-prediction",
+    "votes": 69,
+    "rank": 2,
+    "charts": [
+        {
+            "describe": "employee attrition amount",
+            "chart": "bar",
+            "x": {
+                "attr": "Attrition",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "Attrition",
+                "trans": "count",
+                "calcus": "raw"
+            }
+        },
+        {
+            "describe": "employee attrition amount",
+            "chart": "pie",
+            "x": {
+                "attr": "Attrition",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "Attrition",
+                "trans": "count",
+                "calcus": "percentage"
+            }
+        },
+        {
+            "describe": "age distribution",
+            "chart": "histogram",
+            "x": {
+                "attr": "Age",
+                "trans": "bin",
+                "bins": "default"
+            },
+            "y": {
+                "attr": "Age",
+                "trans": "count",
+                "calcus": "percentage"
+            },
+            "color": {
+                "attr": "Attrition",
+                "trans": "raw",
+                "groupby": true
+            }
+        },
+        {
+            "describe": "age distribution",
+            "chart": "bar",
+            "x": {
+                "attr": "Age",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "Age",
+                "trans": "count",
+                "calcus": "raw"
+            },
+            "color": {
+                "attr": "Attrition",
+                "trans": "raw",
+                "groupby": true
+            }
+        },
+        {
+            "describe": "DailyRate distribution",
+            "chart": "histogram",
+            "x": {
+                "attr": "DailyRate",
+                "trans": "bin",
+                "bins": "default"
+            },
+            "y": {
+                "attr": "DailyRate",
+                "trans": "count",
+                "calcus": "percentage"
+            },
+            "color": {
+                "attr": "Attrition",
+                "trans": "raw",
+                "groupby": true
+            }
+        },
+        {
+            "describe": "DistanceFromHome distribution",
+            "chart": "histogram",
+            "x": {
+                "attr": "DistanceFromHome",
+                "trans": "bin",
+                "bins": "default"
+            },
+            "y": {
+                "attr": "DistanceFromHome",
+                "trans": "count",
+                "calcus": "percentage"
+            },
+            "color": {
+                "attr": "Attrition",
+                "trans": "raw",
+                "groupby": true
+            }
+        },
+        {
+            "describe": "DistanceFromHome distribution",
+            "chart": "bar",
+            "x": {
+                "attr": "DistanceFromHome",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "DistanceFromHome",
+                "trans": "count",
+                "calcus": "raw"
+            },
+            "color": {
+                "attr": "Attrition",
+                "trans": "raw",
+                "groupby": true
+            }
+        },
+        {
+            "describe": "HourlyRate distribution",
+            "chart": "histogram",
+            "x": {
+                "attr": "HourlyRate",
+                "trans": "bin",
+                "bins": "default"
+            },
+            "y": {
+                "attr": "HourlyRate",
+                "trans": "count",
+                "calcus": "percentage"
+            },
+            "color": {
+                "attr": "Attrition",
+                "trans": "raw",
+                "groupby": true
+            }
+        },
+        {
+            "describe": "MonthlyIncome distribution",
+            "chart": "histogram",
+            "x": {
+                "attr": "MonthlyIncome",
+                "trans": "bin",
+                "bins": "default"
+            },
+            "y": {
+                "attr": "MonthlyIncome",
+                "trans": "count",
+                "calcus": "percentage"
+            },
+            "color": {
+                "attr": "Attrition",
+                "trans": "raw",
+                "groupby": true
+            }
+        },
+        {
+            "describe": "MonthlyRate distribution",
+            "chart": "histogram",
+            "x": {
+                "attr": "MonthlyRate",
+                "trans": "bin",
+                "bins": "default"
+            },
+            "y": {
+                "attr": "MonthlyRate",
+                "trans": "count",
+                "calcus": "percentage"
+            },
+            "color": {
+                "attr": "Attrition",
+                "trans": "raw",
+                "groupby": true
+            }
+        },
+        {
+            "describe": "NumCompaniesWorked distribution",
+            "chart": "histogram",
+            "x": {
+                "attr": "NumCompaniesWorked",
+                "trans": "bin",
+                "bins": "default"
+            },
+            "y": {
+                "attr": "NumCompaniesWorked",
+                "trans": "count",
+                "calcus": "percentage"
+            },
+            "color": {
+                "attr": "Attrition",
+                "trans": "raw",
+                "groupby": true
+            }
+        },
+        {
+            "describe": "NumCompaniesWorked distribution",
+            "chart": "bar",
+            "x": {
+                "attr": "NumCompaniesWorked",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "NumCompaniesWorked",
+                "trans": "count",
+                "calcus": "raw"
+            },
+            "color": {
+                "attr": "Attrition",
+                "trans": "raw",
+                "groupby": true
+            }
+        },
+        {
+            "describe": "PercentSalaryHike distribution",
+            "chart": "histogram",
+            "x": {
+                "attr": "PercentSalaryHike",
+                "trans": "bin",
+                "bins": "default"
+            },
+            "y": {
+                "attr": "PercentSalaryHike",
+                "trans": "count",
+                "calcus": "percentage"
+            },
+            "color": {
+                "attr": "Attrition",
+                "trans": "raw",
+                "groupby": true
+            }
+        },
+        {
+            "describe": "PercentSalaryHike distribution",
+            "chart": "bar",
+            "x": {
+                "attr": "PercentSalaryHike",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "PercentSalaryHike",
+                "trans": "count",
+                "calcus": "raw"
+            },
+            "color": {
+                "attr": "Attrition",
+                "trans": "raw",
+                "groupby": true
+            }
+        },
+        {
+            "describe": "TotalWorkingYears distribution",
+            "chart": "histogram",
+            "x": {
+                "attr": "TotalWorkingYears",
+                "trans": "bin",
+                "bins": "default"
+            },
+            "y": {
+                "attr": "TotalWorkingYears",
+                "trans": "count",
+                "calcus": "percentage"
+            },
+            "color": {
+                "attr": "Attrition",
+                "trans": "raw",
+                "groupby": true
+            }
+        },
+        {
+            "describe": "TotalWorkingYears distribution",
+            "chart": "bar",
+            "x": {
+                "attr": "TotalWorkingYears",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "TotalWorkingYears",
+                "trans": "count",
+                "calcus": "raw"
+            },
+            "color": {
+                "attr": "Attrition",
+                "trans": "raw",
+                "groupby": true
+            }
+        },
+        {
+            "describe": "TrainingTimesLastYear distribution",
+            "chart": "histogram",
+            "x": {
+                "attr": "TrainingTimesLastYear",
+                "trans": "bin",
+                "bins": "default"
+            },
+            "y": {
+                "attr": "TrainingTimesLastYear",
+                "trans": "count",
+                "calcus": "percentage"
+            },
+            "color": {
+                "attr": "Attrition",
+                "trans": "raw",
+                "groupby": true
+            }
+        },
+        {
+            "describe": "TrainingTimesLastYear distribution",
+            "chart": "bar",
+            "x": {
+                "attr": "TrainingTimesLastYear",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "TrainingTimesLastYear",
+                "trans": "count",
+                "calcus": "raw"
+            },
+            "color": {
+                "attr": "Attrition",
+                "trans": "raw",
+                "groupby": true
+            }
+        },
+        {
+            "describe": "YearsAtCompany distribution",
+            "chart": "histogram",
+            "x": {
+                "attr": "YearsAtCompany",
+                "trans": "bin",
+                "bins": "default"
+            },
+            "y": {
+                "attr": "YearsAtCompany",
+                "trans": "count",
+                "calcus": "percentage"
+            },
+            "color": {
+                "attr": "Attrition",
+                "trans": "raw",
+                "groupby": true
+            }
+        },
+        {
+            "describe": "YearsAtCompany distribution",
+            "chart": "bar",
+            "x": {
+                "attr": "YearsAtCompany",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "YearsAtCompany",
+                "trans": "count",
+                "calcus": "raw"
+            },
+            "color": {
+                "attr": "Attrition",
+                "trans": "raw",
+                "groupby": true
+            }
+        },
+        {
+            "describe": "YearsInCurrentRole distribution",
+            "chart": "histogram",
+            "x": {
+                "attr": "YearsInCurrentRole",
+                "trans": "bin",
+                "bins": "default"
+            },
+            "y": {
+                "attr": "YearsInCurrentRole",
+                "trans": "count",
+                "calcus": "percentage"
+            },
+            "color": {
+                "attr": "Attrition",
+                "trans": "raw",
+                "groupby": true
+            }
+        },
+        {
+            "describe": "YearsInCurrentRole distribution",
+            "chart": "bar",
+            "x": {
+                "attr": "YearsInCurrentRole",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "YearsInCurrentRole",
+                "trans": "count",
+                "calcus": "raw"
+            },
+            "color": {
+                "attr": "Attrition",
+                "trans": "raw",
+                "groupby": true
+            }
+        },
+        {
+            "describe": "YearsSinceLastPromotion distribution",
+            "chart": "histogram",
+            "x": {
+                "attr": "YearsSinceLastPromotion",
+                "trans": "bin",
+                "bins": "default"
+            },
+            "y": {
+                "attr": "YearsSinceLastPromotion",
+                "trans": "count",
+                "calcus": "percentage"
+            },
+            "color": {
+                "attr": "Attrition",
+                "trans": "raw",
+                "groupby": true
+            }
+        },
+        {
+            "describe": "YearsSinceLastPromotion distribution",
+            "chart": "bar",
+            "x": {
+                "attr": "YearsSinceLastPromotion",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "YearsSinceLastPromotion",
+                "trans": "count",
+                "calcus": "raw"
+            },
+            "color": {
+                "attr": "Attrition",
+                "trans": "raw",
+                "groupby": true
+            }
+        },
+        {
+            "describe": "YearsWithCurrManager distribution",
+            "chart": "histogram",
+            "x": {
+                "attr": "YearsWithCurrManager",
+                "trans": "bin",
+                "bins": "default"
+            },
+            "y": {
+                "attr": "YearsWithCurrManager",
+                "trans": "count",
+                "calcus": "percentage"
+            },
+            "color": {
+                "attr": "Attrition",
+                "trans": "raw",
+                "groupby": true
+            }
+        },
+        {
+            "describe": "YearsWithCurrManager distribution",
+            "chart": "bar",
+            "x": {
+                "attr": "YearsWithCurrManager",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "YearsWithCurrManager",
+                "trans": "count",
+                "calcus": "raw"
+            },
+            "color": {
+                "attr": "Attrition",
+                "trans": "raw",
+                "groupby": true
+            }
+        },
+        {
+            "describe": "gender distribution",
+            "chart": "pie",
+            "x": {
+                "attr": "Gender",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "Gender",
+                "trans": "count",
+                "calcus": "percentage"
+            }
+        },
+        {
+            "describe": "gender distribution",
+            "chart": "pie-m",
+            "x": {
+                "attr": "Gender",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "Gender",
+                "trans": "count",
+                "calcus": "percentage"
+            },
+            "col": {
+                "attr": "Attrition",
+                "trans": "raw",
+                "groupby": true
+            }
+        },
+        {
+            "describe": "Gender distribution",
+            "chart": "bar",
+            "x": {
+                "attr": "Gender",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "Gender",
+                "trans": "count",
+                "calcus": "raw"
+            },
+            "color": {
+                "attr": "Attrition",
+                "trans": "raw",
+                "groupby": true
+            }
+        },
+        {
+            "describe": "OverTime distribution",
+            "chart": "pie",
+            "x": {
+                "attr": "OverTime",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "OverTime",
+                "trans": "count",
+                "calcus": "percentage"
+            }
+        },
+        {
+            "describe": "OverTime distribution",
+            "chart": "pie-m",
+            "x": {
+                "attr": "OverTime",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "OverTime",
+                "trans": "count",
+                "calcus": "percentage"
+            },
+            "col": {
+                "attr": "Attrition",
+                "trans": "raw",
+                "groupby": true
+            }
+        },
+        {
+            "describe": "OverTime distribution",
+            "chart": "bar",
+            "x": {
+                "attr": "OverTime",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "OverTime",
+                "trans": "count",
+                "calcus": "raw"
+            },
+            "color": {
+                "attr": "Attrition",
+                "trans": "raw",
+                "groupby": true
+            }
+        },
+        {
+            "describe": "BusinessTravel distribution",
+            "chart": "pie",
+            "x": {
+                "attr": "BusinessTravel",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "BusinessTravel",
+                "trans": "count",
+                "calcus": "percentage"
+            }
+        },
+        {
+            "describe": "BusinessTravel distribution",
+            "chart": "pie-m",
+            "x": {
+                "attr": "BusinessTravel",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "BusinessTravel",
+                "trans": "count",
+                "calcus": "percentage"
+            },
+            "col": {
+                "attr": "Attrition",
+                "trans": "raw",
+                "groupby": true
+            }
+        },
+        {
+            "describe": "BusinessTravel distribution",
+            "chart": "bar",
+            "x": {
+                "attr": "BusinessTravel",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "BusinessTravel",
+                "trans": "count",
+                "calcus": "raw"
+            },
+            "color": {
+                "attr": "Attrition",
+                "trans": "raw",
+                "groupby": true
+            }
+        },
+        {
+            "describe": "JobRole distribution",
+            "chart": "pie",
+            "x": {
+                "attr": "JobRole",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "JobRole",
+                "trans": "count",
+                "calcus": "percentage"
+            }
+        },
+        {
+            "describe": "JobRole distribution",
+            "chart": "pie-m",
+            "x": {
+                "attr": "JobRole",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "JobRole",
+                "trans": "count",
+                "calcus": "percentage"
+            },
+            "col": {
+                "attr": "Attrition",
+                "trans": "raw",
+                "groupby": true
+            }
+        },
+        {
+            "describe": "JobRole distribution",
+            "chart": "bar",
+            "x": {
+                "attr": "JobRole",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "JobRole",
+                "trans": "count",
+                "calcus": "raw"
+            },
+            "color": {
+                "attr": "Attrition",
+                "trans": "raw",
+                "groupby": true
+            }
+        },
+        {
+            "describe": "Department distribution",
+            "chart": "pie",
+            "x": {
+                "attr": "Department",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "Department",
+                "trans": "count",
+                "calcus": "percentage"
+            }
+        },
+        {
+            "describe": "Department distribution",
+            "chart": "pie-m",
+            "x": {
+                "attr": "Department",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "Department",
+                "trans": "count",
+                "calcus": "percentage"
+            },
+            "col": {
+                "attr": "Attrition",
+                "trans": "raw",
+                "groupby": true
+            }
+        },
+        {
+            "describe": "Department distribution",
+            "chart": "bar",
+            "x": {
+                "attr": "Department",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "Department",
+                "trans": "count",
+                "calcus": "raw"
+            },
+            "color": {
+                "attr": "Attrition",
+                "trans": "raw",
+                "groupby": true
+            }
+        },
+        {
+            "describe": "MaritalStatus distribution",
+            "chart": "pie",
+            "x": {
+                "attr": "MaritalStatus",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "MaritalStatus",
+                "trans": "count",
+                "calcus": "percentage"
+            }
+        },
+        {
+            "describe": "MaritalStatus distribution",
+            "chart": "pie-m",
+            "x": {
+                "attr": "MaritalStatus",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "MaritalStatus",
+                "trans": "count",
+                "calcus": "percentage"
+            },
+            "col": {
+                "attr": "Attrition",
+                "trans": "raw",
+                "groupby": true
+            }
+        },
+        {
+            "describe": "MaritalStatus distribution",
+            "chart": "bar",
+            "x": {
+                "attr": "MaritalStatus",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "MaritalStatus",
+                "trans": "count",
+                "calcus": "raw"
+            },
+            "color": {
+                "attr": "Attrition",
+                "trans": "raw",
+                "groupby": true
+            }
+        },
+        {
+            "describe": "EducationField distribution",
+            "chart": "pie",
+            "x": {
+                "attr": "EducationField",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "EducationField",
+                "trans": "count",
+                "calcus": "percentage"
+            }
+        },
+        {
+            "describe": "EducationField distribution",
+            "chart": "pie-m",
+            "x": {
+                "attr": "EducationField",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "EducationField",
+                "trans": "count",
+                "calcus": "percentage"
+            },
+            "col": {
+                "attr": "Attrition",
+                "trans": "raw",
+                "groupby": true
+            }
+        },
+        {
+            "describe": "EducationField distribution",
+            "chart": "bar",
+            "x": {
+                "attr": "EducationField",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "EducationField",
+                "trans": "count",
+                "calcus": "raw"
+            },
+            "color": {
+                "attr": "Attrition",
+                "trans": "raw",
+                "groupby": true
+            }
+        },
+        {
+            "describe": "Education distribution",
+            "chart": "pie",
+            "x": {
+                "attr": "Education",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "Education",
+                "trans": "count",
+                "calcus": "percentage"
+            }
+        },
+        {
+            "describe": "Education distribution",
+            "chart": "pie-m",
+            "x": {
+                "attr": "Education",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "Education",
+                "trans": "count",
+                "calcus": "percentage"
+            },
+            "col": {
+                "attr": "Attrition",
+                "trans": "raw",
+                "groupby": true
+            }
+        },
+        {
+            "describe": "Education distribution",
+            "chart": "bar",
+            "x": {
+                "attr": "Education",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "Education",
+                "trans": "count",
+                "calcus": "raw"
+            },
+            "color": {
+                "attr": "Attrition",
+                "trans": "raw",
+                "groupby": true
+            }
+        },
+        {
+            "describe": "EnvironmentSatisfaction distribution",
+            "chart": "pie",
+            "x": {
+                "attr": "EnvironmentSatisfaction",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "EnvironmentSatisfaction",
+                "trans": "count",
+                "calcus": "percentage"
+            }
+        },
+        {
+            "describe": "EnvironmentSatisfaction distribution",
+            "chart": "pie-m",
+            "x": {
+                "attr": "EnvironmentSatisfaction",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "EnvironmentSatisfaction",
+                "trans": "count",
+                "calcus": "percentage"
+            },
+            "col": {
+                "attr": "Attrition",
+                "trans": "raw",
+                "groupby": true
+            }
+        },
+        {
+            "describe": "EnvironmentSatisfaction distribution",
+            "chart": "bar",
+            "x": {
+                "attr": "EnvironmentSatisfaction",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "EnvironmentSatisfaction",
+                "trans": "count",
+                "calcus": "raw"
+            },
+            "color": {
+                "attr": "Attrition",
+                "trans": "raw",
+                "groupby": true
+            }
+        },
+        {
+            "describe": "JobInvolvement distribution",
+            "chart": "pie",
+            "x": {
+                "attr": "JobInvolvement",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "JobInvolvement",
+                "trans": "count",
+                "calcus": "percentage"
+            }
+        },
+        {
+            "describe": "JobInvolvement distribution",
+            "chart": "pie-m",
+            "x": {
+                "attr": "JobInvolvement",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "JobInvolvement",
+                "trans": "count",
+                "calcus": "percentage"
+            },
+            "col": {
+                "attr": "Attrition",
+                "trans": "raw",
+                "groupby": true
+            }
+        },
+        {
+            "describe": "JobInvolvement distribution",
+            "chart": "bar",
+            "x": {
+                "attr": "JobInvolvement",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "JobInvolvement",
+                "trans": "count",
+                "calcus": "raw"
+            },
+            "color": {
+                "attr": "Attrition",
+                "trans": "raw",
+                "groupby": true
+            }
+        },
+        {
+            "describe": "JobLevel distribution",
+            "chart": "pie",
+            "x": {
+                "attr": "JobLevel",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "JobLevel",
+                "trans": "count",
+                "calcus": "percentage"
+            }
+        },
+        {
+            "describe": "JobLevel distribution",
+            "chart": "pie-m",
+            "x": {
+                "attr": "JobLevel",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "JobLevel",
+                "trans": "count",
+                "calcus": "percentage"
+            },
+            "col": {
+                "attr": "Attrition",
+                "trans": "raw",
+                "groupby": true
+            }
+        },
+        {
+            "describe": "JobLevel distribution",
+            "chart": "bar",
+            "x": {
+                "attr": "JobLevel",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "JobLevel",
+                "trans": "count",
+                "calcus": "raw"
+            },
+            "color": {
+                "attr": "Attrition",
+                "trans": "raw",
+                "groupby": true
+            }
+        },
+        {
+            "describe": "JobSatisfaction distribution",
+            "chart": "pie",
+            "x": {
+                "attr": "JobSatisfaction",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "JobSatisfaction",
+                "trans": "count",
+                "calcus": "percentage"
+            }
+        },
+        {
+            "describe": "JobSatisfaction distribution",
+            "chart": "pie-m",
+            "x": {
+                "attr": "JobSatisfaction",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "JobSatisfaction",
+                "trans": "count",
+                "calcus": "percentage"
+            },
+            "col": {
+                "attr": "Attrition",
+                "trans": "raw",
+                "groupby": true
+            }
+        },
+        {
+            "describe": "JobSatisfaction distribution",
+            "chart": "bar",
+            "x": {
+                "attr": "JobSatisfaction",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "JobSatisfaction",
+                "trans": "count",
+                "calcus": "raw"
+            },
+            "color": {
+                "attr": "Attrition",
+                "trans": "raw",
+                "groupby": true
+            }
+        },
+        {
+            "describe": "PerformanceRating distribution",
+            "chart": "pie",
+            "x": {
+                "attr": "PerformanceRating",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "PerformanceRating",
+                "trans": "count",
+                "calcus": "percentage"
+            }
+        },
+        {
+            "describe": "PerformanceRating distribution",
+            "chart": "pie-m",
+            "x": {
+                "attr": "PerformanceRating",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "PerformanceRating",
+                "trans": "count",
+                "calcus": "percentage"
+            },
+            "col": {
+                "attr": "Attrition",
+                "trans": "raw",
+                "groupby": true
+            }
+        },
+        {
+            "describe": "PerformanceRating distribution",
+            "chart": "bar",
+            "x": {
+                "attr": "PerformanceRating",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "PerformanceRating",
+                "trans": "count",
+                "calcus": "raw"
+            },
+            "color": {
+                "attr": "Attrition",
+                "trans": "raw",
+                "groupby": true
+            }
+        },
+        {
+            "describe": "RelationshipSatisfaction distribution",
+            "chart": "pie",
+            "x": {
+                "attr": "RelationshipSatisfaction",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "RelationshipSatisfaction",
+                "trans": "count",
+                "calcus": "percentage"
+            }
+        },
+        {
+            "describe": "RelationshipSatisfaction distribution",
+            "chart": "pie-m",
+            "x": {
+                "attr": "RelationshipSatisfaction",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "RelationshipSatisfaction",
+                "trans": "count",
+                "calcus": "percentage"
+            },
+            "col": {
+                "attr": "Attrition",
+                "trans": "raw",
+                "groupby": true
+            }
+        },
+        {
+            "describe": "RelationshipSatisfaction distribution",
+            "chart": "bar",
+            "x": {
+                "attr": "RelationshipSatisfaction",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "RelationshipSatisfaction",
+                "trans": "count",
+                "calcus": "raw"
+            },
+            "color": {
+                "attr": "Attrition",
+                "trans": "raw",
+                "groupby": true
+            }
+        },
+        {
+            "describe": "StockOptionLevel distribution",
+            "chart": "pie",
+            "x": {
+                "attr": "StockOptionLevel",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "StockOptionLevel",
+                "trans": "count",
+                "calcus": "percentage"
+            }
+        },
+        {
+            "describe": "StockOptionLevel distribution",
+            "chart": "pie-m",
+            "x": {
+                "attr": "StockOptionLevel",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "StockOptionLevel",
+                "trans": "count",
+                "calcus": "percentage"
+            },
+            "col": {
+                "attr": "Attrition",
+                "trans": "raw",
+                "groupby": true
+            }
+        },
+        {
+            "describe": "StockOptionLevel distribution",
+            "chart": "bar",
+            "x": {
+                "attr": "StockOptionLevel",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "StockOptionLevel",
+                "trans": "count",
+                "calcus": "raw"
+            },
+            "color": {
+                "attr": "Attrition",
+                "trans": "raw",
+                "groupby": true
+            }
+        },
+        {
+            "describe": "WorkLifeBalance distribution",
+            "chart": "pie",
+            "x": {
+                "attr": "WorkLifeBalance",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "WorkLifeBalance",
+                "trans": "count",
+                "calcus": "percentage"
+            }
+        },
+        {
+            "describe": "WorkLifeBalance distribution",
+            "chart": "pie-m",
+            "x": {
+                "attr": "WorkLifeBalance",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "WorkLifeBalance",
+                "trans": "count",
+                "calcus": "percentage"
+            },
+            "col": {
+                "attr": "Attrition",
+                "trans": "raw",
+                "groupby": true
+            }
+        },
+        {
+            "describe": "WorkLifeBalance distribution",
+            "chart": "bar",
+            "x": {
+                "attr": "WorkLifeBalance",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "WorkLifeBalance",
+                "trans": "count",
+                "calcus": "raw"
+            },
+            "color": {
+                "attr": "Attrition",
+                "trans": "raw",
+                "groupby": true
+            }
+        },
+        {
+            "describe": "correlationmatrix",
+            "chart": "correlationmatrix",
+            "x": {
+                "attr": "all ",
+                "trans": "raw"
+            },
+            "y": {
+                "attr": "all",
+                "trans": "raw"
+            }
+        }
+    ]
+}

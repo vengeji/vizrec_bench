@@ -1,0 +1,585 @@
+{
+    "url": "https://www.kaggle.com/janiobachmann/attrition-in-an-organization-why-workers-quit",
+    "votes": 151,
+    "rank": 1,
+    "charts": [
+        {
+            "describe": "employee attrition amount",
+            "chart": "bar",
+            "x": {
+                "attr": "Attrition",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "Attrition",
+                "trans": "count",
+                "calcus": "raw"
+            }
+        },
+        {
+            "describe": "age distribution by gender",
+            "chart": "densityplot",
+            "x": {
+                "attr": "Gender",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "Age",
+                "trans": "density",
+                "calcus": "raw"
+            }
+        },
+        {
+            "describe": "jobsatisfaction distribution by gender and attrition",
+            "chart": "boxplot",
+            "x": {
+                "attr": "Gender",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "JobSatisfaction",
+                "trans": "raw"
+            },
+            "color": {
+                "attr": "Attrition",
+                "trans": "raw",
+                "groupby": true
+            }
+        },
+        {
+            "describe": "JobSatisfaction distribution",
+            "chart": "densityplot",
+            "x": {
+                "attr": "JobSatisfaction",
+                "trans": "raw"
+            },
+            "y": {
+                "attr": "JobSatisfaction",
+                "trans": "density"
+            }
+        },
+        {
+            "describe": "Monthly Income by Gender",
+            "chart": "boxplot",
+            "x": {
+                "attr": "Gender",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "MonthlyIncome",
+                "trans": "raw"
+            }
+        },
+        {
+            "describe": "average Monthly Income by Gender",
+            "chart": "bar",
+            "x": {
+                "attr": "Gender",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "MonthlyIncome",
+                "trans": "mean",
+                "calcus": "raw"
+            }
+        },
+        {
+            "describe": "Number of Employees by Department and Gender",
+            "chart": "bar",
+            "x": {
+                "attr": "Department",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "Department",
+                "trans": "count",
+                "calcus": "raw"
+            },
+            "color": {
+                "attr": "Gender",
+                "trans": "raw",
+                "groupby": true
+            }
+        },
+        {
+            "describe": "Number of Employees by Department",
+            "chart": "pie",
+            "x": {
+                "attr": "Department",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "Department",
+                "trans": "count",
+                "calcus": "percentage"
+            }
+        },
+        {
+            "describe": "Knowing Past Generations",
+            "chart": "boxplot",
+            "x": {
+                "attr": "Generation",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "NumCompaniesWorked",
+                "trans": "raw"
+            },
+            "color": {
+                "attr": "Attrition",
+                "trans": "raw",
+                "groupby": true
+            }
+        },
+        {
+            "describe": "behavioral difference between generations",
+            "chart": "stripplot",
+            "x": {
+                "attr": "Generation",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "NumCompaniesWorked",
+                "trans": "mean",
+                "calcus": "raw"
+            },
+            "color": {
+                "attr": "Attrition",
+                "trans": "raw",
+                "groupby": true
+            }
+        },
+        {
+            "describe": "levels and frequencies of attrition by generation",
+            "chart": "mosaicplot",
+            "x": {
+                "attr": "Share of Employees",
+                "trans": "count",
+                "calcus": "raw"
+            },
+            "y": {
+                "attr": "Generation",
+                "trans": "count",
+                "calcus": "raw"
+            },
+            "lebel": {
+                "attr": "Generation",
+                "trans": "raw",
+                "groupby": true
+            },
+            "color": {
+                "attr": "Attrition",
+                "trans": "raw",
+                "groupby": true
+            }
+        },
+        {
+            "describe": "attrition by education level",
+            "chart": "bar",
+            "x": {
+                "attr": "Education",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "Education",
+                "trans": "count",
+                "calcus": "raw"
+            },
+            "color": {
+                "attr": "Attrition",
+                "trans": "raw",
+                "groupby": true
+            }
+        },
+        {
+            "describe": "average income by department and attrition",
+            "chart": "bar",
+            "x": {
+                "attr": "Department",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "MonthlyIncome",
+                "trans": "mean",
+                "calcus": "raw"
+            },
+            "color": {
+                "attr": "Attrition",
+                "trans": "raw",
+                "groupby": true
+            }
+        },
+        {
+            "describe": "average income by jobsatisfaction and attrition",
+            "chart": "bar",
+            "x": {
+                "attr": "JobSatisfaction",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "MonthlyIncome",
+                "trans": "mean",
+                "calcus": "raw"
+            },
+            "color": {
+                "attr": "Attrition",
+                "trans": "raw",
+                "groupby": true
+            }
+        },
+        {
+            "describe": "income and its impact on attrition",
+            "chart": "scatter",
+            "x": {
+                "attr": "PercentSalaryHike",
+                "trans": "raw"
+            },
+            "y": {
+                "attr": "MonthlyIncome",
+                "trans": "raw"
+            },
+            "color": {
+                "attr": "Attrition",
+                "trans": "raw",
+                "groupby": true
+            }
+        },
+        {
+            "describe": "income and its impact on attrition",
+            "chart": "violinplot",
+            "x": {
+                "attr": "PerformanceRating",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "MonthlyIncome",
+                "trans": "raw"
+            },
+            "color": {
+                "attr": "Attrition",
+                "trans": "raw",
+                "groupby": true
+            }
+        },
+        {
+            "describe": "Daily Rates by Job Role",
+            "chart": "bar",
+            "x": {
+                "attr": "JobRole",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "DailyRate",
+                "trans": "mean",
+                "calcus": "raw"
+            },
+            "color": {
+                "attr": "Attrition",
+                "trans": "raw",
+                "groupby": true
+            }
+        },
+        {
+            "describe": "Level of Attrition by Overtime Status",
+            "chart": "pie",
+            "x": {
+                "attr": "OverTime",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "OverTime",
+                "trans": "count",
+                "calcus": "percentage"
+            }
+        },
+        {
+            "describe": "Level of Attrition by Overtime Status",
+            "chart": "bar",
+            "x": {
+                "attr": "OverTime",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "OverTime",
+                "trans": "count",
+                "calcus": "raw"
+            }
+        },
+        {
+            "describe": "Level of Attrition by Overtime Status",
+            "chart": "bar",
+            "x": {
+                "attr": "OverTime",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "OverTime",
+                "trans": "count",
+                "calcus": "raw"
+            },
+            "color": {
+                "attr": "Attrition",
+                "trans": "raw",
+                "groupby": true
+            }
+        },
+        {
+            "describe": "Level of Attrition by Overtime Status",
+            "chart": "treemap",
+            "x": {
+                "attr": "JobRole",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "JobRole",
+                "trans": "count",
+                "calcus": "raw"
+            }
+        },
+        {
+            "describe": "mean Salary by Job Role",
+            "chart": "bar",
+            "x": {
+                "attr": "JobRole",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "MonthlyIncome",
+                "trans": "mean",
+                "calcus": "raw"
+            }
+        },
+        {
+            "describe": "attrition by Job Role",
+            "chart": "bar",
+            "x": {
+                "attr": "JobRole",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "JobRole",
+                "trans": "count",
+                "calcus": "raw"
+            },
+            "color": {
+                "attr": "Attrition",
+                "trans": "raw",
+                "groupby": true
+            }
+        },
+        {
+            "describe": "Years with Current Manager and Average Satisfaction Score",
+            "chart": "bar",
+            "x": {
+                "attr": "YearsWithCurrManager ",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "RelationshipSatisfaction",
+                "trans": "mean",
+                "calcus": "raw"
+            },
+            "color": {
+                "attr": "Attrition",
+                "trans": "raw",
+                "groupby": true
+            }
+        },
+        {
+            "describe": "Years with Current Manager and Average Satisfaction Score",
+            "chart": "densityplot",
+            "x": {
+                "attr": "RelationshipSatisfaction ",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "RelationshipSatisfaction",
+                "trans": "density"
+            },
+            "color": {
+                "attr": "Attrition",
+                "trans": "raw",
+                "groupby": true
+            }
+        },
+        {
+            "describe": "working environment",
+            "chart": "bar",
+            "x": {
+                "attr": "JobRole ",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "EnvironmentSatisfaction",
+                "trans": "mean",
+                "calcus": "raw"
+            },
+            "color": {
+                "attr": "Attrition",
+                "trans": "raw",
+                "groupby": true
+            }
+        },
+        {
+            "describe": "Is there a Work Life Balance Environment?",
+            "chart": "bar",
+            "x": {
+                "attr": "WorkLifeBalance ",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "WorkLifeBalance",
+                "trans": "count",
+                "calcus": "raw"
+            },
+            "color": {
+                "attr": "Department",
+                "trans": "raw",
+                "groupby": true
+            }
+        },
+        {
+            "describe": "Distance from Work Status",
+            "chart": "bar",
+            "x": {
+                "attr": "Median_Distance ",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "Median_Distance",
+                "trans": "count",
+                "calcus": "raw"
+            },
+            "color": {
+                "attr": "Attrition",
+                "trans": "raw",
+                "groupby": true
+            }
+        },
+        {
+            "describe": "StockOptionLevel",
+            "chart": "bar",
+            "x": {
+                "attr": "StockOptionLevel ",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "StockOptionLevel",
+                "trans": "count",
+                "calcus": "raw"
+            },
+            "color": {
+                "attr": "Attrition",
+                "trans": "raw",
+                "groupby": true
+            }
+        },
+        {
+            "describe": "BusinessTravel",
+            "chart": "bar",
+            "x": {
+                "attr": "BusinessTravel ",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "BusinessTravel",
+                "trans": "count",
+                "calcus": "raw"
+            },
+            "color": {
+                "attr": "Attrition",
+                "trans": "raw",
+                "groupby": true
+            }
+        },
+        {
+            "describe": "correlationmatrix",
+            "chart": "correlationmatrix",
+            "x": {
+                "attr": "all ",
+                "trans": "raw"
+            },
+            "y": {
+                "attr": "all",
+                "trans": "raw"
+            }
+        },
+        {
+            "describe": "monthly income vs working years",
+            "chart": "scatter",
+            "x": {
+                "attr": "TotalWorkingYears",
+                "trans": "raw"
+            },
+            "y": {
+                "attr": "MonthlyIncome",
+                "trans": "raw"
+            }
+        },
+        {
+            "describe": "PerformanceRating vs PercentSalaryHike",
+            "chart": "boxplot-scatter",
+            "x": {
+                "attr": "PerformanceRating",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "PercentSalaryHike",
+                "trans": "raw"
+            }
+        },
+        {
+            "describe": "YearsWithCurrManager vs YearsSinceLastPromotion",
+            "chart": "boxplot-scatter",
+            "x": {
+                "attr": "YearsWithCurrManager",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "YearsSinceLastPromotion",
+                "trans": "raw"
+            }
+        },
+        {
+            "describe": "age vs monthly income",
+            "chart": "scatter",
+            "x": {
+                "attr": "Age",
+                "trans": "raw"
+            },
+            "y": {
+                "attr": "MonthlyIncome",
+                "trans": "raw"
+            }
+        }
+    ]
+}

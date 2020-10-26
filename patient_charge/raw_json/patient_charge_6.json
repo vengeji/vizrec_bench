@@ -1,0 +1,100 @@
+{
+    "url": "https://www.kaggle.com/sinaasappel/tutorial-multiple-regression",
+    "votes": 30,
+    "rank": 6,
+    "charts": [
+        {
+            "describe": "Distribution of charges and age",
+            "chart": "scatter",
+            "x": {
+                "attr": "age",
+                "trans": "raw"
+            },
+            "y": {
+                "attr": "charges",
+                "trans": "raw"
+            }
+        },
+        {
+            "describe": "Distribution of charges and bmi",
+            "chart": "scatter",
+            "x": {
+                "attr": "bmi",
+                "trans": "raw"
+            },
+            "y": {
+                "attr": "charges",
+                "trans": "raw"
+            }
+        },
+        {
+            "describe": "boxplot of sex and charges",
+            "chart": "boxplot",
+            "x": {
+                "attr": "sex",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "charges",
+                "trans": "raw"
+            }
+        },
+        {
+            "describe": "boxplot of smoker and charges",
+            "chart": "boxplot",
+            "x": {
+                "attr": "smoker",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "charges",
+                "trans": "raw"
+            }
+        },
+        {
+            "describe": "boxplot of children and charges",
+            "chart": "boxplot",
+            "x": {
+                "attr": "children",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "charges",
+                "trans": "raw"
+            }
+        },
+        {
+            "describe": "boxplot of region and charges",
+            "chart": "boxplot",
+            "x": {
+                "attr": "region",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "charges",
+                "trans": "raw"
+            }
+        },
+        {
+            "describe": "Distribution of charges and bmi of smoker",
+            "chart": "scatter",
+            "x": {
+                "attr": "bmi",
+                "trans": "raw"
+            },
+            "y": {
+                "attr": "charges",
+                "trans": "raw"
+            },
+            "color": {
+                "attr": "smoker",
+                "trans": "raw",
+                "groupby": true
+            }
+        }
+    ]
+}

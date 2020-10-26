@@ -1,0 +1,429 @@
+{
+    "url": "https://www.kaggle.com/captcalculator/a-very-extensive-sberbank-exploratory-analysis",
+    "votes": 318,
+    "rank": 1,
+    "charts": [
+        {
+            "describe": "Area of home and price",
+            "chart": "scatter",
+            "x": {
+                "attr": "full_sq",
+                "trans": "raw"
+            },
+            "y": {
+                "attr": "price_doc",
+                "trans": "raw"
+            }
+        },
+        {
+            "describe": "Distribution of room count",
+            "chart": "bar",
+            "x": {
+                "attr": "num_room",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "num_room",
+                "trans": "count",
+                "calcus": "raw"
+            }
+        },
+        {
+            "describe": "Distribution of price_doc",
+            "chart": "densityplot",
+            "x": {
+                "attr": "price_doc",
+                "trans": "raw"
+            },
+            "y": {
+                "attr": "price_doc",
+                "trans": "raw"
+            },
+            "color": {
+                "attr": "product_type",
+                "trans": "raw",
+                "groupby": true
+            }
+        },
+        {
+            "describe": "Distribution of build year",
+            "chart": "bar",
+            "x": {
+                "attr": "build_year",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "build_year",
+                "trans": "count",
+                "calcus": "raw"
+            }
+        },
+        {
+            "describe": "Mean price by year of build",
+            "chart": "line",
+            "x": {
+                "attr": "build_year",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "price_doc",
+                "trans": "mean",
+                "calcus": "raw"
+            }
+        },
+        {
+            "describe": "Mean price by timestamp",
+            "chart": "line",
+            "x": {
+                "attr": "timestamp",
+                "trans": "day",
+                "groupby": true
+            },
+            "y": {
+                "attr": "price_doc",
+                "trans": "mean",
+                "calcus": "raw"
+            }
+        },
+        {
+            "describe": "Number of transactions by timestamp",
+            "chart": "line",
+            "x": {
+                "attr": "timestamp",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "timestamp",
+                "trans": "count",
+                "calcus": "raw"
+            }
+        },
+        {
+            "describe": "Mean price by timestamp",
+            "chart": "line",
+            "x": {
+                "attr": "timestamp",
+                "trans": "month",
+                "groupby": true
+            },
+            "y": {
+                "attr": "price_doc",
+                "trans": "mean",
+                "calcus": "raw"
+            }
+        },
+        {
+            "describe": "home state",
+            "chart": "violinplot",
+            "x": {
+                "attr": "state",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "price_doc",
+                "trans": "raw"
+            }
+        },
+        {
+            "describe": "build material",
+            "chart": "violinplot",
+            "x": {
+                "attr": "material",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "price_doc",
+                "trans": "raw"
+            }
+        },
+        {
+            "describe": "floor of home",
+            "chart": "scatter",
+            "x": {
+                "attr": "floor",
+                "trans": "raw"
+            },
+            "y": {
+                "attr": "price_doc",
+                "trans": "log"
+            }
+        },
+        {
+            "describe": "floor of home",
+            "chart": "scatter",
+            "x": {
+                "attr": "max_floor",
+                "trans": "raw"
+            },
+            "y": {
+                "attr": "price_doc",
+                "trans": "log"
+            }
+        },
+        {
+            "describe": "floor by max_floor",
+            "chart": "scatter",
+            "x": {
+                "attr": "floor",
+                "trans": "raw"
+            },
+            "y": {
+                "attr": "max_floor",
+                "trans": "raw"
+            }
+        },
+        {
+            "describe": "mean home price by raion population density",
+            "chart": "scatter",
+            "x": {
+                "attr": "density=raion_popul*1000000/area_m",
+                "trans": "mean"
+            },
+            "y": {
+                "attr": "price_doc",
+                "trans": "mean"
+            },
+            "groupby": {
+                "attr": "sub_area",
+                "trans": "raw"
+            }
+        },
+        {
+            "describe": "Number of transactions by district",
+            "chart": "bar",
+            "x": {
+                "attr": "sub_area",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "sub_area",
+                "trans": "count",
+                "calcus": "raw"
+            }
+        },
+        {
+            "describe": "district mean price and share of working age",
+            "chart": "scatter",
+            "x": {
+                "attr": "work_share=work_all/raion_popul",
+                "trans": "mean"
+            },
+            "y": {
+                "attr": "price_doc",
+                "trans": "mean"
+            },
+            "groupby": {
+                "attr": "sub_area",
+                "trans": "raw"
+            }
+        },
+        {
+            "describe": "distribution of home price by number of top universities",
+            "chart": "boxplot",
+            "x": {
+                "attr": "university_top_20_raion",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "price_doc",
+                "trans": "raw"
+            }
+        },
+        {
+            "describe": "mean price by number of sports objects",
+            "chart": "scatter",
+            "x": {
+                "attr": "sport_objects_raion",
+                "trans": "mean"
+            },
+            "y": {
+                "attr": "price_doc",
+                "trans": "mean"
+            },
+            "groupby": {
+                "attr": "sub_area",
+                "trans": "raw"
+            }
+        },
+        {
+            "describe": "mean price by number of cultrue objects",
+            "chart": "scatter",
+            "x": {
+                "attr": "culture_objects_top_25_raion",
+                "trans": "mean"
+            },
+            "y": {
+                "attr": "price_doc",
+                "trans": "mean"
+            },
+            "groupby": {
+                "attr": "sub_area",
+                "trans": "raw"
+            }
+        },
+        {
+            "describe": "mean price by distance to nearest park",
+            "chart": "scatter",
+            "x": {
+                "attr": "park_km",
+                "trans": "raw"
+            },
+            "y": {
+                "attr": "price_doc",
+                "trans": "raw"
+            }
+        },
+        {
+            "describe": "mean price by distance to kremlin",
+            "chart": "scatter",
+            "x": {
+                "attr": "kremlin_km",
+                "trans": "raw"
+            },
+            "y": {
+                "attr": "price_doc",
+                "trans": "raw"
+            }
+        },
+        {
+            "describe": "Distribution of full_sq",
+            "chart": "densityplot",
+            "x": {
+                "attr": "full_sq",
+                "trans": "raw"
+            },
+            "y": {
+                "attr": "full_sq",
+                "trans": "raw"
+            }
+        },
+        {
+            "describe": "Distribution of life_sq",
+            "chart": "densityplot",
+            "x": {
+                "attr": "life_sq",
+                "trans": "raw"
+            },
+            "y": {
+                "attr": "life_sq",
+                "trans": "raw"
+            }
+        },
+        {
+            "describe": "Distribution of kitch_sq",
+            "chart": "densityplot",
+            "x": {
+                "attr": "kitch_sq",
+                "trans": "raw"
+            },
+            "y": {
+                "attr": "kitch_sq",
+                "trans": "raw"
+            }
+        },
+        {
+            "describe": "Distribution of number of rooms",
+            "chart": "histogram",
+            "x": {
+                "attr": "num_room",
+                "trans": "raw"
+            },
+            "y": {
+                "attr": "num_room",
+                "trans": "count"
+            }
+        },
+        {
+            "describe": "Distribution of floor",
+            "chart": "bar",
+            "x": {
+                "attr": "floor",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "floor",
+                "trans": "count",
+                "calcus": "raw"
+            }
+        },
+        {
+            "describe": "Distribution of max_floor",
+            "chart": "bar",
+            "x": {
+                "attr": "max_floor",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "max_floor",
+                "trans": "count",
+                "calcus": "raw"
+            }
+        },
+        {
+            "describe": "number of transactions by day",
+            "chart": "line",
+            "x": {
+                "attr": "timestamp",
+                "trans": "day",
+                "groupby": true
+            },
+            "y": {
+                "attr": "timestamp",
+                "trans": "count",
+                "calcus": "raw"
+            }
+        },
+        {
+            "describe": "number of transactions by product type",
+            "chart": "bar",
+            "x": {
+                "attr": "product_type",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "product_type",
+                "trans": "count",
+                "calcus": "raw"
+            }
+        },
+        {
+            "describe": "number of transactions by home state",
+            "chart": "bar",
+            "x": {
+                "attr": "state",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "state",
+                "trans": "count",
+                "calcus": "raw"
+            }
+        },
+        {
+            "describe": "number of transactions by build material",
+            "chart": "bar",
+            "x": {
+                "attr": "material",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "material",
+                "trans": "count",
+                "calcus": "raw"
+            }
+        }
+    ]
+}

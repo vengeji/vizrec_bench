@@ -1,0 +1,409 @@
+{
+    "url": "https://www.kaggle.com/janiobachmann/patient-charges-clustering-and-regression",
+    "votes": 115,
+    "rank": 2,
+    "charts": [
+        {
+            "describe": "Distribution of charges",
+            "chart": "histogram",
+            "x": {
+                "attr": "charges",
+                "trans": "bin",
+                "bins": "default"
+            },
+            "y": {
+                "attr": "charges",
+                "trans": "count",
+                "calcus": "percentage"
+            }
+        },
+        {
+            "describe": "Log distribution of charges",
+            "chart": "histogram",
+            "x": {
+                "attr": "log(charges)",
+                "trans": "bin",
+                "bins": "default"
+            },
+            "y": {
+                "attr": "log(charges)",
+                "trans": "count",
+                "calcus": "percentage"
+            }
+        },
+        {
+            "describe": "Share of each age category",
+            "chart": "pie",
+            "x": {
+                "attr": "age_group",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "age_group",
+                "trans": "count",
+                "calcus": "percentage"
+            }
+        },
+        {
+            "describe": "Distribution of bmi",
+            "chart": "histogram",
+            "x": {
+                "attr": "bmi",
+                "trans": "bin",
+                "bins": "default"
+            },
+            "y": {
+                "attr": "bmi",
+                "trans": "count",
+                "calcus": "raw"
+            }
+        },
+        {
+            "describe": "Corrlation matrix",
+            "chart": "correlationmatrix",
+            "x": {
+                "attr": "all",
+                "trans": "raw"
+            },
+            "y": {
+                "attr": "all",
+                "trans": "raw"
+            }
+        },
+        {
+            "describe": "Body mass index by age group",
+            "chart": "boxplot",
+            "x": {
+                "attr": "age_group",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "bmi",
+                "trans": "raw"
+            }
+        },
+        {
+            "describe": "Body mass index by age group",
+            "chart": "boxplot",
+            "x": {
+                "attr": "age_group",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "bmi",
+                "trans": "raw"
+            },
+            "color": {
+                "attr": "smoker",
+                "trans": "raw",
+                "groupby": true
+            }
+        },
+        {
+            "describe": "average charges by age group",
+            "chart": "bar",
+            "x": {
+                "attr": "age_group",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "charges",
+                "trans": "mean",
+                "calcus": "raw"
+            }
+        },
+        {
+            "describe": "relation between charges and age",
+            "chart": "stripplot",
+            "x": {
+                "attr": "age_group",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "charges",
+                "trans": "raw"
+            }
+        },
+        {
+            "describe": "relation between charges and age and weight condition",
+            "chart": "stripplot",
+            "x": {
+                "attr": "age_group",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "charges",
+                "trans": "raw"
+            },
+            "color": {
+                "attr": "bmi_group",
+                "trans": "raw",
+                "groupby": true
+            }
+        },
+        {
+            "describe": "relation between charges and smoker",
+            "chart": "stripplot",
+            "x": {
+                "attr": "smoker",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "charges",
+                "trans": "raw"
+            }
+        },
+        {
+            "describe": "relation between charges and smoker",
+            "chart": "stripplot",
+            "x": {
+                "attr": "smoker",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "charges",
+                "trans": "raw"
+            },
+            "color": {
+                "attr": "bmi_group",
+                "trans": "raw",
+                "groupby": true
+            }
+        },
+        {
+            "describe": "relation between charges and smoker",
+            "chart": "stripplot",
+            "x": {
+                "attr": "smoker",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "charges",
+                "trans": "raw"
+            },
+            "color": {
+                "attr": "smoker",
+                "trans": "raw",
+                "groupby": true
+            }
+        },
+        {
+            "describe": "age vs charges of bmi_group",
+            "chart": "scatter",
+            "x": {
+                "attr": "age",
+                "trans": "raw"
+            },
+            "y": {
+                "attr": "charges",
+                "trans": "raw"
+            },
+            "color": {
+                "attr": "bmi_group",
+                "trans": "raw",
+                "groupby": true
+            }
+        },
+        {
+            "describe": "scattermatrix of smoker",
+            "chart": "scattermatrix",
+            "x": {
+                "attr": "all",
+                "trans": "raw"
+            },
+            "y": {
+                "attr": "all",
+                "trans": "raw"
+            },
+            "color": {
+                "attr": "smoker",
+                "trans": "raw",
+                "groupby": true
+            }
+        },
+        {
+            "describe": "charges distribution of smoker and bmi group",
+            "chart": "violinplot",
+            "x": {
+                "attr": "bmi_group",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "charges",
+                "trans": "raw"
+            },
+            "color": {
+                "attr": "smoker",
+                "trans": "raw",
+                "groupby": true
+            }
+        },
+        {
+            "describe": "charges distribution of smoker and bmi group",
+            "chart": "boxplot",
+            "x": {
+                "attr": "bmi_group",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "charges",
+                "trans": "raw"
+            },
+            "color": {
+                "attr": "smoker",
+                "trans": "raw",
+                "groupby": true
+            }
+        },
+        {
+            "describe": "Distribution of charges and age",
+            "chart": "scatter",
+            "x": {
+                "attr": "age",
+                "trans": "raw"
+            },
+            "y": {
+                "attr": "charges",
+                "trans": "raw"
+            },
+            "color": {
+                "attr": "smoker",
+                "trans": "raw",
+                "groupby": true
+            }
+        },
+        {
+            "describe": "Distribution of charges and age of different regions",
+            "chart": "facetscatter",
+            "x": {
+                "attr": "age_group",
+                "trans": "raw"
+            },
+            "y": {
+                "attr": "charges",
+                "trans": "raw"
+            },
+            "color": {
+                "attr": "smoker",
+                "trans": "raw",
+                "groupby": true
+            },
+            "col": {
+                "attr": "region",
+                "trans": "raw",
+                "groupby": true
+            }
+        },
+        {
+            "describe": "Average charges of different regions",
+            "chart": "bar",
+            "x": {
+                "attr": "region",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "charges",
+                "trans": "mean",
+                "calcus": "raw"
+            }
+        },
+        {
+            "describe": "Average charges of different regions",
+            "chart": "bar",
+            "x": {
+                "attr": "region",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "charges",
+                "trans": "mean",
+                "calcus": "raw"
+            },
+            "color": {
+                "attr": "bmi_group",
+                "trans": "raw",
+                "groupby": true
+            }
+        },
+        {
+            "describe": "Average charges of different bmi_group",
+            "chart": "bar",
+            "x": {
+                "attr": "bmi_group",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "charges",
+                "trans": "mean",
+                "calcus": "raw"
+            }
+        },
+        {
+            "describe": "Average charges of different bmi_group",
+            "chart": "bar",
+            "x": {
+                "attr": "bmi_group",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "charges",
+                "trans": "mean",
+                "calcus": "raw"
+            },
+            "color": {
+                "attr": "region",
+                "trans": "raw",
+                "groupby": true
+            }
+        },
+        {
+            "describe": "bmi vs charges of bmi_group",
+            "chart": "scatter",
+            "x": {
+                "attr": "bmi",
+                "trans": "raw"
+            },
+            "y": {
+                "attr": "charges",
+                "trans": "raw"
+            },
+            "color": {
+                "attr": "bmi_group",
+                "trans": "raw",
+                "groupby": true
+            }
+        },
+         {
+            "describe": "bmi vs charges of smoker",
+            "chart": "scatter",
+            "x": {
+                "attr": "bmi",
+                "trans": "raw"
+            },
+            "y": {
+                "attr": "charges",
+                "trans": "raw"
+            },
+            "color": {
+                "attr": "smoker",
+                "trans": "raw",
+                "groupby": true
+            }
+        }
+    ]
+}

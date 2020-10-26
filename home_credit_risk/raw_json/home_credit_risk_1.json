@@ -1,0 +1,333 @@
+{
+    "url": "https://www.kaggle.com/codename007/home-credit-complete-eda-feature-importance",
+    "votes": 671,
+    "rank": 1,
+    "charts": [
+        {
+            "describe": "Distribution of AMT_CREDIT",
+            "chart": "histgoram",
+            "x": {
+                "attr": "AMT_CREDIT",
+                "trans": "bin"
+            },
+            "y": {
+                "attr": "AMT_CREDIT",
+                "trans": "count",
+                "calcus": "percentage"
+            }
+        },
+        {
+            "describe": "Distribution of AMT_INCOME_TOTAL",
+            "chart": "histgoram",
+            "x": {
+                "attr": "AMT_INCOME_TOTAL",
+                "trans": "bin"
+            },
+            "y": {
+                "attr": "AMT_INCOME_TOTAL",
+                "trans": "count",
+                "calcus": "percentage"
+            }
+        },
+        {
+            "describe": "Distribution of AMT_GOODS_PRICE",
+            "chart": "histgoram",
+            "x": {
+                "attr": "AMT_GOODS_PRICE",
+                "trans": "bin"
+            },
+            "y": {
+                "attr": "AMT_GOODS_PRICE",
+                "trans": "count",
+                "calcus": "percentage"
+            }
+        },
+        {
+            "describe": "Who accompanied client when applying for the  application",
+            "chart": "bar",
+            "x": {
+                "attr": "NAME_TYPE_SUITE",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "NAME_TYPE_SUITE",
+                "trans": "count",
+                "calcus": "percentage"
+            }
+        },
+        {
+            "describe": "Count TARGET",
+            "chart": "pie",
+            "x": {
+                "attr": "TARGET",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "TARGET",
+                "trans": "count",
+                "calcus": "percentage"
+            }
+        },
+        {
+            "describe": "Types of loans",
+            "chart": "pie",
+            "x": {
+                "attr": "NAME_CONTRACT_TYPE",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "NAME_CONTRACT_TYPE",
+                "trans": "count",
+                "calcus": "percentage"
+            }
+        },
+        {
+            "describe": "Do applicant own car",
+            "chart": "pie",
+            "x": {
+                "attr": "FLAG_OWN_CAR",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "FLAG_OWN_CAR",
+                "trans": "count",
+                "calcus": "percentage"
+            }
+        },
+        {
+            "describe": "Do applicant own realty",
+            "chart": "pie",
+            "x": {
+                "attr": "FLAG_OWN_REALTY",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "FLAG_OWN_REALTY",
+                "trans": "count",
+                "calcus": "percentage"
+            }
+        },
+        {
+            "describe": "Income sources of applicants",
+            "chart": "pie",
+            "x": {
+                "attr": "NAME_INCOME_TYPE",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "NAME_INCOME_TYPE",
+                "trans": "count",
+                "calcus": "percentage"
+            }
+        },
+        {
+            "describe": "Family status of applicants",
+            "chart": "pie",
+            "x": {
+                "attr": "NAME_FAMILY_STATUS",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "NAME_FAMILY_STATUS",
+                "trans": "count",
+                "calcus": "percentage"
+            }
+        },
+        {
+            "describe": "Occupation types of applicants",
+            "chart": "bar",
+            "x": {
+                "attr": "OCCUPATION_TYPE",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "OCCUPATION_TYPE",
+                "trans": "count",
+                "calcus": "raw"
+            }
+        },
+        {
+            "describe": "Education level of applicants",
+            "chart": "pie",
+            "x": {
+                "attr": "NAME_EDUCATION_TYPE",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "NAME_EDUCATION_TYPE",
+                "trans": "count",
+                "calcus": "percentage"
+            }
+        },
+        {
+            "describe": "Housing type of applicants",
+            "chart": "pie",
+            "x": {
+                "attr": "NAME_HOUSING_TYPE",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "NAME_HOUSING_TYPE",
+                "trans": "count",
+                "calcus": "percentage"
+            }
+        },
+        {
+            "describe": "Organization types of applicants",
+            "chart": "bar",
+            "x": {
+                "attr": "ORGANIZATION_TYPE",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "ORGANIZATION_TYPE",
+                "trans": "count",
+                "calcus": "raw"
+            }
+        },
+        {
+            "describe": "Number of applicances of different sources and target type",
+            "chart": "bar",
+            "x": {
+                "attr": "NAME_INCOME_TYPE",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "NAME_INCOME_TYPE",
+                "trans": "count",
+                "calcus": "percentage"
+            },
+            "color": {
+                "attr": "TARGET",
+                "trans": "raw",
+                "groupby": true
+            }
+        },
+        {
+            "describe": "Number of applicances of different family statu and target type",
+            "chart": "bar",
+            "x": {
+                "attr": "NAME_FAMILY_STATUS",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "NAME_FAMILY_STATUS",
+                "trans": "count",
+                "calcus": "percentage"
+            },
+            "color": {
+                "attr": "TARGET",
+                "trans": "raw",
+                "groupby": true
+            }
+        },
+        {
+            "describe": "Number of applicances of different occupation and target type",
+            "chart": "bar",
+            "x": {
+                "attr": "OCCUPATION_TYPE",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "OCCUPATION_TYPE",
+                "trans": "count",
+                "calcus": "percentage"
+            },
+            "color": {
+                "attr": "TARGET",
+                "trans": "raw",
+                "groupby": true
+            }
+        },
+        {
+            "describe": "Number of applicances of different education and target type",
+            "chart": "bar",
+            "x": {
+                "attr": "NAME_EDUCATION_TYPE",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "NAME_EDUCATION_TYPE",
+                "trans": "count",
+                "calcus": "percentage"
+            },
+            "color": {
+                "attr": "TARGET",
+                "trans": "raw",
+                "groupby": true
+            }
+        },
+        {
+            "describe": "Number of applicances of different housing type and target type",
+            "chart": "bar",
+            "x": {
+                "attr": "NAME_HOUSING_TYPE",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "NAME_HOUSING_TYPE",
+                "trans": "count",
+                "calcus": "percentage"
+            },
+            "color": {
+                "attr": "TARGET",
+                "trans": "raw",
+                "groupby": true
+            }
+        },
+        {
+            "describe": "Number of applicances of different organization and target type",
+            "chart": "bar",
+            "x": {
+                "attr": "ORGANIZATION_TYPE",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "ORGANIZATION_TYPE",
+                "trans": "count",
+                "calcus": "percentage"
+            },
+            "color": {
+                "attr": "TARGET",
+                "trans": "raw",
+                "groupby": true
+            }
+        },
+        {
+            "describe": "Number of applicances of different NAME_TYPE_SUITE and target type",
+            "chart": "bar",
+            "x": {
+                "attr": "NAME_TYPE_SUITE",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "NAME_TYPE_SUITE",
+                "trans": "count",
+                "calcus": "percentage"
+            },
+            "color": {
+                "attr": "TARGET",
+                "trans": "raw",
+                "groupby": true
+            }
+        }
+    ]
+}

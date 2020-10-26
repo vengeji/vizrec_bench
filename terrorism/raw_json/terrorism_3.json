@@ -1,0 +1,634 @@
+{
+    "url": "https://www.kaggle.com/gpreda/global-terrorist-attacks",
+    "votes": 145,
+    "rank": 3,
+    "charts": [
+        {
+            "describe": "killings by iyear",
+            "chart": "treemap",
+            "x": {
+                "attr": "iyear",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "nkill",
+                "trans": "sum",
+                "calcus": "raw"
+            }
+        },
+        {
+            "describe": "killings by country",
+            "chart": "treemap",
+            "x": {
+                "attr": "country_txt",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "nkill",
+                "trans": "sum",
+                "calcus": "raw"
+            }
+        },
+        {
+            "describe": "killings by iyear and country",
+            "chart": "treemap",
+            "x": {
+                "attr": "country_txt",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "iyear",
+                "trans": "raw",
+                "groupby": true
+            },
+            "size": {
+                "attr": "nkill",
+                "trans": "sum",
+                "calcus": "raw"
+            },
+            "color": {
+                "attr": "nwound",
+                "trans": "sum",
+                "calcus": "raw"
+            }
+        },
+        {
+            "describe": "trend in kills of different region",
+            "chart": "line",
+            "x": {
+                "attr": "iyear",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "nkill",
+                "trans": "sum",
+                "calcus": "raw"
+            },
+            "color": {
+                "attr": "region_txt",
+                "trans": "raw",
+                "groupby": true
+            }
+        },
+        {
+            "describe": "killings by iyear and provinces",
+            "chart": "treemap",
+            "x": {
+                "attr": "provstate",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "iyear",
+                "trans": "raw",
+                "groupby": true
+            },
+            "size": {
+                "attr": "nkill",
+                "trans": "sum",
+                "calcus": "raw"
+            },
+            "color": {
+                "attr": "nwound",
+                "trans": "sum",
+                "calcus": "raw"
+            }
+        },
+        {
+            "describe": "killings by iyear and city",
+            "chart": "treemap",
+            "x": {
+                "attr": "city",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "iyear",
+                "trans": "raw",
+                "groupby": true
+            },
+            "size": {
+                "attr": "nkill",
+                "trans": "sum",
+                "calcus": "raw"
+            },
+            "color": {
+                "attr": "nwound",
+                "trans": "sum",
+                "calcus": "raw"
+            }
+        },
+        {
+            "describe": "killings by iyear and city",
+            "chart": "treemap",
+            "x": {
+                "attr": "city",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "iyear",
+                "trans": "raw",
+                "groupby": true
+            },
+            "color": {
+                "attr": "nkill",
+                "trans": "sum",
+                "calcus": "raw"
+            },
+            "size": {
+                "attr": "nwound",
+                "trans": "sum",
+                "calcus": "raw"
+            }
+        },
+        {
+            "describe": "trend in wounds of different region",
+            "chart": "line",
+            "x": {
+                "attr": "iyear",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "nwound",
+                "trans": "sum",
+                "calcus": "raw"
+            },
+            "color": {
+                "attr": "region_txt",
+                "trans": "raw",
+                "groupby": true
+            }
+        },
+        {
+            "describe": "trend in terrorist activities of different attacktype",
+            "chart": "line",
+            "x": {
+                "attr": "iyear",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "iyear",
+                "trans": "count",
+                "calcus": "raw"
+            },
+            "color": {
+                "attr": "attacktype1_txt",
+                "trans": "raw",
+                "groupby": true
+            }
+        },
+        {
+            "describe": "alternative calssification",
+            "chart": "bar",
+            "x": {
+                "attr": "alternative_txt",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "alternative_txt",
+                "trans": "count",
+                "calcus": "raw"
+            }
+        },
+        {
+            "describe": "ransompaid by year of differen region",
+            "chart": "line",
+            "x": {
+                "attr": "iyear",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "ransompaid",
+                "trans": "sum",
+                "calcus": "raw"
+            },
+            "color": {
+                "attr": "region_txt",
+                "trans": "raw",
+                "groupby": true
+            }
+        },
+        {
+            "describe": "ransompaid by country and hostkidoutcome",
+            "chart": "treemap",
+            "x": {
+                "attr": "hostkidoutcome_txt",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "country_txt",
+                "trans": "raw",
+                "groupby": true
+            },
+            "color": {
+                "attr": "nhostkid",
+                "trans": "sum",
+                "calcus": "raw"
+            },
+            "size": {
+                "attr": "ransompaid",
+                "trans": "sum",
+                "calcus": "raw"
+            }
+        },
+        {
+            "describe": "hostages and kidnapped of year and region",
+            "chart": "line",
+            "x": {
+                "attr": "iyear",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "nhostkid",
+                "trans": "sum",
+                "calcus": "raw"
+            },
+            "color": {
+                "attr": "region_txt",
+                "trans": "raw",
+                "groupby": true
+            }
+        },
+        {
+            "describe": "Number of hostages or kidnapped in the events",
+            "chart": "treemap",
+            "x": {
+                "attr": "hostkidoutcome_txt",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "country_txt",
+                "trans": "raw",
+                "groupby": true
+            },
+            "color": {
+                "attr": "nhostkid",
+                "trans": "sum",
+                "calcus": "raw"
+            },
+            "size": {
+                "attr": "nhostkid",
+                "trans": "count",
+                "calcus": "raw"
+            }
+        },
+        {
+            "describe": "motivation behind attacks",
+            "chart": "wordcloud",
+            "x": {
+                "attr": "motive",
+                "trans": "split",
+                "groupby": true
+            },
+            "y": {
+                "attr": "motive",
+                "trans": "count",
+                "calcus": "raw"
+            }
+        },
+        {
+            "describe": "killings by gname",
+            "chart": "bar",
+            "x": {
+                "attr": "gname",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "nkill",
+                "trans": "sum",
+                "calcus": "raw"
+            }
+        },
+        {
+            "describe": "terrorist groups with highest terror attacks",
+            "chart": "bar",
+            "x": {
+                "attr": "gname",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "gname",
+                "trans": "count",
+                "calcus": "raw"
+            }
+        },
+        {
+            "describe": "activity of top terrorist groups",
+            "chart": "line",
+            "x": {
+                "attr": "iyear",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "iyear",
+                "trans": "count",
+                "calcus": "raw"
+            },
+            "color": {
+                "attr": "gname",
+                "trans": "raw",
+                "groupby": true
+            }
+        },
+        {
+            "describe": "Perpetrators nationality",
+            "chart": "bar",
+            "x": {
+                "attr": "natlty1_txt",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "natlty1_txt",
+                "trans": "count",
+                "calcus": "raw"
+            }
+        },
+        {
+            "describe": "Perpetrators nationality",
+            "chart": "bar",
+            "x": {
+                "attr": "kidhijcountry",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "kidhijcountry",
+                "trans": "count",
+                "calcus": "raw"
+            }
+        },
+        {
+            "describe": "weapon type",
+            "chart": "bar",
+            "x": {
+                "attr": "weaptype1_txt",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "weaptype1_txt",
+                "trans": "count",
+                "calcus": "raw"
+            }
+        },
+        {
+            "describe": "weapon subtype",
+            "chart": "bar",
+            "x": {
+                "attr": "weapsubtype1_txt",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "weapsubtype1_txt",
+                "trans": "count",
+                "calcus": "raw"
+            }
+        },
+        {
+            "describe": "weapon type and subtype",
+            "chart": "bar",
+            "x": {
+                "attr": "weaptype1_txt",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "weaptype1_txt",
+                "trans": "count",
+                "calcus": "raw"
+            },
+            "color": {
+                "attr": "weapsubtype1_txt",
+                "trans": "raw",
+                "groupby": true
+            }
+        },
+        {
+            "describe": "weapon type2",
+            "chart": "bar",
+            "x": {
+                "attr": "weaptype2_txt",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "weaptype2_txt",
+                "trans": "count",
+                "calcus": "raw"
+            }
+        },
+        {
+            "describe": "weapon subtype2",
+            "chart": "bar",
+            "x": {
+                "attr": "weapsubtype2_txt",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "weapsubtype2_txt",
+                "trans": "count",
+                "calcus": "raw"
+            }
+        },
+        {
+            "describe": "weapon type3",
+            "chart": "bar",
+            "x": {
+                "attr": "weaptype3_txt",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "weaptype3_txt",
+                "trans": "count",
+                "calcus": "raw"
+            }
+        },
+        {
+            "describe": "weapon subtype3",
+            "chart": "bar",
+            "x": {
+                "attr": "weapsubtype3_txt",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "weapsubtype3_txt",
+                "trans": "count",
+                "calcus": "raw"
+            }
+        },
+        {
+            "describe": "weapon type4",
+            "chart": "bar",
+            "x": {
+                "attr": "weaptype4_txt",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "weaptype4_txt",
+                "trans": "count",
+                "calcus": "raw"
+            }
+        },
+        {
+            "describe": "weapon subtype4",
+            "chart": "bar",
+            "x": {
+                "attr": "weapsubtype4_txt",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "weapsubtype4_txt",
+                "trans": "count",
+                "calcus": "raw"
+            }
+        },
+        {
+            "describe": "favorite target 1",
+            "chart": "bar",
+            "x": {
+                "attr": "targtype1_txt",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "targtype1_txt",
+                "trans": "count",
+                "calcus": "raw"
+            }
+        },
+        {
+            "describe": "favorite target sub 1",
+            "chart": "bar",
+            "x": {
+                "attr": "targsubtype1_txt",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "targsubtype1_txt",
+                "trans": "count",
+                "calcus": "raw"
+            }
+        },
+        {
+            "describe": "favorite target 2",
+            "chart": "bar",
+            "x": {
+                "attr": "targtype2_txt",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "targtype2_txt",
+                "trans": "count",
+                "calcus": "raw"
+            }
+        },
+        {
+            "describe": "favorite target sub 2",
+            "chart": "bar",
+            "x": {
+                "attr": "targsubtype2_txt",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "targsubtype2_txt",
+                "trans": "count",
+                "calcus": "raw"
+            }
+        },
+        {
+            "describe": "favorite target 3",
+            "chart": "bar",
+            "x": {
+                "attr": "targtype3_txt",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "targtype3_txt",
+                "trans": "count",
+                "calcus": "raw"
+            }
+        },
+        {
+            "describe": "favorite target sub 3",
+            "chart": "bar",
+            "x": {
+                "attr": "targsubtype3_txt",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "targsubtype3_txt",
+                "trans": "count",
+                "calcus": "raw"
+            }
+        },
+        {
+            "describe": "claim mode",
+            "chart": "bar",
+            "x": {
+                "attr": "claimmode_txt",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "claimmode_txt",
+                "trans": "count",
+                "calcus": "raw"
+            }
+        },
+        {
+            "describe": "propextent_txt",
+            "chart": "bar",
+            "x": {
+                "attr": "propextent_txt",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "propextent_txt",
+                "trans": "count",
+                "calcus": "raw"
+            }
+        },
+        {
+            "describe": "dbsource",
+            "chart": "bar",
+            "x": {
+                "attr": "dbsource",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "dbsource",
+                "trans": "count",
+                "calcus": "raw"
+            }
+        }
+    ]
+}

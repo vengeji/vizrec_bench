@@ -1,0 +1,1009 @@
+{
+    "charts": [
+        {
+            "describe": "Who accompanied client when applying for the  application",
+            "id": "home_credit_risk_1_extracted.json_id_1",
+            "rank": 1,
+            "type": "bar",
+            "channels": {
+                "x": {
+                    "attr": "NAME_TYPE_SUITE",
+                    "trans": "raw",
+                    "groupby": true
+                },
+                "y": {
+                    "attr": "NAME_TYPE_SUITE",
+                    "trans": "count",
+                    "calcus": "percentage"
+                }
+            }
+        },
+        {
+            "describe": "Count TARGET",
+            "id": "home_credit_risk_1_extracted.json_id_2",
+            "rank": 2,
+            "type": "pie",
+            "channels": {
+                "x": {
+                    "attr": "TARGET",
+                    "trans": "raw",
+                    "groupby": true
+                },
+                "y": {
+                    "attr": "TARGET",
+                    "trans": "count",
+                    "calcus": "percentage"
+                }
+            }
+        },
+        {
+            "describe": "Types of loans",
+            "id": "home_credit_risk_1_extracted.json_id_3-home_credit_risk_3_extracted.json_id_15",
+            "rank": 3,
+            "type": "pie",
+            "channels": {
+                "x": {
+                    "attr": "NAME_CONTRACT_TYPE",
+                    "trans": "raw",
+                    "groupby": true
+                },
+                "y": {
+                    "attr": "NAME_CONTRACT_TYPE",
+                    "trans": "count",
+                    "calcus": "percentage"
+                }
+            }
+        },
+        {
+            "describe": "Do applicant own car",
+            "id": "home_credit_risk_1_extracted.json_id_4-home_credit_risk_3_extracted.json_id_7",
+            "rank": 4,
+            "type": "pie",
+            "channels": {
+                "x": {
+                    "attr": "FLAG_OWN_CAR",
+                    "trans": "raw",
+                    "groupby": true
+                },
+                "y": {
+                    "attr": "FLAG_OWN_CAR",
+                    "trans": "count",
+                    "calcus": "percentage"
+                }
+            }
+        },
+        {
+            "describe": "Do applicant own realty",
+            "id": "home_credit_risk_1_extracted.json_id_5-home_credit_risk_3_extracted.json_id_6",
+            "rank": 5,
+            "type": "pie",
+            "channels": {
+                "x": {
+                    "attr": "FLAG_OWN_REALTY",
+                    "trans": "raw",
+                    "groupby": true
+                },
+                "y": {
+                    "attr": "FLAG_OWN_REALTY",
+                    "trans": "count",
+                    "calcus": "percentage"
+                }
+            }
+        },
+        {
+            "describe": "Income sources of applicants",
+            "id": "home_credit_risk_1_extracted.json_id_6",
+            "rank": 6,
+            "type": "pie",
+            "channels": {
+                "x": {
+                    "attr": "NAME_INCOME_TYPE",
+                    "trans": "raw",
+                    "groupby": true
+                },
+                "y": {
+                    "attr": "NAME_INCOME_TYPE",
+                    "trans": "count",
+                    "calcus": "percentage"
+                }
+            }
+        },
+        {
+            "describe": "Family status of applicants",
+            "id": "home_credit_risk_1_extracted.json_id_7",
+            "rank": 7,
+            "type": "pie",
+            "channels": {
+                "x": {
+                    "attr": "NAME_FAMILY_STATUS",
+                    "trans": "raw",
+                    "groupby": true
+                },
+                "y": {
+                    "attr": "NAME_FAMILY_STATUS",
+                    "trans": "count",
+                    "calcus": "percentage"
+                }
+            }
+        },
+        {
+            "describe": "Occupation types of applicants",
+            "id": "home_credit_risk_1_extracted.json_id_8-home_credit_risk_2_extracted.json_id_18-home_credit_risk_3_extracted.json_id_21",
+            "rank": 8,
+            "type": "bar",
+            "channels": {
+                "x": {
+                    "attr": "OCCUPATION_TYPE",
+                    "trans": "raw",
+                    "groupby": true
+                },
+                "y": {
+                    "attr": "OCCUPATION_TYPE",
+                    "trans": "count",
+                    "calcus": "raw"
+                }
+            }
+        },
+        {
+            "describe": "Education level of applicants",
+            "id": "home_credit_risk_1_extracted.json_id_9",
+            "rank": 9,
+            "type": "pie",
+            "channels": {
+                "x": {
+                    "attr": "NAME_EDUCATION_TYPE",
+                    "trans": "raw",
+                    "groupby": true
+                },
+                "y": {
+                    "attr": "NAME_EDUCATION_TYPE",
+                    "trans": "count",
+                    "calcus": "percentage"
+                }
+            }
+        },
+        {
+            "describe": "Housing type of applicants",
+            "id": "home_credit_risk_1_extracted.json_id_10",
+            "rank": 10,
+            "type": "pie",
+            "channels": {
+                "x": {
+                    "attr": "NAME_HOUSING_TYPE",
+                    "trans": "raw",
+                    "groupby": true
+                },
+                "y": {
+                    "attr": "NAME_HOUSING_TYPE",
+                    "trans": "count",
+                    "calcus": "percentage"
+                }
+            }
+        },
+        {
+            "describe": "Organization types of applicants",
+            "id": "home_credit_risk_1_extracted.json_id_11-home_credit_risk_2_extracted.json_id_20-home_credit_risk_3_extracted.json_id_20",
+            "rank": 11,
+            "type": "bar",
+            "channels": {
+                "x": {
+                    "attr": "ORGANIZATION_TYPE",
+                    "trans": "raw",
+                    "groupby": true
+                },
+                "y": {
+                    "attr": "ORGANIZATION_TYPE",
+                    "trans": "count",
+                    "calcus": "raw"
+                }
+            }
+        },
+        {
+            "describe": "Number of applicances of different sources and target type",
+            "id": "home_credit_risk_1_extracted.json_id_12-home_credit_risk_2_extracted.json_id_17-home_credit_risk_3_extracted.json_id_14",
+            "rank": 12,
+            "type": "bar",
+            "channels": {
+                "x": {
+                    "attr": "NAME_INCOME_TYPE",
+                    "trans": "raw",
+                    "groupby": true
+                },
+                "y": {
+                    "attr": "NAME_INCOME_TYPE",
+                    "trans": "count",
+                    "calcus": "percentage"
+                },
+                "color": {
+                    "attr": "TARGET",
+                    "trans": "raw",
+                    "groupby": true
+                }
+            }
+        },
+        {
+            "describe": "Number of applicances of different family statu and target type",
+            "id": "home_credit_risk_1_extracted.json_id_13-home_credit_risk_2_extracted.json_id_11",
+            "rank": 13,
+            "type": "bar",
+            "channels": {
+                "x": {
+                    "attr": "NAME_FAMILY_STATUS",
+                    "trans": "raw",
+                    "groupby": true
+                },
+                "y": {
+                    "attr": "NAME_FAMILY_STATUS",
+                    "trans": "count",
+                    "calcus": "percentage"
+                },
+                "color": {
+                    "attr": "TARGET",
+                    "trans": "raw",
+                    "groupby": true
+                }
+            }
+        },
+        {
+            "describe": "Number of applicances of different occupation and target type",
+            "id": "home_credit_risk_1_extracted.json_id_14-home_credit_risk_2_extracted.json_id_19-home_credit_risk_3_extracted.json_id_23",
+            "rank": 14,
+            "type": "bar",
+            "channels": {
+                "x": {
+                    "attr": "OCCUPATION_TYPE",
+                    "trans": "raw",
+                    "groupby": true
+                },
+                "y": {
+                    "attr": "OCCUPATION_TYPE",
+                    "trans": "count",
+                    "calcus": "percentage"
+                },
+                "color": {
+                    "attr": "TARGET",
+                    "trans": "raw",
+                    "groupby": true
+                }
+            }
+        },
+        {
+            "describe": "Number of applicances of different education and target type",
+            "id": "home_credit_risk_1_extracted.json_id_15-home_credit_risk_2_extracted.json_id_23-home_credit_risk_3_extracted.json_id_18",
+            "rank": 15,
+            "type": "bar",
+            "channels": {
+                "x": {
+                    "attr": "NAME_EDUCATION_TYPE",
+                    "trans": "raw",
+                    "groupby": true
+                },
+                "y": {
+                    "attr": "NAME_EDUCATION_TYPE",
+                    "trans": "count",
+                    "calcus": "percentage"
+                },
+                "color": {
+                    "attr": "TARGET",
+                    "trans": "raw",
+                    "groupby": true
+                }
+            }
+        },
+        {
+            "describe": "Number of applicances of different housing type and target type",
+            "id": "home_credit_risk_1_extracted.json_id_16-home_credit_risk_2_extracted.json_id_25-home_credit_risk_3_extracted.json_id_19",
+            "rank": 16,
+            "type": "bar",
+            "channels": {
+                "x": {
+                    "attr": "NAME_HOUSING_TYPE",
+                    "trans": "raw",
+                    "groupby": true
+                },
+                "y": {
+                    "attr": "NAME_HOUSING_TYPE",
+                    "trans": "count",
+                    "calcus": "percentage"
+                },
+                "color": {
+                    "attr": "TARGET",
+                    "trans": "raw",
+                    "groupby": true
+                }
+            }
+        },
+        {
+            "describe": "Number of applicances of different organization and target type",
+            "id": "home_credit_risk_1_extracted.json_id_17-home_credit_risk_2_extracted.json_id_21-home_credit_risk_3_extracted.json_id_22",
+            "rank": 17,
+            "type": "bar",
+            "channels": {
+                "x": {
+                    "attr": "ORGANIZATION_TYPE",
+                    "trans": "raw",
+                    "groupby": true
+                },
+                "y": {
+                    "attr": "ORGANIZATION_TYPE",
+                    "trans": "count",
+                    "calcus": "percentage"
+                },
+                "color": {
+                    "attr": "TARGET",
+                    "trans": "raw",
+                    "groupby": true
+                }
+            }
+        },
+        {
+            "describe": "Number of applicances of different NAME_TYPE_SUITE and target type",
+            "id": "home_credit_risk_1_extracted.json_id_18-home_credit_risk_3_extracted.json_id_13",
+            "rank": 18,
+            "type": "bar",
+            "channels": {
+                "x": {
+                    "attr": "NAME_TYPE_SUITE",
+                    "trans": "raw",
+                    "groupby": true
+                },
+                "y": {
+                    "attr": "NAME_TYPE_SUITE",
+                    "trans": "count",
+                    "calcus": "percentage"
+                },
+                "color": {
+                    "attr": "TARGET",
+                    "trans": "raw",
+                    "groupby": true
+                }
+            }
+        },
+        {
+            "describe": "Count TARGET",
+            "id": "home_credit_risk_2_extracted.json_id_1-home_credit_risk_3_extracted.json_id_1",
+            "rank": 19,
+            "type": "bar",
+            "channels": {
+                "x": {
+                    "attr": "TARGET",
+                    "trans": "raw",
+                    "groupby": true
+                },
+                "y": {
+                    "attr": "TARGET",
+                    "trans": "count",
+                    "calcus": "raw"
+                }
+            }
+        },
+        {
+            "describe": "Types of loans",
+            "id": "home_credit_risk_2_extracted.json_id_2",
+            "rank": 20,
+            "type": "bar",
+            "channels": {
+                "x": {
+                    "attr": "NAME_CONTRACT_TYPE",
+                    "trans": "raw",
+                    "groupby": true
+                },
+                "y": {
+                    "attr": "NAME_CONTRACT_TYPE",
+                    "trans": "count",
+                    "calcus": "raw"
+                }
+            }
+        },
+        {
+            "describe": "Types of loans of different target",
+            "id": "home_credit_risk_2_extracted.json_id_3",
+            "rank": 21,
+            "type": "bar",
+            "channels": {
+                "x": {
+                    "attr": "NAME_CONTRACT_TYPE",
+                    "trans": "raw",
+                    "groupby": true
+                },
+                "y": {
+                    "attr": "NAME_CONTRACT_TYPE",
+                    "trans": "count",
+                    "calcus": "percentage"
+                },
+                "color": {
+                    "attr": "TARGET",
+                    "trans": "raw",
+                    "groupby": true
+                }
+            }
+        },
+        {
+            "describe": "Client gender",
+            "id": "home_credit_risk_2_extracted.json_id_4-home_credit_risk_3_extracted.json_id_2",
+            "rank": 22,
+            "type": "bar",
+            "channels": {
+                "x": {
+                    "attr": "CODE_GENDER",
+                    "trans": "raw",
+                    "groupby": true
+                },
+                "y": {
+                    "attr": "CODE_GENDER",
+                    "trans": "count",
+                    "calcus": "raw"
+                }
+            }
+        },
+        {
+            "describe": "Client gender of different target",
+            "id": "home_credit_risk_2_extracted.json_id_5",
+            "rank": 23,
+            "type": "bar",
+            "channels": {
+                "x": {
+                    "attr": "CODE_GENDER",
+                    "trans": "raw",
+                    "groupby": true
+                },
+                "y": {
+                    "attr": "CODE_GENDER",
+                    "trans": "count",
+                    "calcus": "percentage"
+                },
+                "color": {
+                    "attr": "TARGET",
+                    "trans": "raw",
+                    "groupby": true
+                }
+            }
+        },
+        {
+            "describe": "Own car",
+            "id": "home_credit_risk_2_extracted.json_id_6",
+            "rank": 24,
+            "type": "bar",
+            "channels": {
+                "x": {
+                    "attr": "FLAG_OWN_CAR",
+                    "trans": "raw",
+                    "groupby": true
+                },
+                "y": {
+                    "attr": "FLAG_OWN_CAR",
+                    "trans": "count",
+                    "calcus": "raw"
+                }
+            }
+        },
+        {
+            "describe": "Own car of different target type",
+            "id": "home_credit_risk_2_extracted.json_id_7-home_credit_risk_3_extracted.json_id_10",
+            "rank": 25,
+            "type": "bar",
+            "channels": {
+                "x": {
+                    "attr": "FLAG_OWN_CAR",
+                    "trans": "raw",
+                    "groupby": true
+                },
+                "y": {
+                    "attr": "FLAG_OWN_CAR",
+                    "trans": "count",
+                    "calcus": "percentage"
+                },
+                "color": {
+                    "attr": "TARGET",
+                    "trans": "raw",
+                    "groupby": true
+                }
+            }
+        },
+        {
+            "describe": "Own realty",
+            "id": "home_credit_risk_2_extracted.json_id_8-home_credit_risk_3_extracted.json_id_8",
+            "rank": 26,
+            "type": "bar",
+            "channels": {
+                "x": {
+                    "attr": "FLAG_OWN_REALTY",
+                    "trans": "raw",
+                    "groupby": true
+                },
+                "y": {
+                    "attr": "FLAG_OWN_REALTY",
+                    "trans": "count",
+                    "calcus": "raw"
+                }
+            }
+        },
+        {
+            "describe": "Own realty of different target type",
+            "id": "home_credit_risk_2_extracted.json_id_9-home_credit_risk_3_extracted.json_id_9",
+            "rank": 27,
+            "type": "bar",
+            "channels": {
+                "x": {
+                    "attr": "FLAG_OWN_REALTY",
+                    "trans": "raw",
+                    "groupby": true
+                },
+                "y": {
+                    "attr": "FLAG_OWN_REALTY",
+                    "trans": "count",
+                    "calcus": "percentage"
+                },
+                "color": {
+                    "attr": "TARGET",
+                    "trans": "raw",
+                    "groupby": true
+                }
+            }
+        },
+        {
+            "describe": "Family status",
+            "id": "home_credit_risk_2_extracted.json_id_10-home_credit_risk_3_extracted.json_id_4",
+            "rank": 28,
+            "type": "bar",
+            "channels": {
+                "x": {
+                    "attr": "NAME_FAMILY_STATUS",
+                    "trans": "raw",
+                    "groupby": true
+                },
+                "y": {
+                    "attr": "NAME_FAMILY_STATUS",
+                    "trans": "count",
+                    "calcus": "raw"
+                }
+            }
+        },
+        {
+            "describe": "Number of children",
+            "id": "home_credit_risk_2_extracted.json_id_12-home_credit_risk_3_extracted.json_id_29",
+            "rank": 29,
+            "type": "bar",
+            "channels": {
+                "x": {
+                    "attr": "CNT_CHILDREN",
+                    "trans": "raw",
+                    "groupby": true
+                },
+                "y": {
+                    "attr": "CNT_CHILDREN",
+                    "trans": "count",
+                    "calcus": "raw"
+                }
+            }
+        },
+        {
+            "describe": "CNT CHILDREN of different target type",
+            "id": "home_credit_risk_2_extracted.json_id_13",
+            "rank": 30,
+            "type": "bar",
+            "channels": {
+                "x": {
+                    "attr": "CNT_CHILDREN",
+                    "trans": "raw",
+                    "groupby": true
+                },
+                "y": {
+                    "attr": "CNT_CHILDREN",
+                    "trans": "count",
+                    "calcus": "percentage"
+                },
+                "color": {
+                    "attr": "TARGET",
+                    "trans": "raw",
+                    "groupby": true
+                }
+            }
+        },
+        {
+            "describe": "Number of family menber",
+            "id": "home_credit_risk_2_extracted.json_id_14-home_credit_risk_3_extracted.json_id_28",
+            "rank": 31,
+            "type": "bar",
+            "channels": {
+                "x": {
+                    "attr": "CNT_FAM_MEMBERS",
+                    "trans": "raw",
+                    "groupby": true
+                },
+                "y": {
+                    "attr": "CNT_FAM_MEMBERS",
+                    "trans": "count",
+                    "calcus": "raw"
+                }
+            }
+        },
+        {
+            "describe": "CNT_FAM_MEMBERS of different target type",
+            "id": "home_credit_risk_2_extracted.json_id_15",
+            "rank": 32,
+            "type": "bar",
+            "channels": {
+                "x": {
+                    "attr": "CNT_FAM_MEMBERS",
+                    "trans": "raw",
+                    "groupby": true
+                },
+                "y": {
+                    "attr": "CNT_FAM_MEMBERS",
+                    "trans": "count",
+                    "calcus": "percentage"
+                },
+                "color": {
+                    "attr": "TARGET",
+                    "trans": "raw",
+                    "groupby": true
+                }
+            }
+        },
+        {
+            "describe": "NAME_INCOME_TYPE",
+            "id": "home_credit_risk_2_extracted.json_id_16-home_credit_risk_3_extracted.json_id_12",
+            "rank": 33,
+            "type": "bar",
+            "channels": {
+                "x": {
+                    "attr": "NAME_INCOME_TYPE",
+                    "trans": "raw",
+                    "groupby": true
+                },
+                "y": {
+                    "attr": "NAME_INCOME_TYPE",
+                    "trans": "count",
+                    "calcus": "raw"
+                }
+            }
+        },
+        {
+            "describe": "NAME_EDUCATION_TYPE",
+            "id": "home_credit_risk_2_extracted.json_id_22-home_credit_risk_3_extracted.json_id_16",
+            "rank": 34,
+            "type": "bar",
+            "channels": {
+                "x": {
+                    "attr": "NAME_EDUCATION_TYPE",
+                    "trans": "raw",
+                    "groupby": true
+                },
+                "y": {
+                    "attr": "NAME_EDUCATION_TYPE",
+                    "trans": "count",
+                    "calcus": "raw"
+                }
+            }
+        },
+        {
+            "describe": "NAME_HOUSING_TYPE",
+            "id": "home_credit_risk_2_extracted.json_id_24-home_credit_risk_3_extracted.json_id_17",
+            "rank": 35,
+            "type": "bar",
+            "channels": {
+                "x": {
+                    "attr": "NAME_HOUSING_TYPE",
+                    "trans": "raw",
+                    "groupby": true
+                },
+                "y": {
+                    "attr": "NAME_HOUSING_TYPE",
+                    "trans": "count",
+                    "calcus": "raw"
+                }
+            }
+        },
+        {
+            "describe": "REG_REGION_NOT_LIVE_REGION",
+            "id": "home_credit_risk_2_extracted.json_id_26",
+            "rank": 36,
+            "type": "bar",
+            "channels": {
+                "x": {
+                    "attr": "REG_REGION_NOT_LIVE_REGION",
+                    "trans": "raw",
+                    "groupby": true
+                },
+                "y": {
+                    "attr": "REG_REGION_NOT_LIVE_REGION",
+                    "trans": "count",
+                    "calcus": "raw"
+                }
+            }
+        },
+        {
+            "describe": "REG_REGION_NOT_LIVE_REGION of different target type",
+            "id": "home_credit_risk_2_extracted.json_id_27",
+            "rank": 37,
+            "type": "bar",
+            "channels": {
+                "x": {
+                    "attr": "REG_REGION_NOT_LIVE_REGION",
+                    "trans": "raw",
+                    "groupby": true
+                },
+                "y": {
+                    "attr": "REG_REGION_NOT_LIVE_REGION",
+                    "trans": "count",
+                    "calcus": "percentage"
+                },
+                "color": {
+                    "attr": "TARGET",
+                    "trans": "raw",
+                    "groupby": true
+                }
+            }
+        },
+        {
+            "describe": "REG_REGION_NOT_WORK_REGION",
+            "id": "home_credit_risk_2_extracted.json_id_28",
+            "rank": 38,
+            "type": "bar",
+            "channels": {
+                "x": {
+                    "attr": "REG_REGION_NOT_WORK_REGION",
+                    "trans": "raw",
+                    "groupby": true
+                },
+                "y": {
+                    "attr": "REG_REGION_NOT_WORK_REGION",
+                    "trans": "count",
+                    "calcus": "raw"
+                }
+            }
+        },
+        {
+            "describe": "REG_REGION_NOT_WORK_REGION of different target type",
+            "id": "home_credit_risk_2_extracted.json_id_29",
+            "rank": 39,
+            "type": "bar",
+            "channels": {
+                "x": {
+                    "attr": "REG_REGION_NOT_WORK_REGION",
+                    "trans": "raw",
+                    "groupby": true
+                },
+                "y": {
+                    "attr": "REG_REGION_NOT_WORK_REGION",
+                    "trans": "count",
+                    "calcus": "percentage"
+                },
+                "color": {
+                    "attr": "TARGET",
+                    "trans": "raw",
+                    "groupby": true
+                }
+            }
+        },
+        {
+            "describe": "REG_CITY_NOT_LIVE_CITY",
+            "id": "home_credit_risk_2_extracted.json_id_30",
+            "rank": 40,
+            "type": "bar",
+            "channels": {
+                "x": {
+                    "attr": "REG_CITY_NOT_LIVE_CITY",
+                    "trans": "raw",
+                    "groupby": true
+                },
+                "y": {
+                    "attr": "REG_CITY_NOT_LIVE_CITY",
+                    "trans": "count",
+                    "calcus": "raw"
+                }
+            }
+        },
+        {
+            "describe": "REG_CITY_NOT_LIVE_CITY of different target type",
+            "id": "home_credit_risk_2_extracted.json_id_31",
+            "rank": 41,
+            "type": "bar",
+            "channels": {
+                "x": {
+                    "attr": "REG_CITY_NOT_LIVE_CITY",
+                    "trans": "raw",
+                    "groupby": true
+                },
+                "y": {
+                    "attr": "REG_CITY_NOT_LIVE_CITY",
+                    "trans": "count",
+                    "calcus": "percentage"
+                },
+                "color": {
+                    "attr": "TARGET",
+                    "trans": "raw",
+                    "groupby": true
+                }
+            }
+        },
+        {
+            "describe": "REG_CITY_NOT_WORK_CITY",
+            "id": "home_credit_risk_2_extracted.json_id_32",
+            "rank": 42,
+            "type": "bar",
+            "channels": {
+                "x": {
+                    "attr": "REG_CITY_NOT_WORK_CITY",
+                    "trans": "raw",
+                    "groupby": true
+                },
+                "y": {
+                    "attr": "REG_CITY_NOT_WORK_CITY",
+                    "trans": "count",
+                    "calcus": "raw"
+                }
+            }
+        },
+        {
+            "describe": "REG_CITY_NOT_WORK_CITY of different target type",
+            "id": "home_credit_risk_2_extracted.json_id_33",
+            "rank": 43,
+            "type": "bar",
+            "channels": {
+                "x": {
+                    "attr": "REG_CITY_NOT_WORK_CITY",
+                    "trans": "raw",
+                    "groupby": true
+                },
+                "y": {
+                    "attr": "REG_CITY_NOT_WORK_CITY",
+                    "trans": "count",
+                    "calcus": "percentage"
+                },
+                "color": {
+                    "attr": "TARGET",
+                    "trans": "raw",
+                    "groupby": true
+                }
+            }
+        },
+        {
+            "describe": "Client gender of different target",
+            "id": "home_credit_risk_3_extracted.json_id_3",
+            "rank": 44,
+            "type": "bar",
+            "channels": {
+                "x": {
+                    "attr": "CODE_GENDER",
+                    "trans": "raw",
+                    "groupby": true
+                },
+                "y": {
+                    "attr": "CODE_GENDER",
+                    "trans": "count",
+                    "calcus": "raw"
+                },
+                "color": {
+                    "attr": "TARGET",
+                    "trans": "raw",
+                    "groupby": true
+                }
+            }
+        },
+        {
+            "describe": "Family status of different target type",
+            "id": "home_credit_risk_3_extracted.json_id_5",
+            "rank": 45,
+            "type": "bar",
+            "channels": {
+                "x": {
+                    "attr": "NAME_FAMILY_STATUS",
+                    "trans": "raw",
+                    "groupby": true
+                },
+                "y": {
+                    "attr": "NAME_FAMILY_STATUS",
+                    "trans": "count",
+                    "calcus": "raw"
+                },
+                "color": {
+                    "attr": "TARGET",
+                    "trans": "raw",
+                    "groupby": true
+                }
+            }
+        },
+        {
+            "describe": "Who accompanied client when applying for the application",
+            "id": "home_credit_risk_3_extracted.json_id_11",
+            "rank": 46,
+            "type": "bar",
+            "channels": {
+                "x": {
+                    "attr": "NAME_TYPE_SUITE",
+                    "trans": "raw",
+                    "groupby": true
+                },
+                "y": {
+                    "attr": "NAME_TYPE_SUITE",
+                    "trans": "count",
+                    "calcus": "raw"
+                }
+            }
+        },
+        {
+            "describe": "House mode of applicants",
+            "id": "home_credit_risk_3_extracted.json_id_24",
+            "rank": 47,
+            "type": "bar",
+            "channels": {
+                "x": {
+                    "attr": "HOUSETYPE_MODE",
+                    "trans": "raw",
+                    "groupby": true
+                },
+                "y": {
+                    "attr": "HOUSETYPE_MODE",
+                    "trans": "count",
+                    "calcus": "raw"
+                }
+            }
+        },
+        {
+            "describe": "WALLSMATERIAL_MODE of applicants",
+            "id": "home_credit_risk_3_extracted.json_id_25",
+            "rank": 48,
+            "type": "bar",
+            "channels": {
+                "x": {
+                    "attr": "WALLSMATERIAL_MODE",
+                    "trans": "raw",
+                    "groupby": true
+                },
+                "y": {
+                    "attr": "WALLSMATERIAL_MODE",
+                    "trans": "count",
+                    "calcus": "raw"
+                }
+            }
+        },
+        {
+            "describe": "house mode and target type",
+            "id": "home_credit_risk_3_extracted.json_id_26",
+            "rank": 49,
+            "type": "bar",
+            "channels": {
+                "x": {
+                    "attr": "HOUSETYPE_MODE",
+                    "trans": "raw",
+                    "groupby": true
+                },
+                "y": {
+                    "attr": "HOUSETYPE_MODE",
+                    "trans": "count",
+                    "calcus": "percentage"
+                },
+                "color": {
+                    "attr": "TARGET",
+                    "trans": "raw",
+                    "groupby": true
+                }
+            }
+        },
+        {
+            "describe": "wall mode and target type",
+            "id": "home_credit_risk_3_extracted.json_id_27",
+            "rank": 50,
+            "type": "bar",
+            "channels": {
+                "x": {
+                    "attr": "WALLSMATERIAL_MODE",
+                    "trans": "raw",
+                    "groupby": true
+                },
+                "y": {
+                    "attr": "WALLSMATERIAL_MODE",
+                    "trans": "count",
+                    "calcus": "percentage"
+                },
+                "color": {
+                    "attr": "TARGET",
+                    "trans": "raw",
+                    "groupby": true
+                }
+            }
+        }
+    ]
+}

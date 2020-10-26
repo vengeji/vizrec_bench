@@ -1,0 +1,17 @@
+{
+    "loan_amnt": "float32",
+    "term": "object",
+    "int_rate": "float32",
+    "grade": "object",
+    "sub_grade": "object",
+    "emp_title": "object",
+    "verification_status": "object",
+    "issue_d": "object",
+    "loan_status": "object",
+    "purpose": "object",
+    "title": "object",
+    "settlement_status": "object",
+    "region": "object",
+    "loan_condition": "object",
+    "income_category": "object"
+}

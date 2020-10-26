@@ -1,0 +1,761 @@
+{
+    "url": "https://www.kaggle.com/gpreda/home-credit-default-risk-extensive-eda",
+    "votes": 254,
+    "rank": 2,
+    "charts": [
+        {
+            "describe": "Count TARGET",
+            "chart": "bar",
+            "x": {
+                "attr": "TARGET",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "TARGET",
+                "trans": "count",
+                "calcus": "raw"
+            }
+        },
+        {
+            "describe": "Types of loans",
+            "chart": "bar",
+            "x": {
+                "attr": "NAME_CONTRACT_TYPE",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "NAME_CONTRACT_TYPE",
+                "trans": "count",
+                "calcus": "raw"
+            }
+        },
+        {
+            "describe": "Types of loans of different target",
+            "chart": "bar",
+            "x": {
+                "attr": "NAME_CONTRACT_TYPE",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "NAME_CONTRACT_TYPE",
+                "trans": "count",
+                "calcus": "percentage"
+            },
+            "color": {
+                "attr": "TARGET",
+                "trans": "raw",
+                "groupby": true
+            }
+        },
+        {
+            "describe": "Client gender",
+            "chart": "bar",
+            "x": {
+                "attr": "CODE_GENDER",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "CODE_GENDER",
+                "trans": "count",
+                "calcus": "raw"
+            }
+        },
+        {
+            "describe": "Client gender of different target",
+            "chart": "bar",
+            "x": {
+                "attr": "CODE_GENDER",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "CODE_GENDER",
+                "trans": "count",
+                "calcus": "percentage"
+            },
+            "color": {
+                "attr": "TARGET",
+                "trans": "raw",
+                "groupby": true
+            }
+        },
+        {
+            "describe": "Own car",
+            "chart": "bar",
+            "x": {
+                "attr": "FLAG_OWN_CAR",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "FLAG_OWN_CAR",
+                "trans": "count",
+                "calcus": "raw"
+            }
+        },
+        {
+            "describe": "Own car of different target type",
+            "chart": "bar",
+            "x": {
+                "attr": "FLAG_OWN_CAR",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "FLAG_OWN_CAR",
+                "trans": "count",
+                "calcus": "percentage"
+            },
+            "color": {
+                "attr": "TARGET",
+                "trans": "raw",
+                "groupby": true
+            }
+        },
+        {
+            "describe": "Own realty",
+            "chart": "bar",
+            "x": {
+                "attr": "FLAG_OWN_REALTY",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "FLAG_OWN_REALTY",
+                "trans": "count",
+                "calcus": "raw"
+            }
+        },
+        {
+            "describe": "Own realty of different target type",
+            "chart": "bar",
+            "x": {
+                "attr": "FLAG_OWN_REALTY",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "FLAG_OWN_REALTY",
+                "trans": "count",
+                "calcus": "percentage"
+            },
+            "color": {
+                "attr": "TARGET",
+                "trans": "raw",
+                "groupby": true
+            }
+        },
+        {
+            "describe": "Family status",
+            "chart": "bar",
+            "x": {
+                "attr": "NAME_FAMILY_STATUS",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "NAME_FAMILY_STATUS",
+                "trans": "count",
+                "calcus": "raw"
+            }
+        },
+        {
+            "describe": "Family status of different target type",
+            "chart": "bar",
+            "x": {
+                "attr": "NAME_FAMILY_STATUS",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "NAME_FAMILY_STATUS",
+                "trans": "count",
+                "calcus": "percentage"
+            },
+            "color": {
+                "attr": "TARGET",
+                "trans": "raw",
+                "groupby": true
+            }
+        },
+        {
+            "describe": "Number of children",
+            "chart": "bar",
+            "x": {
+                "attr": "CNT_CHILDREN",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "CNT_CHILDREN",
+                "trans": "count",
+                "calcus": "raw"
+            }
+        },
+        {
+            "describe": "CNT CHILDREN of different target type",
+            "chart": "bar",
+            "x": {
+                "attr": "CNT_CHILDREN",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "CNT_CHILDREN",
+                "trans": "count",
+                "calcus": "percentage"
+            },
+            "color": {
+                "attr": "TARGET",
+                "trans": "raw",
+                "groupby": true
+            }
+        },
+        {
+            "describe": "Number of family menber",
+            "chart": "bar",
+            "x": {
+                "attr": "CNT_FAM_MEMBERS",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "CNT_FAM_MEMBERS",
+                "trans": "count",
+                "calcus": "raw"
+            }
+        },
+        {
+            "describe": "CNT_FAM_MEMBERS of different target type",
+            "chart": "bar",
+            "x": {
+                "attr": "CNT_FAM_MEMBERS",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "CNT_FAM_MEMBERS",
+                "trans": "count",
+                "calcus": "percentage"
+            },
+            "color": {
+                "attr": "TARGET",
+                "trans": "raw",
+                "groupby": true
+            }
+        },
+        {
+            "describe": "NAME_INCOME_TYPE",
+            "chart": "bar",
+            "x": {
+                "attr": "NAME_INCOME_TYPE",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "NAME_INCOME_TYPE",
+                "trans": "count",
+                "calcus": "raw"
+            }
+        },
+        {
+            "describe": "NAME_INCOME_TYPE of different target type",
+            "chart": "bar",
+            "x": {
+                "attr": "NAME_INCOME_TYPE",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "NAME_INCOME_TYPE",
+                "trans": "count",
+                "calcus": "percentage"
+            },
+            "color": {
+                "attr": "TARGET",
+                "trans": "raw",
+                "groupby": true
+            }
+        },
+        {
+            "describe": "OCCUPATION_TYPE",
+            "chart": "bar",
+            "x": {
+                "attr": "OCCUPATION_TYPE",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "OCCUPATION_TYPE",
+                "trans": "count",
+                "calcus": "raw"
+            }
+        },
+        {
+            "describe": "OCCUPATION_TYPE of different target type",
+            "chart": "bar",
+            "x": {
+                "attr": "OCCUPATION_TYPE",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "OCCUPATION_TYPE",
+                "trans": "count",
+                "calcus": "percentage"
+            },
+            "color": {
+                "attr": "TARGET",
+                "trans": "raw",
+                "groupby": true
+            }
+        },
+        {
+            "describe": "ORGANIZATION_TYPE",
+            "chart": "bar",
+            "x": {
+                "attr": "ORGANIZATION_TYPE",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "ORGANIZATION_TYPE",
+                "trans": "count",
+                "calcus": "raw"
+            }
+        },
+        {
+            "describe": "ORGANIZATION_TYPE of different target type",
+            "chart": "bar",
+            "x": {
+                "attr": "ORGANIZATION_TYPE",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "ORGANIZATION_TYPE",
+                "trans": "count",
+                "calcus": "percentage"
+            },
+            "color": {
+                "attr": "TARGET",
+                "trans": "raw",
+                "groupby": true
+            }
+        },
+        {
+            "describe": "NAME_EDUCATION_TYPE",
+            "chart": "bar",
+            "x": {
+                "attr": "NAME_EDUCATION_TYPE",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "NAME_EDUCATION_TYPE",
+                "trans": "count",
+                "calcus": "raw"
+            }
+        },
+        {
+            "describe": "NAME_EDUCATION_TYPE of different target type",
+            "chart": "bar",
+            "x": {
+                "attr": "NAME_EDUCATION_TYPE",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "NAME_EDUCATION_TYPE",
+                "trans": "count",
+                "calcus": "percentage"
+            },
+            "color": {
+                "attr": "TARGET",
+                "trans": "raw",
+                "groupby": true
+            }
+        },
+        {
+            "describe": "NAME_HOUSING_TYPE",
+            "chart": "bar",
+            "x": {
+                "attr": "NAME_HOUSING_TYPE",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "NAME_HOUSING_TYPE",
+                "trans": "count",
+                "calcus": "raw"
+            }
+        },
+        {
+            "describe": "NAME_HOUSING_TYPE of different target type",
+            "chart": "bar",
+            "x": {
+                "attr": "NAME_HOUSING_TYPE",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "NAME_HOUSING_TYPE",
+                "trans": "count",
+                "calcus": "percentage"
+            },
+            "color": {
+                "attr": "TARGET",
+                "trans": "raw",
+                "groupby": true
+            }
+        },
+        {
+            "describe": "Distribution of AMT_INCOME_TOTAL",
+            "chart": "histgoram",
+            "x": {
+                "attr": "AMT_INCOME_TOTAL",
+                "trans": "bin"
+            },
+            "y": {
+                "attr": "AMT_INCOME_TOTAL",
+                "trans": "count",
+                "calcus": "percentage"
+            }
+        },
+        {
+            "describe": "Distribution of AMT_CREDIT",
+            "chart": "histgoram",
+            "x": {
+                "attr": "AMT_CREDIT",
+                "trans": "bin"
+            },
+            "y": {
+                "attr": "AMT_CREDIT",
+                "trans": "count",
+                "calcus": "percentage"
+            }
+        },
+        {
+            "describe": "Distribution of AMT_ANNUITY",
+            "chart": "histgoram",
+            "x": {
+                "attr": "AMT_ANNUITY",
+                "trans": "bin"
+            },
+            "y": {
+                "attr": "AMT_ANNUITY",
+                "trans": "count",
+                "calcus": "percentage"
+            }
+        },
+        {
+            "describe": "Distribution of AMT_GOODS_PRICE",
+            "chart": "histgoram",
+            "x": {
+                "attr": "AMT_GOODS_PRICE",
+                "trans": "bin"
+            },
+            "y": {
+                "attr": "AMT_GOODS_PRICE",
+                "trans": "count",
+                "calcus": "percentage"
+            }
+        },
+        {
+            "describe": "Distribution of DAYS_BIRTH",
+            "chart": "histgoram",
+            "x": {
+                "attr": "DAYS_BIRTH",
+                "trans": "bin"
+            },
+            "y": {
+                "attr": "DAYS_BIRTH",
+                "trans": "count",
+                "calcus": "percentage"
+            }
+        },
+        {
+            "describe": "Distribution of DAYS_EMPLOYED",
+            "chart": "histgoram",
+            "x": {
+                "attr": "DAYS_EMPLOYED",
+                "trans": "bin"
+            },
+            "y": {
+                "attr": "DAYS_EMPLOYED",
+                "trans": "count",
+                "calcus": "percentage"
+            }
+        },
+        {
+            "describe": "Distribution of DAYS_REGISTRATION",
+            "chart": "histgoram",
+            "x": {
+                "attr": "DAYS_REGISTRATION",
+                "trans": "bin"
+            },
+            "y": {
+                "attr": "DAYS_REGISTRATION",
+                "trans": "count",
+                "calcus": "percentage"
+            }
+        },
+        {
+            "describe": "Distribution of DAYS_ID_PUBLISH",
+            "chart": "histgoram",
+            "x": {
+                "attr": "DAYS_ID_PUBLISH",
+                "trans": "bin"
+            },
+            "y": {
+                "attr": "DAYS_ID_PUBLISH",
+                "trans": "count",
+                "calcus": "percentage"
+            }
+        },
+        {
+            "describe": "Densityplot of AMT_ANNUITY",
+            "chart": "densityplot",
+            "x": {
+                "attr": "AMT_ANNUITY",
+                "trans": "bin"
+            },
+            "y": {
+                "attr": "AMT_ANNUITY",
+                "trans": "count",
+                "calcus": "percentage"
+            },
+            "color": {
+                "attr": "TARGET",
+                "trans": "raw",
+                "groupby": true
+            }
+        },
+        {
+            "describe": "Densityplot of AMT_GOODS_PRICE",
+            "chart": "densityplot",
+            "x": {
+                "attr": "AMT_GOODS_PRICE",
+                "trans": "bin"
+            },
+            "y": {
+                "attr": "AMT_GOODS_PRICE",
+                "trans": "count",
+                "calcus": "percentage"
+            },
+            "color": {
+                "attr": "TARGET",
+                "trans": "raw",
+                "groupby": true
+            }
+        },
+        {
+            "describe": "Densityplot of DAYS_EMPLOYED",
+            "chart": "densityplot",
+            "x": {
+                "attr": "DAYS_EMPLOYED",
+                "trans": "bin"
+            },
+            "y": {
+                "attr": "DAYS_EMPLOYED",
+                "trans": "count",
+                "calcus": "percentage"
+            },
+            "color": {
+                "attr": "TARGET",
+                "trans": "raw",
+                "groupby": true
+            }
+        },
+        {
+            "describe": "Densityplot of DAYS_REGISTRATION",
+            "chart": "densityplot",
+            "x": {
+                "attr": "DAYS_REGISTRATION",
+                "trans": "bin"
+            },
+            "y": {
+                "attr": "DAYS_REGISTRATION",
+                "trans": "count",
+                "calcus": "percentage"
+            },
+            "color": {
+                "attr": "TARGET",
+                "trans": "raw",
+                "groupby": true
+            }
+        },
+        {
+            "describe": "Densityplot of DAYS_BIRTH",
+            "chart": "densityplot",
+            "x": {
+                "attr": "DAYS_BIRTH",
+                "trans": "bin"
+            },
+            "y": {
+                "attr": "DAYS_BIRTH",
+                "trans": "count",
+                "calcus": "percentage"
+            },
+            "color": {
+                "attr": "TARGET",
+                "trans": "raw",
+                "groupby": true
+            }
+        },
+        {
+            "describe": "Densityplot of DAYS_ID_PUBLISH",
+            "chart": "densityplot",
+            "x": {
+                "attr": "DAYS_ID_PUBLISH",
+                "trans": "bin"
+            },
+            "y": {
+                "attr": "DAYS_ID_PUBLISH",
+                "trans": "count",
+                "calcus": "percentage"
+            },
+            "color": {
+                "attr": "TARGET",
+                "trans": "raw",
+                "groupby": true
+            }
+        },
+        {
+            "describe": "REG_REGION_NOT_LIVE_REGION",
+            "chart": "bar",
+            "x": {
+                "attr": "REG_REGION_NOT_LIVE_REGION",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "REG_REGION_NOT_LIVE_REGION",
+                "trans": "count",
+                "calcus": "raw"
+            }
+        },
+        {
+            "describe": "REG_REGION_NOT_LIVE_REGION of different target type",
+            "chart": "bar",
+            "x": {
+                "attr": "REG_REGION_NOT_LIVE_REGION",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "REG_REGION_NOT_LIVE_REGION",
+                "trans": "count",
+                "calcus": "percentage"
+            },
+            "color": {
+                "attr": "TARGET",
+                "trans": "raw",
+                "groupby": true
+            }
+        },
+        {
+            "describe": "REG_REGION_NOT_WORK_REGION",
+            "chart": "bar",
+            "x": {
+                "attr": "REG_REGION_NOT_WORK_REGION",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "REG_REGION_NOT_WORK_REGION",
+                "trans": "count",
+                "calcus": "raw"
+            }
+        },
+        {
+            "describe": "REG_REGION_NOT_WORK_REGION of different target type",
+            "chart": "bar",
+            "x": {
+                "attr": "REG_REGION_NOT_WORK_REGION",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "REG_REGION_NOT_WORK_REGION",
+                "trans": "count",
+                "calcus": "percentage"
+            },
+            "color": {
+                "attr": "TARGET",
+                "trans": "raw",
+                "groupby": true
+            }
+        },
+        {
+            "describe": "REG_CITY_NOT_LIVE_CITY",
+            "chart": "bar",
+            "x": {
+                "attr": "REG_CITY_NOT_LIVE_CITY",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "REG_CITY_NOT_LIVE_CITY",
+                "trans": "count",
+                "calcus": "raw"
+            }
+        },
+        {
+            "describe": "REG_CITY_NOT_LIVE_CITY of different target type",
+            "chart": "bar",
+            "x": {
+                "attr": "REG_CITY_NOT_LIVE_CITY",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "REG_CITY_NOT_LIVE_CITY",
+                "trans": "count",
+                "calcus": "percentage"
+            },
+            "color": {
+                "attr": "TARGET",
+                "trans": "raw",
+                "groupby": true
+            }
+        },
+        {
+            "describe": "REG_CITY_NOT_WORK_CITY",
+            "chart": "bar",
+            "x": {
+                "attr": "REG_CITY_NOT_WORK_CITY",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "REG_CITY_NOT_WORK_CITY",
+                "trans": "count",
+                "calcus": "raw"
+            }
+        },
+        {
+            "describe": "REG_CITY_NOT_WORK_CITY of different target type",
+            "chart": "bar",
+            "x": {
+                "attr": "REG_CITY_NOT_WORK_CITY",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "REG_CITY_NOT_WORK_CITY",
+                "trans": "count",
+                "calcus": "percentage"
+            },
+            "color": {
+                "attr": "TARGET",
+                "trans": "raw",
+                "groupby": true
+            }
+        }
+    ]
+}

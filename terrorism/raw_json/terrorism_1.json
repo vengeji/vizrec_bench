@@ -1,0 +1,254 @@
+{
+    "url": "https://www.kaggle.com/ash316/terrorism-around-the-world",
+    "votes": 476,
+    "rank": 1,
+    "charts": [
+        {
+            "describe": "terrorist activity spots",
+            "chart": "map",
+            "lat": {
+                "attr": "latitude",
+                "trans": "raw"
+            },
+            "lon": {
+                "attr": "longitude",
+                "trans": "raw"
+            }
+        },
+        {
+            "describe": "most affected cities",
+            "chart": "bar",
+            "x": {
+                "attr": "city",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "city",
+                "trans": "count",
+                "calcus": "raw"
+            }
+        },
+        {
+            "describe": "trend in terrorist activities",
+            "chart": "line",
+            "x": {
+                "attr": "iyear",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "iyear",
+                "trans": "count",
+                "calcus": "raw"
+            }
+        },
+        {
+            "describe": "number of terrorist activities each year",
+            "chart": "bar",
+            "x": {
+                "attr": "iyear",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "iyear",
+                "trans": "count",
+                "calcus": "raw"
+            }
+        },
+        {
+            "describe": "attacking methods by terrorists",
+            "chart": "bar",
+            "x": {
+                "attr": "attacktype1_txt",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "attacktype1_txt",
+                "trans": "count",
+                "calcus": "raw"
+            }
+        },
+        {
+            "describe": "favorite targets",
+            "chart": "bar",
+            "x": {
+                "attr": "targtype1_txt",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "targtype1_txt",
+                "trans": "count",
+                "calcus": "raw"
+            }
+        },
+        {
+            "describe": "number of terrorist activities by region",
+            "chart": "bar",
+            "x": {
+                "attr": "region_txt",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "region_txt",
+                "trans": "count",
+                "calcus": "raw"
+            }
+        },
+        {
+            "describe": "trend in terrorist activities of different region",
+            "chart": "line",
+            "x": {
+                "attr": "iyear",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "iyear",
+                "trans": "count",
+                "calcus": "raw"
+            },
+            "color": {
+                "attr": "region_txt",
+                "trans": "raw",
+                "groupby": true
+            }
+        },
+        {
+            "describe": "attacktype vs region",
+            "chart": "bar",
+            "x": {
+                "attr": "region_txt",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "region_txt",
+                "trans": "count",
+                "calcus": "raw"
+            },
+            "color": {
+                "attr": "attacktype1_txt",
+                "trans": "raw",
+                "groupby": true
+            }
+        },
+        {
+            "describe": "top affected countries",
+            "chart": "bar",
+            "x": {
+                "attr": "country_txt",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "country_txt",
+                "trans": "count",
+                "calcus": "raw"
+            }
+        },
+        {
+            "describe": "killed number of country",
+            "chart": "bar",
+            "x": {
+                "attr": "country_txt",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "nkill",
+                "trans": "sum",
+                "calcus": "raw"
+            }
+        },
+        {
+            "describe": "attacks and killed number of country",
+            "chart": "bar-m",
+            "x": {
+                "attr": "country_txt",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": [
+                {
+                    "attr": "country_txt",
+                    "trans": "count",
+                    "calcus": "raw"
+                },
+                {
+                    "attr": "nkill",
+                    "trans": "sum",
+                    "calcus": "raw"
+                }
+            ]
+        },
+        {
+            "describe": "terrorist groups with highest terror attacks",
+            "chart": "bar",
+            "x": {
+                "attr": "gname",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "gname",
+                "trans": "count",
+                "calcus": "raw"
+            }
+        },
+        {
+            "describe": "activity of top terrorist groups",
+            "chart": "line",
+            "x": {
+                "attr": "iyear",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "iyear",
+                "trans": "count",
+                "calcus": "raw"
+            },
+            "color": {
+                "attr": "gname",
+                "trans": "raw",
+                "groupby": true
+            }
+        },
+        {
+            "describe": "terrorist activity spots",
+            "chart": "map",
+            "lat": {
+                "attr": "latitude",
+                "trans": "raw"
+            },
+            "lon": {
+                "attr": "longitude",
+                "trans": "raw"
+            },
+            "color": {
+                "attr": "gname",
+                "trans": "raw",
+                "groupby": true
+            }
+        },
+        {
+            "describe": "motivation behind attacks",
+            "chart": "wordcloud",
+            "x": {
+                "attr": "motive",
+                "trans": "split",
+                "groupby": true
+            },
+            "y": {
+                "attr": "motive",
+                "trans": "count",
+                "calcus": "raw"
+            }
+        }
+    ]
+}

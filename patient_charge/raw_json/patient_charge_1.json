@@ -1,0 +1,303 @@
+{
+    "url": "https://www.kaggle.com/hely333/eda-regression",
+    "votes": 173,
+    "rank": 1,
+    "charts": [
+        {
+            "describe": "Corrlation matrix",
+            "chart": "correlationmatrix",
+            "x": {
+                "attr": "all",
+                "trans": "raw"
+            },
+            "y": {
+                "attr": "all",
+                "trans": "raw"
+            }
+        },
+        {
+            "describe": "Distribution of charges",
+            "chart": "histogram",
+            "x": {
+                "attr": "charges",
+                "trans": "bin",
+                "bins": "default"
+            },
+            "y": {
+                "attr": "charges",
+                "trans": "count",
+                "calcus": "raw"
+            }
+        },
+        {
+            "describe": "Distribution of charges",
+            "chart": "histogram",
+            "x": {
+                "attr": "charges",
+                "trans": "bin",
+                "bins": "default"
+            },
+            "y": {
+                "attr": "charges",
+                "trans": "count",
+                "calcus": "raw"
+            },
+            "color": {
+                "attr": "smoker",
+                "trans": "raw",
+                "groupby": true
+            }
+        },
+        {
+            "describe": "Count of smoker and sex",
+            "chart": "bar",
+            "x": {
+                "attr": "smoker",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "smoker",
+                "trans": "count",
+                "calcus": "raw"
+            },
+            "color": {
+                "attr": "sex",
+                "trans": "raw",
+                "groupby": true
+            }
+        },
+        {
+            "describe": "Violinplot of smoker and sex",
+            "chart": "violinplot",
+            "x": {
+                "attr": "smoker",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "smoker",
+                "trans": "raw"
+            },
+            "color": {
+                "attr": "sex",
+                "trans": "raw",
+                "groupby": true
+            }
+        },
+        {
+            "describe": "Boxplot of smoker and charges",
+            "chart": "boxplot",
+            "x": {
+                "attr": "smoker",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "charges",
+                "trans": "raw"
+            }
+        },
+        {
+            "describe": "Boxplot of smoker and sex and charges",
+            "chart": "boxplot",
+            "x": {
+                "attr": "sex",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "charges",
+                "trans": "raw"
+            },
+            "color": {
+                "attr": "smoker",
+                "trans": "raw",
+                "groupby": true
+            }
+        },
+        {
+            "describe": "Distribution of age",
+            "chart": "histogram",
+            "x": {
+                "attr": "age",
+                "trans": "bin",
+                "bins": "default"
+            },
+            "y": {
+                "attr": "age",
+                "trans": "count",
+                "calcus": "raw"
+            }
+        },
+        {
+            "describe": "Boxplot of smoker and age and charges",
+            "chart": "boxplot",
+            "x": {
+                "attr": "age",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "charges",
+                "trans": "raw"
+            },
+            "color": {
+                "attr": "smoker",
+                "trans": "raw",
+                "groupby": true
+            }
+        },
+        {
+            "describe": "Distribution of charges and age",
+            "chart": "scatter",
+            "x": {
+                "attr": "age",
+                "trans": "raw"
+            },
+            "y": {
+                "attr": "charges",
+                "trans": "raw"
+            }
+        },
+        {
+            "describe": "Distribution of charges and age",
+            "chart": "scatter",
+            "x": {
+                "attr": "age",
+                "trans": "raw"
+            },
+            "y": {
+                "attr": "charges",
+                "trans": "raw"
+            },
+            "color": {
+                "attr": "smoker",
+                "trans": "raw",
+                "groupby": true
+            }
+        },
+        {
+            "describe": "Distribution of bmi",
+            "chart": "histogram",
+            "x": {
+                "attr": "bmi",
+                "trans": "bin",
+                "bins": "default"
+            },
+            "y": {
+                "attr": "bmi",
+                "trans": "count",
+                "calcus": "raw"
+            }
+        },
+        {
+            "describe": "Distribution of bmi",
+            "chart": "histogram",
+            "x": {
+                "attr": "bmi",
+                "trans": "bin",
+                "bins": "default"
+            },
+            "y": {
+                "attr": "bmi",
+                "trans": "bin",
+                "calcus": "raw"
+            },
+            "filter": [
+                {
+                    "attr": "bmi",
+                    "gt": 30
+                }
+            ]
+        },
+        {
+            "describe": "Distribution of bmi",
+            "chart": "histogram",
+            "x": {
+                "attr": "bmi",
+                "trans": "bin",
+                "bins": "default"
+            },
+            "y": {
+                "attr": "bmi",
+                "trans": "bin",
+                "calcus": "raw"
+            },
+            "filter": [
+                {
+                    "attr": "bmi",
+                    "lt": 30
+                }
+            ]
+        },
+        {
+            "describe": "Distribution of bmi and charges",
+            "chart": "scatter",
+            "x": {
+                "attr": "bmi",
+                "trans": "raw"
+            },
+            "y": {
+                "attr": "charges",
+                "trans": "raw"
+            }
+        },
+        {
+            "describe": "Distribution of bmi and charges",
+            "chart": "scatter",
+            "x": {
+                "attr": "bmi",
+                "trans": "raw"
+            },
+            "y": {
+                "attr": "charges",
+                "trans": "raw"
+            },
+            "color": {
+                "attr": "smoker",
+                "trans": "raw",
+                "groupby": true
+            }
+        },
+        {
+            "describe": "Count of children number",
+            "chart": "bar",
+            "x": {
+                "attr": "children",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "children",
+                "trans": "count",
+                "calcus": "raw"
+            }
+        },
+        {
+            "describe": "Count of children number",
+            "chart": "bar",
+            "x": {
+                "attr": "children",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "children",
+                "trans": "count",
+                "calcus": "raw"
+            },
+            "color": {
+                "attr": "sex",
+                "trans": "raw",
+                "groupby": true
+            },
+            "filter": [
+                {
+                    "attr": "children",
+                    "gt": 0
+                }
+            ]
+        }
+    ]
+}

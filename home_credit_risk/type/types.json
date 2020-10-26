@@ -1,0 +1,22 @@
+{
+    "TARGET": "object",
+    "NAME_CONTRACT_TYPE": "object",
+    "CODE_GENDER": "object",
+    "FLAG_OWN_CAR": "object",
+    "FLAG_OWN_REALTY": "object",
+    "CNT_CHILDREN": "object",
+    "NAME_TYPE_SUITE": "object",
+    "NAME_INCOME_TYPE": "object",
+    "NAME_EDUCATION_TYPE": "object",
+    "NAME_FAMILY_STATUS": "object",
+    "NAME_HOUSING_TYPE": "object",
+    "OCCUPATION_TYPE": "object",
+    "CNT_FAM_MEMBERS": "object",
+    "REG_REGION_NOT_LIVE_REGION": "object",
+    "REG_REGION_NOT_WORK_REGION": "object",
+    "REG_CITY_NOT_LIVE_CITY": "object",
+    "REG_CITY_NOT_WORK_CITY": "object",
+    "ORGANIZATION_TYPE": "object",
+    "HOUSETYPE_MODE": "object",
+    "WALLSMATERIAL_MODE": "object"
+}

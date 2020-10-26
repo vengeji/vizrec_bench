@@ -1,0 +1,1335 @@
+{
+    "charts": [
+        {
+            "describe": "state wise number of donors",
+            "id": "donorschoose_1_extracted.json_id_1-donorschoose_2_extracted.json_id_2-donorschoose_3_extracted.json_id_3-donorschoose_4_extracted.json_id_2-donorschoose_5_extracted.json_id_1-donorschoose_6_extracted.json_id_9",
+            "rank": 1,
+            "type": "bar",
+            "channels": {
+                "x": {
+                    "attr": "Donor State",
+                    "trans": "raw",
+                    "groupby": true
+                },
+                "y": {
+                    "attr": "Donor State",
+                    "trans": "count",
+                    "calcus": "raw"
+                }
+            }
+        },
+        {
+            "describe": "state wise donors to population ratio",
+            "id": "donorschoose_1_extracted.json_id_2",
+            "rank": 2,
+            "type": "bar",
+            "channels": {
+                "x": {
+                    "attr": "Donor State",
+                    "trans": "raw",
+                    "groupby": true
+                },
+                "y": {
+                    "attr": "Donor State",
+                    "trans": "count*100000/population",
+                    "calcus": "raw"
+                }
+            }
+        },
+        {
+            "describe": "Number of Teachers and NonTeacher Donors from each state",
+            "id": "donorschoose_1_extracted.json_id_3",
+            "rank": 3,
+            "type": "bar",
+            "channels": {
+                "x": {
+                    "attr": "Donor State",
+                    "trans": "raw",
+                    "groupby": true
+                },
+                "y": {
+                    "attr": "Donor State",
+                    "trans": "count",
+                    "calcus": "raw"
+                },
+                "color": {
+                    "attr": "Donor Is Teacher",
+                    "trans": "raw",
+                    "groupby": true
+                }
+            }
+        },
+        {
+            "describe": "top project and total number of donations",
+            "id": "donorschoose_1_extracted.json_id_4",
+            "rank": 4,
+            "type": "bar",
+            "channels": {
+                "x": {
+                    "attr": "Project ID",
+                    "trans": "raw",
+                    "groupby": true
+                },
+                "y": {
+                    "attr": "Project ID",
+                    "trans": "count",
+                    "calcus": "raw"
+                }
+            }
+        },
+        {
+            "describe": "top project and total amount of donations",
+            "id": "donorschoose_1_extracted.json_id_5",
+            "rank": 5,
+            "type": "bar",
+            "channels": {
+                "x": {
+                    "attr": "Project ID",
+                    "trans": "raw",
+                    "groupby": true
+                },
+                "y": {
+                    "attr": "Donation Amount",
+                    "trans": "sum",
+                    "calcus": "raw"
+                }
+            }
+        },
+        {
+            "describe": "top project and average amount of donations",
+            "id": "donorschoose_1_extracted.json_id_6",
+            "rank": 6,
+            "type": "bar",
+            "channels": {
+                "x": {
+                    "attr": "Project ID",
+                    "trans": "raw",
+                    "groupby": true
+                },
+                "y": {
+                    "attr": "Donation Amount",
+                    "trans": "mean",
+                    "calcus": "raw"
+                }
+            }
+        },
+        {
+            "describe": "top project and maximun amount of donations",
+            "id": "donorschoose_1_extracted.json_id_7",
+            "rank": 7,
+            "type": "bar",
+            "channels": {
+                "x": {
+                    "attr": "Project ID",
+                    "trans": "raw",
+                    "groupby": true
+                },
+                "y": {
+                    "attr": "Donation Amount",
+                    "trans": "max",
+                    "calcus": "raw"
+                }
+            }
+        },
+        {
+            "describe": "top donor and total number of donations",
+            "id": "donorschoose_1_extracted.json_id_8-donorschoose_4_extracted.json_id_7",
+            "rank": 8,
+            "type": "bar",
+            "channels": {
+                "x": {
+                    "attr": "Donor ID",
+                    "trans": "raw",
+                    "groupby": true
+                },
+                "y": {
+                    "attr": "Donor ID",
+                    "trans": "count",
+                    "calcus": "raw"
+                }
+            }
+        },
+        {
+            "describe": "top Donor ID and total amount of donations",
+            "id": "donorschoose_1_extracted.json_id_9-donorschoose_4_extracted.json_id_8",
+            "rank": 9,
+            "type": "bar",
+            "channels": {
+                "x": {
+                    "attr": "Donor ID",
+                    "trans": "raw",
+                    "groupby": true
+                },
+                "y": {
+                    "attr": "Donation Amount",
+                    "trans": "sum",
+                    "calcus": "raw"
+                }
+            }
+        },
+        {
+            "describe": "top Donor ID and average amount of donations",
+            "id": "donorschoose_1_extracted.json_id_10",
+            "rank": 10,
+            "type": "bar",
+            "channels": {
+                "x": {
+                    "attr": "Donor ID",
+                    "trans": "raw",
+                    "groupby": true
+                },
+                "y": {
+                    "attr": "Donation Amount",
+                    "trans": "mean",
+                    "calcus": "raw"
+                }
+            }
+        },
+        {
+            "describe": "top Donor ID and maximun amount of donations",
+            "id": "donorschoose_1_extracted.json_id_11",
+            "rank": 11,
+            "type": "bar",
+            "channels": {
+                "x": {
+                    "attr": "Donor ID",
+                    "trans": "raw",
+                    "groupby": true
+                },
+                "y": {
+                    "attr": "Donation Amount",
+                    "trans": "max",
+                    "calcus": "raw"
+                }
+            }
+        },
+        {
+            "describe": "donations per year",
+            "id": "donorschoose_1_extracted.json_id_12-donorschoose_2_extracted.json_id_16",
+            "rank": 12,
+            "type": "line",
+            "channels": {
+                "x": {
+                    "attr": "Donation Received Date",
+                    "trans": "year",
+                    "groupby": true
+                },
+                "y": {
+                    "attr": "Donation Received Date",
+                    "trans": "count",
+                    "calcus": "raw"
+                }
+            }
+        },
+        {
+            "describe": "average donation per year",
+            "id": "donorschoose_1_extracted.json_id_13",
+            "rank": 13,
+            "type": "line",
+            "channels": {
+                "x": {
+                    "attr": "Donation Received Date",
+                    "trans": "year",
+                    "groupby": true
+                },
+                "y": {
+                    "attr": "Donation Amount",
+                    "trans": "mean",
+                    "calcus": "raw"
+                }
+            }
+        },
+        {
+            "describe": "donations per month",
+            "id": "donorschoose_1_extracted.json_id_14",
+            "rank": 14,
+            "type": "line",
+            "channels": {
+                "x": {
+                    "attr": "Donation Received Date",
+                    "trans": "month",
+                    "groupby": true
+                },
+                "y": {
+                    "attr": "Donation Received Date",
+                    "trans": "count",
+                    "calcus": "raw"
+                }
+            }
+        },
+        {
+            "describe": "average donation per month",
+            "id": "donorschoose_1_extracted.json_id_15",
+            "rank": 15,
+            "type": "line",
+            "channels": {
+                "x": {
+                    "attr": "Donation Received Date",
+                    "trans": "month",
+                    "groupby": true
+                },
+                "y": {
+                    "attr": "Donation Amount",
+                    "trans": "mean",
+                    "calcus": "raw"
+                }
+            }
+        },
+        {
+            "describe": "donations per dayofmonth",
+            "id": "donorschoose_1_extracted.json_id_16",
+            "rank": 16,
+            "type": "line",
+            "channels": {
+                "x": {
+                    "attr": "Donation Received Date",
+                    "trans": "dayofmonth",
+                    "groupby": true
+                },
+                "y": {
+                    "attr": "Donation Received Date",
+                    "trans": "count",
+                    "calcus": "raw"
+                }
+            }
+        },
+        {
+            "describe": "average donation per dayofmonth",
+            "id": "donorschoose_1_extracted.json_id_17",
+            "rank": 17,
+            "type": "line",
+            "channels": {
+                "x": {
+                    "attr": "Donation Received Date",
+                    "trans": "dayofmonth",
+                    "groupby": true
+                },
+                "y": {
+                    "attr": "Donation Amount",
+                    "trans": "mean",
+                    "calcus": "raw"
+                }
+            }
+        },
+        {
+            "describe": "donations per dayofweek",
+            "id": "donorschoose_1_extracted.json_id_18",
+            "rank": 18,
+            "type": "line",
+            "channels": {
+                "x": {
+                    "attr": "Donation Received Date",
+                    "trans": "dayofweek",
+                    "groupby": true
+                },
+                "y": {
+                    "attr": "Donation Received Date",
+                    "trans": "count",
+                    "calcus": "raw"
+                }
+            }
+        },
+        {
+            "describe": "average donation per dayofweek",
+            "id": "donorschoose_1_extracted.json_id_19",
+            "rank": 19,
+            "type": "line",
+            "channels": {
+                "x": {
+                    "attr": "Donation Received Date",
+                    "trans": "dayofweek",
+                    "groupby": true
+                },
+                "y": {
+                    "attr": "Donation Amount",
+                    "trans": "mean",
+                    "calcus": "raw"
+                }
+            }
+        },
+        {
+            "describe": "donations per hour",
+            "id": "donorschoose_1_extracted.json_id_20",
+            "rank": 20,
+            "type": "line",
+            "channels": {
+                "x": {
+                    "attr": "Donation Received Date",
+                    "trans": "hour",
+                    "groupby": true
+                },
+                "y": {
+                    "attr": "Donation Received Date",
+                    "trans": "count",
+                    "calcus": "raw"
+                }
+            }
+        },
+        {
+            "describe": "average donation per hour",
+            "id": "donorschoose_1_extracted.json_id_21",
+            "rank": 21,
+            "type": "line",
+            "channels": {
+                "x": {
+                    "attr": "Donation Received Date",
+                    "trans": "hour",
+                    "groupby": true
+                },
+                "y": {
+                    "attr": "Donation Amount",
+                    "trans": "mean",
+                    "calcus": "raw"
+                }
+            }
+        },
+        {
+            "describe": "total optional donations",
+            "id": "donorschoose_1_extracted.json_id_22-donorschoose_2_extracted.json_id_9-donorschoose_6_extracted.json_id_2",
+            "rank": 22,
+            "type": "pie",
+            "channels": {
+                "x": {
+                    "attr": "Donation Included Optional Donation",
+                    "trans": "raw",
+                    "groupby": true
+                },
+                "y": {
+                    "attr": "Donation Included Optional Donation",
+                    "trans": "count",
+                    "calcus": "percentage"
+                }
+            }
+        },
+        {
+            "describe": "total optional donations amount",
+            "id": "donorschoose_1_extracted.json_id_23",
+            "rank": 23,
+            "type": "pie",
+            "channels": {
+                "x": {
+                    "attr": "Donation Included Optional Donation",
+                    "trans": "raw",
+                    "groupby": true
+                },
+                "y": {
+                    "attr": "Donation Amount",
+                    "trans": "sum",
+                    "calcus": "percentage"
+                }
+            }
+        },
+        {
+            "describe": "total teacher donations",
+            "id": "donorschoose_1_extracted.json_id_24-donorschoose_2_extracted.json_id_8-donorschoose_3_extracted.json_id_5-donorschoose_6_extracted.json_id_6",
+            "rank": 24,
+            "type": "pie",
+            "channels": {
+                "x": {
+                    "attr": "Donor Is Teacher",
+                    "trans": "raw",
+                    "groupby": true
+                },
+                "y": {
+                    "attr": "Donor Is Teacher",
+                    "trans": "count",
+                    "calcus": "percentage"
+                }
+            }
+        },
+        {
+            "describe": "total teacher donations amount",
+            "id": "donorschoose_1_extracted.json_id_25",
+            "rank": 25,
+            "type": "pie",
+            "channels": {
+                "x": {
+                    "attr": "Donor Is Teacher",
+                    "trans": "raw",
+                    "groupby": true
+                },
+                "y": {
+                    "attr": "Donation Amount",
+                    "trans": "sum",
+                    "calcus": "percentage"
+                }
+            }
+        },
+        {
+            "describe": "state with highest donation amount",
+            "id": "donorschoose_1_extracted.json_id_26-donorschoose_3_extracted.json_id_2-donorschoose_5_extracted.json_id_3",
+            "rank": 26,
+            "type": "bar",
+            "channels": {
+                "x": {
+                    "attr": "Donor State",
+                    "trans": "raw",
+                    "groupby": true
+                },
+                "y": {
+                    "attr": "Donation Amount",
+                    "trans": "sum",
+                    "calcus": "raw"
+                }
+            }
+        },
+        {
+            "describe": "city with highest donation amount",
+            "id": "donorschoose_1_extracted.json_id_27-donorschoose_5_extracted.json_id_4",
+            "rank": 27,
+            "type": "bar",
+            "channels": {
+                "x": {
+                    "attr": "Donor City",
+                    "trans": "raw",
+                    "groupby": true
+                },
+                "y": {
+                    "attr": "Donation Amount",
+                    "trans": "sum",
+                    "calcus": "raw"
+                }
+            }
+        },
+        {
+            "describe": "state with highest average donation amount",
+            "id": "donorschoose_1_extracted.json_id_28-donorschoose_2_extracted.json_id_12-donorschoose_2_extracted.json_id_14-donorschoose_3_extracted.json_id_4",
+            "rank": 28,
+            "type": "bar",
+            "channels": {
+                "x": {
+                    "attr": "Donor State",
+                    "trans": "raw",
+                    "groupby": true
+                },
+                "y": {
+                    "attr": "Donation Amount",
+                    "trans": "mean",
+                    "calcus": "raw"
+                }
+            }
+        },
+        {
+            "describe": "city with highest average donation amount",
+            "id": "donorschoose_1_extracted.json_id_29-donorschoose_2_extracted.json_id_13-donorschoose_2_extracted.json_id_15",
+            "rank": 29,
+            "type": "bar",
+            "channels": {
+                "x": {
+                    "attr": "Donor City",
+                    "trans": "raw",
+                    "groupby": true
+                },
+                "y": {
+                    "attr": "Donation Amount",
+                    "trans": "mean",
+                    "calcus": "raw"
+                }
+            }
+        },
+        {
+            "describe": "donations over time",
+            "id": "donorschoose_1_extracted.json_id_30",
+            "rank": 30,
+            "type": "line",
+            "channels": {
+                "x": {
+                    "attr": "Donation Received Date",
+                    "trans": "raw",
+                    "groupby": true
+                },
+                "y": {
+                    "attr": "Donation Received Date",
+                    "trans": "count",
+                    "calcus": "raw"
+                }
+            }
+        },
+        {
+            "describe": "donations over time of different state",
+            "id": "donorschoose_1_extracted.json_id_31",
+            "rank": 31,
+            "type": "line",
+            "channels": {
+                "x": {
+                    "attr": "Donation Received Date",
+                    "trans": "raw",
+                    "groupby": true
+                },
+                "y": {
+                    "attr": "Donation Received Date",
+                    "trans": "count",
+                    "calcus": "raw"
+                },
+                "color": {
+                    "attr": "Donor State",
+                    "trans": "raw",
+                    "groupby": true
+                }
+            }
+        },
+        {
+            "describe": "Project Subject Category Tree",
+            "id": "donorschoose_1_extracted.json_id_32-donorschoose_2_extracted.json_id_4-donorschoose_4_extracted.json_id_15-donorschoose_5_extracted.json_id_7-donorschoose_6_extracted.json_id_15",
+            "rank": 32,
+            "type": "bar",
+            "channels": {
+                "x": {
+                    "attr": "Project Subject Category Tree",
+                    "trans": "raw",
+                    "groupby": true
+                },
+                "y": {
+                    "attr": "Project Subject Category Tree",
+                    "trans": "count",
+                    "calcus": "raw"
+                }
+            }
+        },
+        {
+            "describe": "Project Subject Subcategory Tree",
+            "id": "donorschoose_1_extracted.json_id_33-donorschoose_2_extracted.json_id_5-donorschoose_4_extracted.json_id_16-donorschoose_5_extracted.json_id_8-donorschoose_6_extracted.json_id_17",
+            "rank": 33,
+            "type": "bar",
+            "channels": {
+                "x": {
+                    "attr": "Project Subject Subcategory Tree",
+                    "trans": "raw",
+                    "groupby": true
+                },
+                "y": {
+                    "attr": "Project Subject Subcategory Tree",
+                    "trans": "count",
+                    "calcus": "raw"
+                }
+            }
+        },
+        {
+            "describe": "Project Resource Category",
+            "id": "donorschoose_1_extracted.json_id_34-donorschoose_5_extracted.json_id_10-donorschoose_6_extracted.json_id_21",
+            "rank": 34,
+            "type": "bar",
+            "channels": {
+                "x": {
+                    "attr": "Project Resource Category",
+                    "trans": "raw",
+                    "groupby": true
+                },
+                "y": {
+                    "attr": "Project Resource Category",
+                    "trans": "count",
+                    "calcus": "raw"
+                }
+            }
+        },
+        {
+            "describe": "Project Type",
+            "id": "donorschoose_1_extracted.json_id_35-donorschoose_6_extracted.json_id_14",
+            "rank": 35,
+            "type": "pie",
+            "channels": {
+                "x": {
+                    "attr": "Project Type",
+                    "trans": "raw",
+                    "groupby": true
+                },
+                "y": {
+                    "attr": "Project Type",
+                    "trans": "count",
+                    "calcus": "percentage"
+                }
+            }
+        },
+        {
+            "describe": "Project Current Status",
+            "id": "donorschoose_1_extracted.json_id_36-donorschoose_2_extracted.json_id_11-donorschoose_3_extracted.json_id_7-donorschoose_4_extracted.json_id_14",
+            "rank": 36,
+            "type": "pie",
+            "channels": {
+                "x": {
+                    "attr": "Project Current Status",
+                    "trans": "raw",
+                    "groupby": true
+                },
+                "y": {
+                    "attr": "Project Current Status",
+                    "trans": "count",
+                    "calcus": "percentage"
+                }
+            }
+        },
+        {
+            "describe": "Project Posted dayofweek",
+            "id": "donorschoose_1_extracted.json_id_37",
+            "rank": 37,
+            "type": "pie",
+            "channels": {
+                "x": {
+                    "attr": "Project Posted Date",
+                    "trans": "dayofweek",
+                    "groupby": true
+                },
+                "y": {
+                    "attr": "Project Posted Date",
+                    "trans": "count",
+                    "calcus": "percentage"
+                }
+            }
+        },
+        {
+            "describe": "Project Fully Funded dayofweek",
+            "id": "donorschoose_1_extracted.json_id_38",
+            "rank": 38,
+            "type": "pie",
+            "channels": {
+                "x": {
+                    "attr": "Project Fully Funded Date",
+                    "trans": "dayofweek",
+                    "groupby": true
+                },
+                "y": {
+                    "attr": "Project Fully Funded Date",
+                    "trans": "count",
+                    "calcus": "percentage"
+                }
+            }
+        },
+        {
+            "describe": "Project Posted quarter",
+            "id": "donorschoose_1_extracted.json_id_39",
+            "rank": 39,
+            "type": "pie",
+            "channels": {
+                "x": {
+                    "attr": "Project Posted Date",
+                    "trans": "quarter",
+                    "groupby": true
+                },
+                "y": {
+                    "attr": "Project Posted Date",
+                    "trans": "count",
+                    "calcus": "percentage"
+                }
+            }
+        },
+        {
+            "describe": "Project Fully Funded quarter",
+            "id": "donorschoose_1_extracted.json_id_40",
+            "rank": 40,
+            "type": "pie",
+            "channels": {
+                "x": {
+                    "attr": "Project Fully Funded Date",
+                    "trans": "quarter",
+                    "groupby": true
+                },
+                "y": {
+                    "attr": "Project Fully Funded Date",
+                    "trans": "count",
+                    "calcus": "percentage"
+                }
+            }
+        },
+        {
+            "describe": "Project Posted month",
+            "id": "donorschoose_1_extracted.json_id_41",
+            "rank": 41,
+            "type": "pie",
+            "channels": {
+                "x": {
+                    "attr": "Project Posted Date",
+                    "trans": "month",
+                    "groupby": true
+                },
+                "y": {
+                    "attr": "Project Posted Date",
+                    "trans": "count",
+                    "calcus": "percentage"
+                }
+            }
+        },
+        {
+            "describe": "Project Posted year",
+            "id": "donorschoose_1_extracted.json_id_42-donorschoose_3_extracted.json_id_8-donorschoose_4_extracted.json_id_9",
+            "rank": 42,
+            "type": "bar",
+            "channels": {
+                "x": {
+                    "attr": "Project Posted Date",
+                    "trans": "year",
+                    "groupby": true
+                },
+                "y": {
+                    "attr": "Project Posted Date",
+                    "trans": "count",
+                    "calcus": "raw"
+                }
+            }
+        },
+        {
+            "describe": "top donation cities",
+            "id": "donorschoose_2_extracted.json_id_1-donorschoose_4_extracted.json_id_3-donorschoose_5_extracted.json_id_2-donorschoose_6_extracted.json_id_7",
+            "rank": 43,
+            "type": "bar",
+            "channels": {
+                "x": {
+                    "attr": "Donor City",
+                    "trans": "raw",
+                    "groupby": true
+                },
+                "y": {
+                    "attr": "Donor City",
+                    "trans": "count",
+                    "calcus": "raw"
+                }
+            }
+        },
+        {
+            "describe": "top donation cart sequence",
+            "id": "donorschoose_2_extracted.json_id_3-donorschoose_6_extracted.json_id_3",
+            "rank": 44,
+            "type": "bar",
+            "channels": {
+                "x": {
+                    "attr": "Donor Cart Sequence",
+                    "trans": "raw",
+                    "groupby": true
+                },
+                "y": {
+                    "attr": "Donor Cart Sequence",
+                    "trans": "count",
+                    "calcus": "raw"
+                }
+            }
+        },
+        {
+            "describe": "Distribution of Project Resource Category ",
+            "id": "donorschoose_2_extracted.json_id_6-donorschoose_6_extracted.json_id_22",
+            "rank": 45,
+            "type": "pie",
+            "channels": {
+                "x": {
+                    "attr": "Project Resource Category",
+                    "trans": "raw",
+                    "groupby": true
+                },
+                "y": {
+                    "attr": "Project Resource Category",
+                    "trans": "count",
+                    "calcus": "percentage"
+                }
+            }
+        },
+        {
+            "describe": "Distribution of Project Grade Level Category",
+            "id": "donorschoose_2_extracted.json_id_7-donorschoose_6_extracted.json_id_20",
+            "rank": 46,
+            "type": "pie",
+            "channels": {
+                "x": {
+                    "attr": "Project Grade Level Category",
+                    "trans": "raw",
+                    "groupby": true
+                },
+                "y": {
+                    "attr": "Project Grade Level Category",
+                    "trans": "count",
+                    "calcus": "percentage"
+                }
+            }
+        },
+        {
+            "describe": "Project Type",
+            "id": "donorschoose_2_extracted.json_id_10-donorschoose_5_extracted.json_id_6-donorschoose_6_extracted.json_id_13",
+            "rank": 47,
+            "type": "bar",
+            "channels": {
+                "x": {
+                    "attr": "Project Type",
+                    "trans": "raw",
+                    "groupby": true
+                },
+                "y": {
+                    "attr": "Project Type",
+                    "trans": "count",
+                    "calcus": "raw"
+                }
+            }
+        },
+        {
+            "describe": "donations per year",
+            "id": "donorschoose_2_extracted.json_id_17",
+            "rank": 48,
+            "type": "line",
+            "channels": {
+                "x": {
+                    "attr": "Donation Received Date",
+                    "trans": "year",
+                    "groupby": true
+                },
+                "y": {
+                    "attr": "Donation Amount",
+                    "trans": "sum",
+                    "calcus": "raw"
+                }
+            }
+        },
+        {
+            "describe": "donations per year",
+            "id": "donorschoose_2_extracted.json_id_18",
+            "rank": 49,
+            "type": "line",
+            "channels": {
+                "x": {
+                    "attr": "Donation Received Date",
+                    "trans": "year",
+                    "groupby": true
+                },
+                "y": {
+                    "attr": "Donation Received Date",
+                    "trans": "count",
+                    "calcus": "raw"
+                },
+                "color": {
+                    "attr": "Donor State",
+                    "trans": "raw",
+                    "groupby": true
+                }
+            }
+        },
+        {
+            "describe": "donations per year",
+            "id": "donorschoose_2_extracted.json_id_19",
+            "rank": 50,
+            "type": "line",
+            "channels": {
+                "x": {
+                    "attr": "Donation Received Date",
+                    "trans": "year",
+                    "groupby": true
+                },
+                "y": {
+                    "attr": "Donation Received Date",
+                    "trans": "count",
+                    "calcus": "raw"
+                },
+                "color": {
+                    "attr": "Donor City",
+                    "trans": "raw",
+                    "groupby": true
+                }
+            }
+        },
+        {
+            "describe": "donations per year",
+            "id": "donorschoose_2_extracted.json_id_20",
+            "rank": 51,
+            "type": "line",
+            "channels": {
+                "x": {
+                    "attr": "Donation Received Date",
+                    "trans": "year",
+                    "groupby": true
+                },
+                "y": {
+                    "attr": "Donation Amount",
+                    "trans": "sum",
+                    "calcus": "raw"
+                },
+                "color": {
+                    "attr": "Donor State",
+                    "trans": "raw",
+                    "groupby": true
+                }
+            }
+        },
+        {
+            "describe": "donations per year",
+            "id": "donorschoose_2_extracted.json_id_21",
+            "rank": 52,
+            "type": "line",
+            "channels": {
+                "x": {
+                    "attr": "Donation Received Date",
+                    "trans": "year",
+                    "groupby": true
+                },
+                "y": {
+                    "attr": "Donation Amount",
+                    "trans": "sum",
+                    "calcus": "raw"
+                },
+                "color": {
+                    "attr": "Donor City",
+                    "trans": "raw",
+                    "groupby": true
+                }
+            }
+        },
+        {
+            "describe": "top donation states",
+            "id": "donorschoose_3_extracted.json_id_1",
+            "rank": 53,
+            "type": "bar",
+            "channels": {
+                "x": {
+                    "attr": "Donor State",
+                    "trans": "raw",
+                    "groupby": true
+                },
+                "y": {
+                    "attr": "Donor City",
+                    "trans": "count",
+                    "calcus": "raw"
+                }
+            }
+        },
+        {
+            "describe": "top donation cart sequence",
+            "id": "donorschoose_3_extracted.json_id_6-donorschoose_6_extracted.json_id_4",
+            "rank": 54,
+            "type": "pie",
+            "channels": {
+                "x": {
+                    "attr": "Donor Cart Sequence",
+                    "trans": "raw",
+                    "groupby": true
+                },
+                "y": {
+                    "attr": "Donor Cart Sequence",
+                    "trans": "count",
+                    "calcus": "percentage"
+                }
+            }
+        },
+        {
+            "describe": "Project Fully Funded year",
+            "id": "donorschoose_3_extracted.json_id_9-donorschoose_5_extracted.json_id_11",
+            "rank": 55,
+            "type": "bar",
+            "channels": {
+                "x": {
+                    "attr": "Project Fully Funded Date",
+                    "trans": "year",
+                    "groupby": true
+                },
+                "y": {
+                    "attr": "Project Fully Funded Date",
+                    "trans": "count",
+                    "calcus": "raw"
+                }
+            }
+        },
+        {
+            "describe": "Project Posted month",
+            "id": "donorschoose_3_extracted.json_id_10-donorschoose_4_extracted.json_id_10",
+            "rank": 56,
+            "type": "bar",
+            "channels": {
+                "x": {
+                    "attr": "Project Posted Date",
+                    "trans": "month",
+                    "groupby": true
+                },
+                "y": {
+                    "attr": "Project Posted Date",
+                    "trans": "count",
+                    "calcus": "raw"
+                }
+            }
+        },
+        {
+            "describe": "Project Fully Funded Date month",
+            "id": "donorschoose_3_extracted.json_id_11-donorschoose_5_extracted.json_id_12",
+            "rank": 57,
+            "type": "bar",
+            "channels": {
+                "x": {
+                    "attr": "Project Fully Funded Date",
+                    "trans": "month",
+                    "groupby": true
+                },
+                "y": {
+                    "attr": "Project Fully Funded Date",
+                    "trans": "count",
+                    "calcus": "raw"
+                }
+            }
+        },
+        {
+            "describe": "total optional donations",
+            "id": "donorschoose_4_extracted.json_id_1-donorschoose_6_extracted.json_id_1",
+            "rank": 58,
+            "type": "bar",
+            "channels": {
+                "x": {
+                    "attr": "Donation Included Optional Donation",
+                    "trans": "raw",
+                    "groupby": true
+                },
+                "y": {
+                    "attr": "Donation Included Optional Donation",
+                    "trans": "count",
+                    "calcus": "raw"
+                }
+            }
+        },
+        {
+            "describe": "total teacher donations",
+            "id": "donorschoose_4_extracted.json_id_4-donorschoose_6_extracted.json_id_5",
+            "rank": 59,
+            "type": "bar",
+            "channels": {
+                "x": {
+                    "attr": "Donor Is Teacher",
+                    "trans": "raw",
+                    "groupby": true
+                },
+                "y": {
+                    "attr": "Donor Is Teacher",
+                    "trans": "count",
+                    "calcus": "raw"
+                }
+            }
+        },
+        {
+            "describe": "Number of Teachers and NonTeacher Donors each year",
+            "id": "donorschoose_4_extracted.json_id_5",
+            "rank": 60,
+            "type": "bar",
+            "channels": {
+                "x": {
+                    "attr": "Donation Received Date",
+                    "trans": "year",
+                    "groupby": true
+                },
+                "y": {
+                    "attr": "Donation Received Date",
+                    "trans": "count",
+                    "calcus": "raw"
+                },
+                "color": {
+                    "attr": "Donor Is Teacher",
+                    "trans": "raw",
+                    "groupby": true
+                }
+            }
+        },
+        {
+            "describe": "average teacher donations amount",
+            "id": "donorschoose_4_extracted.json_id_6",
+            "rank": 61,
+            "type": "bar",
+            "channels": {
+                "x": {
+                    "attr": "Donor Is Teacher",
+                    "trans": "raw",
+                    "groupby": true
+                },
+                "y": {
+                    "attr": "Donation Amount",
+                    "trans": "mean",
+                    "calcus": "raw"
+                }
+            }
+        },
+        {
+            "describe": "Project Posted Date",
+            "id": "donorschoose_4_extracted.json_id_11",
+            "rank": 62,
+            "type": "bar",
+            "channels": {
+                "x": {
+                    "attr": "Project Posted Date",
+                    "trans": "raw",
+                    "groupby": true
+                },
+                "y": {
+                    "attr": "Project Posted Date",
+                    "trans": "count",
+                    "calcus": "raw"
+                }
+            }
+        },
+        {
+            "describe": " donation per year",
+            "id": "donorschoose_4_extracted.json_id_12",
+            "rank": 63,
+            "type": "bar",
+            "channels": {
+                "x": {
+                    "attr": "Donation Received Date",
+                    "trans": "year",
+                    "groupby": true
+                },
+                "y": {
+                    "attr": "Donation Received Date",
+                    "trans": "count",
+                    "calcus": "raw"
+                }
+            }
+        },
+        {
+            "describe": " donation per month",
+            "id": "donorschoose_4_extracted.json_id_13",
+            "rank": 64,
+            "type": "bar",
+            "channels": {
+                "x": {
+                    "attr": "Donation Received Date",
+                    "trans": "month",
+                    "groupby": true
+                },
+                "y": {
+                    "attr": "Donation Received Date",
+                    "trans": "count",
+                    "calcus": "raw"
+                }
+            }
+        },
+        {
+            "describe": "Project Current Status",
+            "id": "donorschoose_5_extracted.json_id_5",
+            "rank": 65,
+            "type": "bar",
+            "channels": {
+                "x": {
+                    "attr": "Project Current Status",
+                    "trans": "raw",
+                    "groupby": true
+                },
+                "y": {
+                    "attr": "Project Current Status",
+                    "trans": "count",
+                    "calcus": "raw"
+                }
+            }
+        },
+        {
+            "describe": "Distribution of Project Grade Level Category",
+            "id": "donorschoose_5_extracted.json_id_9-donorschoose_6_extracted.json_id_19",
+            "rank": 66,
+            "type": "bar",
+            "channels": {
+                "x": {
+                    "attr": "Project Grade Level Category",
+                    "trans": "raw",
+                    "groupby": true
+                },
+                "y": {
+                    "attr": "Project Grade Level Category",
+                    "trans": "count",
+                    "calcus": "raw"
+                }
+            }
+        },
+        {
+            "describe": "city with highest donation amount",
+            "id": "donorschoose_6_extracted.json_id_8",
+            "rank": 67,
+            "type": "pie",
+            "channels": {
+                "x": {
+                    "attr": "Donor City",
+                    "trans": "raw",
+                    "groupby": true
+                },
+                "y": {
+                    "attr": "Donor City",
+                    "trans": "count",
+                    "calcus": "percentage"
+                }
+            }
+        },
+        {
+            "describe": "State with highest donation amount",
+            "id": "donorschoose_6_extracted.json_id_10",
+            "rank": 68,
+            "type": "pie",
+            "channels": {
+                "x": {
+                    "attr": "Donor State",
+                    "trans": "raw",
+                    "groupby": true
+                },
+                "y": {
+                    "attr": "Donor State",
+                    "trans": "count",
+                    "calcus": "percentage"
+                }
+            }
+        },
+        {
+            "describe": "Teacher Project Posted Sequence",
+            "id": "donorschoose_6_extracted.json_id_11",
+            "rank": 69,
+            "type": "bar",
+            "channels": {
+                "x": {
+                    "attr": "Teacher Project Posted Sequence",
+                    "trans": "raw",
+                    "groupby": true
+                },
+                "y": {
+                    "attr": "Teacher Project Posted Sequence",
+                    "trans": "count",
+                    "calcus": "raw"
+                }
+            }
+        },
+        {
+            "describe": "Teacher Project Posted Sequence",
+            "id": "donorschoose_6_extracted.json_id_12",
+            "rank": 70,
+            "type": "pie",
+            "channels": {
+                "x": {
+                    "attr": "Teacher Project Posted Sequence",
+                    "trans": "raw",
+                    "groupby": true
+                },
+                "y": {
+                    "attr": "Teacher Project Posted Sequence",
+                    "trans": "count",
+                    "calcus": "percentage"
+                }
+            }
+        },
+        {
+            "describe": "Distribution of Project subject categories",
+            "id": "donorschoose_6_extracted.json_id_16",
+            "rank": 71,
+            "type": "pie",
+            "channels": {
+                "x": {
+                    "attr": "Project Subject Category Tree",
+                    "trans": "raw",
+                    "groupby": true
+                },
+                "y": {
+                    "attr": "Project Subject Category Tree",
+                    "trans": "count",
+                    "calcus": "percentage"
+                }
+            }
+        },
+        {
+            "describe": "Distribution of Project subject Subcategory ",
+            "id": "donorschoose_6_extracted.json_id_18",
+            "rank": 72,
+            "type": "pie",
+            "channels": {
+                "x": {
+                    "attr": "Project Subject Subcategory Tree",
+                    "trans": "raw",
+                    "groupby": true
+                },
+                "y": {
+                    "attr": "Project Subject Subcategory Tree",
+                    "trans": "count",
+                    "calcus": "percentage"
+                }
+            }
+        }
+    ]
+}

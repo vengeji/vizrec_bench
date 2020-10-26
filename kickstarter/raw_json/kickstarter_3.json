@@ -1,0 +1,249 @@
+{
+    "url": "https://www.kaggle.com/nikhilncr/eda-using-tableau-visualizations",
+    "votes": 28,
+    "rank": 3,
+    "charts": [
+        {
+            "describe": "fund raisers from the globe",
+            "chart": "map",
+            "x": {
+                "attr": "country",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "country",
+                "trans": "count",
+                "calcus": "raw"
+            }
+        },
+        {
+            "describe": "distribution of main_category",
+            "chart": "bar",
+            "x": {
+                "attr": "main_category",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "main_category",
+                "trans": "count",
+                "calcus": "raw"
+            }
+        },
+        {
+            "describe": "distribution of category",
+            "chart": "bar",
+            "x": {
+                "attr": "category",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "category",
+                "trans": "count",
+                "calcus": "raw"
+            }
+        },
+        {
+            "describe": "distribution of states",
+            "chart": "pie",
+            "x": {
+                "attr": "state",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "state",
+                "trans": "count",
+                "calcus": "percentage"
+            }
+        },
+        {
+            "describe": "sum backers of main_category",
+            "chart": "bar",
+            "x": {
+                "attr": "main_category",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "backers",
+                "trans": "sum",
+                "calcus": "raw"
+            }
+        },
+        {
+            "describe": "avg duration and avg goal",
+            "chart": "scatter",
+            "x": {
+                "attr": "usd_goal_real",
+                "trans": "mean",
+                "calcus": "raw"
+            },
+            "y": {
+                "attr": "duration=deadline-launched",
+                "trans": "mean",
+                "calcus": "raw"
+            },
+            "groupby": {
+                "attr": "main_category",
+                "trans": "raw"
+            }
+        },
+        {
+            "describe": "count of main_category and state",
+            "chart": "bar",
+            "x": {
+                "attr": "main_category",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "main_category",
+                "trans": "count",
+                "calcus": "raw"
+            },
+            "color": {
+                "attr": "state",
+                "trans": "raw",
+                "groupby": true
+            }
+        },
+        {
+            "describe": "count of main_category and state",
+            "chart": "bar",
+            "x": {
+                "attr": "main_category",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "main_category",
+                "trans": "count",
+                "calcus": "raw"
+            },
+            "color": {
+                "attr": "pledge_goal=pledge>goal",
+                "trans": "raw",
+                "groupby": true
+            }
+        },
+        {
+            "describe": "histogram of duration",
+            "chart": "histogram",
+            "x": {
+                "attr": "duration=deadline-launched",
+                "trans": "bin",
+                "bins": "default"
+            },
+            "y": {
+                "attr": "duration=deadline-launched",
+                "trans": "count",
+                "calcus": "raw"
+            }
+        },
+        {
+            "describe": "funds per backer",
+            "chart": "bar",
+            "x": {
+                "attr": "main_category",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "sum(usd pledged)/sum(backers)",
+                "trans": "raw",
+                "calcus": "raw"
+            }
+        },
+        {
+            "describe": "avg goal real and avg backers",
+            "chart": "scatter",
+            "x": {
+                "attr": "backers",
+                "trans": "mean",
+                "calcus": "raw"
+            },
+            "y": {
+                "attr": "usd_goal_real",
+                "trans": "mean",
+                "calcus": "raw"
+            },
+            "groupby": {
+                "attr": "state",
+                "trans": "raw"
+            }
+        },
+        {
+            "describe": "boxplot of funds raised",
+            "chart": "scatter",
+            "x": {
+                "attr": "main_category",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "usd_pledged_real",
+                "trans": "raw"
+            }
+        },
+        {
+            "describe": "success rate of projects in different categories",
+            "chart": "bar",
+            "x": {
+                "attr": "main_category",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "state",
+                "trans": "count",
+                "calcus": "percentage"
+            },
+            "color": {
+                "attr": "state",
+                "trans": "raw",
+                "groupby": true
+            }
+        },
+        {
+            "describe": "number of projects by year of different categories",
+            "chart": "bar",
+            "x": {
+                "attr": "launched",
+                "trans": "year",
+                "groupby": true
+            },
+            "y": {
+                "attr": "launched",
+                "trans": "count",
+                "calcus": "raw"
+            },
+            "color": {
+                "attr": "main_category",
+                "trans": "raw",
+                "groupby": true
+            }
+        },
+        {
+            "describe": "number of projects by year of different categories",
+            "chart": "bar",
+            "x": {
+                "attr": "launched",
+                "trans": "year",
+                "groupby": true
+            },
+            "y": {
+                "attr": "state=successful",
+                "trans": "count",
+                "calcus": "percentage"
+            },
+            "color": {
+                "attr": "main_category",
+                "trans": "raw",
+                "groupby": true
+            }
+        }
+    ]
+}

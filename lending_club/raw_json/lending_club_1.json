@@ -1,0 +1,522 @@
+{
+    "url": "https://www.kaggle.com/janiobachmann/lending-club-risk-analysis-and-metrics",
+    "votes": 396,
+    "rank": 1,
+    "charts": [
+        {
+            "describe": "Loan applied by the borrower",
+            "chart": "histogram",
+            "x": {
+                "attr": "loan_amnt",
+                "trans": "bin",
+                "bins": "default"
+            },
+            "y": {
+                "attr": "loan_amnt",
+                "trans": "count",
+                "calcus": "raw"
+            }
+        },
+        {
+            "describe": "Amount funded by the lender",
+            "chart": "histogram",
+            "x": {
+                "attr": "funded_amnt",
+                "trans": "bin",
+                "bins": "default"
+            },
+            "y": {
+                "attr": "funded_amnt",
+                "trans": "count",
+                "calcus": "raw"
+            }
+        },
+        {
+            "describe": "Total committed by investors",
+            "chart": "histogram",
+            "x": {
+                "attr": "funded_amnt_inv",
+                "trans": "bin",
+                "bins": "default"
+            },
+            "y": {
+                "attr": "funded_amnt_inv",
+                "trans": "count",
+                "calcus": "raw"
+            }
+        },
+        {
+            "describe": "Average loan amount issued",
+            "chart": "bar",
+            "x": {
+                "attr": "issue_d",
+                "trans": "year",
+                "groupby": true
+            },
+            "y": {
+                "attr": "loan_amnt",
+                "trans": "mean",
+                "calcus": "raw"
+            }
+        },
+        {
+            "describe": "Loan conditions count",
+            "chart": "pie",
+            "x": {
+                "attr": "loan_condition",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "loan_condition",
+                "trans": "count",
+                "calcus": "percentage"
+            }
+        },
+        {
+            "describe": "Loan conditions count of different year",
+            "chart": "bar",
+            "x": {
+                "attr": "issue_d",
+                "trans": "year",
+                "groupby": true
+            },
+            "y": {
+                "attr": "issue_d",
+                "trans": "count",
+                "calcus": "percentage"
+            },
+            "color": {
+                "attr": "loan_condition",
+                "trans": "raw",
+                "groupby": true
+            }
+        },
+        {
+            "describe": "Loans issued by region of different year",
+            "chart": "line",
+            "x": {
+                "attr": "issue_d",
+                "trans": "year",
+                "groupby": true
+            },
+            "y": {
+                "attr": "loan_amnt",
+                "trans": "sum",
+                "calcus": "percentage"
+            },
+            "color": {
+                "attr": "region",
+                "trans": "raw",
+                "groupby": true
+            }
+        },
+        {
+            "describe": "Average interest rate by region of different year",
+            "chart": "area",
+            "x": {
+                "attr": "issue_d",
+                "trans": "year",
+                "groupby": true
+            },
+            "y": {
+                "attr": "int_rate",
+                "trans": "mean",
+                "calcus": "raw"
+            },
+            "color": {
+                "attr": "region",
+                "trans": "raw",
+                "groupby": true
+            }
+        },
+        {
+            "describe": "Average employment lenght by region of different year",
+            "chart": "area",
+            "x": {
+                "attr": "issue_d",
+                "trans": "year",
+                "groupby": true
+            },
+            "y": {
+                "attr": "emp_lenght_int",
+                "trans": "mean",
+                "calcus": "raw"
+            },
+            "color": {
+                "attr": "region",
+                "trans": "raw",
+                "groupby": true
+            }
+        },
+        {
+            "describe": "Average debt-to-income by region of different year",
+            "chart": "area",
+            "x": {
+                "attr": "issue_d",
+                "trans": "year",
+                "groupby": true
+            },
+            "y": {
+                "attr": "dti",
+                "trans": "mean",
+                "calcus": "raw"
+            },
+            "color": {
+                "attr": "region",
+                "trans": "raw",
+                "groupby": true
+            }
+        },
+        {
+            "describe": "Average annual income by region of different year",
+            "chart": "area",
+            "x": {
+                "attr": "issue_d",
+                "trans": "year",
+                "groupby": true
+            },
+            "y": {
+                "attr": "annual_inc",
+                "trans": "mean",
+                "calcus": "raw"
+            },
+            "color": {
+                "attr": "region",
+                "trans": "raw",
+                "groupby": true
+            }
+        },
+        {
+            "describe": "Percentage of bad loan status by region",
+            "chart": "bar",
+            "x": {
+                "attr": "region",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "region",
+                "trans": "count",
+                "calcus": "percentage"
+            },
+            "color": {
+                "attr": "loan_status",
+                "trans": "raw",
+                "groupby": true
+            }
+        },
+        {
+            "describe": "Lending clusbs issued loans on map",
+            "chart": "map",
+            "x": {
+                "attr": "addr_state",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "loan_amnt",
+                "trans": "mean",
+                "calcus": "raw"
+            }
+        },
+        {
+            "describe": "Loan amount of different income categories",
+            "chart": "violinplot",
+            "x": {
+                "attr": "income_category",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "loan_amnt",
+                "trans": "raw"
+            }
+        },
+        {
+            "describe": "Loan condition of different income categories",
+            "chart": "violinplot",
+            "x": {
+                "attr": "income_category",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "loan_condition",
+                "trans": "raw"
+            }
+        },
+        {
+            "describe": "Employment length of different income categories",
+            "chart": "boxplot",
+            "x": {
+                "attr": "income_category",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "emp_lenght_int",
+                "trans": "raw"
+            }
+        },
+        {
+            "describe": "Interest rate of different income categories",
+            "chart": "boxplot",
+            "x": {
+                "attr": "income_category",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "int_rate",
+                "trans": "raw"
+            }
+        },
+        {
+            "describe": "Default ratio on map",
+            "chart": "map",
+            "x": {
+                "attr": "addr_state",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "default_ratio",
+                "trans": "raw"
+            }
+        },
+        {
+            "describe": "Loans issued by credit score and date",
+            "chart": "line",
+            "x": {
+                "attr": "issue_d",
+                "trans": "year",
+                "groupby": true
+            },
+            "y": {
+                "attr": "loan_amnt",
+                "trans": "mean",
+                "calcus": "raw"
+            },
+            "color": {
+                "attr": "grade",
+                "trans": "raw",
+                "groupby": true
+            }
+        },
+        {
+            "describe": "Interest rate by credit score and date",
+            "chart": "line",
+            "x": {
+                "attr": "issue_d",
+                "trans": "year",
+                "groupby": true
+            },
+            "y": {
+                "attr": "int_rate",
+                "trans": "mean",
+                "calcus": "raw"
+            },
+            "color": {
+                "attr": "grade",
+                "trans": "raw",
+                "groupby": true
+            }
+        },
+        {
+            "describe": "Type of loans by grade",
+            "chart": "bar",
+            "x": {
+                "attr": "grade",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "grade",
+                "trans": "count",
+                "calcus": "raw"
+            },
+            "color": {
+                "attr": "loan_condition",
+                "trans": "raw",
+                "groupby": true
+            }
+        },
+        {
+            "describe": "Type of loans by sub grade",
+            "chart": "bar",
+            "x": {
+                "attr": "sub_grade",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "sub_grade",
+                "trans": "count",
+                "calcus": "raw"
+            },
+            "color": {
+                "attr": "loan_condition",
+                "trans": "raw",
+                "groupby": true
+            }
+        },
+        {
+            "describe": "Average interest rate by loan condition and date",
+            "chart": "bar",
+            "x": {
+                "attr": "issue_d",
+                "trans": "year",
+                "groupby": true
+            },
+            "y": {
+                "attr": "int_rate",
+                "trans": "mean",
+                "calcus": "raw"
+            },
+            "color": {
+                "attr": "loan_condition",
+                "trans": "raw",
+                "groupby": true
+            }
+        },
+        {
+            "describe": "Correlation matrix",
+            "chart": "correlationmatrix",
+            "x": {
+                "attr": "all",
+                "trans": "raw"
+            },
+            "y": {
+                "attr": "all",
+                "trans": "raw"
+            }
+        },
+        {
+            "describe": "Amount borrowed throughtout the years",
+            "chart": "line",
+            "x": {
+                "attr": "issue_d",
+                "trans": "year",
+                "groupby": true
+            },
+            "y": {
+                "attr": "loan_amnt",
+                "trans": "sum",
+                "calcus": "raw"
+            },
+            "color": {
+                "attr": "loan_status",
+                "trans": "raw",
+                "groupby": true
+            }
+        },
+        {
+            "describe": "Distribution of amount borrowed by home ownership",
+            "chart": "boxplot",
+            "x": {
+                "attr": "home_ownership",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "loan_amnt",
+                "trans": "raw"
+            }
+        },
+        {
+            "describe": "Distribution of amount borrowed by home ownership through the years",
+            "chart": "boxplot",
+            "x": {
+                "attr": "issue_d",
+                "trans": "year",
+                "groupby": true
+            },
+            "y": {
+                "attr": "loan_amnt",
+                "trans": "raw"
+            },
+            "color": {
+                "attr": "home_ownership",
+                "trans": "raw",
+                "groupby": true
+            }
+        },
+        {
+            "describe": "Amount defaulted by region of different years",
+            "chart": "area",
+            "x": {
+                "attr": "issue_d",
+                "trans": "year",
+                "groupby": true
+            },
+            "y": {
+                "attr": "loan_amnt",
+                "trans": "sum",
+                "calcus": "raw"
+            },
+            "color": {
+                "attr": "region",
+                "trans": "raw",
+                "groupby": true
+            }
+        },
+        {
+            "describe": "Condition of loan by purpose",
+            "chart": "bar",
+            "x": {
+                "attr": "purpose",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "purpose",
+                "trans": "count",
+                "calcus": "percentage"
+            },
+            "color": {
+                "attr": "loan_condition",
+                "trans": "raw",
+                "groupby": true
+            }
+        },
+        {
+            "describe": "Average purpose interest rate by income category",
+            "chart": "pointplot",
+            "x": {
+                "attr": "purpose",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "int_rate",
+                "trans": "mean",
+                "calcus": "raw"
+            },
+            "color": {
+                "attr": "income_category",
+                "trans": "raw",
+                "groupby": true
+            }
+        },
+        {
+            "describe": "Amount of loans issued of different purpose and income category",
+            "chart": "bar",
+            "x": {
+                "attr": "purpose",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "purpose",
+                "trans": "count",
+                "calcus": "raw"
+            },
+            "color": {
+                "attr": "income_category",
+                "trans": "raw",
+                "groupby": true
+            }
+        }
+    ]
+}

@@ -1,0 +1,10 @@
+{
+    "CASE_STATUS": "object",
+    "EMPLOYER_NAME": "object",
+    "SOC_NAME": "object",
+    "JOB_TITLE": "object",
+    "FULL_TIME_POSITION": "object",
+    "PREVAILING_WAGE": "float32",
+    "YEAR": "object",
+    "WORKSITE": "object"
+}

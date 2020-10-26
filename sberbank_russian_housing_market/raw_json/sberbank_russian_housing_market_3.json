@@ -1,0 +1,195 @@
+{
+    "url": "https://www.kaggle.com/arathee2/creating-some-useful-additional-features",
+    "votes": 129,
+    "rank": 3,
+    "charts": [
+        {
+            "describe": "date of the month vs price",
+            "chart": "boxplot",
+            "x": {
+                "attr": "timestamp",
+                "trans": "dayofmonth",
+                "groupby": true
+            },
+            "y": {
+                "attr": "price_doc",
+                "trans": "raw"
+            }
+        },
+        {
+            "describe": "month vs price",
+            "chart": "boxplot",
+            "x": {
+                "attr": "timestamp",
+                "trans": "month",
+                "groupby": true
+            },
+            "y": {
+                "attr": "price_doc",
+                "trans": "raw"
+            }
+        },
+        {
+            "describe": "year vs price",
+            "chart": "boxplot",
+            "x": {
+                "attr": "timestamp",
+                "trans": "year",
+                "groupby": true
+            },
+            "y": {
+                "attr": "price_doc",
+                "trans": "raw"
+            }
+        },
+        {
+            "describe": "dayofweek vs price",
+            "chart": "boxplot",
+            "x": {
+                "attr": "timestamp",
+                "trans": "dayofweek",
+                "groupby": true
+            },
+            "y": {
+                "attr": "price_doc",
+                "trans": "raw"
+            }
+        },
+        {
+            "describe": "build_year and price",
+            "chart": "scatter",
+            "x": {
+                "attr": "build_year",
+                "trans": "raw"
+            },
+            "y": {
+                "attr": "price_doc",
+                "trans": "raw"
+            }
+        },
+        {
+            "describe": "build_year and price",
+            "chart": "scatter",
+            "x": {
+                "attr": "2020-build_year",
+                "trans": "raw"
+            },
+            "y": {
+                "attr": "price_doc",
+                "trans": "raw"
+            }
+        },
+        {
+            "describe": "floor and price_doc",
+            "chart": "scatter",
+            "x": {
+                "attr": "floor",
+                "trans": "raw"
+            },
+            "y": {
+                "attr": "price_doc",
+                "trans": "raw"
+            }
+        },
+        {
+            "describe": "max_floor and price_doc",
+            "chart": "scatter",
+            "x": {
+                "attr": "max_floor",
+                "trans": "raw"
+            },
+            "y": {
+                "attr": "price_doc",
+                "trans": "raw"
+            }
+        },
+        {
+            "describe": "max_floor-floor and price_doc",
+            "chart": "scatter",
+            "x": {
+                "attr": "max_floor-floor",
+                "trans": "raw"
+            },
+            "y": {
+                "attr": "price_doc",
+                "trans": "raw"
+            }
+        },
+        {
+            "describe": "Area of home and price",
+            "chart": "scatter",
+            "x": {
+                "attr": "full_sq",
+                "trans": "raw"
+            },
+            "y": {
+                "attr": "price_doc",
+                "trans": "raw"
+            }
+        },
+        {
+            "describe": "Area of home and price",
+            "chart": "scatter",
+            "x": {
+                "attr": "life_sq",
+                "trans": "raw"
+            },
+            "y": {
+                "attr": "price_doc",
+                "trans": "raw"
+            }
+        },
+        {
+            "describe": "non living area of home and price",
+            "chart": "scatter",
+            "x": {
+                "attr": "(full_sq-life_sq)*100/full_sq",
+                "trans": "raw"
+            },
+            "y": {
+                "attr": "price_doc",
+                "trans": "raw"
+            }
+        },
+        {
+            "describe": "Distribution of room count",
+            "chart": "bar",
+            "x": {
+                "attr": "num_room",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "num_room",
+                "trans": "count",
+                "calcus": "raw"
+            }
+        },
+        {
+            "describe": "area per room and price",
+            "chart": "scatter",
+            "x": {
+                "attr": "life_sq/num_room",
+                "trans": "raw"
+            },
+            "y": {
+                "attr": "price_doc",
+                "trans": "raw"
+            }
+        },
+        {
+            "describe": "home state",
+            "chart": "bar",
+            "x": {
+                "attr": "state",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "price_doc",
+                "trans": "mean",
+                "calcus": "raw"
+            }
+        }
+    ]
+}

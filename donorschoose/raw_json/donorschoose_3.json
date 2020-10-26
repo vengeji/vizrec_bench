@@ -1,0 +1,231 @@
+{
+    "url": "https://www.kaggle.com/badalgupta/eda-recommender-systemdeep-learningmodel-intuition",
+    "votes": 113,
+    "rank": 3,
+    "charts": [
+        {
+            "describe": "top donation states",
+            "chart": "bar",
+            "x": {
+                "attr": "Donor State",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "Donor City",
+                "trans": "count",
+                "calcus": "raw"
+            }
+        },
+        {
+            "describe": "Distribution of School Metro Type ",
+            "chart": "bar",
+            "x": {
+                "attr": "School Metro Type",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "School Metro Type",
+                "trans": "count",
+                "calcus": "raw"
+            }
+        },
+        {
+            "describe": "state with highest donation amount",
+            "chart": "bar",
+            "x": {
+                "attr": "Donor State",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "Donation Amount",
+                "trans": "sum",
+                "calcus": "raw"
+            }
+        },
+        {
+            "describe": "top donation states",
+            "chart": "bar",
+            "x": {
+                "attr": "Donor State",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "Donor State",
+                "trans": "count",
+                "calcus": "raw"
+            }
+        },
+        {
+            "describe": "state with highest donation amount",
+            "chart": "bar",
+            "x": {
+                "attr": "Donor State",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "Donation Amount",
+                "trans": "mean",
+                "calcus": "raw"
+            }
+        },
+        {
+            "describe": "total teacher donations",
+            "chart": "pie",
+            "x": {
+                "attr": "Donor Is Teacher",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "Donor Is Teacher",
+                "trans": "count",
+                "calcus": "percentage"
+            }
+        },
+        {
+            "describe": "top donation cart sequence",
+            "chart": "pie",
+            "x": {
+                "attr": "Donor Cart Sequence",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "Donor Cart Sequence",
+                "trans": "count",
+                "calcus": "percentage"
+            }
+        },
+        {
+            "describe": "School Percentage Free Lunch for School Metro Type",
+            "chart": "bar",
+            "x": {
+                "attr": "School Metro Type",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "School Percentage Free Lunch",
+                "trans": "mean",
+                "calcus": "raw"
+            }
+        },
+        {
+            "describe": "resource vendor name",
+            "chart": "bar",
+            "x": {
+                "attr": "Resource Vendor Name",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "Resource Vendor Name",
+                "trans": "count",
+                "calcus": "raw"
+            }
+        },
+        {
+            "describe": "School Percentage Free Lunch for School Metro Type",
+            "chart": "bar",
+            "x": {
+                "attr": "School Metro Type",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "School Metro Type",
+                "trans": "count",
+                "calcus": "raw"
+            }
+        },
+        {
+            "describe": "Project Current Status",
+            "chart": "pie",
+            "x": {
+                "attr": "Project Current Status",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "Project Current Status",
+                "trans": "count",
+                "calcus": "percentage"
+            }
+        },
+        {
+            "describe": "Distribution of Project Resource Category and Time Duration(days)",
+            "chart": "bar",
+            "x": {
+                "attr": "Project Resource Category",
+                "trans": "raw",
+                "groupby": true
+            },
+            "y": {
+                "attr": "Time Duration(days)",
+                "trans": "mean",
+                "calcus": "raw"
+            }
+        },
+        {
+            "describe": "Project Posted year",
+            "chart": "bar",
+            "x": {
+                "attr": "Project Posted Date",
+                "trans": "year",
+                "groupby": true
+            },
+            "y": {
+                "attr": "Project Posted Date",
+                "trans": "count",
+                "calcus": "raw"
+            }
+        },
+        {
+            "describe": "Project Fully Funded year",
+            "chart": "bar",
+            "x": {
+                "attr": "Project Fully Funded Date",
+                "trans": "year",
+                "groupby": true
+            },
+            "y": {
+                "attr": "Project Fully Funded Date",
+                "trans": "count",
+                "calcus": "raw"
+            }
+        },
+        {
+            "describe": "Project Posted month",
+            "chart": "bar",
+            "x": {
+                "attr": "Project Posted Date",
+                "trans": "month",
+                "groupby": true
+            },
+            "y": {
+                "attr": "Project Posted Date",
+                "trans": "count",
+                "calcus": "raw"
+            }
+        },
+        {
+            "describe": "Project Fully Funded Date month",
+            "chart": "bar",
+            "x": {
+                "attr": "Project Fully Funded Date",
+                "trans": "month",
+                "groupby": true
+            },
+            "y": {
+                "attr": "Project Fully Funded Date",
+                "trans": "count",
+                "calcus": "raw"
+            }
+        }
+    ]
+}
