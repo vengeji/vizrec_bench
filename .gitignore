@@ -1,0 +1,8 @@
+./idea
+*.csv
+!/data/
+!/benchmark_manager/output_12_18/
+*.pyc
+!/benchmark_manager/plot_line_output/
+!/benchmark_manager/plot_output_all/
+!/models/
