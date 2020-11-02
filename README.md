@@ -1,22 +1,23 @@
 # vizrec_bench
 benchmark dataset for visualization recommendation
 
-.<br>
-├── airplane_crashes <br>
-│   ├── airplane_crashes.json <br>
-│   ├── airplane_crashes_raw.csv <br>
-│   ├── notebooks <br>
-│   │   ├── airplane_crashes_1.ipynb <br>
-│   │   ├── airplane_crashes_2.ipynb <br>
-│   │   ... <br>
-│   ├── raw_json <br>
-│   │   ├── airplane_crashes_1.json <br>
-│   │   ├── airplane_crashes_2.json <br>
-│   │   ... <br>
-│   └── type <br>
-│       └── types.json <br>
-... <br>
-
+```
+.
+├── airplane_crashes 
+│   ├── airplane_crashes.json 
+│   ├── airplane_crashes_raw.csv 
+│   ├── notebooks 
+│   │   ├── airplane_crashes_1.ipynb 
+│   │   ├── airplane_crashes_2.ipynb 
+│   │   ... 
+│   ├── raw_json 
+│   │   ├── airplane_crashes_1.json 
+│   │   ├── airplane_crashes_2.json 
+│   │   ... 
+│   └── type 
+│        └── types.json 
+... 
+```
 
 The directory structure of this dataset is shown above. 
 For each dataset(e.g., airplane_crashes), it contains the followings: 
