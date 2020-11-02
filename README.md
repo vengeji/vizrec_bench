@@ -8,11 +8,11 @@ benchmark dataset for visualization recommendation
 │   ├── notebooks <br>
 │   │   ├── airplane_crashes_1.ipynb <br>
 │   │   ├── airplane_crashes_2.ipynb <br>
-|   |   ... <br>
+│   │   ... <br>
 │   ├── raw_json <br>
 │   │   ├── airplane_crashes_1.json <br>
 │   │   ├── airplane_crashes_2.json <br>
-|   |   ... <br>
+│   │   ... <br>
 │   └── type <br>
 │       └── types.json <br>
 ... <br>
