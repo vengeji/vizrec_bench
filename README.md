@@ -27,6 +27,6 @@ For each dataset(e.g., airplane_crashes), it contains the followings:
 4. The merged visualization results in JSON format in the file airplane_crashes.json 
 5. The schema of attributes (using pandas data types) in the file /type/types.json 
 
-!(https://github.com/vengeji/vizrec_bench/blob/master/benchmark.png)
+![exmaple](https://github.com/vengeji/vizrec_bench/blob/master/benchmark.png)
 
 A sample dataset kickstarter in the KaggleViz. For each dataset, we collect visualization results in JSON format recorded in files kickstarter\_*.json (A)(B). Then we merge results based on the votes to generate an ordered list with 25 visualizations in file kickstarter.json (C). The used attributes are recorded in file types.json.
