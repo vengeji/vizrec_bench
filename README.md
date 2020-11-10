@@ -1,26 +1,5 @@
 # KaggleViz —— benchmark for visualization recommendation
 
-|Name| #-Row| #-Attr | #-Attr-used|#-Viz|
-| ------ | ------ | ------ |------ | ------ | 
-|airplane_crashes|5268|13|6|22|
-|avito_demand|1503424|18|14|33|
-|avocados_price|18249|14|7|20|
-|flight_delay|5819079|32|8|18|
-|google_play_store|9659|13|11|33|
-|gun_violence|239677|29|6|21|
-|h1b_visa|3002458|11|7|14|
-|home_credit_risk|307511|122|20|50|
-|kickstarter|378661|15|10|25|
-|lending_club|2260668|149|15|29|
-|patient_charge|1338|10|9|14|
-|sberbank_russian_housing_market|30471|292|16|29|
-|student_performance|1000|8|8|34|
-|suicide_rates|27820|12|9|25|
-|terrorism|170350|136|30|40|
-|titan|891|12|8|23|
-|videogame|16719|17|15|48|
-|zomato|51717|17|11|49|
-
 ```
 .
 ├── airplane_crashes 
@@ -50,3 +29,26 @@ For each dataset(e.g., airplane_crashes), it contains the followings:
 ![exmaple](https://github.com/vengeji/vizrec_bench/blob/master/benchmark.png)
 
 A sample dataset kickstarter in the KaggleViz. For each dataset, we collect visualization results in JSON format recorded in files kickstarter\_*.json (A)(B). Then we merge results based on the votes to generate an ordered list with 25 visualizations in file kickstarter.json (C). The used attributes are recorded in file types.json.
+
+Summaries of the data sets of KaggleBecnh:
+
+|Name| #-Row| #-Attr | #-Attr-used|#-Viz|
+| ------ | ------ | ------ |------ | ------ | 
+|airplane_crashes|5268|13|6|22|
+|avito_demand|1503424|18|14|33|
+|avocados_price|18249|14|7|20|
+|flight_delay|5819079|32|8|18|
+|google_play_store|9659|13|11|33|
+|gun_violence|239677|29|6|21|
+|h1b_visa|3002458|11|7|14|
+|home_credit_risk|307511|122|20|50|
+|kickstarter|378661|15|10|25|
+|lending_club|2260668|149|15|29|
+|patient_charge|1338|10|9|14|
+|sberbank_russian_housing_market|30471|292|16|29|
+|student_performance|1000|8|8|34|
+|suicide_rates|27820|12|9|25|
+|terrorism|170350|136|30|40|
+|titan|891|12|8|23|
+|videogame|16719|17|15|48|
+|zomato|51717|17|11|49|
