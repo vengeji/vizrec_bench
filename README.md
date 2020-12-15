@@ -1,4 +1,4 @@
-# KaggleViz —— benchmark for visualization recommendation
+# KaggleBench —— benchmark for visualization recommendation
 
 ```
 .
