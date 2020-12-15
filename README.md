@@ -28,7 +28,7 @@ For each dataset(e.g., airplane_crashes), it contains the followings:
 
 ![exmaple](https://github.com/vengeji/vizrec_bench/blob/master/benchmark.png)
 
-A sample dataset kickstarter in the KaggleViz. For each dataset, we collect visualization results in JSON format recorded in files kickstarter\_*.json (A)(B). Then we merge results based on the votes to generate an ordered list with 25 visualizations in file kickstarter.json (C). The used attributes are recorded in file types.json.
+A sample dataset kickstarter in the KaggleBench. For each dataset, we collect visualization results in JSON format recorded in files kickstarter\_*.json (A)(B). Then we merge results based on the votes to generate an ordered list with 25 visualizations in file kickstarter.json (C). The used attributes are recorded in file types.json.
 
 Summaries of the data sets of KaggleBecnh:
 
